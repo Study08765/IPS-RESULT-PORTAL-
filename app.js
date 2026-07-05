@@ -16,7 +16,7 @@ window.searchResult = async function () {
   if (snap.exists()) {
 
     const s = snap.data();
-alert(JSON.stringify(s));
+
     document.getElementById("result").innerHTML = `
       <h2>${s.Name}</h2>
       <p><b>Roll No:</b> ${roll}</p>
