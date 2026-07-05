@@ -1,5 +1,39 @@
 import { db } from "./firebase.js";
-import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  doc,
+  setDoc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const params = new URLSearchParams(window.location.search);
+const editId = params.get("id");
+
+// Edit Mode
+if (editId) {
+  try {
+    const snap = await getDoc(doc(db, "students", editId));
+
+    if (snap.exists()) {
+      const s = snap.data();
+
+      document.getElementById("roll").value = editId;
+      document.getElementById("roll").readOnly = true;
+
+      document.getElementById("name").value = s.Name || "";
+      document.getElementById("father").value = s.Father || "";
+      document.getElementById("class").value = s.Class || "";
+      document.getElementById("hindi").value = s.Hindi || "";
+      document.getElementById("english").value = s.English || "";
+      document.getElementById("mathematics").value = s.Mathematics || "";
+      document.getElementById("science").value = s.Science || "";
+      document.getElementById("socialscience").value = s.SocialScience || "";
+
+      document.getElementById("saveBtn").textContent = "Update Student";
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+}
 
 document.getElementById("saveBtn").addEventListener("click", async () => {
 
@@ -14,30 +48,30 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
     Name: document.getElementById("name").value,
     Father: document.getElementById("father").value,
     Class: document.getElementById("class").value,
-
     Hindi: Number(document.getElementById("hindi").value),
     English: Number(document.getElementById("english").value),
     Mathematics: Number(document.getElementById("mathematics").value),
     Science: Number(document.getElementById("science").value),
     SocialScience: Number(document.getElementById("socialscience").value),
-
     Result: "PASS"
   };
 
   try {
     await setDoc(doc(db, "students", roll), student);
 
-    alert("✅ Student Saved Successfully");
+    alert(editId ? "✅ Student Updated Successfully" : "✅ Student Saved Successfully");
 
-    document.getElementById("roll").value = "";
-    document.getElementById("name").value = "";
-    document.getElementById("father").value = "";
-    document.getElementById("class").value = "";
-    document.getElementById("hindi").value = "";
-    document.getElementById("english").value = "";
-    document.getElementById("mathematics").value = "";
-    document.getElementById("science").value = "";
-    document.getElementById("socialscience").value = "";
+    if (!editId) {
+      document.getElementById("roll").value = "";
+      document.getElementById("name").value = "";
+      document.getElementById("father").value = "";
+      document.getElementById("class").value = "";
+      document.getElementById("hindi").value = "";
+      document.getElementById("english").value = "";
+      document.getElementById("mathematics").value = "";
+      document.getElementById("science").value = "";
+      document.getElementById("socialscience").value = "";
+    }
 
   } catch (error) {
     alert("❌ Error: " + error.message);
