@@ -5,31 +5,16 @@ window.searchResult = async function () {
 
   const roll = document.getElementById("roll").value.trim();
 
-  if (!roll) {
-    alert("Roll Number Enter Kare");
+  const snap = await getDoc(doc(db, "students", roll));
+
+  if (!snap.exists()) {
+    document.getElementById("result").innerHTML = "<h2>Result Not Found</h2>";
     return;
   }
 
-  const ref = doc(db, "students", roll);
-  const snap = await getDoc(ref);
+  const s = snap.data();
 
-  if (snap.exists()) {
-
-    const s = snap.data();
-
-    document.getElementById("result").innerHTML = `
-      <h2>${s.Name}</h2>
-      <p><b>Roll No:</b> ${roll}</p>
-      <p><b>Class:</b> ${s.Class}</p>
-      <p><b>Total:</b> ${s.Total}</p>
-      <p><b>Result:</b> <span style="color:green">${s.Result}</span></p>
-    `;
-
-  } else {
-
-    document.getElementById("result").innerHTML =
-      "<h2 style='color:red'>Result Not Found</h2>";
-
-  }
-
+  document.getElementById("result").innerHTML = `
+    <pre>${JSON.stringify(s, null, 2)}</pre>
+  `;
 }
