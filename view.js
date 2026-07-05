@@ -1,15 +1,18 @@
 import { db } from "./firebase.js";
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  collection,
+  getDocs,
+  deleteDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const tbody = document.getElementById("students");
 
 async function loadStudents() {
+  tbody.innerHTML = "";
+
   try {
     const querySnapshot = await getDocs(collection(db, "students"));
-
-    alert("Students Found: " + querySnapshot.size);
-
-    tbody.innerHTML = "";
 
     querySnapshot.forEach((student) => {
       const s = student.data();
@@ -21,8 +24,8 @@ async function loadStudents() {
         <td>${s.Class}</td>
         <td>${s.Result}</td>
         <td>
-          <button>Edit</button>
-          <button>Delete</button>
+          <button class="edit" onclick="editStudent('${student.id}')">Edit</button>
+          <button class="delete" onclick="deleteStudent('${student.id}')">Delete</button>
         </td>
       </tr>`;
     });
@@ -33,3 +36,19 @@ async function loadStudents() {
 }
 
 loadStudents();
+
+window.editStudent = function(id) {
+  window.location.href = "admin.html?id=" + id;
+}
+
+window.deleteStudent = async function(id) {
+  if (!confirm("Delete this student?")) return;
+
+  try {
+    await deleteDoc(doc(db, "students", id));
+    alert("Student Deleted Successfully");
+    loadStudents();
+  } catch (e) {
+    alert("Error: " + e.message);
+  }
+}
