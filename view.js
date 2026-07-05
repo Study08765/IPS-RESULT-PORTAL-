@@ -38,7 +38,7 @@ async function loadStudents() {
 loadStudents();
 
 window.editStudent = function(id) {
-  window.location.href = "admin.html?id=" + id;
+    window.location.href = "addstudent.html?id=" + id;
 }
 
 window.deleteStudent = async function(id) {
