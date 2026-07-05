@@ -28,13 +28,14 @@ if (editId) {
       document.getElementById("science").value = s.Science || "";
       document.getElementById("socialscience").value = s.SocialScience || "";
 
-      document.getElementById("saveBtn").textContent = "Update Student";
+      document.getElementById("saveBtn").innerText = "Update Student";
     }
   } catch (error) {
     alert(error.message);
   }
 }
 
+// Save / Update
 document.getElementById("saveBtn").addEventListener("click", async () => {
 
   const roll = document.getElementById("roll").value.trim();
@@ -48,11 +49,13 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
     Name: document.getElementById("name").value,
     Father: document.getElementById("father").value,
     Class: document.getElementById("class").value,
+
     Hindi: Number(document.getElementById("hindi").value),
     English: Number(document.getElementById("english").value),
     Mathematics: Number(document.getElementById("mathematics").value),
     Science: Number(document.getElementById("science").value),
     SocialScience: Number(document.getElementById("socialscience").value),
+
     Result: "PASS"
   };
 
@@ -71,6 +74,8 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
       document.getElementById("mathematics").value = "";
       document.getElementById("science").value = "";
       document.getElementById("socialscience").value = "";
+    } else {
+      window.location.href = "viewstudents.html";
     }
 
   } catch (error) {
