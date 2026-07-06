@@ -83,3 +83,29 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   }
 
 });
+const subjectsDiv = document.getElementById("subjects");
+
+document.getElementById("addSubject").addEventListener("click", () => {
+
+  const div = document.createElement("div");
+
+  div.style.border = "1px solid #ddd";
+  div.style.padding = "10px";
+  div.style.marginTop = "10px";
+  div.style.borderRadius = "8px";
+
+  div.innerHTML = `
+    <input class="subjectName" placeholder="Subject Name">
+
+    <input class="fullMarks" type="number" placeholder="Full Marks">
+
+    <input class="obtainedMarks" type="number" placeholder="Obtained Marks">
+
+    <button type="button" onclick="this.parentElement.remove()">
+      ❌ Remove
+    </button>
+  `;
+
+  subjectsDiv.appendChild(div);
+
+});
