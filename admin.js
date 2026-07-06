@@ -74,6 +74,7 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
       document.getElementById("mathematics").value = "";
       document.getElementById("science").value = "";
       document.getElementById("socialscience").value = "";
+      document.getElementById("subjects").innerHTML = "";
     } else {
       window.location.href = "viewstudents.html";
     }
@@ -83,29 +84,38 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   }
 
 });
+
+// Dynamic Subject
 const subjectsDiv = document.getElementById("subjects");
+const addSubjectBtn = document.getElementById("addSubject");
 
-document.getElementById("addSubject").addEventListener("click", () => {
+if (addSubjectBtn && subjectsDiv) {
 
-  const div = document.createElement("div");
+  addSubjectBtn.addEventListener("click", function () {
 
-  div.style.border = "1px solid #ddd";
-  div.style.padding = "10px";
-  div.style.marginTop = "10px";
-  div.style.borderRadius = "8px";
+    const div = document.createElement("div");
 
-  div.innerHTML = `
-    <input class="subjectName" placeholder="Subject Name">
+    div.style.border = "1px solid #ccc";
+    div.style.padding = "10px";
+    div.style.marginTop = "10px";
+    div.style.borderRadius = "8px";
 
-    <input class="fullMarks" type="number" placeholder="Full Marks">
+    div.innerHTML = `
+      <input type="text" class="subjectName" placeholder="Subject Name">
 
-    <input class="obtainedMarks" type="number" placeholder="Obtained Marks">
+      <input type="number" class="fullMarks" placeholder="Full Marks">
 
-    <button type="button" onclick="this.parentElement.remove()">
-      ❌ Remove
-    </button>
-  `;
+      <input type="number" class="obtainedMarks" placeholder="Obtained Marks">
 
-  subjectsDiv.appendChild(div);
+      <button type="button" class="removeBtn">❌ Remove</button>
+    `;
 
-});
+    div.querySelector(".removeBtn").onclick = function () {
+      div.remove();
+    };
+
+    subjectsDiv.appendChild(div);
+
+  });
+
+}
