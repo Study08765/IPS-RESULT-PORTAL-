@@ -33,13 +33,9 @@ window.searchResult = async function () {
   document.getElementById("result").innerHTML = `
   <div style="border:2px solid #0b3d91;padding:15px;border-radius:10px;">
 
-  <h2 style="text-align:center;color:#0b3d91;">
-  IPS PUBLIC SCHOOL
-  </h2>
-
   <h3 style="text-align:center;">
-  ANNUAL RESULT 2025-26
-  </h3>
+QUARTERLY EXAMINATION RESULT 2026–27
+</h3>
 
   <hr>
 
