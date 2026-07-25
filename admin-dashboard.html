@@ -257,7 +257,33 @@ location.href="admin-login.html";
 
 </div>
 
-<!-- PART 3 JavaScript -->
+<script>
+
+const cards=document.querySelectorAll(".card");
+
+cards[0].onclick=()=>location.href="create-test.html";
+
+cards[1].onclick=()=>location.href="question-bank.html";
+
+cards[2].onclick=()=>location.href="student-responses.html";
+
+cards[3].onclick=()=>location.href="publish-result.html";
+
+cards[4].onclick=()=>location.href="test-settings.html";
+
+cards[5].onclick=()=>{
+
+if(confirm("Logout Admin?")){
+
+localStorage.removeItem("adminLogin");
+
+location.href="index.html";
+
+}
+
+};
+
+</script>
 
 </body>
   </html>
