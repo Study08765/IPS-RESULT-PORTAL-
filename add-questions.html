@@ -283,7 +283,11 @@ doc,
 getDoc,
 collection,
 addDoc,
-serverTimestamp
+serverTimestamp,
+query,
+where,
+onSnapshot,
+deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const params = new URLSearchParams(location.search);
@@ -337,6 +341,46 @@ createdAt:serverTimestamp()
 alert("Question Saved Successfully");
 
 };
+  const questionList = document.getElementById("questionList");
+
+const q = query(
+collection(db,"cbtQuestions"),
+where("testId","==",testId)
+);
+
+onSnapshot(q,(snapshot)=>{
+
+questionList.innerHTML="";
+
+let no=1;
+
+snapshot.forEach((d)=>{
+
+const x=d.data();
+
+questionList.innerHTML += `
+
+<tr>
+
+<td>${no++}</td>
+
+<td>${x.question}</td>
+
+<td>${x.answer}</td>
+
+<td>
+
+<button>Delete</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+});
   </script>
 </body>
 
