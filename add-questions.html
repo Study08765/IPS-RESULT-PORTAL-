@@ -290,17 +290,53 @@ const params = new URLSearchParams(location.search);
 const testId = params.get("testId");
 
 document.getElementById("testId").innerText = "Test ID : " + testId;
-alert(testId);
+
 const testRef = doc(db,"cbtTests",testId);
 const testSnap = await getDoc(testRef);
-alert(testSnap.exists());
+
 if(testSnap.exists()){
 
 document.getElementById("testTitle").innerText =
 testSnap.data().testName;
 
 }
+document.getElementById("saveBtn").onclick = async () => {
 
+const question = document.getElementById("question").value;
+const optionA = document.getElementById("optionA").value;
+const optionB = document.getElementById("optionB").value;
+const optionC = document.getElementById("optionC").value;
+const optionD = document.getElementById("optionD").value;
+const answer = document.getElementById("answer").value;
+
+if(question==""){
+alert("Enter Question");
+return;
+}
+
+await addDoc(collection(db,"cbtQuestions"),{
+
+testId:testId,
+
+question:question,
+
+optionA:optionA,
+
+optionB:optionB,
+
+optionC:optionC,
+
+optionD:optionD,
+
+answer:answer,
+
+createdAt:serverTimestamp()
+
+});
+
+alert("Question Saved Successfully");
+
+};
   </script>
 </body>
 
