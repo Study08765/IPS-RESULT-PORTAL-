@@ -402,12 +402,9 @@ Created Tests
 
 <script type="module">
 
-import {
-initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { db } from "./firebase.js";
 
 import {
-getFirestore,
 collection,
 addDoc,
 onSnapshot,
@@ -415,13 +412,6 @@ deleteDoc,
 doc,
 serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-// ========= Firebase Config =========
-// यहाँ वही firebaseConfig पेस्ट करें
-// जो आपके पुराने Portal में firebase.js में है.
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
 const saveBtn=document.querySelector(".saveBtn");
 const list=document.getElementById("testList");
