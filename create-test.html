@@ -476,7 +476,12 @@ list.innerHTML+=`
 <td>${x.status}</td>
 
 <td>
+<button class="editBtn"
+onclick="openQuestions('${d.id}')">
 
+Questions
+
+</button>
 <button class="deleteBtn"
 onclick="deleteTest('${d.id}')">
 
@@ -501,6 +506,11 @@ if(confirm("Delete Test ?")){
 await deleteDoc(doc(db,"cbtTests",id));
 
 }
+
+};
+  window.openQuestions = (id) => {
+
+location.href = "add-questions.html?testId=" + id;
 
 };
 // ---------- Auto Exam Code ----------
