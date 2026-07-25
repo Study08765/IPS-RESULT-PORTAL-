@@ -224,7 +224,116 @@ Continue
 
 <script type="module">
 
-// Part 3
+import { db } from "./firebase.js";
+
+import {
+collection,
+query,
+where,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const examList = document.getElementById("examList");
+const loginBox = document.getElementById("loginBox");
+const selectedCode = document.getElementById("selectedCode");
+const rollInput = document.getElementById("roll");
+const continueBtn = document.getElementById("continueBtn");
+
+let selectedExamId = "";
+let selectedExamCode = "";
+
+// Load OPEN Exams
+async function loadExams() {
+
+    examList.innerHTML = "Loading...";
+
+    const q = query(
+        collection(db, "cbtTests"),
+        where("status", "==", "OPEN")
+    );
+
+    const snap = await getDocs(q);
+
+    examList.innerHTML = "";
+
+    if (snap.empty) {
+        examList.innerHTML = "<p style='color:white;text-align:center;'>No Exam Available</p>";
+        return;
+    }
+
+    snap.forEach((docSnap) => {
+
+        const exam = docSnap.data();
+
+        examList.innerHTML += `
+        <div class="exam-card">
+
+            <div>
+                <div class="exam-code">${exam.examCode}</div>
+                <small>${exam.subject}</small>
+            </div>
+
+            <button class="select-btn"
+            onclick="selectExam('${docSnap.id}','${exam.examCode}')">
+            Select
+            </button>
+
+        </div>
+        `;
+
+    });
+
+}
+
+window.selectExam = function(id, code) {
+
+    selectedExamId = id;
+    selectedExamCode = code;
+
+    loginBox.style.display = "block";
+    selectedCode.innerHTML = "Selected Exam : " + code;
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+
+};
+
+continueBtn.onclick = async () => {
+
+    const roll = rollInput.value.trim();
+
+    if (roll == "") {
+        alert("Enter Roll Number");
+        return;
+    }
+
+    const q = query(
+        collection(db, "students_v2"),
+        where("Roll", "==", roll)
+    );
+
+    const snap = await getDocs(q);
+
+    if (snap.empty) {
+        alert("Invalid Roll Number");
+        return;
+    }
+
+    const student = snap.docs[0].data();
+
+    sessionStorage.setItem("studentRoll", student.Roll);
+    sessionStorage.setItem("studentName", student.Name);
+    sessionStorage.setItem("studentClass", student.Class);
+    sessionStorage.setItem("examId", selectedExamId);
+    sessionStorage.setItem("examCode", selectedExamCode);
+
+    location.href = "exam-dashboard.html";
+
+};
+
+loadExams();
 
 </script>
 
