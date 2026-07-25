@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>CBT Exam Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style id="premium-css">
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+background:linear-gradient(135deg,#081225,#0f2d6b,#2563eb);
+overflow-x:hidden;
+}
+
+.container{
+width:100%;
+max-width:520px;
+}
+
+.logo{
+text-align:center;
+margin-bottom:25px;
+color:#fff;
+}
+
+.logo h1{
+font-size:32px;
+font-weight:800;
+letter-spacing:1px;
+}
+
+.logo p{
+margin-top:8px;
+font-size:16px;
+opacity:.9;
+}
+
+.card{
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.2);
+border-radius:24px;
+padding:25px;
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+animation:fade .6s ease;
+}
+
+.card h2{
+color:#fff;
+text-align:center;
+margin-bottom:20px;
+font-size:24px;
+}
+
+.exam-card{
+background:#fff;
+border-radius:16px;
+padding:16px;
+margin-bottom:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+transition:.3s;
+box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
+
+.exam-card:hover{
+transform:translateY(-4px);
+}
+
+.exam-code{
+font-size:22px;
+font-weight:700;
+color:#1d4ed8;
+}
+
+.select-btn{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:#fff;
+border:none;
+padding:10px 18px;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
+}
+
+#loginBox{
+margin-top:20px;
+padding-top:20px;
+border-top:1px solid rgba(255,255,255,.2);
+}
+
+#selectedCode{
+color:#fff;
+margin-bottom:15px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+margin-bottom:15px;
+font-size:16px;
+outline:none;
+}
+
+#continueBtn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:#22c55e;
+color:#fff;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+#continueBtn:hover{
+transform:translateY(-2px);
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@media(max-width:600px){
+
+.logo h1{
+font-size:26px;
+}
+
+.card{
+padding:20px;
+}
+
+.exam-code{
+font-size:18px;
+}
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+
+<h1>THE STUDY POINT</h1>
+
+<p>Computer Based Test</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+Available Exam Codes
+
+</h2>
+
+<div id="examList">
+
+Loading...
+
+</div>
+
+<div id="loginBox" style="display:none;">
+
+<h3 id="selectedCode"></h3>
+
+<input
+type="text"
+id="roll"
+placeholder="Enter Roll Number">
+
+<button id="continueBtn">
+
+Continue
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module">
+
+// Part 3
+
+</script>
+
+</body>
+  </html>
