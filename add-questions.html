@@ -274,7 +274,34 @@ Questions List
 </div>
 
 </div>
+<script type="module">
 
+import { db } from "./firebase.js";
+
+import {
+doc,
+getDoc,
+collection,
+addDoc,
+serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const params = new URLSearchParams(location.search);
+const testId = params.get("testId");
+
+document.getElementById("testId").innerText = "Test ID : " + testId;
+
+const testRef = doc(db,"cbtTests",testId);
+const testSnap = await getDoc(testRef);
+
+if(testSnap.exists()){
+
+document.getElementById("testTitle").innerText =
+testSnap.data().testName;
+
+}
+
+  </script>
 </body>
 
 </html>
