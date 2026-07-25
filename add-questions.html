@@ -362,11 +362,7 @@ answer
 });
 
 alert("Question Updated Successfully");
-
-editingQuestionId = null;
-
-document.getElementById("saveBtn").innerHTML =
-'<i class="fa-solid fa-floppy-disk"></i> Save Question';
+clearForm();
 
 }else{
 
@@ -384,7 +380,7 @@ createdAt:serverTimestamp()
 });
 
 alert("Question Saved Successfully");
-
+clearForm();
   }
 
 };
@@ -466,6 +462,21 @@ editingQuestionId = id;
 document.getElementById("saveBtn").innerHTML =
 '<i class="fa-solid fa-pen"></i> Update Question';
 };
+  function clearForm(){
+
+document.getElementById("question").value="";
+document.getElementById("optionA").value="";
+document.getElementById("optionB").value="";
+document.getElementById("optionC").value="";
+document.getElementById("optionD").value="";
+document.getElementById("answer").value="";
+
+editingQuestionId = null;
+
+document.getElementById("saveBtn").innerHTML =
+'<i class="fa-solid fa-floppy-disk"></i> Save Question';
+
+  }
   </script>
 </body>
 
