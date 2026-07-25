@@ -281,6 +281,7 @@ import { db } from "./firebase.js";
 import {
 doc,
 getDoc,
+updateDoc,
 collection,
 addDoc,
 serverTimestamp,
@@ -292,7 +293,7 @@ deleteDoc
 
 const params = new URLSearchParams(location.search);
 const testId = params.get("testId");
-
+let editingQuestionId = null;
 document.getElementById("testId").innerText = "Test ID : " + testId;
 
 const testRef = doc(db,"cbtTests",testId);
@@ -370,9 +371,9 @@ questionList.innerHTML += `
 
 <td>
 
-<button onclick="deleteQuestion('${d.id}')">
-Delete
-</button>
+<button onclick="editQuestion('${d.id}')">Edit</button>
+
+<button onclick="deleteQuestion('${d.id}')">Delete</button>
 
 </td>
 
@@ -392,6 +393,24 @@ await deleteDoc(doc(db,"cbtQuestions",id));
 alert("Question Deleted");
 
 }
+
+};
+  window.editQuestion = async(id)=>{
+
+const snap = await getDoc(doc(db,"cbtQuestions",id));
+
+if(!snap.exists()) return;
+
+const q = snap.data();
+
+document.getElementById("question").value = q.question;
+document.getElementById("optionA").value = q.optionA;
+document.getElementById("optionB").value = q.optionB;
+document.getElementById("optionC").value = q.optionC;
+document.getElementById("optionD").value = q.optionD;
+document.getElementById("answer").value = q.answer;
+
+editingQuestionId = id;
 
 };
   </script>
