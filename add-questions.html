@@ -370,7 +370,9 @@ questionList.innerHTML += `
 
 <td>
 
-<button>Delete</button>
+<button onclick="deleteQuestion('${d.id}')">
+Delete
+</button>
 
 </td>
 
@@ -381,6 +383,17 @@ questionList.innerHTML += `
 });
 
 });
+  window.deleteQuestion = async(id)=>{
+
+if(confirm("Delete this question?")){
+
+await deleteDoc(doc(db,"cbtQuestions",id));
+
+alert("Question Deleted");
+
+}
+
+};
   </script>
 </body>
 
