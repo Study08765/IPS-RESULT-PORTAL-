@@ -21,24 +21,35 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#081225,#0f2d6b,#2563eb);
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 padding:20px;
+background:linear-gradient(-45deg,#06152d,#0b2c5f,#1e40af,#2563eb);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+overflow-x:hidden;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .container{
 width:100%;
-max-width:650px;
+max-width:760px;
 }
 
 h1{
 text-align:center;
-color:#fff;
-font-size:34px;
+font-size:38px;
 font-weight:800;
+color:#fff;
+letter-spacing:1px;
+text-shadow:0 4px 15px rgba(0,0,0,.4);
 }
 
 .subtitle{
@@ -46,54 +57,81 @@ text-align:center;
 color:#dbeafe;
 margin:8px 0 25px;
 font-size:17px;
+letter-spacing:1px;
 }
 
 .card{
 background:rgba(255,255,255,.12);
 backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.2);
+-webkit-backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.25);
 border-radius:22px;
 padding:28px;
-box-shadow:0 20px 45px rgba(0,0,0,.35);
+box-shadow:0 20px 50px rgba(0,0,0,.35);
 animation:fade .6s ease;
 }
 
 .card h2{
-color:#fff;
 text-align:center;
-margin-bottom:25px;
+color:#FFD54F;
+margin-bottom:22px;
+font-size:26px;
 }
 
 .info{
-display:grid;
-grid-template-columns:1fr;
-gap:14px;
+display:block;
+border-radius:18px;
+overflow:hidden;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
 }
 
 .info div{
-background:rgba(255,255,255,.15);
-padding:14px;
-border-radius:12px;
-color:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 18px;
 font-size:16px;
+color:#fff;
+border-bottom:1px solid rgba(255,255,255,.12);
+transition:.3s;
+}
+
+.info div:nth-child(even){
+background:rgba(255,255,255,.05);
+}
+
+.info div:hover{
+background:rgba(255,255,255,.15);
 }
 
 .info strong{
-color:#facc15;
+color:#FFD54F;
+font-weight:700;
 }
 
-.instruction{
+.info span{
+font-weight:600;
+}
+  .instruction{
 margin-top:25px;
+padding:18px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+border-radius:16px;
 color:#fff;
 display:flex;
-align-items:center;
-gap:10px;
+align-items:flex-start;
+gap:12px;
+line-height:1.7;
 }
 
 #agree{
-width:20px;
-height:20px;
+width:22px;
+height:22px;
+accent-color:#22c55e;
 cursor:pointer;
+margin-top:3px;
 }
 
 #startBtn{
@@ -106,40 +144,61 @@ background:linear-gradient(135deg,#22c55e,#16a34a);
 color:#fff;
 font-size:18px;
 font-weight:700;
+letter-spacing:.5px;
 cursor:pointer;
+box-shadow:0 10px 25px rgba(34,197,94,.45);
 transition:.3s;
 }
 
 #startBtn:hover{
-transform:translateY(-3px);
+transform:translateY(-3px) scale(1.02);
+box-shadow:0 15px 35px rgba(34,197,94,.55);
+}
+
+#startBtn:active{
+transform:scale(.98);
 }
 
 @keyframes fade{
-
 from{
 opacity:0;
 transform:translateY(30px);
 }
-
 to{
 opacity:1;
 transform:translateY(0);
 }
-
 }
 
 @media(max-width:600px){
 
+.container{
+max-width:100%;
+}
+
 h1{
-font-size:28px;
+font-size:30px;
+}
+
+.subtitle{
+font-size:15px;
 }
 
 .card{
 padding:20px;
 }
 
+.card h2{
+font-size:22px;
+}
+
 .info div{
+padding:13px 14px;
 font-size:15px;
+}
+
+#startBtn{
+font-size:17px;
 }
 
   }
@@ -164,21 +223,40 @@ Computer Based Test
 
 <div class="info">
 
-<div><strong>Name :</strong> <span id="name"></span></div>
+<div><strong>👤 Candidate Name</strong><span id="name"></span></div>
 
-<div><strong>Roll :</strong> <span id="roll"></span></div>
+<div><strong>🆔 Roll Number</strong><span id="roll"></span></div>
 
-<div><strong>Class :</strong> <span id="class"></span></div>
+<div><strong>🎓 Class</strong><span id="class"></span></div>
 
-<div><strong>Exam Code :</strong> <span id="examCode"></span></div>
+<div><strong>📘 Exam Code</strong><span id="examCode"></span></div>
 
-<div><strong>Subject :</strong> <span id="subject"></span></div>
+<div><strong>📚 Subject</strong><span id="subject"></span></div>
 
-<div><strong>Duration :</strong> <span id="duration"></span></div>
+<div><strong>⏱ Duration</strong><span id="duration"></span></div>
 
-<div><strong>Total Questions :</strong> <span id="questions"></span></div>
+<div><strong>❓ Total Questions</strong><span id="questions"></span></div>
 
-<div><strong>Total Marks :</strong> <span id="marks"></span></div>
+<div><strong>🏆 Total Marks</strong><span id="marks"></span></div>
+
+</div>
+
+<div class="instruction">
+
+<input type="checkbox" id="agree">
+
+<label for="agree">
+
+<b>Exam Instructions</b><br><br>
+
+✔ Read every question carefully.<br>
+✔ Each question carries equal marks.<br>
+✔ No negative marking.<br>
+✔ Do not refresh or close the browser.<br>
+✔ Submit the exam before the timer ends.<br>
+✔ Once the exam starts, it cannot be restarted.
+
+</label>
 
 </div>
 
