@@ -7,7 +7,20 @@
 </head>
 <body>
 
-<h1>Add Questions</h1>
+<h2>Add Questions</h2>
+
+<p id="testId"></p>
+
+<script>
+
+const params = new URLSearchParams(location.search);
+
+const testId = params.get("testId");
+
+document.getElementById("testId").innerHTML =
+"Test ID : " + testId;
+
+</script>
 
 </body>
 </html>
