@@ -147,6 +147,35 @@ padding:18px;
 }
 
   }
+  .action-btn{
+border:none;
+padding:8px 14px;
+border-radius:10px;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+margin:2px;
+color:#fff;
+}
+
+.edit-btn{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+box-shadow:0 5px 15px rgba(37,99,235,.35);
+}
+
+.edit-btn:hover{
+transform:translateY(-2px);
+}
+
+.delete-btn{
+background:linear-gradient(135deg,#ef4444,#dc2626);
+box-shadow:0 5px 15px rgba(239,68,68,.35);
+}
+
+.delete-btn:hover{
+transform:translateY(-2px);
+  }
 
 </style>
 
@@ -319,27 +348,44 @@ alert("Enter Question");
 return;
 }
 
+if(editingQuestionId){
+
+await updateDoc(doc(db,"cbtQuestions",editingQuestionId),{
+
+question,
+optionA,
+optionB,
+optionC,
+optionD,
+answer
+
+});
+
+alert("Question Updated Successfully");
+
+editingQuestionId = null;
+
+document.getElementById("saveBtn").innerHTML =
+'<i class="fa-solid fa-floppy-disk"></i> Save Question';
+
+}else{
+
 await addDoc(collection(db,"cbtQuestions"),{
 
-testId:testId,
-
-question:question,
-
-optionA:optionA,
-
-optionB:optionB,
-
-optionC:optionC,
-
-optionD:optionD,
-
-answer:answer,
-
+testId,
+question,
+optionA,
+optionB,
+optionC,
+optionD,
+answer,
 createdAt:serverTimestamp()
 
 });
 
 alert("Question Saved Successfully");
+
+  }
 
 };
   const questionList = document.getElementById("questionList");
@@ -371,9 +417,15 @@ questionList.innerHTML += `
 
 <td>
 
-<button onclick="editQuestion('${d.id}')">Edit</button>
+<button class="action-btn edit-btn"
+onclick="editQuestion('${d.id}')">
+<i class="fa-solid fa-pen"></i> Edit
+</button>
 
-<button onclick="deleteQuestion('${d.id}')">Delete</button>
+<button class="action-btn delete-btn"
+onclick="deleteQuestion('${d.id}')">
+<i class="fa-solid fa-trash"></i> Delete
+</button>
 
 </td>
 
@@ -411,7 +463,8 @@ document.getElementById("optionD").value = q.optionD;
 document.getElementById("answer").value = q.answer;
 
 editingQuestionId = id;
-
+document.getElementById("saveBtn").innerHTML =
+'<i class="fa-solid fa-pen"></i> Update Question';
 };
   </script>
 </body>
