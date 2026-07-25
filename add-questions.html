@@ -290,10 +290,10 @@ const params = new URLSearchParams(location.search);
 const testId = params.get("testId");
 
 document.getElementById("testId").innerText = "Test ID : " + testId;
-
+alert(testId);
 const testRef = doc(db,"cbtTests",testId);
 const testSnap = await getDoc(testRef);
-
+alert(testSnap.exists());
 if(testSnap.exists()){
 
 document.getElementById("testTitle").innerText =
