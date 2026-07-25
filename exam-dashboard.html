@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Exam Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#081225,#0f2d6b,#2563eb);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.container{
+width:100%;
+max-width:650px;
+}
+
+h1{
+text-align:center;
+color:#fff;
+font-size:34px;
+font-weight:800;
+}
+
+.subtitle{
+text-align:center;
+color:#dbeafe;
+margin:8px 0 25px;
+font-size:17px;
+}
+
+.card{
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.2);
+border-radius:22px;
+padding:28px;
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+animation:fade .6s ease;
+}
+
+.card h2{
+color:#fff;
+text-align:center;
+margin-bottom:25px;
+}
+
+.info{
+display:grid;
+grid-template-columns:1fr;
+gap:14px;
+}
+
+.info div{
+background:rgba(255,255,255,.15);
+padding:14px;
+border-radius:12px;
+color:#fff;
+font-size:16px;
+}
+
+.info strong{
+color:#facc15;
+}
+
+.instruction{
+margin-top:25px;
+color:#fff;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+#agree{
+width:20px;
+height:20px;
+cursor:pointer;
+}
+
+#startBtn{
+margin-top:25px;
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+background:linear-gradient(135deg,#22c55e,#16a34a);
+color:#fff;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+#startBtn:hover{
+transform:translateY(-3px);
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:28px;
+}
+
+.card{
+padding:20px;
+}
+
+.info div{
+font-size:15px;
+}
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>THE STUDY POINT</h1>
+
+<p class="subtitle">
+Computer Based Test
+</p>
+
+<div class="card">
+
+<h2>Exam Dashboard</h2>
+
+<div class="info">
+
+<div><strong>Name :</strong> <span id="name"></span></div>
+
+<div><strong>Roll :</strong> <span id="roll"></span></div>
+
+<div><strong>Class :</strong> <span id="class"></span></div>
+
+<div><strong>Exam Code :</strong> <span id="examCode"></span></div>
+
+<div><strong>Subject :</strong> <span id="subject"></span></div>
+
+<div><strong>Duration :</strong> <span id="duration"></span></div>
+
+<div><strong>Total Questions :</strong> <span id="questions"></span></div>
+
+<div><strong>Total Marks :</strong> <span id="marks"></span></div>
+
+</div>
+
+<div class="instruction">
+
+<input type="checkbox" id="agree">
+
+<label for="agree">
+
+I have read all instructions carefully.
+
+</label>
+
+</div>
+
+<button id="startBtn">
+
+Start Exam
+
+</button>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+doc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const name = document.getElementById("name");
+const roll = document.getElementById("roll");
+const cls = document.getElementById("class");
+const examCode = document.getElementById("examCode");
+const subject = document.getElementById("subject");
+const duration = document.getElementById("duration");
+const questions = document.getElementById("questions");
+const marks = document.getElementById("marks");
+
+const agree = document.getElementById("agree");
+const startBtn = document.getElementById("startBtn");
+
+// Student Data
+name.textContent = sessionStorage.getItem("studentName") || "";
+roll.textContent = sessionStorage.getItem("studentRoll") || "";
+cls.textContent = sessionStorage.getItem("studentClass") || "";
+examCode.textContent = sessionStorage.getItem("examCode") || "";
+
+// Exam Data
+const examId = sessionStorage.getItem("examId");
+
+async function loadExam() {
+
+    if (!examId) {
+        alert("Exam not selected");
+        location.href = "student-cbt.html";
+        return;
+    }
+
+    const snap = await getDoc(doc(db, "cbtTests", examId));
+
+    if (!snap.exists()) {
+        alert("Exam not found");
+        return;
+    }
+
+    const exam = snap.data();
+
+    subject.textContent = exam.subject;
+    duration.textContent = exam.duration + " Minutes";
+    questions.textContent = exam.questions;
+    marks.textContent = exam.marks;
+
+}
+
+loadExam();
+
+startBtn.onclick = () => {
+
+    if (!agree.checked) {
+        alert("Please accept instructions.");
+        return;
+    }
+
+    location.href = "exam.html";
+
+};
+
+</script>
+
+</body>
+                       </html>
