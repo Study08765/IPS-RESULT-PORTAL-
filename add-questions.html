@@ -10,7 +10,26 @@
 <h2>Add Questions</h2>
 
 <p id="testId"></p>
+<input type="text" id="question" placeholder="Enter Question"><br><br>
 
+<input type="text" id="optionA" placeholder="Option A"><br><br>
+
+<input type="text" id="optionB" placeholder="Option B"><br><br>
+
+<input type="text" id="optionC" placeholder="Option C"><br><br>
+
+<input type="text" id="optionD" placeholder="Option D"><br><br>
+
+<select id="answer">
+  <option value="A">Option A Correct</option>
+  <option value="B">Option B Correct</option>
+  <option value="C">Option C Correct</option>
+  <option value="D">Option D Correct</option>
+</select>
+
+<br><br>
+
+<button id="saveBtn">Save Question</button>
 <script>
 
 const params = new URLSearchParams(location.search);
