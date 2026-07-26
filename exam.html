@@ -371,6 +371,7 @@ let timeLeft=0;
 let timerInterval;
 let questions=[];
 let currentIndex=0;
+  let answers = {};
   const currentQuestion=document.getElementById("currentQuestion");
 const progressFill=document.getElementById("progressFill");
 
@@ -447,7 +448,11 @@ optionA.textContent=q.optionA;
 optionB.textContent=q.optionB;
 optionC.textContent=q.optionC;
 optionD.textContent=q.optionD;
+document.querySelectorAll("input[name='answer']").forEach(r=>{
 
+r.checked = answers[currentIndex]===r.value;
+
+});
 currentQuestion.textContent=currentIndex+1;
 
 progressFill.style.width=
@@ -569,7 +574,20 @@ if(document.hidden){
 }
 
 });
+  function saveCurrentAnswer(){
+
+const selected=document.querySelector("input[name='answer']:checked");
+
+if(selected){
+
+answers[currentIndex]=selected.value;
+
+}
+
+  }
   nextBtn.onclick=()=>{
+
+saveCurrentAnswer();
 
 if(currentIndex<questions.length-1){
 
@@ -582,6 +600,8 @@ showQuestion();
 };
 
 prevBtn.onclick=()=>{
+
+saveCurrentAnswer();
 
 if(currentIndex>0){
 
@@ -607,7 +627,27 @@ return;
 }
 
 clearInterval(timerInterval);
+saveCurrentAnswer();
 
+let correct = 0;
+
+questions.forEach((q,index)=>{
+
+if(answers[index]===q.answer){
+
+correct++;
+
+}
+
+});
+
+const total = questions.length;
+
+const wrong = total - correct;
+
+const percentage = ((correct/total)*100).toFixed(2);
+
+const result = percentage>=33 ? "PASS" : "FAIL";
 await setDoc(
 doc(
 db,
