@@ -85,7 +85,9 @@ import { db } from "./firebase.js";
 
 import {
 collection,
-onSnapshot
+onSnapshot,
+doc,
+updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const list = document.getElementById("testList");
@@ -105,13 +107,52 @@ list.innerHTML += `
 <td>${x.subject}</td>
 <td>${x.resultPublished ? "🟢 Published" : "🔴 Hidden"}</td>
 <td>${x.answerKeyPublished ? "🟢 Published" : "🔴 Hidden"}</td>
-<td>Coming Soon</td>
+<td>
+<button onclick="toggleResult('${doc.id}')">
+${x.resultPublished ? "Hide Result" : "Publish Result"}
+</button>
+
+<button onclick="toggleKey('${doc.id}')">
+${x.answerKeyPublished ? "Hide Key" : "Publish Key"}
+</button>
+</td>
 </tr>
 `;
 
 });
 
 });
+  window.toggleResult = async(id)=>{
+
+const row = [...document.querySelectorAll("button")]
+.find(btn => btn.getAttribute("onclick") === `toggleResult('${id}')`);
+
+const current =
+row.textContent.includes("Hide");
+
+await updateDoc(doc(db,"cbtTests",id),{
+
+resultPublished:!current
+
+});
+
+};
+
+window.toggleKey = async(id)=>{
+
+const row = [...document.querySelectorAll("button")]
+.find(btn => btn.getAttribute("onclick") === `toggleKey('${id}')`);
+
+const current =
+row.textContent.includes("Hide");
+
+await updateDoc(doc(db,"cbtTests",id),{
+
+answerKeyPublished:!current
+
+});
+
+};
 </script>
 
 </body>
