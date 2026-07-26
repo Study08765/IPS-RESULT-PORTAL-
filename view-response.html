@@ -5,7 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Student Response</title>
+<title>Student CBT Report</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,43 +15,52 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f3f6fb;
+background:#eef4ff;
 padding:20px;
 }
 
 .container{
-max-width:900px;
+max-width:1000px;
 margin:auto;
 }
 
 .header{
-background:linear-gradient(135deg,#2563eb,#1d4ed8);
+background:linear-gradient(135deg,#0052D4,#3B82F6);
 color:#fff;
 padding:25px;
-border-radius:15px;
+border-radius:20px;
+box-shadow:0 8px 25px rgba(0,82,212,.25);
 margin-bottom:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 .header h2{
-margin-bottom:10px;
+font-size:30px;
+margin-bottom:20px;
 }
 
 .info{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:15px;
-margin-top:15px;
 }
 
 .info div{
 background:rgba(255,255,255,.15);
-padding:12px;
-border-radius:10px;
+padding:15px;
+border-radius:15px;
+}
+
+.info small{
+opacity:.9;
+}
+
+.info h3{
+margin-top:6px;
+font-size:18px;
 }
 
 .summary{
@@ -62,37 +73,49 @@ margin:20px 0;
 .card{
 background:#fff;
 padding:20px;
-border-radius:15px;
 text-align:center;
-box-shadow:0 8px 18px rgba(0,0,0,.08);
+border-radius:18px;
+box-shadow:0 6px 20px rgba(0,0,0,.08);
 }
 
 .card h2{
-font-size:28px;
+font-size:34px;
+color:#0052D4;
 margin-bottom:8px;
-color:#2563eb;
-}
-
-.questions{
-margin-top:20px;
 }
 
 .question{
 background:#fff;
 padding:20px;
-border-radius:15px;
+border-radius:18px;
 margin-bottom:15px;
-box-shadow:0 6px 15px rgba(0,0,0,.08);
+box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+.question h3{
+margin-bottom:12px;
 }
 
 .correct{
-color:green;
-font-weight:bold;
+color:#16a34a;
+font-weight:700;
 }
 
 .wrong{
-color:red;
-font-weight:bold;
+color:#dc2626;
+font-weight:700;
+}
+
+@media(max-width:768px){
+
+body{
+padding:12px;
+}
+
+.header h2{
+font-size:24px;
+}
+
 }
 
 </style>
@@ -110,23 +133,23 @@ font-weight:bold;
 <div class="info">
 
 <div>
-<b>Name</b>
-<p id="studentName">Loading...</p>
+<small>Name</small>
+<h3 id="studentName">Loading...</h3>
 </div>
 
 <div>
-<b>Roll</b>
-<p id="studentRoll">Loading...</p>
+<small>Roll No</small>
+<h3 id="studentRoll">Loading...</h3>
 </div>
 
 <div>
-<b>Class</b>
-<p id="studentClass">Loading...</p>
+<small>Class</small>
+<h3 id="studentClass">Loading...</h3>
 </div>
 
 <div>
-<b>Exam</b>
-<p id="examName">Loading...</p>
+<small>Exam</small>
+<h3 id="examName">Loading...</h3>
 </div>
 
 </div>
@@ -146,7 +169,7 @@ font-weight:bold;
 </div>
 
 <div class="card">
-<h2 id="marks">0</h2>
+<h2 id="marks">0/0</h2>
 <p>Marks</p>
 </div>
 
@@ -157,11 +180,7 @@ font-weight:bold;
 
 </div>
 
-<div class="questions" id="questionList">
-
-</div>
-
-</div>
+<div id="questionList"></div>
 <script type="module">
 
 import { db } from "./firebase.js";
@@ -179,78 +198,103 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 const params = new URLSearchParams(location.search);
 const responseId = params.get("id");
 
-const responseRef = doc(db,"cbtResponses",responseId);
-const responseSnap = await getDoc(responseRef);
+const responseSnap = await getDoc(
+doc(db,"cbtResponses",responseId)
+);
 
 if(!responseSnap.exists()){
-alert("Response not found");
-throw new Error("Response not found");
+
+alert("Response Not Found");
+
+throw new Error("Response Not Found");
+
 }
 
 const response = responseSnap.data();
-console.log(response);
-console.log(response.answers);
-alert(JSON.stringify(response.answers));
+
 document.getElementById("studentName").textContent=response.studentName;
 document.getElementById("studentRoll").textContent=response.studentRoll;
 document.getElementById("studentClass").textContent=response.studentClass;
-  const testRef = doc(db,"cbtTests",response.examId);
-const testSnap = await getDoc(testRef);
+
+const testSnap = await getDoc(
+doc(db,"cbtTests",response.examId)
+);
 
 if(testSnap.exists()){
+
 document.getElementById("examName").textContent =
 testSnap.data().testName;
-  }
-  const q = query(
+
+}
+
+const q = query(
 collection(db,"cbtQuestions"),
 where("testId","==",response.examId)
 );
 
-const qs = await getDocs(q);
+const snap = await getDocs(q);
 
-let correct = 0;
-let wrong = 0;
+let questions=[];
 
-const box = document.getElementById("questionList");
-  qs.forEach((docSnap,index)=>{
+snap.forEach(d=>{
 
-const q = docSnap.data();
+questions.push({
+id:d.id,
+...d.data()
+});
+
+});
+
+questions.sort((a,b)=>{
+
+const x=a.createdAt?.seconds||0;
+const y=b.createdAt?.seconds||0;
+
+return x-y;
+
+});
+
+let correct=0;
+let wrong=0;
+
+const questionList=document.getElementById("questionList");
+  questions.forEach((q,index)=>{
 
 const studentAnswer =
-response.answers[String(index)] ?? "Not Answered";
+response.answers?.[String(index)] ?? "Not Answered";
 
 const correctAnswer = q.answer;
 
-let status = "❌ Wrong";
+const isCorrect = studentAnswer === correctAnswer;
 
-let cls = "wrong";
-
-if(studentAnswer === correctAnswer){
+if(isCorrect){
 correct++;
-status = "✅ Correct";
-cls = "correct";
 }else{
 wrong++;
 }
 
-box.innerHTML += `
+questionList.innerHTML += `
 
 <div class="question">
 
-<h3>Q. ${q.question}</h3>
+<h3>Q${index+1}. ${q.question}</h3>
 
-<p><b>Student Answer :</b>
-<span class="${cls}">
+<p>
+<b>Student Answer :</b>
+<span class="${isCorrect ? "correct":"wrong"}">
 ${studentAnswer}
 </span>
 </p>
 
-<p><b>Correct Answer :</b>
+<p>
+<b>Correct Answer :</b>
+<span class="correct">
 ${correctAnswer}
+</span>
 </p>
 
-<p class="${cls}">
-${status}
+<p class="${isCorrect ? "correct":"wrong"}">
+${isCorrect ? "✅ Correct":"❌ Wrong"}
 </p>
 
 </div>
@@ -258,17 +302,15 @@ ${status}
 `;
 
 });
-  const total = correct + wrong;
+  const total = questions.length;
 
 document.getElementById("correctCount").textContent = correct;
-
 document.getElementById("wrongCount").textContent = wrong;
-
-document.getElementById("marks").textContent =
-`${correct}/${total}`;
-
+document.getElementById("marks").textContent = `${correct}/${total}`;
 document.getElementById("percentage").textContent =
-total ? ((correct/total)*100).toFixed(1)+"%" : "0%";
-  </script>
+total ? ((correct / total) * 100).toFixed(2) + "%" : "0%";
+
+</script>
+
 </body>
-  </html>
+</html>
