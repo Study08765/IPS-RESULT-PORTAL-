@@ -519,11 +519,15 @@ alert("Exam के दौरान Back जाना अनुमति नह�
 });
 
 // Refresh Warning
-window.addEventListener("beforeunload",function(e){
+  let examSubmitted = false;
+
+window.addEventListener("beforeunload", function(e){
+
+if(examSubmitted) return;
 
 e.preventDefault();
 
-e.returnValue="";
+e.returnValue = "";
 
 });
 
@@ -626,7 +630,7 @@ submittedAt:serverTimestamp()
 }
 
 );
-
+examSubmitted = true;
 window.location.href="submit-success.html";
 
   }
