@@ -46,6 +46,30 @@ th{
 background:#1d4ed8;
 color:#fff;
 }
+  .action-btn{
+padding:10px 16px;
+border:none;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
+margin:4px;
+transition:.3s;
+color:#fff;
+box-shadow:0 6px 15px rgba(0,0,0,.2);
+}
+
+.result-btn{
+background:linear-gradient(135deg,#16a34a,#22c55e);
+}
+
+.key-btn{
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.action-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(0,0,0,.25);
+  }
 </style>
 </head>
 
@@ -108,12 +132,14 @@ list.innerHTML += `
 <td>${x.resultPublished ? "🟢 Published" : "🔴 Hidden"}</td>
 <td>${x.answerKeyPublished ? "🟢 Published" : "🔴 Hidden"}</td>
 <td>
-<button onclick="toggleResult('${doc.id}')">
-${x.resultPublished ? "Hide Result" : "Publish Result"}
+<button class="action-btn result-btn"
+onclick="toggleResult('${doc.id}')">
+${x.resultPublished ? "🔴 Hide Result" : "🟢 Publish Result"}
 </button>
 
-<button onclick="toggleKey('${doc.id}')">
-${x.answerKeyPublished ? "Hide Key" : "Publish Key"}
+<button class="action-btn key-btn"
+onclick="toggleKey('${doc.id}')">
+${x.answerKeyPublished ? "🔒 Hide Key" : "🔑 Publish Key"}
 </button>
 </td>
 </tr>
