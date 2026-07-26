@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Exam Submitted</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.card{
+
+width:90%;
+max-width:420px;
+
+background:#fff;
+
+border-radius:20px;
+
+padding:35px;
+
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+.icon{
+
+font-size:70px;
+
+margin-bottom:15px;
+
+}
+
+h2{
+
+color:#16a34a;
+
+margin-bottom:15px;
+
+}
+
+p{
+
+color:#555;
+
+line-height:1.7;
+
+margin-bottom:25px;
+
+}
+
+button{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+background:#2563eb;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#1d4ed8;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="icon">✅</div>
+
+<h2 id="studentName"></h2>
+
+<p style="font-size:18px;font-weight:600;color:#16a34a;margin-top:15px;">
+
+Your Exam Submitted Successfully
+
+</p>
+
+<p>
+
+Your responses have been recorded successfully.
+
+Please wait for the administrator to publish the result.
+
+</p>
+
+<p>
+
+
+<button onclick="location.href='student-cbt.html'">
+
+Back to Dashboard
+
+</button>
+
+</div>
+<script>
+
+document.getElementById("studentName").innerHTML =
+"Dear " + sessionStorage.getItem("studentName");
+
+  </script>
+</body>
+
+                     </html>
