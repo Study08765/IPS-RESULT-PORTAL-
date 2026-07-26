@@ -210,12 +210,12 @@ let correct = 0;
 let wrong = 0;
 
 const box = document.getElementById("questionList");
-  qs.forEach((docSnap)=>{
+  qs.forEach((docSnap,index)=>{
 
 const q = docSnap.data();
 
 const studentAnswer =
-response.answers?.[docSnap.id] || "Not Answered";
+response.answers?.[index] || "Not Answered";
 
 const correctAnswer = q.answer;
 
