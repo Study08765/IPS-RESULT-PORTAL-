@@ -401,7 +401,10 @@ const snap=await getDocs(q);
 questions=[];
 
 snap.forEach(doc=>{
-questions.push(doc.data());
+questions.push({
+id: doc.id,
+...doc.data()
+});
 });
 
 totalQuestions.textContent=questions.length;
@@ -580,7 +583,9 @@ const selected=document.querySelector("input[name='answer']:checked");
 
 if(selected){
 
-answers[currentIndex]=selected.value;
+const q = questions[currentIndex];
+
+answers[q.id] = selected.value;
 
 }
 
@@ -631,9 +636,9 @@ saveCurrentAnswer();
 
 let correct = 0;
 
-questions.forEach((q,index)=>{
+questions.forEach((q)=>{
 
-if(answers[index]===q.answer){
+if(answers[q.id] === q.answer){
 
 correct++;
 
