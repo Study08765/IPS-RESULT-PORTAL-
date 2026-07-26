@@ -525,7 +525,19 @@ showQuestion();
 }
 
 };
-  async function submitExam(){
+  async function submitExam(autoSubmit = false){
+
+if(!autoSubmit){
+
+const ok = confirm(
+"क्या आप वाकई परीक्षा सबमिट करना चाहते हैं?\n\nसबमिट करने के बाद दोबारा परीक्षा नहीं दे पाएंगे।"
+);
+
+if(!ok){
+return;
+}
+
+}
 
 clearInterval(timerInterval);
 
@@ -533,20 +545,16 @@ await setDoc(
 doc(
 db,
 "cbtResponses",
-examId+"_"+sessionStorage.getItem("studentRoll")
+examId + "_" + sessionStorage.getItem("studentRoll")
 ),
-  {
+{
 
 studentRoll:sessionStorage.getItem("studentRoll"),
-
 studentName:sessionStorage.getItem("studentName"),
-
 studentClass:sessionStorage.getItem("studentClass"),
-
 examId:examId,
 
 submitted:true,
-
 allowRetest:false,
 
 submittedAt:serverTimestamp()
