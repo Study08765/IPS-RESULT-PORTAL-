@@ -230,7 +230,9 @@ import {
 collection,
 query,
 where,
-getDocs
+getDocs,
+doc,
+getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const examList = document.getElementById("examList");
@@ -322,7 +324,28 @@ continueBtn.onclick = async () => {
     }
 
     const student = snap.docs[0].data();
+const responseId = selectedExamId + "_" + student.Roll;
 
+const responseSnap = await getDoc(
+doc(db,"cbtResponses",responseId)
+);
+
+if(responseSnap.exists()){
+
+const response = responseSnap.data();
+
+if(response.submitted===true && response.allowRetest===false){
+
+alert(
+"Dear " + student.Name +
+"\n\nYou have already submitted this exam.\nRe-examination is not allowed."
+);
+
+return;
+
+}
+
+  }
     sessionStorage.setItem("studentRoll", student.Roll);
     sessionStorage.setItem("studentName", student.Name);
     sessionStorage.setItem("studentClass", student.Class);
