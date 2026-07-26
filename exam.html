@@ -342,7 +342,9 @@ query,
 where,
 getDocs,
 doc,
-getDoc
+getDoc,
+addDoc,
+serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
   const studentName=document.getElementById("studentName");
 const studentRoll=document.getElementById("studentRoll");
@@ -523,23 +525,31 @@ showQuestion();
 }
 
 };
-  function submitExam(){
+  async function submitExam(){
 
 clearInterval(timerInterval);
 
-window.location.href="submit-success.html";
+await addDoc(collection(db,"cbtResponses"),{
 
-}
+studentRoll:sessionStorage.getItem("studentRoll"),
 
-submitBtn.addEventListener("click",()=>{
+studentName:sessionStorage.getItem("studentName"),
 
-if(confirm("क्या आप परीक्षा Submit करना चाहते हैं?")){
+studentClass:sessionStorage.getItem("studentClass"),
 
-submitExam();
+examId:examId,
 
-}
+submitted:true,
+
+allowRetest:false,
+
+submittedAt:serverTimestamp()
 
 });
+
+window.location.href="submit-success.html";
+
+  }
 </script>
 
 </body>
