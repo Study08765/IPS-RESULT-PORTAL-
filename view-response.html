@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Student Response</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#f3f6fb;
+padding:20px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.header{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:#fff;
+padding:25px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.header h2{
+margin-bottom:10px;
+}
+
+.info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:15px;
+}
+
+.info div{
+background:rgba(255,255,255,.15);
+padding:12px;
+border-radius:10px;
+}
+
+.summary{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin:20px 0;
+}
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.card h2{
+font-size:28px;
+margin-bottom:8px;
+color:#2563eb;
+}
+
+.questions{
+margin-top:20px;
+}
+
+.question{
+background:#fff;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
+box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+
+.correct{
+color:green;
+font-weight:bold;
+}
+
+.wrong{
+color:red;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h2>Student CBT Report</h2>
+
+<div class="info">
+
+<div>
+<b>Name</b>
+<p id="studentName">Loading...</p>
+</div>
+
+<div>
+<b>Roll</b>
+<p id="studentRoll">Loading...</p>
+</div>
+
+<div>
+<b>Class</b>
+<p id="studentClass">Loading...</p>
+</div>
+
+<div>
+<b>Exam</b>
+<p id="examName">Loading...</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="summary">
+
+<div class="card">
+<h2 id="correctCount">0</h2>
+<p>Correct</p>
+</div>
+
+<div class="card">
+<h2 id="wrongCount">0</h2>
+<p>Wrong</p>
+</div>
+
+<div class="card">
+<h2 id="marks">0</h2>
+<p>Marks</p>
+</div>
+
+<div class="card">
+<h2 id="percentage">0%</h2>
+<p>Percentage</p>
+</div>
+
+</div>
+
+<div class="questions" id="questionList">
+
+</div>
+
+</div>
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+doc,
+getDoc,
+collection,
+query,
+where,
+getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const params = new URLSearchParams(location.search);
+const responseId = params.get("id");
+
+const responseRef = doc(db,"cbtResponses",responseId);
+const responseSnap = await getDoc(responseRef);
+
+if(!responseSnap.exists()){
+alert("Response not found");
+throw new Error("Response not found");
+}
+
+const response = responseSnap.data();
+
+document.getElementById("studentName").textContent=response.studentName;
+document.getElementById("studentRoll").textContent=response.studentRoll;
+document.getElementById("studentClass").textContent=response.studentClass;
+  const testRef = doc(db,"cbtTests",response.examId);
+const testSnap = await getDoc(testRef);
+
+if(testSnap.exists()){
+document.getElementById("examName").textContent =
+testSnap.data().testName;
+  }
+  const q = query(
+collection(db,"cbtQuestions"),
+where("testId","==",response.examId)
+);
+
+const qs = await getDocs(q);
+
+let correct = 0;
+let wrong = 0;
+
+const box = document.getElementById("questionList");
+  qs.forEach((docSnap)=>{
+
+const q = docSnap.data();
+
+const studentAnswer =
+response.answers?.[docSnap.id] || "Not Answered";
+
+const correctAnswer = q.answer;
+
+let status = "❌ Wrong";
+
+let cls = "wrong";
+
+if(studentAnswer === correctAnswer){
+correct++;
+status = "✅ Correct";
+cls = "correct";
+}else{
+wrong++;
+}
+
+box.innerHTML += `
+
+<div class="question">
+
+<h3>Q. ${q.question}</h3>
+
+<p><b>Student Answer :</b>
+<span class="${cls}">
+${studentAnswer}
+</span>
+</p>
+
+<p><b>Correct Answer :</b>
+${correctAnswer}
+</p>
+
+<p class="${cls}">
+${status}
+</p>
+
+</div>
+
+`;
+
+});
+  const total = correct + wrong;
+
+document.getElementById("correctCount").textContent = correct;
+
+document.getElementById("wrongCount").textContent = wrong;
+
+document.getElementById("marks").textContent =
+`${correct}/${total}`;
+
+document.getElementById("percentage").textContent =
+total ? ((correct/total)*100).toFixed(1)+"%" : "0%";
+  </script>
+</body>
+  </html>
