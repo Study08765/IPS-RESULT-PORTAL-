@@ -363,6 +363,13 @@ const examId=sessionStorage.getItem("examId");
 
 let questions=[];
 let currentIndex=0;
+  const currentQuestion=document.getElementById("currentQuestion");
+const progressFill=document.getElementById("progressFill");
+
+const prevBtn=document.getElementById("prevBtn");
+const nextBtn=document.getElementById("nextBtn");
+
+const paletteContainer=document.getElementById("paletteContainer");
   async function loadQuestions(){
 
 const q=query(
@@ -379,7 +386,7 @@ questions.push(doc.data());
 });
 
 totalQuestions.textContent=questions.length;
-
+createPalette();
 showQuestion();
 
   }
@@ -394,8 +401,83 @@ optionB.textContent=q.optionB;
 optionC.textContent=q.optionC;
 optionD.textContent=q.optionD;
 
+currentQuestion.textContent=currentIndex+1;
+
+progressFill.style.width=
+((currentIndex+1)/questions.length)*100+"%";
+
+highlightPalette();
+
+  }
+  function createPalette(){
+
+paletteContainer.innerHTML="";
+
+for(let i=0;i<questions.length;i++){
+
+const btn=document.createElement("button");
+
+btn.textContent=i+1;
+
+btn.onclick=()=>{
+
+currentIndex=i;
+
+showQuestion();
+
+};
+
+paletteContainer.appendChild(btn);
+
+}
+
+highlightPalette();
+
+}
+
+function highlightPalette(){
+
+const btns=paletteContainer.querySelectorAll("button");
+
+btns.forEach((btn,index)=>{
+
+btn.style.background="#edf3ff";
+btn.style.color="#000";
+
+if(index===currentIndex){
+
+btn.style.background="#0052D4";
+btn.style.color="#fff";
+
+}
+
+});
+
   }
   loadQuestions();
+  nextBtn.onclick=()=>{
+
+if(currentIndex<questions.length-1){
+
+currentIndex++;
+
+showQuestion();
+
+}
+
+};
+
+prevBtn.onclick=()=>{
+
+if(currentIndex>0){
+
+currentIndex--;
+
+showQuestion();
+
+}
+
+};
 </script>
 
 </body>
