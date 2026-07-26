@@ -70,13 +70,60 @@ background:linear-gradient(135deg,#2563eb,#3b82f6);
 transform:translateY(-2px);
 box-shadow:0 10px 20px rgba(0,0,0,.25);
   }
+  .stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-bottom:20px;
+}
+
+.stat-card{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:#fff;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+.stat-card h2{
+font-size:32px;
+margin-bottom:8px;
+}
+
+.stat-card p{
+font-size:15px;
+font-weight:600;
+  }
 </style>
 </head>
 
 <body>
 
 <div class="container">
+<div class="stats">
 
+<div class="stat-card">
+<h2 id="totalTests">0</h2>
+<p>Total Tests</p>
+</div>
+
+<div class="stat-card">
+<h2 id="publishedResults">0</h2>
+<p>Published Results</p>
+</div>
+
+<div class="stat-card">
+<h2 id="publishedKeys">0</h2>
+<p>Published Keys</p>
+</div>
+
+<div class="stat-card">
+<h2 id="hiddenResults">0</h2>
+<p>Hidden Results</p>
+</div>
+
+</div>
 <h1>Publish Results</h1>
 
 <table>
@@ -119,11 +166,17 @@ const list = document.getElementById("testList");
 onSnapshot(collection(db,"cbtTests"), (snapshot)=>{
 
 list.innerHTML = "";
-
+let total = 0;
+let published = 0;
+let keys = 0;
 snapshot.forEach((doc)=>{
 
 const x = doc.data();
+total++;
 
+if (x.resultPublished) published++;
+
+if (x.answerKeyPublished) keys++;
 list.innerHTML += `
 <tr>
 <td>${x.testName}</td>
@@ -146,7 +199,10 @@ ${x.answerKeyPublished ? "🔒 Hide Key" : "🔑 Publish Key"}
 `;
 
 });
-
+document.getElementById("totalTests").textContent = total;
+document.getElementById("publishedResults").textContent = published;
+document.getElementById("publishedKeys").textContent = keys;
+document.getElementById("hiddenResults").textContent = total - published;
 });
   window.toggleResult = async(id)=>{
 
