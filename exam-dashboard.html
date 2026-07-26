@@ -34,23 +34,39 @@ box-shadow:0 20px 50px rgba(0,0,0,.12);
 border:1px solid #eef2ff;
 }
 .header{
-background:linear-gradient(135deg,#0052D4,#4364F7,#6FB1FC);
-padding:45px 30px;
+background:linear-gradient(135deg,#0047FF,#3B82F6,#60A5FA);
+padding:40px 25px;
+text-align:center;
 position:relative;
+color:#fff;
+}
+
+.header h1{
+font-size:34px;
+font-weight:800;
+letter-spacing:1px;
+color:#fff;
+margin-bottom:8px;
+}
+
+.header p{
+font-size:16px;
+color:#eef5ff;
 }
 
 .header::after{
 content:"CBT EXAM";
 position:absolute;
-top:20px;
-right:20px;
+top:18px;
+right:18px;
 background:#fff;
 color:#0052D4;
-padding:8px 16px;
-border-radius:30px;
-font-size:13px;
+padding:8px 15px;
+border-radius:20px;
+font-size:12px;
 font-weight:700;
-}  
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+} 
 .profile-card{
 margin:25px;
 padding:28px;
@@ -151,19 +167,25 @@ accent-color:#0d6efd;
 }
 
 .start-btn{
-height:65px;
-font-size:22px;
+display:block;
+width:92%;
+height:62px;
+margin:25px auto 35px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#0052D4,#2563EB,#60A5FA);
+color:#fff;
+font-size:21px;
 font-weight:700;
-border-radius:40px;
-background:linear-gradient(90deg,#0052D4,#4364F7,#6FB1FC);
-box-shadow:0 15px 30px rgba(0,82,212,.35);
-letter-spacing:.5px;
+cursor:pointer;
 transition:.3s;
+box-shadow:0 12px 25px rgba(37,99,235,.35);
 }
 
 .start-btn:hover{
-transform:translateY(-3px) scale(1.02);
-}
+transform:translateY(-3px);
+box-shadow:0 18px 35px rgba(37,99,235,.45);
+  }
 
 @media(max-width:768px){
 
@@ -204,7 +226,54 @@ font-size:18px;
 
   }
 
+.student-info{
+flex:1;
+}
 
+.badge{
+display:inline-block;
+padding:6px 14px;
+background:#eaf3ff;
+color:#0052D4;
+border-radius:20px;
+font-size:12px;
+font-weight:700;
+margin-bottom:12px;
+}
+
+.student-info h2{
+font-size:30px;
+font-weight:700;
+color:#111;
+margin-bottom:18px;
+}
+
+.info-row{
+display:flex;
+gap:15px;
+}
+
+.info-box{
+flex:1;
+background:#f8fbff;
+border:1px solid #e3edff;
+border-radius:16px;
+padding:14px;
+text-align:center;
+}
+
+.info-box small{
+display:block;
+font-size:13px;
+color:#777;
+margin-bottom:5px;
+}
+
+.info-box h4{
+font-size:22px;
+color:#0052D4;
+font-weight:700;
+  }
 </style>
 
 </head>
@@ -219,13 +288,31 @@ font-size:18px;
     </div>
 
     <div class="profile-card">
-        <div class="avatar">👨‍🎓</div>
 
-        <div class="student-info">
-            <h2 id="studentName">Student Name</h2>
-            <p><strong>Roll No :</strong> <span id="studentRoll">-</span></p>
-            <p><strong>Class :</strong> <span id="studentClass">-</span></p>
+    <div class="avatar">👨‍🎓</div>
+
+    <div class="student-info">
+
+        <span class="badge">CANDIDATE PROFILE</span>
+
+        <h2 id="studentName">Student Name</h2>
+
+        <div class="info-row">
+
+            <div class="info-box">
+                <small>Roll Number</small>
+                <h4 id="studentRoll">-</h4>
+            </div>
+
+            <div class="info-box">
+                <small>Class</small>
+                <h4 id="studentClass">-</h4>
+            </div>
+
         </div>
+
+    </div>
+
     </div>
 
     <h3 class="title">📋 परीक्षा विवरण</h3>
