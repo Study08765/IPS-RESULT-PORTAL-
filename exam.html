@@ -340,7 +340,9 @@ import {
 collection,
 query,
 where,
-getDocs
+getDocs,
+doc,
+getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
   const studentName=document.getElementById("studentName");
 const studentRoll=document.getElementById("studentRoll");
@@ -360,7 +362,11 @@ studentRoll.textContent=sessionStorage.getItem("studentRoll");
 studentClass.textContent=sessionStorage.getItem("studentClass");
 
 const examId=sessionStorage.getItem("examId");
+const timer=document.getElementById("timer");
+const submitBtn=document.getElementById("submitBtn");
 
+let timeLeft=0;
+let timerInterval;
 let questions=[];
 let currentIndex=0;
   const currentQuestion=document.getElementById("currentQuestion");
@@ -376,7 +382,17 @@ const q=query(
 collection(db,"cbtQuestions"),
 where("testId","==",examId)
 );
+const examSnap = await getDoc(doc(db,"cbtTests",examId));
 
+if(examSnap.exists()){
+
+const exam = examSnap.data();
+
+timeLeft = Number(exam.duration) * 60;
+
+startTimer();
+
+  }
 const snap=await getDocs(q);
 
 questions=[];
@@ -388,6 +404,35 @@ questions.push(doc.data());
 totalQuestions.textContent=questions.length;
 createPalette();
 showQuestion();
+
+  }
+  function startTimer(){
+
+clearInterval(timerInterval);
+
+timerInterval=setInterval(()=>{
+
+let minutes=Math.floor(timeLeft/60);
+
+let seconds=timeLeft%60;
+
+timer.textContent=
+String(minutes).padStart(2,"0")+":"+
+String(seconds).padStart(2,"0");
+
+if(timeLeft<=0){
+
+clearInterval(timerInterval);
+
+submitExam();
+
+return;
+
+}
+
+timeLeft--;
+
+},1000);
 
   }
   function showQuestion(){
@@ -478,6 +523,25 @@ showQuestion();
 }
 
 };
+  function submitExam(){
+
+clearInterval(timerInterval);
+
+alert("Exam Submitted Successfully");
+
+window.location.href="result.html";
+
+}
+
+submitBtn.addEventListener("click",()=>{
+
+if(confirm("क्या आप परीक्षा Submit करना चाहते हैं?")){
+
+submitExam();
+
+}
+
+});
 </script>
 
 </body>
