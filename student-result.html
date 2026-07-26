@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>CBT Result</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef4ff;
+padding:20px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.header{
+background:linear-gradient(135deg,#0052D4,#3B82F6);
+color:#fff;
+padding:25px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 8px 25px rgba(0,82,212,.25);
+}
+
+.header h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.info div{
+background:rgba(255,255,255,.15);
+padding:15px;
+border-radius:15px;
+}
+
+.summary{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:25px;
+}
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+.card h2{
+font-size:34px;
+color:#0052D4;
+margin-bottom:10px;
+}
+
+#status{
+margin-top:25px;
+padding:18px;
+border-radius:18px;
+font-size:26px;
+font-weight:700;
+text-align:center;
+background:#16a34a;
+color:#fff;
+}
+
+#answerBtn{
+width:100%;
+margin-top:20px;
+padding:18px;
+border:none;
+border-radius:18px;
+background:#0052D4;
+color:#fff;
+font-size:20px;
+font-weight:700;
+display:none;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>CBT Result</h1>
+
+<div class="info">
+
+<div>
+<b>Name</b>
+<h3 id="name">Loading...</h3>
+</div>
+
+<div>
+<b>Roll</b>
+<h3 id="roll">Loading...</h3>
+</div>
+
+<div>
+<b>Class</b>
+<h3 id="cls">Loading...</h3>
+</div>
+
+<div>
+<b>Exam</b>
+<h3 id="exam">Loading...</h3>
+</div>
+
+</div>
+
+</div>
+
+<div class="summary">
+
+<div class="card">
+<h2 id="correct">0</h2>
+<p>Correct</p>
+</div>
+
+<div class="card">
+<h2 id="wrong">0</h2>
+<p>Wrong</p>
+</div>
+
+<div class="card">
+<h2 id="marks">0/0</h2>
+<p>Marks</p>
+</div>
+
+<div class="card">
+<h2 id="percent">0%</h2>
+<p>Percentage</p>
+</div>
+
+</div>
+
+<div id="status">
+Loading...
+</div>
+
+<button id="answerBtn">
+📖 View Answer Key
+  </button>
+  <script type="module">
+
+import { db } from "./firebase.js";
+
+import{
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const examId=sessionStorage.getItem("examId");
+const roll=sessionStorage.getItem("studentRoll");
+
+const resultId=examId+"_"+roll;
+
+const resultSnap=await getDoc(
+doc(db,"cbtResults",resultId)
+);
+
+if(!resultSnap.exists()){
+
+alert("Result Not Found");
+
+throw new Error("Result Not Found");
+
+}
+
+const result=resultSnap.data();
+
+const testSnap=await getDoc(
+doc(db,"cbtTests",examId)
+);
+
+if(!testSnap.exists()){
+
+alert("Test Not Found");
+
+throw new Error("Test Not Found");
+
+}
+
+const test=testSnap.data();
+
+if(!test.resultPublished){
+
+alert("Result has not been published yet.");
+
+history.back();
+
+throw new Error("Result Hidden");
+
+}
+
+document.getElementById("name").textContent=result.studentName;
+
+document.getElementById("roll").textContent=result.studentRoll;
+
+document.getElementById("cls").textContent=result.studentClass;
+
+document.getElementById("exam").textContent=test.testName;
+
+document.getElementById("correct").textContent=result.correct;
+
+document.getElementById("wrong").textContent=result.wrong;
+
+document.getElementById("marks").textContent=
+`${result.correct}/${result.totalQuestions}`;
+
+document.getElementById("percent").textContent=
+result.percentage+"%";
+    if(result.result==="PASS"){
+
+document.getElementById("status").innerHTML="✅ PASS";
+
+document.getElementById("status").style.background="#16a34a";
+
+}else{
+
+document.getElementById("status").innerHTML="❌ FAIL";
+
+document.getElementById("status").style.background="#dc2626";
+
+}
+
+if(test.answerKeyPublished){
+
+const btn=document.getElementById("answerBtn");
+
+btn.style.display="block";
+
+btn.onclick=()=>{
+
+location.href=
+`view-response.html?id=${resultId}`;
+
+};
+
+}
+
+</script>
+
+</body>
+</html>
