@@ -74,7 +74,10 @@ color:#fff;
 background:#dc2626;
 color:#fff;
 }
-
+.view-btn{
+background:#2563eb;
+color:#fff;
+}
 </style>
 
 </head>
@@ -164,7 +167,10 @@ html += `
 <td>${d.submitted ? "Submitted" : "-"}</td>
 
 <td>
-
+<button class="action-btn view-btn"
+onclick="viewResponse('${doc.id}')">
+👁 View
+</button>
 <button class="retest" data-id="${doc.id}">
 Allow Retest
 </button>
@@ -226,6 +232,9 @@ loadResponses();
 
 }
 loadResponses();
+  window.viewResponse = (id)=>{
+location.href = `view-response.html?id=${id}`;
+  }
 </script>
 
 </body>
