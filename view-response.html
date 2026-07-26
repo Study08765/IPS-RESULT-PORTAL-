@@ -261,7 +261,7 @@ const questionList=document.getElementById("questionList");
   questions.forEach((q,index)=>{
 
 const studentAnswer =
-response.answers?.[String(index)] ?? "Not Answered";
+response.answers?.[q.id] ?? "Not Answered";
 
 const correctAnswer = q.answer;
 
