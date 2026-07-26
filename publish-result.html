@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publish Results</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+padding:20px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+h1{
+margin-bottom:20px;
+color:#1d4ed8;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#fff;
+}
+
+th,td{
+padding:15px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+th{
+background:#1d4ed8;
+color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Publish Results</h1>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Test</th>
+<th>Class</th>
+<th>Subject</th>
+<th>Result</th>
+<th>Answer Key</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="testList">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script type="module">
+import { db } from "./firebase.js";
+
+import {
+collection,
+onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const list = document.getElementById("testList");
+
+onSnapshot(collection(db,"cbtTests"), (snapshot)=>{
+
+list.innerHTML = "";
+
+snapshot.forEach((doc)=>{
+
+const x = doc.data();
+
+list.innerHTML += `
+<tr>
+<td>${x.testName}</td>
+<td>${x.className}</td>
+<td>${x.subject}</td>
+<td>${x.resultPublished ? "🟢 Published" : "🔴 Hidden"}</td>
+<td>${x.answerKeyPublished ? "🟢 Published" : "🔴 Hidden"}</td>
+<td>Coming Soon</td>
+</tr>
+`;
+
+});
+
+});
+</script>
+
+</body>
+  </html>
