@@ -186,19 +186,15 @@ html="<tr><td colspan='6'>No Responses Found</td></tr>";
 
 table.innerHTML = html;
 
-}
-
-loadResponses();
-  document.querySelectorAll(".retest").forEach(btn=>{
+// Retest Button
+document.querySelectorAll(".retest").forEach(btn=>{
 
 btn.onclick = async function(){
 
 const id = this.dataset.id;
 
 await updateDoc(doc(db,"cbtResponses",id),{
-
 allowRetest:true
-
 });
 
 alert("Retest Allowed Successfully");
@@ -208,11 +204,13 @@ loadResponses();
 };
 
 });
-  document.querySelectorAll(".delete").forEach(btn=>{
+
+// Delete Button
+document.querySelectorAll(".delete").forEach(btn=>{
 
 btn.onclick = async function(){
 
-if(!confirm("Delete this student response?")) return;
+if(!confirm("Delete this response?")) return;
 
 const id = this.dataset.id;
 
@@ -225,6 +223,9 @@ loadResponses();
 };
 
 });
+
+}
+
 </script>
 
 </body>
