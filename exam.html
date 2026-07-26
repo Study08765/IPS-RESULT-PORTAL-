@@ -426,7 +426,7 @@ if(timeLeft<=0){
 
 clearInterval(timerInterval);
 
-submitExam();
+submitExam(true);
 
 return;
 
@@ -566,6 +566,7 @@ submittedAt:serverTimestamp()
 window.location.href="submit-success.html";
 
   }
+  submitBtn.onclick = () => submitExam(false);
   submitBtn.onclick = submitExam;
 </script>
 
