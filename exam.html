@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CBT Exam</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef4ff;
+padding:15px;
+}
+
+.container{
+max-width:950px;
+margin:auto;
+}
+
+.header{
+background:linear-gradient(135deg,#0052D4,#3B82F6);
+color:#fff;
+padding:20px;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 8px 25px rgba(0,82,212,.25);
+}
+
+.header h2{
+font-size:28px;
+font-weight:700;
+}
+
+.header p{
+font-size:14px;
+opacity:.9;
+}
+
+.timer{
+background:#fff;
+color:#0052D4;
+padding:12px 18px;
+border-radius:15px;
+text-align:center;
+min-width:120px;
+}
+
+.timer h2{
+font-size:28px;
+margin-top:5px;
+}
+
+.student-card,
+.progress-card,
+.question-card,
+.palette{
+background:#fff;
+margin-top:18px;
+padding:20px;
+border-radius:20px;
+box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+.student-card{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.student-card div{
+background:#f7faff;
+padding:15px;
+border-radius:15px;
+text-align:center;
+}
+
+.student-card small{
+color:#666;
+}
+
+.student-card h3{
+margin-top:6px;
+color:#0052D4;
+}
+
+.progress-text{
+font-weight:600;
+margin-bottom:12px;
+}
+
+.progress-bar{
+height:10px;
+background:#e4ebff;
+border-radius:20px;
+overflow:hidden;
+}
+
+#progressFill{
+width:0%;
+height:100%;
+background:#0052D4;
+transition:.3s;
+}
+
+.question-card h3{
+margin-bottom:20px;
+font-size:22px;
+}
+
+.options label{
+display:block;
+padding:16px;
+margin-bottom:12px;
+border:2px solid #dce6ff;
+border-radius:15px;
+cursor:pointer;
+transition:.2s;
+background:#fff;
+}
+
+.options label:hover{
+border-color:#0052D4;
+background:#f5f9ff;
+}
+
+.options input{
+margin-right:10px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+margin-top:18px;
+}
+
+.buttons button{
+flex:1;
+padding:16px;
+border:none;
+border-radius:15px;
+background:#0052D4;
+color:#fff;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+}
+
+.palette h3{
+margin-bottom:15px;
+}
+
+#paletteContainer{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(45px,1fr));
+gap:10px;
+}
+
+#paletteContainer button{
+height:45px;
+border:none;
+border-radius:12px;
+background:#edf3ff;
+font-weight:700;
+cursor:pointer;
+}
+
+#submitBtn{
+width:100%;
+margin-top:20px;
+padding:18px;
+border:none;
+border-radius:18px;
+background:#16a34a;
+color:#fff;
+font-size:22px;
+font-weight:700;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+gap:15px;
+text-align:center;
+}
+
+.student-card{
+grid-template-columns:1fr;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+
+        <div>
+            <h2>THE STUDY POINT</h2>
+            <p>Computer Based Test (CBT)</p>
+        </div>
+
+        <div class="timer">
+            <span>Time Left</span>
+            <h2 id="timer">00:00</h2>
+        </div>
+
+    </div>
+
+    <!-- Student Info -->
+    <div class="student-card">
+
+        <div>
+            <small>Name</small>
+            <h3 id="studentName">-</h3>
+        </div>
+
+        <div>
+            <small>Roll No</small>
+            <h3 id="studentRoll">-</h3>
+        </div>
+
+        <div>
+            <small>Class</small>
+            <h3 id="studentClass">-</h3>
+        </div>
+
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-card">
+
+        <div class="progress-text">
+            Question
+            <span id="currentQuestion">1</span>
+            /
+            <span id="totalQuestions">0</span>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+
+    </div>
+
+    <!-- Question -->
+    <div class="question-card">
+
+        <h3 id="questionText">
+            Loading Question...
+        </h3>
+
+        <div class="options">
+
+            <label>
+                <input type="radio" name="answer" value="A">
+                <span id="optionA"></span>
+            </label>
+
+            <label>
+                <input type="radio" name="answer" value="B">
+                <span id="optionB"></span>
+            </label>
+
+            <label>
+                <input type="radio" name="answer" value="C">
+                <span id="optionC"></span>
+            </label>
+
+            <label>
+                <input type="radio" name="answer" value="D">
+                <span id="optionD"></span>
+            </label>
+
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="buttons">
+
+        <button id="prevBtn">
+            ◀ Previous
+        </button>
+
+        <button id="nextBtn">
+            Next ▶
+        </button>
+
+    </div>
+
+    <!-- Question Palette -->
+
+    <div class="palette">
+
+        <h3>Question Palette</h3>
+
+        <div id="paletteContainer">
+
+        </div>
+
+    </div>
+
+    <button id="submitBtn">
+        Submit Exam
+    </button>
+
+</div>
+
+<script type="module">
+import { db } from "./firebase.js";
+
+import {
+collection,
+query,
+where,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  const studentName=document.getElementById("studentName");
+const studentRoll=document.getElementById("studentRoll");
+const studentClass=document.getElementById("studentClass");
+
+const questionText=document.getElementById("questionText");
+
+const optionA=document.getElementById("optionA");
+const optionB=document.getElementById("optionB");
+const optionC=document.getElementById("optionC");
+const optionD=document.getElementById("optionD");
+
+const totalQuestions=document.getElementById("totalQuestions");
+
+studentName.textContent=sessionStorage.getItem("studentName");
+studentRoll.textContent=sessionStorage.getItem("studentRoll");
+studentClass.textContent=sessionStorage.getItem("studentClass");
+
+const examId=sessionStorage.getItem("examId");
+
+let questions=[];
+let currentIndex=0;
+  async function loadQuestions(){
+
+const q=query(
+collection(db,"cbtQuestions"),
+where("testId","==",examId)
+);
+
+const snap=await getDocs(q);
+
+questions=[];
+
+snap.forEach(doc=>{
+questions.push(doc.data());
+});
+
+totalQuestions.textContent=questions.length;
+
+showQuestion();
+
+  }
+  function showQuestion(){
+
+const q=questions[currentIndex];
+
+questionText.textContent=q.question;
+
+optionA.textContent=q.optionA;
+optionB.textContent=q.optionB;
+optionC.textContent=q.optionC;
+optionD.textContent=q.optionD;
+
+  }
+  loadQuestions();
+</script>
+
+</body>
+      </html>
