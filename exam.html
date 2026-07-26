@@ -343,7 +343,7 @@ where,
 getDocs,
 doc,
 getDoc,
-addDoc,
+setDoc,
 serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
   const studentName=document.getElementById("studentName");
@@ -529,7 +529,13 @@ showQuestion();
 
 clearInterval(timerInterval);
 
-await addDoc(collection(db,"cbtResponses"),{
+await setDoc(
+doc(
+db,
+"cbtResponses",
+examId+"_"+sessionStorage.getItem("studentRoll")
+),
+  {
 
 studentRoll:sessionStorage.getItem("studentRoll"),
 
@@ -545,7 +551,9 @@ allowRetest:false,
 
 submittedAt:serverTimestamp()
 
-});
+}
+
+);
 
 window.location.href="submit-success.html";
 
