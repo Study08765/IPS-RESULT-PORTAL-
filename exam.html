@@ -502,6 +502,74 @@ btn.style.color="#fff";
 
   }
   loadQuestions();
+  // ===============================
+// CBT SECURITY
+// ===============================
+
+// Submit Button Hide
+if(submitBtn){
+submitBtn.style.display="none";
+}
+
+// Back Button Disable
+history.pushState(null,null,location.href);
+
+window.addEventListener("popstate",function(){
+
+history.pushState(null,null,location.href);
+
+alert("Exam के दौरान Back जाना अनुमति नहीं है.");
+
+});
+
+// Refresh Warning
+window.addEventListener("beforeunload",function(e){
+
+e.preventDefault();
+
+e.returnValue="";
+
+});
+
+// Copy Disable
+document.addEventListener("copy",e=>e.preventDefault());
+
+// Cut Disable
+document.addEventListener("cut",e=>e.preventDefault());
+
+// Paste Disable
+document.addEventListener("paste",e=>e.preventDefault());
+
+// Right Click Disable
+document.addEventListener("contextmenu",e=>e.preventDefault());
+
+// Keyboard Shortcuts Disable
+document.addEventListener("keydown",function(e){
+
+if(
+e.key==="F12"||
+(e.ctrlKey&&e.shiftKey&&["I","J","C"].includes(e.key.toUpperCase()))||
+(e.ctrlKey&&e.key.toUpperCase()==="U")||
+(e.ctrlKey&&e.key.toUpperCase()==="R")||
+e.key==="F5"
+){
+
+e.preventDefault();
+
+}
+
+});
+
+// Tab Change Warning
+document.addEventListener("visibilitychange",function(){
+
+if(document.hidden){
+
+alert("Exam के दौरान App या Tab बदलना अनुमति नहीं है.");
+
+}
+
+});
   nextBtn.onclick=()=>{
 
 if(currentIndex<questions.length-1){
