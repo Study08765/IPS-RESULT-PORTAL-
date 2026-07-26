@@ -663,11 +663,34 @@ examId:examId,
 
 submitted:true,
 allowRetest:false,
-
+answers: answers,
 submittedAt:serverTimestamp()
 
 }
 
+);
+    await setDoc(
+doc(
+db,
+"cbtResults",
+examId + "_" + sessionStorage.getItem("studentRoll")
+),
+{
+studentRoll:sessionStorage.getItem("studentRoll"),
+studentName:sessionStorage.getItem("studentName"),
+studentClass:sessionStorage.getItem("studentClass"),
+examId:examId,
+
+correct:correct,
+wrong:wrong,
+totalQuestions:total,
+percentage:Number(percentage),
+result:result,
+
+answers:answers,
+
+submittedAt:serverTimestamp()
+}
 );
 examSubmitted = true;
 window.location.href="submit-success.html";
