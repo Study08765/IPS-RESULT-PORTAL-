@@ -243,16 +243,57 @@ login();
 }
 
 });
-
-<script>
+</script>
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("service-worker.js")
+    navigator.serviceWorker.register("./service-worker.js")
       .then(() => console.log("Service Worker Registered"))
       .catch(err => console.log(err));
   });
 }
-  </script>
+</script>
+<script>
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  const btn = document.createElement("button");
+  btn.innerHTML = "📲 Install TSPCBT";
+  btn.id = "installBtn";
+
+  btn.style.position = "fixed";
+  btn.style.bottom = "20px";
+  btn.style.left = "50%";
+  btn.style.transform = "translateX(-50%)";
+  btn.style.padding = "14px 24px";
+  btn.style.background = "#0047AB";
+  btn.style.color = "#fff";
+  btn.style.border = "none";
+  btn.style.borderRadius = "50px";
+  btn.style.fontSize = "16px";
+  btn.style.fontWeight = "700";
+  btn.style.boxShadow = "0 10px 25px rgba(0,0,0,.3)";
+  btn.style.zIndex = "9999";
+
+  document.body.appendChild(btn);
+
+  btn.addEventListener("click", async () => {
+    btn.style.display = "none";
+    deferredPrompt.prompt();
+
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === "accepted") {
+      console.log("TSPCBT Installed");
+    }
+
+    deferredPrompt = null;
+  });
+});
+</script>
 </body>
-  </html>
+</html>
+
