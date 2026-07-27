@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>CBT Result Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef4ff;
+padding:20px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+}
+
+.header{
+background:linear-gradient(135deg,#0047AB,#0A84FF);
+color:#fff;
+padding:30px;
+text-align:center;
+border-radius:22px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.header h1{
+font-size:34px;
+font-weight:700;
+letter-spacing:1px;
+}
+
+.header h2{
+margin-top:8px;
+font-size:22px;
+font-weight:500;
+}
+
+.liveNotice{
+margin-top:20px;
+background:#fff8e1;
+border-left:6px solid #ff9800;
+border-radius:15px;
+padding:15px;
+overflow:hidden;
+font-weight:600;
+color:#d84315;
+}
+
+.liveNotice marquee{
+font-size:17px;
+}
+
+.searchCard{
+margin-top:25px;
+background:#fff;
+padding:30px;
+border-radius:20px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.searchCard h3{
+text-align:center;
+margin-bottom:20px;
+font-size:24px;
+color:#0047AB;
+}
+
+.searchCard input{
+width:100%;
+padding:16px;
+border:2px solid #ddd;
+border-radius:12px;
+font-size:18px;
+outline:none;
+margin-bottom:18px;
+}
+
+.searchCard input:focus{
+border-color:#0A84FF;
+}
+
+.searchCard button{
+width:100%;
+padding:16px;
+background:#0047AB;
+color:#fff;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+}
+
+.searchCard button:hover{
+background:#00317c;
+}
+
+#resultArea{
+display:none;
+margin-top:25px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>THE STUDY POINT</h1>
+
+<h2>COMPUTER BASED TEST RESULT</h2>
+
+</div>
+
+<div class="liveNotice">
+
+<marquee id="liveText" behavior="scroll" direction="left">
+
+Loading latest update...
+
+</marquee>
+
+</div>
+
+<div class="searchCard">
+
+<h3>🔍 Check Your Result</h3>
+
+<input
+type="text"
+id="rollInput"
+placeholder="Enter Roll Number">
+
+<button onclick="searchResult()">
+
+Search Result
+
+</button>
+
+</div>
+
+<div id="resultArea">
+  <div class="searchCard">
+
+<h3>Student Result</h3>
+
+<div class="info">
+
+<p><b>Name :</b> <span id="studentName">-</span></p>
+
+<p><b>Roll No :</b> <span id="studentRoll">-</span></p>
+
+<p><b>Class :</b> <span id="studentClass">-</span></p>
+
+<p><b>Exam :</b> <span id="examName">-</span></p>
+
+<hr style="margin:18px 0;">
+
+<p><b>Correct :</b> <span id="correct">0</span></p>
+
+<p><b>Wrong :</b> <span id="wrong">0</span></p>
+
+<p><b>Marks :</b> <span id="marks">0</span></p>
+
+<p><b>Percentage :</b> <span id="percentage">0%</span></p>
+
+</div>
+
+<div id="status"
+style="
+margin-top:20px;
+padding:15px;
+border-radius:12px;
+font-size:22px;
+font-weight:700;
+text-align:center;
+background:#16a34a;
+color:#fff;
+">
+
+PASS
+
+</div>
+
+<button
+id="answerBtn"
+style="
+display:none;
+margin-top:20px;
+width:100%;
+padding:16px;
+background:#0047AB;
+color:#fff;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+">
+
+📖 View Answer Key
+
+</button>
+
+</div>
+
+  </div>
+  <script type="module">
+
+import { db } from "./firebase.js";
+
+import{
+collection,
+getDocs,
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+window.searchResult = async function(){
+
+const roll=document.getElementById("rollInput").value.trim();
+
+if(roll==""){
+alert("Enter Roll Number");
+return;
+}
+
+let found=false;
+
+const resultSnap=await getDocs(collection(db,"cbtResults"));
+
+for(const d of resultSnap.docs){
+
+const result=d.data();
+
+if(result.studentRoll==roll){
+
+found=true;
+
+const testSnap=await getDoc(
+doc(db,"cbtTests",result.examId)
+);
+
+if(!testSnap.exists()){
+alert("Exam Not Found");
+return;
+}
+
+const test=testSnap.data();
+
+if(!test.resultPublished){
+
+document.getElementById("liveText").innerHTML=
+"🔴 RESULT HAS NOT BEEN PUBLISHED YET • PLEASE VISIT AGAIN LATER •";
+
+alert("Result Not Published");
+return;
+
+}
+
+document.getElementById("liveText").innerHTML=
+"🟢 LIVE : COMPUTER BASED TEST RESULT HAS BEEN DECLARED • ENTER YOUR ROLL NUMBER TO CHECK YOUR RESULT •";
+
+document.getElementById("resultArea").style.display="block";
+
+document.getElementById("studentName").innerHTML=result.studentName;
+
+document.getElementById("studentRoll").innerHTML=result.studentRoll;
+
+document.getElementById("studentClass").innerHTML=result.studentClass;
+
+document.getElementById("examName").innerHTML=test.testName;
+
+document.getElementById("correct").innerHTML=result.correct;
+
+document.getElementById("wrong").innerHTML=result.wrong;
+
+document.getElementById("marks").innerHTML=
+result.correct+"/"+result.totalQuestions;
+
+document.getElementById("percentage").innerHTML=
+result.percentage+"%";
+
+if(result.result=="PASS"){
+
+document.getElementById("status").innerHTML="✅ PASS";
+
+document.getElementById("status").style.background="#16a34a";
+
+}else{
+
+document.getElementById("status").innerHTML="❌ FAIL";
+
+document.getElementById("status").style.background="#dc2626";
+
+}
+
+const btn=document.getElementById("answerBtn");
+
+if(test.answerKeyPublished){
+
+btn.style.display="block";
+
+btn.onclick=()=>{
+
+location.href=
+`view-response.html?id=${d.id}`;
+
+};
+
+}else{
+
+btn.style.display="none";
+
+}
+
+break;
+
+}
+
+}
+
+if(!found){
+
+alert("Result Not Found");
+
+}
+
+};
+
+</script>
+
+</body>
+  </html>
