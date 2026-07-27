@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | CBT RESULT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#edf5ff,#dfeeff);
+
+padding:20px;
+
+}
+
+.container{
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+.header{
+
+background:linear-gradient(135deg,#0047AB,#007BFF);
+
+border-radius:25px;
+
+padding:35px 20px;
+
+text-align:center;
+
+color:#fff;
+
+box-shadow:0 15px 35px rgba(0,71,171,.30);
+
+}
+
+.logo{
+
+width:90px;
+
+height:90px;
+
+margin:auto;
+
+border-radius:50%;
+
+background:#fff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:42px;
+
+margin-bottom:15px;
+
+}
+
+.header h1{
+
+font-size:34px;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+}
+
+.header p{
+
+margin-top:8px;
+
+font-size:18px;
+
+letter-spacing:2px;
+
+}
+
+.liveBar{
+
+margin-top:20px;
+
+display:flex;
+
+align-items:center;
+
+background:#fff;
+
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.live{
+
+background:#d60000;
+
+color:#fff;
+
+padding:15px 18px;
+
+font-weight:700;
+
+}
+
+.liveBar marquee{
+
+padding:15px;
+
+font-size:16px;
+
+font-weight:600;
+
+color:#d60000;
+
+}
+
+.searchCard{
+
+margin-top:25px;
+
+background:#fff;
+
+border-radius:22px;
+
+padding:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.searchCard h2{
+
+text-align:center;
+
+color:#0047AB;
+
+margin-bottom:20px;
+
+}
+
+.searchCard input{
+
+width:100%;
+
+padding:16px;
+
+border:2px solid #ddd;
+
+border-radius:12px;
+
+font-size:18px;
+
+margin-bottom:18px;
+
+outline:none;
+
+}
+
+.searchCard input:focus{
+
+border-color:#007BFF;
+
+}
+
+.searchCard button{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:12px;
+
+background:#0047AB;
+
+color:#fff;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+}
+
+#resultBox{
+
+display:none;
+
+margin-top:25px;
+
+}
+.resultGrid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.item{
+
+background:#f5f9ff;
+
+padding:18px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 4px 12px rgba(0,0,0,.05);
+
+}
+
+.item span{
+
+font-size:14px;
+
+color:#666;
+
+}
+
+.item h3{
+
+margin-top:8px;
+
+color:#0047AB;
+
+font-size:20px;
+
+}
+
+#statusBox{
+
+margin-top:25px;
+
+padding:18px;
+
+border-radius:15px;
+
+text-align:center;
+
+font-size:26px;
+
+font-weight:700;
+
+background:#16a34a;
+
+color:white;
+
+}
+
+.actionButtons{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.actionButtons button{
+
+padding:16px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+background:#0047AB;
+
+color:white;
+
+  }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div class="logo">
+
+🏆
+
+</div>
+
+<h1>THE STUDY POINT</h1>
+
+<p>COMPUTER BASED TEST RESULT</p>
+
+</div>
+
+<div class="liveBar">
+
+<div class="live">
+
+LIVE
+
+</div>
+
+<marquee id="liveText">
+
+WELCOME TO THE STUDY POINT CBT RESULT PORTAL • ENTER YOUR ROLL NUMBER TO CHECK YOUR RESULT •
+
+</marquee>
+
+</div>
+
+<div class="searchCard">
+
+<h2>🔍 Check Your Result</h2>
+
+<input
+type="text"
+id="rollInput"
+placeholder="Enter Roll Number">
+
+<button onclick="searchResult()">
+
+Search Result
+
+</button>
+
+</div>
+
+<div id="resultBox">
+  <div class="searchCard">
+
+<h2>🎓 Student Result</h2>
+
+<div class="resultGrid">
+
+<div class="item">
+<span>Name</span>
+<h3 id="studentName">-</h3>
+</div>
+
+<div class="item">
+<span>Roll No.</span>
+<h3 id="studentRoll">-</h3>
+</div>
+
+<div class="item">
+<span>Class</span>
+<h3 id="studentClass">-</h3>
+</div>
+
+<div class="item">
+<span>Exam</span>
+<h3 id="examName">-</h3>
+</div>
+
+<div class="item">
+<span>Correct</span>
+<h3 id="correct">0</h3>
+</div>
+
+<div class="item">
+<span>Wrong</span>
+<h3 id="wrong">0</h3>
+</div>
+
+<div class="item">
+<span>Marks</span>
+<h3 id="marks">0/0</h3>
+</div>
+
+<div class="item">
+<span>Percentage</span>
+<h3 id="percentage">0%</h3>
+</div>
+
+</div>
+
+<div id="statusBox">
+
+PASS
+
+</div>
+
+<div class="actionButtons">
+
+<button id="answerBtn">
+
+📖 View Answer Key
+
+</button>
+
+<button onclick="window.print()">
+
+🖨️ Print Result
+
+</button>
+
+</div>
+
+  </div>
+  <script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+collection,
+getDocs,
+doc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+window.searchResult = async function(){
+
+const roll =
+document.getElementById("rollInput").value.trim();
+
+if(!roll){
+
+alert("Please enter Roll Number");
+
+return;
+
+}
+
+const resultArea =
+document.getElementById("resultBox");
+
+resultArea.style.display="none";
+
+const results =
+await getDocs(collection(db,"cbtResults"));
+
+let found = false;
+  for(const d of results.docs){
+
+const result=d.data();
+
+if(result.studentRoll==roll){
+
+found=true;
+
+const testRef=await getDoc(
+doc(db,"cbtTests",result.examId)
+);
+
+if(!testRef.exists()){
+alert("Exam not found");
+return;
+}
+
+const test=testRef.data();
+
+if(!test.resultPublished){
+
+document.getElementById("liveText").innerHTML=
+"🔴 RESULT HAS NOT BEEN DECLARED YET • PLEASE CHECK AGAIN LATER •";
+
+alert("Result has not been published yet.");
+
+return;
+
+}
+
+document.getElementById("liveText").innerHTML=
+"🟢 LIVE : COMPUTER BASED TEST RESULT HAS BEEN DECLARED •";
+
+resultArea.style.display="block";
+
+studentName.innerHTML=result.studentName;
+studentRoll.innerHTML=result.studentRoll;
+studentClass.innerHTML=result.studentClass;
+examName.innerHTML=test.testName;
+
+correct.innerHTML=result.correct;
+wrong.innerHTML=result.wrong;
+marks.innerHTML=result.correct+" / "+result.totalQuestions;
+percentage.innerHTML=result.percentage+"%";
+
+if(result.result=="PASS"){
+
+statusBox.innerHTML="✅ PASS";
+statusBox.style.background="#16a34a";
+
+}else{
+
+statusBox.innerHTML="❌ FAIL";
+statusBox.style.background="#dc2626";
+
+}
+
+const btn=document.getElementById("answerBtn");
+
+if(test.answerKeyPublished){
+
+btn.style.display="block";
+
+btn.onclick=function(){
+
+location.href="view-response.html?id="+d.id;
+
+};
+
+}else{
+
+btn.style.display="none";
+
+}
+
+break;
+
+}
+
+}
+
+if(!found){
+
+alert("❌ Result Not Found");
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
