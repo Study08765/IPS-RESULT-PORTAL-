@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>THE STUDY POINT | Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="dashboard-v3.css">
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+
+    <header class="topbar">
+
+        <div class="logo-section">
+
+            <img src="icon-512.png" alt="Logo" class="logo">
+
+            <div class="school-name">
+                <h2>THE STUDY POINT</h2>
+                <span>CBT Portal & Paper Studio Pro</span>
+            </div>
+
+        </div>
+
+        <div class="header-right">
+
+            <button class="icon-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <button class="icon-btn">
+                <i class="fa-solid fa-bell"></i>
+            </button>
+
+            <button class="icon-btn">
+                <i class="fa-solid fa-user"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <h1>Welcome Admin 👋</h1>
+
+            <p>
+                Manage CBT Exams, School Papers, Results,
+                Students and Question Bank from one dashboard.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Paper Creator
+                </button>
+
+                <button class="secondary-btn">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    Create CBT Test
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <div class="profile-card">
+
+                <img src="icon-512.png" class="profile-logo">
+
+                <h3>Administrator</h3>
+
+                <p id="liveDate">
+                    Loading...
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===== SEARCH ===== -->
+
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-search"></i>
+
+            <input
+                type="text"
+                placeholder="Search Dashboard Modules...">
+
+        </div>
+
+    </section>
+
+    <!-- ===== QUICK STATS ===== -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <i class="fa-solid fa-user-graduate"></i>
+            <h2 id="studentCount">0</h2>
+            <p>Total Students</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fa-solid fa-laptop"></i>
+            <h2 id="testCount">0</h2>
+            <p>CBT Tests</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fa-solid fa-file-lines"></i>
+            <h2 id="paperCount">0</h2>
+            <p>Papers</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fa-solid fa-chart-column"></i>
+            <h2 id="resultCount">0</h2>
+            <p>Results</p>
+        </div>
+
+    </section>
+
+    <!-- ===== DASHBOARD GRID START ===== -->
+
+    <section class="dashboard-grid">
+      <!-- Paper Creator -->
+<div class="dashboard-card" onclick="location.href='paper-creator.html'">
+    <i class="fa-solid fa-file-lines"></i>
+    <h3>Paper Creator</h3>
+    <p>Create School Question Papers</p>
+</div>
+
+<!-- Create CBT -->
+<div class="dashboard-card" onclick="location.href='create-test.html'">
+    <i class="fa-solid fa-laptop-code"></i>
+    <h3>Create CBT Test</h3>
+    <p>Create Online Exams</p>
+</div>
+
+<!-- Question Bank -->
+<div class="dashboard-card" onclick="location.href='question-bank.html'">
+    <i class="fa-solid fa-book"></i>
+    <h3>Question Bank</h3>
+    <p>Manage Questions</p>
+</div>
+
+<!-- PDF Editor -->
+<div class="dashboard-card" onclick="location.href='pdf-editor.html'">
+    <i class="fa-solid fa-file-pdf"></i>
+    <h3>PDF Editor</h3>
+    <p>Edit & Export PDF</p>
+</div>
+
+<!-- Student Responses -->
+<div class="dashboard-card" onclick="location.href='student-responses.html'">
+    <i class="fa-solid fa-users"></i>
+    <h3>Student Responses</h3>
+    <p>View Exam Responses</p>
+</div>
+
+<!-- Publish Result -->
+<div class="dashboard-card" onclick="location.href='publish-result.html'">
+    <i class="fa-solid fa-chart-line"></i>
+    <h3>Publish Result</h3>
+    <p>Publish Student Results</p>
+</div>
+
+<!-- My Papers -->
+<div class="dashboard-card" onclick="location.href='my-papers.html'">
+    <i class="fa-solid fa-folder-open"></i>
+    <h3>My Papers</h3>
+    <p>Saved Question Papers</p>
+</div>
+
+<!-- School Settings -->
+<div class="dashboard-card" onclick="location.href='school-settings.html'">
+    <i class="fa-solid fa-school"></i>
+    <h3>School Settings</h3>
+    <p>Logo, Watermark & Details</p>
+</div>
+
+<!-- Analytics -->
+<div class="dashboard-card">
+    <i class="fa-solid fa-chart-pie"></i>
+    <h3>Analytics</h3>
+    <p>Portal Statistics</p>
+</div>
+
+<!-- Backup -->
+<div class="dashboard-card">
+    <i class="fa-solid fa-database"></i>
+    <h3>Backup</h3>
+    <p>Database Backup</p>
+</div>
+
+<!-- Settings -->
+<div class="dashboard-card">
+    <i class="fa-solid fa-gear"></i>
+    <h3>Settings</h3>
+    <p>System Settings</p>
+</div>
+
+<!-- Logout -->
+<div class="dashboard-card logout-card" onclick="logout()">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    <h3>Logout</h3>
+    <p>Sign Out</p>
+</div>
+
+</section>
+
+<script src="dashboard-v3.js"></script>
+
+</body>
+  </html>
