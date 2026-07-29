@@ -336,7 +336,8 @@ overflow:auto;
 }
 
 .paper{
-width:794px;
+max-width:794px;
+width:100%;
 min-height:1123px;
 margin:auto;
 background:#fff;
@@ -476,7 +477,9 @@ padding:0 !important;
 margin:0 !important;
 background:#fff !important;
 }
-
+.card:not(:nth-child(3)){
+display:none !important;
+}
 .paperPreview{
 background:#fff !important;
 padding:0 !important;
@@ -490,10 +493,6 @@ margin:0 auto !important;
 padding:20px !important;
 border:none !important;
 box-shadow:none !important;
-}
-
-button{
-display:none !important;
 }
 
   }
