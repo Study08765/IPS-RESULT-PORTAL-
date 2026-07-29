@@ -710,7 +710,13 @@ Dark
 </optgroup>
 
 </select>
+<div class="inputBox">
+<label>Instruction</label>
 
+<textarea id="instruction" rows="2"
+placeholder="Instruction will appear here..."></textarea>
+
+  </div>
 </div>
 
 <div class="inputBox">
@@ -979,12 +985,54 @@ const pMarks = document.getElementById("pMarks");
 const type = document.getElementById("type");
 const question = document.getElementById("question");
 const qMarks = document.getElementById("qMarks");
-
+const instruction = document.getElementById("instruction");
 const paperQuestions = document.getElementById("paperQuestions");
   const leftColumn = document.getElementById("leftColumn");
 const rightColumn = document.getElementById("rightColumn");
 const instructionLang = document.getElementById("instructionLang");
 const instructionsText = document.getElementById("instructionsText");
+ type.addEventListener("change", function(){
+
+switch(type.value){
+
+case "normal":
+instruction.value="निम्नलिखित प्रश्नों के उत्तर लिखिए।";
+break;
+
+case "passage":
+instruction.value="निम्नलिखित गद्यांश को ध्यानपूर्वक पढ़कर प्रश्नों के उत्तर दीजिए।";
+break;
+
+case "grammar":
+instruction.value="निम्नलिखित व्याकरण सम्बन्धी प्रश्नों के उत्तर दीजिए।";
+break;
+
+case "MCQ":
+case "बहुविकल्पीय प्रश्न":
+instruction.value="सही विकल्प चुनकर उत्तर लिखिए।";
+break;
+
+case "Fill in the Blanks":
+case "रिक्त स्थान भरिए":
+instruction.value="रिक्त स्थानों की पूर्ति कीजिए।";
+break;
+
+case "True / False":
+case "सही / गलत":
+instruction.value="सही कथन के सामने ✓ तथा गलत के सामने ✗ का चिन्ह लगाइए।";
+break;
+
+case "Match the Following":
+case "मिलान कीजिए":
+instruction.value="निम्नलिखित का मिलान कीजिए।";
+break;
+
+default:
+instruction.value="निम्नलिखित प्रश्नों के उत्तर लिखिए।";
+
+}
+
+}); 
 function updatePreview(){
 
 pSchool.textContent = school.value || "THE STUDY POINT";
@@ -1030,6 +1078,7 @@ return;
 questions.push({
 
 type:type.value,
+instruction:instruction.value,
 text:question.value,
 marks:Number(qMarks.value),
 column:column.value
@@ -1049,15 +1098,28 @@ leftColumn.innerHTML="";
 rightColumn.innerHTML="";
 
 let total=0;
-
+let lastInstruction = "";
 questions.forEach((q,index)=>{
 
 total += q.marks;
 
+let heading = "";
+
+if(q.instruction != lastInstruction){
+    heading = `
+    <div style="margin:15px 0 8px;font-weight:bold;font-size:16px;">
+        ${q.instruction}
+    </div>
+    `;
+    lastInstruction = q.instruction;
+}
+
 let html = `
+${heading}
+
 <div style="padding:12px;border-bottom:1px solid #ddd">
 
-<b>Q${index+1}. (${q.type}) [${q.marks} Marks]</b>
+<b>Q${index+1}. (${q.marks} Marks)</b>
 
 <p style="margin-top:8px">
 ${q.text}
