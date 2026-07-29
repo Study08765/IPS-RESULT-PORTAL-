@@ -523,13 +523,6 @@ gap:10px;
 grid-template-columns:1fr;
 }
 }
-  document.getElementById("newSection").onclick = function(){
-
-    sectionNo++;
-
-    alert("New Section Started : Q" + sectionNo);
-
-};
 </style>
 
 </head>
@@ -740,6 +733,15 @@ placeholder="Enter Question Here..."></textarea>
 <label>Marks</label>
 
 <input type="number" id="qMarks" value="1">
+  <div class="inputBox">
+<label>Show Marks</label>
+
+<select id="showMarks">
+<option value="yes">Yes</option>
+<option value="no">No</option>
+</select>
+
+  </div>
 <div class="inputBox">
 <label>Column</label>
 
@@ -1077,7 +1079,13 @@ item.addEventListener("change",updatePreview);
 });
 
 updatePreview();
+document.getElementById("newSection").onclick = function(){
 
+sectionNo++;
+
+alert("New Section Started : Q" + sectionNo);
+
+};
 document.getElementById("addQuestion").onclick=function(){
 
 if(question.value.trim()==""){
