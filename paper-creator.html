@@ -564,8 +564,6 @@ Dark
 
 <button><i class="fa-solid fa-list"></i> Questions</button>
 
-<button><i class="fa-solid fa-layer-group"></i> Sections</button>
-
 <button><i class="fa-solid fa-image"></i> School Logo</button>
 
 <button><i class="fa-solid fa-print"></i> Print Paper</button>
@@ -625,6 +623,15 @@ Dark
 <label>Maximum Marks</label>
 <input type="number" id="marks">
 </div>
+  <div class="inputBox">
+<label>Paper Layout</label>
+
+<select id="layout">
+<option value="single">Single Column</option>
+<option value="double">Double Column</option>
+</select>
+
+  </div>
 <div class="inputBox">
 <label>Instructions Language</label>
 
@@ -652,7 +659,13 @@ Dark
 <label>Question Type</label>
 
 <select id="type">
+<option value="normal">Normal Question</option>
 
+<option value="passage">Passage / Story / Poem</option>
+
+<option value="grammar">Grammar Exercise</option>
+
+<option value="image">Image Based Question</option>
 <optgroup label="English">
 
 <option>MCQ</option>
@@ -687,7 +700,7 @@ Dark
 
 <textarea id="question" rows="5"
 placeholder="Enter Question Here..."></textarea>
-
+<div id="dynamicFields"></div>
 </div>
 
 <div class="inputBox">
@@ -1020,7 +1033,7 @@ ${q.text}
 
 </p>
 
-<div style="margin-top:10px">
+<div class="no-print" style="margin-top:10px">
 
 <button onclick="editQuestion(${index})">
 ✏ Edit
