@@ -417,7 +417,7 @@ cursor:pointer;
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:15px;
-}
+  }
 
 .actionBtn{
 padding:18px;
@@ -439,6 +439,61 @@ transform:translateY(-4px);
 
 .actionGrid{
 grid-template-columns:repeat(2,1fr);
+}
+
+  }
+  /* ================= PRINT MODE ================= */
+
+@media print{
+
+header,
+.sidebar,
+footer,
+.fab,
+.actionGrid,
+.headerButtons,
+.primaryBtn{
+display:none !important;
+}
+
+body{
+background:#fff !important;
+margin:0;
+padding:0;
+}
+
+.wrapper,
+.main{
+display:block !important;
+padding:0;
+margin:0;
+}
+
+.card{
+box-shadow:none !important;
+border:none !important;
+padding:0 !important;
+margin:0 !important;
+background:#fff !important;
+}
+
+.paperPreview{
+background:#fff !important;
+padding:0 !important;
+}
+
+.paper{
+width:100% !important;
+max-width:100% !important;
+min-height:auto !important;
+margin:0 auto !important;
+padding:20px !important;
+border:none !important;
+box-shadow:none !important;
+}
+
+button{
+display:none !important;
 }
 
   }
@@ -578,13 +633,29 @@ Dark
 
 <select id="type">
 
+<optgroup label="English">
+
 <option>MCQ</option>
-<option>Very Short</option>
+<option>Very Short Answer</option>
 <option>Short Answer</option>
 <option>Long Answer</option>
 <option>Fill in the Blanks</option>
 <option>True / False</option>
 <option>Match the Following</option>
+
+</optgroup>
+
+<optgroup label="हिन्दी">
+
+<option>बहुविकल्पीय प्रश्न</option>
+<option>अति लघु उत्तरीय</option>
+<option>लघु उत्तरीय</option>
+<option>दीर्घ उत्तरीय</option>
+<option>रिक्त स्थान भरिए</option>
+<option>सही / गलत</option>
+<option>मिलान कीजिए</option>
+
+</optgroup>
 
 </select>
 
@@ -675,66 +746,22 @@ Questions will appear here...
                  </div>
                  <div class="card">
 
-<h3>📁 Recent Papers</h3>
 
-<div class="recentPapers">
-
-<div class="paperItem">
-<div>
-<h4>Quarterly Exam - Class 8</h4>
-<p>Science • 50 Marks</p>
-</div>
-<button>Open</button>
-</div>
-
-<div class="paperItem">
-<div>
-<h4>Monthly Test - Class 7</h4>
-<p>English • 30 Marks</p>
-</div>
-<button>Open</button>
-</div>
-
-<div class="paperItem">
-<div>
-<h4>Half Yearly - Class 6</h4>
-<p>Mathematics • 80 Marks</p>
-</div>
-<button>Open</button>
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
 
 <h3>⚡ Quick Actions</h3>
 
 <div class="actionGrid">
 
-<button class="actionBtn">
-🖨️ Print
+<button class="actionBtn" onclick="printPaper()">
+🖨️ Print Paper
 </button>
 
-<button class="actionBtn">
-📄 PDF
+<button class="actionBtn" onclick="savePaper()">
+💾 Save Paper
 </button>
 
-<button class="actionBtn">
-💾 Save
-</button>
-
-<button class="actionBtn">
-📂 Open
-</button>
-
-<button class="actionBtn">
-📚 Question Bank
-</button>
-
-<button class="actionBtn">
-⚙️ Settings
+<button class="actionBtn" onclick="openPaper()">
+📂 Open Paper
 </button>
 
 </div>
@@ -1047,9 +1074,53 @@ alert("No Saved Paper");
 
 function printPaper(){
 
-window.print();
+const paper = document.querySelector(".paper").outerHTML;
 
+const printWindow = window.open("", "_blank", "width=900,height=700");
+
+printWindow.document.write(`
+<!DOCTYPE html>
+<html>
+<head>
+<title>Question Paper</title>
+
+<style>
+
+body{
+margin:20px;
+font-family:Arial,sans-serif;
 }
+
+.paper{
+max-width:800px;
+margin:auto;
+padding:20px;
+border:1px solid #000;
+}
+
+button{
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+${paper}
+
+</body>
+
+</html>
+`);
+
+printWindow.document.close();
+printWindow.focus();
+printWindow.print();
+printWindow.close();
+
+  }
 
 document.querySelectorAll(".actionBtn").forEach(btn=>{
 
