@@ -341,7 +341,7 @@ width:100%;
 min-height:1123px;
 margin:auto;
 background:#fff;
-padding:40px;
+padding:20px;
 border:1px solid #ccc;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
@@ -490,7 +490,7 @@ width:100% !important;
 max-width:100% !important;
 min-height:auto !important;
 margin:0 auto !important;
-padding:20px !important;
+padding:30px !important;
 border:none !important;
 box-shadow:none !important;
 }
@@ -543,7 +543,7 @@ grid-template-columns:1fr;
 
 <h2>Paper Creator Pro</h2>
 
-<p>THE STUDY POINT</p>
+<p>IPS PUBLIC SCHOOL AHIRORI, HARDOI</p>
 
 </div>
 
@@ -1137,8 +1137,8 @@ questionNo=1;
 lastInstruction="";
 
 const sectionHTML=`
-<div style="margin:20px 0 10px;font-size:18px;font-weight:bold;">
-Q${currentSection}
+<div style="margin:6px 0 2px;font-size:16px;font-weight:700;">
+Q${currentSection} - ${q.instruction}
 </div>
 `;
 
@@ -1150,31 +1150,14 @@ leftHTML+=sectionHTML;
 
 }
 
-if(q.instruction!=lastInstruction){
-
-const ins=`
-<div style="margin-bottom:10px;font-weight:bold;">
-${q.instruction}
-</div>
-`;
-
-lastInstruction=q.instruction;
-
-if(q.column=="right"){
-rightHTML+=ins;
-}else{
-leftHTML+=ins;
-}
-
-  }
   const html=`
 
-<div style="padding:8px 0;border-bottom:1px solid #ddd;">
+<div style="padding:3px 0;border-bottom:1px solid #ddd;">
 
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
 
 <div>
-<b>${questionNo++}.</b> ${q.text}
+${q.text}
 </div>
 
 ${q.showMarks=="yes"
