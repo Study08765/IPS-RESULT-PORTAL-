@@ -1,0 +1,338 @@
+/* ===================================
+   THE STUDY POINT
+   ADMIN DASHBOARD V3
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef3ff;
+    color:#222;
+}
+
+a{
+    text-decoration:none;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+    outline:none;
+}
+
+img{
+    max-width:100%;
+}
+
+/* ===== HEADER ===== */
+
+.topbar{
+    height:80px;
+    background:#ffffff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 30px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo-section{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+}
+
+.school-name h2{
+    color:#0047AB;
+    font-size:24px;
+    font-weight:700;
+}
+
+.school-name span{
+    color:#666;
+    font-size:14px;
+}
+
+.header-right{
+    display:flex;
+    gap:12px;
+}
+
+.icon-btn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#f2f6ff;
+    transition:.3s;
+}
+
+.icon-btn:hover{
+    background:#0047AB;
+    color:#fff;
+}
+/* ===== HERO ===== */
+
+.hero{
+    margin:25px;
+    padding:40px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#0047AB,#1E88E5,#42A5F5);
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    box-shadow:0 15px 40px rgba(0,71,171,.30);
+}
+
+.hero-left{
+    max-width:600px;
+}
+
+.hero-left h1{
+    font-size:42px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.hero-left p{
+    font-size:17px;
+    line-height:28px;
+    opacity:.95;
+    margin-bottom:25px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:14px 24px;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.primary-btn{
+    background:#FFD700;
+    color:#222;
+}
+
+.primary-btn:hover{
+    transform:translateY(-4px);
+}
+
+.secondary-btn{
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.3);
+}
+
+.secondary-btn:hover{
+    background:rgba(255,255,255,.28);
+}
+
+.profile-card{
+    width:240px;
+    text-align:center;
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,.18);
+}
+
+.profile-logo{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    margin-bottom:15px;
+    border:4px solid #fff;
+}
+
+/* ===== SEARCH ===== */
+
+.search-section{
+    margin:25px;
+}
+
+.search-box{
+    background:#fff;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    padding:16px 20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.search-box i{
+    color:#777;
+    margin-right:12px;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:16px;
+    background:none;
+}
+
+/* ===== STATS ===== */
+
+.stats{
+    margin:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat-card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+}
+
+.stat-card i{
+    font-size:34px;
+    color:#0047AB;
+    margin-bottom:12px;
+}
+
+.stat-card h2{
+    font-size:34px;
+    color:#0047AB;
+    margin-bottom:8px;
+}
+
+.stat-card p{
+    color:#666;
+  }
+/* ===== DASHBOARD GRID ===== */
+
+.dashboard-grid{
+    margin:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+/* ===== DASHBOARD CARD ===== */
+
+.dashboard-card{
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);
+    border-radius:22px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:all .35s ease;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.5);
+}
+
+.dashboard-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 18px 40px rgba(0,71,171,.25);
+}
+
+.dashboard-card i{
+    font-size:48px;
+    color:#0047AB;
+    margin-bottom:18px;
+}
+
+.dashboard-card h3{
+    font-size:22px;
+    margin-bottom:10px;
+    color:#222;
+    font-weight:700;
+}
+
+.dashboard-card p{
+    color:#666;
+    font-size:15px;
+    line-height:24px;
+}
+
+.logout-card{
+    background:linear-gradient(135deg,#ff4d4d,#d50000);
+    color:#fff;
+}
+
+.logout-card i,
+.logout-card h3,
+.logout-card p{
+    color:#fff;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    margin:40px 25px 20px;
+    padding:25px;
+    text-align:center;
+    border-radius:18px;
+    background:#0047AB;
+    color:#fff;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width:768px){
+
+.topbar{
+    padding:15px;
+    height:auto;
+    flex-direction:column;
+    gap:15px;
+}
+
+.hero{
+    margin:15px;
+    padding:25px;
+    text-align:center;
+}
+
+.hero-left h1{
+    font-size:30px;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.profile-card{
+    margin-top:25px;
+}
+
+.stats,
+.dashboard-grid{
+    margin:15px;
+}
+
+                                }
