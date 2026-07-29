@@ -504,6 +504,25 @@ box-shadow:none !important;
     background:#fff !important;
   }
   }
+  .questionLayout{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+align-items:start;
+}
+
+#leftColumn,
+#rightColumn{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+@media(max-width:700px){
+.questionLayout{
+grid-template-columns:1fr;
+}
+}
 </style>
 
 </head>
@@ -708,7 +727,15 @@ placeholder="Enter Question Here..."></textarea>
 <label>Marks</label>
 
 <input type="number" id="qMarks" value="1">
+<div class="inputBox">
+<label>Column</label>
 
+<select id="column">
+<option value="left">Left Column</option>
+<option value="right">Right Column</option>
+</select>
+
+</div>
 </div>
 
 <button class="primaryBtn" id="addQuestion">
@@ -756,11 +783,13 @@ All questions are compulsory. Marks for each question are indicated against it. 
 
 <div id="paperQuestions">
 
-<p style="text-align:center;color:#888">
+<div id="paperQuestions" class="questionLayout">
 
-Questions will appear here...
+<div id="leftColumn"></div>
 
-</p>
+<div id="rightColumn"></div>
+
+</div>
 
 </div>
 
@@ -939,7 +968,7 @@ const cls = document.getElementById("cls");
 const subject = document.getElementById("subject");
 const time = document.getElementById("time");
 const marks = document.getElementById("marks");
-
+const column = document.getElementById("column");
 const pSchool = document.getElementById("pSchool");
 const pExam = document.getElementById("pExam");
 const pClass = document.getElementById("pClass");
@@ -952,6 +981,8 @@ const question = document.getElementById("question");
 const qMarks = document.getElementById("qMarks");
 
 const paperQuestions = document.getElementById("paperQuestions");
+  const leftColumn = document.getElementById("leftColumn");
+const rightColumn = document.getElementById("rightColumn");
 const instructionLang = document.getElementById("instructionLang");
 const instructionsText = document.getElementById("instructionsText");
 function updatePreview(){
@@ -1000,7 +1031,8 @@ questions.push({
 
 type:type.value,
 text:question.value,
-marks:Number(qMarks.value)
+marks:Number(qMarks.value),
+column:column.value
 
 });
 
@@ -1013,41 +1045,37 @@ renderQuestions();
 
 function renderQuestions(){
 
-paperQuestions.innerHTML="";
+leftColumn.innerHTML="";
+rightColumn.innerHTML="";
 
 let total=0;
 
 questions.forEach((q,index)=>{
 
-total+=q.marks;
+total += q.marks;
 
-paperQuestions.innerHTML+=`
-
+let html = `
 <div style="padding:12px;border-bottom:1px solid #ddd">
 
 <b>Q${index+1}. (${q.type}) [${q.marks} Marks]</b>
 
 <p style="margin-top:8px">
-
 ${q.text}
-
 </p>
 
 <div class="no-print" style="margin-top:10px">
-
-<button onclick="editQuestion(${index})">
-✏ Edit
-</button>
-
-<button onclick="deleteQuestion(${index})">
-🗑 Delete
-</button>
-
+<button onclick="editQuestion(${index})">✏ Edit</button>
+<button onclick="deleteQuestion(${index})">🗑 Delete</button>
 </div>
 
 </div>
-
 `;
+
+if(q.column=="right"){
+    rightColumn.innerHTML += html;
+}else{
+    leftColumn.innerHTML += html;
+}
 
 });
 
