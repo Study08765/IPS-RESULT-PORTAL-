@@ -606,7 +606,7 @@ Dark
 
 <div class="inputBox">
 <label>School Name</label>
-<input type="text" id="school" value="THE STUDY POINT">
+<input type="text" id="school" value="IPS PUBLIC SCHOOL AHIRORI, HARDOI">
 </div>
 
 <div class="inputBox">
@@ -798,15 +798,11 @@ All questions are compulsory. Marks for each question are indicated against it. 
 
 <hr>
 
-<div id="paperQuestions">
-
 <div id="paperQuestions" class="questionLayout">
 
 <div id="leftColumn"></div>
 
 <div id="rightColumn"></div>
-
-</div>
 
 </div>
 
@@ -1156,7 +1152,7 @@ leftHTML+=sectionHTML;
 
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
 
-<div>
+<div style="white-space:pre-line;">
 ${q.text}
 </div>
 
@@ -1211,11 +1207,12 @@ renderQuestions();
 
 function editQuestion(i){
 
-question.value=questions[i].text;
-
-type.value=questions[i].type;
-
-qMarks.value=questions[i].marks;
+question.value = questions[i].text;
+type.value = questions[i].type;
+instruction.value = questions[i].instruction;
+qMarks.value = questions[i].marks;
+showMarks.value = questions[i].showMarks;
+column.value = questions[i].column;
 
 questions.splice(i,1);
 
