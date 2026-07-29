@@ -618,7 +618,20 @@ Dark
 <label>Maximum Marks</label>
 <input type="number" id="marks">
 </div>
+<div class="inputBox">
+<label>Instructions Language</label>
 
+<select id="instructionLang">
+
+<option value="english">English</option>
+
+<option value="hindi">हिन्दी</option>
+
+<option value="both">Hindi + English</option>
+
+</select>
+
+  </div>
 </div>
 
 </div>
@@ -713,19 +726,13 @@ placeholder="Enter Question Here..."></textarea>
 
 <hr>
 
-<h3>General Instructions</h3>
+<h3>Instructions / निर्देश</h3>
 
-<ol class="instructions">
+<p id="instructionsText" style="font-size:14px;line-height:1.7; text-align:justify;">
 
-<li>Attempt all questions.</li>
+All questions are compulsory. Marks for each question are indicated against it. Read all the questions carefully and write your answers neatly and clearly.
 
-<li>Read every question carefully.</li>
-
-<li>Write neatly.</li>
-
-<li>All questions are compulsory.</li>
-
-</ol>
+</p>
 
 <hr>
 
@@ -927,7 +934,8 @@ const question = document.getElementById("question");
 const qMarks = document.getElementById("qMarks");
 
 const paperQuestions = document.getElementById("paperQuestions");
-
+const instructionLang = document.getElementById("instructionLang");
+const instructionsText = document.getElementById("instructionsText");
 function updatePreview(){
 
 pSchool.textContent = school.value || "THE STUDY POINT";
@@ -936,10 +944,27 @@ pClass.textContent = cls.value;
 pSubject.textContent = subject.value || "________";
 pTime.textContent = time.value || "2 Hours";
 pMarks.textContent = marks.value || "50";
+if(instructionLang.value=="english"){
+
+instructionsText.innerHTML =
+"<b>Instructions:</b> All questions are compulsory. Marks for each question are indicated against it. Read all the questions carefully and write your answers neatly and clearly.";
 
 }
+else if(instructionLang.value=="hindi"){
 
-[school,exam,cls,subject,time,marks].forEach(item=>{
+instructionsText.innerHTML =
+"<b>निर्देश:</b> सभी प्रश्न करना अनिवार्य है। सभी प्रश्नों के अंक उनके समक्ष दिए गए हैं। विद्यार्थी सभी प्रश्नों को ध्यानपूर्वक पढ़कर उत्तर साफ़ एवं स्पष्ट लिखें।";
+
+}
+else{
+
+instructionsText.innerHTML =
+"<b>Instructions / निर्देश:</b> All questions are compulsory. Marks for each question are indicated against it. Read all the questions carefully and write your answers neatly and clearly.<br><br><b>निर्देश:</b> सभी प्रश्न करना अनिवार्य है। सभी प्रश्नों के अंक उनके समक्ष दिए गए हैं। विद्यार्थी सभी प्रश्नों को ध्यानपूर्वक पढ़कर उत्तर साफ़ एवं स्पष्ट लिखें।";
+
+  }
+}
+
+[school,exam,cls,subject,time,marks,instructionLang].forEach(item=>{
 item.addEventListener("input",updatePreview);
 item.addEventListener("change",updatePreview);
 });
