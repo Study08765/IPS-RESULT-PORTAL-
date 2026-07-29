@@ -776,25 +776,32 @@ placeholder="Enter Question Here..."></textarea>
 
 <hr>
 
-<div class="paperInfo">
+<table style="width:100%;border-collapse:collapse;border:1px solid #000;font-size:14px;">
+<tr>
 
-<span><b>Class:</b> <span id="pClass">Class 1</span></span>
+<td style="border:1px solid #000;padding:6px;">
+<b>Class:</b> <span id="pClass">Class 1</span>
+</td>
+<td style="border:1px solid #000;padding:6px;">
+<b>Subject:</b> <span id="pSubject">________</span>
+</td>
+<td style="border:1px solid #000;padding:6px;">
+<b>Time:</b> <span id="pTime">2 Hours</span>
+</td>
 
-<span><b>Subject:</b> <span id="pSubject">________</span></span>
+<td style="border:1px solid #000;padding:6px;">
+<b>Max Marks:</b> <span id="pMarks">50</span>
+</td>
+</tr>
 
-<span><b>Time:</b> <span id="pTime">2 Hours</span></span>
+<tr>
+<td colspan="4" style="border:1px solid #000;padding:8px;">
+<b>Instructions:</b><br>
+<div id="instructionsText"></div>
+</td>
+</tr>
+</table>
 
-<span><b>Max Marks:</b> <span id="pMarks">50</span></span>
-
-</div>
-
-<hr>
-
-<p id="instructionsText" style="font-size:14px;line-height:1.7; text-align:justify;">
-
-All questions are compulsory. Marks for each question are indicated against it. Read all the questions carefully and write your answers neatly and clearly.
-
-</p>
 
 <hr>
 
@@ -1133,7 +1140,7 @@ questionNo=1;
 lastInstruction="";
 
 const sectionHTML=`
-<div style="margin:6px 0 2px;font-size:16px;font-weight:700;">
+<div style="margin:3px 0 0px;font-size:16px;font-weight:700;">
 Q${currentSection} - ${q.instruction}
 </div>
 `;
@@ -1148,7 +1155,7 @@ leftHTML+=sectionHTML;
 
   const html=`
 
-<div style="padding:3px 0;border-bottom:1px solid #ddd;">
+<div style="padding:0;border-bottom:1px solid #ddd;">
 
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
 
@@ -1197,6 +1204,10 @@ function deleteQuestion(i){
 if(confirm("Delete this Question?")){
 
 questions.splice(i,1);
+
+sectionNo = questions.length
+  ? Math.max(...questions.map(q => q.section))
+  : 1;
 
 renderQuestions();
 
