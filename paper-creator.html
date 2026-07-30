@@ -751,6 +751,7 @@ placeholder="Enter Question Here..."></textarea>
 <select id="column">
 <option value="left">Left Column</option>
 <option value="right">Right Column</option>
+ <option value="full">Full Width</option> 
 </select>
 
 </div>
@@ -803,7 +804,7 @@ All questions are compulsory. Marks for each question are indicated against it. 
 </p>
 
 <hr>
-
+<div id="fullColumn"></div>
 <div id="paperQuestions" class="questionLayout">
 
 <div id="leftColumn"></div>
@@ -1003,6 +1004,7 @@ const instruction = document.getElementById("instruction");
 const paperQuestions = document.getElementById("paperQuestions");
   const leftColumn = document.getElementById("leftColumn");
 const rightColumn = document.getElementById("rightColumn");
+  const fullColumn = document.getElementById("fullColumn");
 const instructionLang = document.getElementById("instructionLang");
 const instructionsText = document.getElementById("instructionsText");
  type.addEventListener("change", function(){
@@ -1117,14 +1119,14 @@ renderQuestions();
 function renderQuestions(){
 
 leftColumn.innerHTML="";
-let prevLeftSection = 0;  
 rightColumn.innerHTML="";
+fullColumn.innerHTML="";
 
 let total=0;
 
 let leftHTML="";
 let rightHTML="";
-
+let fullHTML="";
 let currentSection=0;
 let questionNo=0;
 let lastInstruction="";
@@ -1145,17 +1147,21 @@ Q${currentSection} - ${q.instruction}
 </div>
 `;
 
-if(q.column=="right"){
-rightHTML+=sectionHTML;
-}else{
-leftHTML+=sectionHTML;
+if(q.column=="full"){
+    fullHTML += sectionHTML;
+}
+else if(q.column=="right"){
+    rightHTML += sectionHTML;
+}
+else{
+    leftHTML += sectionHTML;
 }
 
 }
 
   const html=`
 
-<div style="padding:2px 0;border-bottom:1px solid #ddd;">
+<div style="padding:0;border-bottom:1px solid #ddd;">
 
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:-4px;">
 
@@ -1180,15 +1186,20 @@ ${q.showMarks=="yes"
 </div>
 `;
 
-if(q.column=="right"){
-rightHTML+=html;
-}else{
-leftHTML+=html;
+if(q.column=="full"){
+    fullHTML += html;
+}
+else if(q.column=="right"){
+    rightHTML += html;
+}
+else{
+    leftHTML += html;
 }
 
 });
-  leftColumn.innerHTML=leftHTML;
-rightColumn.innerHTML=rightHTML;
+  fullColumn.innerHTML = fullHTML;
+leftColumn.innerHTML = leftHTML;
+rightColumn.innerHTML = rightHTML;
 
 
 if(questions.length==0){
