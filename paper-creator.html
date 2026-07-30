@@ -1115,67 +1115,58 @@ qMarks.value=1;
 renderQuestions();
 
 };
-
 function renderQuestions(){
 
-leftColumn.innerHTML="";
-rightColumn.innerHTML="";
-fullColumn.innerHTML="";
+leftColumn.innerHTML = "";
+rightColumn.innerHTML = "";
 
-let total=0;
+let total = 0;
 
-let leftHTML="";
-let rightHTML="";
-let fullHTML="";
-let currentSection=0;
-let questionNo=0;
-let lastInstruction="";
+let leftHTML = "";
+let rightHTML = "";
+
+let currentSection = 0;
+let questionNo = 0;
 
 questions.forEach((q,index)=>{
 
 total += q.marks;
-if(q.column=="left") prevLeftSection = q.section;
-if(q.section!=currentSection){
 
-currentSection=q.section;
-questionNo=1;
-lastInstruction="";
+if(q.section != currentSection){
 
-const sectionHTML=`
-<div style="margin:0 0 2px;font-size:14px;font-weight:600;">
+currentSection = q.section;
+questionNo = 1;
+
+const sectionHTML = `
+<div style="margin:0;font-size:13px;font-weight:600;line-height:1.2;">
 Q${currentSection} - ${q.instruction}
 </div>
 `;
 
-if(q.column=="full"){
-    fullHTML += sectionHTML;
-}
-else if(q.column=="right"){
-    rightHTML += sectionHTML;
-}
-else{
-    leftHTML += sectionHTML;
+if(q.column=="right"){
+rightHTML += sectionHTML;
+}else{
+leftHTML += sectionHTML;
 }
 
-}
-
-  const html=`
+  }
+const html = `
 
 <div style="padding:0;border-bottom:1px solid #ddd;">
 
-<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:-4px;">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px;">
 
-<div style="white-space:pre-line;margin-top:2px;font-size:13px;">
-${q.text}
+<div style="white-space:pre-line;font-size:13px;line-height:1.5;">
+${questionNo++}. ${q.text}
 </div>
 
 ${q.showMarks=="yes"
-? `<div style="font-weight:bold;">(${q.marks})</div>`
+? `<div style="font-weight:bold;font-size:13px;">(${q.marks})</div>`
 : ""}
 
 </div>
 
-<div class="no-print" style="margin-top:8px">
+<div class="no-print" style="margin-top:5px">
 
 <button onclick="editQuestion(${index})">✏ Edit</button>
 
@@ -1186,29 +1177,28 @@ ${q.showMarks=="yes"
 </div>
 `;
 
-if(q.column=="full"){
-    fullHTML += html;
-}
-else if(q.column=="right"){
-    rightHTML += html;
-}
-else{
-    leftHTML += html;
-}
-
+if(q.column=="right"){
+rightHTML += html;
+}else{
+leftHTML += html;
+  }
 });
-  fullColumn.innerHTML = fullHTML;
+
 leftColumn.innerHTML = leftHTML;
 rightColumn.innerHTML = rightHTML;
 
+pMarks.textContent = total;
+marks.value = total;
 
 if(questions.length==0){
 
-paperQuestions.innerHTML="<p style='text-align:center;color:gray'>Questions will appear here...</p>";
+leftColumn.innerHTML = "<p style='text-align:center;color:gray'>Questions will appear here...</p>";
+rightColumn.innerHTML = "";
 
 }
 
   }
+
 
 function deleteQuestion(i){
 
