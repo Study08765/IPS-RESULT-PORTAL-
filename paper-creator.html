@@ -1117,6 +1117,7 @@ renderQuestions();
 function renderQuestions(){
 
 leftColumn.innerHTML="";
+let prevLeftSection = 0;  
 rightColumn.innerHTML="";
 
 let total=0;
@@ -1131,7 +1132,7 @@ let lastInstruction="";
 questions.forEach((q,index)=>{
 
 total += q.marks;
-
+if(q.column=="left") prevLeftSection = q.section;
 if(q.section!=currentSection){
 
 currentSection=q.section;
@@ -1139,7 +1140,7 @@ questionNo=1;
 lastInstruction="";
 
 const sectionHTML=`
-<div style="margin:3px 0 0px;font-size:16px;font-weight:700;">
+<div style="margin:3px 0 0px;font-size:14px;font-weight:600;">
 Q${currentSection} - ${q.instruction}
 </div>
 `;
@@ -1154,11 +1155,11 @@ leftHTML+=sectionHTML;
 
   const html=`
 
-<div style="padding:0;border-bottom:1px solid #ddd;">
+<div style="padding:0 0 6px 0;border-bottom:1px solid #ddd;">
 
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
 
-<div style="white-space:pre-line;">
+<div style="white-space:pre-line;margin-top:2px;">
 ${q.text}
 </div>
 
