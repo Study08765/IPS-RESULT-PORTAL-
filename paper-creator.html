@@ -515,7 +515,7 @@ align-items:start;
 #rightColumn{
 display:flex;
 flex-direction:column;
-gap:10px;
+gap:2px;
 }
 
 @media(max-width:700px){
@@ -1140,7 +1140,7 @@ questionNo=1;
 lastInstruction="";
 
 const sectionHTML=`
-<div style="margin:3px 0 0px;font-size:14px;font-weight:600;">
+<div style="margin:0 0 2px;font-size:14px;font-weight:600;">
 Q${currentSection} - ${q.instruction}
 </div>
 `;
@@ -1155,11 +1155,11 @@ leftHTML+=sectionHTML;
 
   const html=`
 
-<div style="padding:0 0 6px 0;border-bottom:1px solid #ddd;">
+<div style="padding:2px 0;border-bottom:1px solid #ddd;">
 
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:-4px;">
 
-<div style="white-space:pre-line;margin-top:2px;">
+<div style="white-space:pre-line;margin-top:2px;font-size:13px;">
 ${q.text}
 </div>
 
