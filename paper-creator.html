@@ -1147,7 +1147,7 @@ currentSection = q.section;
 questionNo = 1;
 
 const sectionHTML = `
-<div style="margin:0;font-size:13px;font-weight:600;line-height:1.2;">
+<div style="margin:${currentSection==1 ? 0 : 4}px 0 2px;font-size:13px;font-weight:600;line-height:1.2;">
 Q${currentSection} - ${q.instruction}
 </div>
 `;
@@ -1161,7 +1161,7 @@ leftHTML += sectionHTML;
   }
 const html = `
 
-<div style="padding:0;border-bottom:1px solid #ddd;">
+<div style="padding:0 0 4px 0;">
 
 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px;">
 
