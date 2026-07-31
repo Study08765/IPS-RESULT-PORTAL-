@@ -504,11 +504,15 @@ box-shadow:none !important;
     background:#fff !important;
   }
   }
-  .questionLayout{
+.questionLayout{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:25px;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:20px;
 align-items:start;
+}
+
+.questionLayout.single{
+display:block;
 }
 
 #leftColumn,
@@ -750,8 +754,7 @@ placeholder="Enter Question Here..."></textarea>
 
 <select id="column">
 <option value="left">Left Column</option>
-<option value="right">Right Column</option>
- <option value="full">Full Width</option> 
+<option value="right">Right Column</option> 
 </select>
 
 </div>
@@ -804,7 +807,7 @@ All questions are compulsory. Marks for each question are indicated against it. 
 </p>
 
 <hr>
-<div id="fullColumn"></div>
+
 <div id="paperQuestions" class="questionLayout">
 
 <div id="leftColumn"></div>
@@ -1002,9 +1005,9 @@ const question = document.getElementById("question");
 const qMarks = document.getElementById("qMarks");
 const instruction = document.getElementById("instruction");
 const paperQuestions = document.getElementById("paperQuestions");
+const layout = document.getElementById("layout");  
   const leftColumn = document.getElementById("leftColumn");
 const rightColumn = document.getElementById("rightColumn");
-  const fullColumn = document.getElementById("fullColumn");
 const instructionLang = document.getElementById("instructionLang");
 const instructionsText = document.getElementById("instructionsText");
  type.addEventListener("change", function(){
@@ -1075,9 +1078,15 @@ instructionsText.innerHTML =
 "<b>Instructions / निर्देश:</b> All questions are compulsory. Marks for each question are indicated against it. Read all the questions carefully and write your answers neatly and clearly.<br><br><b>निर्देश:</b> सभी प्रश्न करना अनिवार्य है। सभी प्रश्नों के अंक उनके समक्ष दिए गए हैं। विद्यार्थी सभी प्रश्नों को ध्यानपूर्वक पढ़कर उत्तर साफ़ एवं स्पष्ट लिखें।";
 
   }
+  if(layout.value=="single"){
+    paperQuestions.classList.add("single");
+}
+else{
+    paperQuestions.classList.remove("single");
+      }
 }
 
-[school,exam,cls,subject,time,marks,instructionLang].forEach(item=>{
+[school,exam,cls,subject,time,marks,instructionLang,layout].forEach(item=>{
 item.addEventListener("input",updatePreview);
 item.addEventListener("change",updatePreview);
 });
