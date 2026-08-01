@@ -16,7 +16,11 @@ font-family:Poppins,sans-serif;
 }
 
 body{
-background:#f5f7fb;
+background:
+radial-gradient(circle at 10% 10%,rgba(37,99,235,.10),transparent 30%),
+radial-gradient(circle at 90% 20%,rgba(124,58,237,.08),transparent 30%),
+linear-gradient(135deg,#f8fbff,#eef4ff);
+min-height:100vh;
 padding:20px;
 }
 
@@ -47,28 +51,27 @@ background:#1d4ed8;
 color:#fff;
 }
   .action-btn{
-padding:10px 16px;
+padding:8px 13px;
 border:none;
-border-radius:10px;
+border-radius:9px;
+font-size:12px;
 font-weight:600;
 cursor:pointer;
-margin:4px;
-transition:.3s;
+margin:3px;
+transition:all .25s ease;
 color:#fff;
-box-shadow:0 6px 15px rgba(0,0,0,.2);
-}
-
-.result-btn{
-background:linear-gradient(135deg,#16a34a,#22c55e);
-}
-
-.key-btn{
-background:linear-gradient(135deg,#2563eb,#3b82f6);
+white-space:nowrap;
+box-shadow:0 4px 10px rgba(15,23,42,.15);
 }
 
 .action-btn:hover{
 transform:translateY(-2px);
-box-shadow:0 10px 20px rgba(0,0,0,.25);
+box-shadow:0 7px 15px rgba(15,23,42,.20);
+}
+
+.action-btn:active{
+transform:scale(.96);
+}
   }
   .stats{
 display:grid;
@@ -95,6 +98,204 @@ margin-bottom:8px;
 font-size:15px;
 font-weight:600;
   }
+  .stat-card{
+position:relative;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.25);
+}
+
+.stat-card:nth-child(1){
+background:linear-gradient(135deg,#2563eb,#1e40af);
+}
+
+.stat-card:nth-child(2){
+background:linear-gradient(135deg,#16a34a,#059669);
+}
+
+.stat-card:nth-child(3){
+background:linear-gradient(135deg,#7c3aed,#9333ea);
+}
+
+.stat-card:nth-child(4){
+background:linear-gradient(135deg,#ef4444,#dc2626);
+}
+
+.stat-card::after{
+content:"";
+position:absolute;
+width:90px;
+height:90px;
+border-radius:50%;
+background:rgba(255,255,255,.10);
+top:-35px;
+right:-25px;
+}
+
+.stat-card h2{
+position:relative;
+z-index:1;
+}
+
+.stat-card p{
+position:relative;
+z-index:1;
+opacity:.9;
+  }
+  .page-header{
+background:linear-gradient(135deg,#0f3d91,#2563eb);
+padding:22px 25px;
+border-radius:18px;
+color:#fff;
+margin-bottom:20px;
+display:flex;
+align-items:center;
+gap:15px;
+box-shadow:0 12px 30px rgba(37,99,235,.25);
+}
+
+.header-icon{
+width:55px;
+height:55px;
+border-radius:15px;
+background:rgba(255,255,255,.18);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+}
+
+.page-header h1{
+margin:0;
+color:#fff;
+font-size:25px;
+}
+
+.page-header p{
+margin-top:4px;
+font-size:13px;
+opacity:.85;
+  }
+  table{
+border-collapse:separate;
+border-spacing:0;
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 12px 35px rgba(15,23,42,.10);
+border:1px solid #e8eef8;
+}
+
+th{
+background:linear-gradient(135deg,#0f3d91,#2563eb);
+color:#fff;
+font-size:14px;
+letter-spacing:.2px;
+border:none;
+padding:16px 12px;
+}
+
+td{
+padding:14px 12px;
+border:none;
+border-bottom:1px solid #edf2f7;
+font-size:14px;
+color:#334155;
+}
+
+tbody tr{
+transition:.25s;
+}
+
+tbody tr:hover{
+background:#f5f9ff;
+}
+
+tbody tr:last-child td{
+border-bottom:none;
+}
+  .status{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:6px 11px;
+border-radius:30px;
+font-size:12px;
+font-weight:700;
+white-space:nowrap;
+}
+
+.status-published{
+background:#dcfce7;
+color:#15803d;
+border:1px solid #bbf7d0;
+}
+
+.status-hidden{
+background:#fee2e2;
+color:#dc2626;
+border:1px solid #fecaca;
+  }
+  .result-btn{
+background:linear-gradient(135deg,#16a34a,#22c55e);
+}
+
+.key-btn{
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+  }
+  .table-wrapper{
+width:100%;
+overflow-x:auto;
+border-radius:18px;
+-webkit-overflow-scrolling:touch;
+}
+
+table{
+min-width:850px;
+}
+
+@media(max-width:600px){
+body{
+padding:12px;
+}
+
+.page-header{
+padding:17px;
+border-radius:15px;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.stat-card{
+padding:15px 8px;
+border-radius:13px;
+}
+
+.stat-card h2{
+font-size:25px;
+}
+
+.stat-card p{
+font-size:11px;
+}
+  .swipe-hint{
+display:none;
+font-size:11px;
+font-weight:600;
+color:#64748b;
+text-align:right;
+margin:0 4px 7px;
+}
+
+@media(max-width:600px){
+.swipe-hint{
+display:block;
+}
+  }
+    }
+  
 </style>
 </head>
 
@@ -124,8 +325,19 @@ font-weight:600;
 </div>
 
 </div>
-<h1>Publish Results</h1>
+<div class="page-header">
+  <div class="header-icon">🏆</div>
+  <div>
+    <h1>Publish Results</h1>
+    <p>Manage CBT Results & Answer Keys</p>
+  </div>
+</div>
+  <div class="swipe-hint">
+  👈 Swipe to view full table 👉
+</div>
 
+<div class="table-wrapper">
+<div class="table-wrapper">
 <table>
 
 <thead>
@@ -148,7 +360,7 @@ font-weight:600;
 </tbody>
 
 </table>
-
+</div>
 </div>
 
 <script type="module">
@@ -182,8 +394,17 @@ list.innerHTML += `
 <td>${x.testName}</td>
 <td>${x.className}</td>
 <td>${x.subject}</td>
-<td>${x.resultPublished ? "🟢 Published" : "🔴 Hidden"}</td>
-<td>${x.answerKeyPublished ? "🟢 Published" : "🔴 Hidden"}</td>
+<td>
+<span class="status ${x.resultPublished ? "status-published" : "status-hidden"}">
+${x.resultPublished ? "✓ Published" : "● Hidden"}
+</span>
+</td>
+
+<td>
+<span class="status ${x.answerKeyPublished ? "status-published" : "status-hidden"}">
+${x.answerKeyPublished ? "✓ Published" : "● Hidden"}
+</span>
+</td>
 <td>
 <button class="action-btn result-btn"
 onclick="toggleResult('${doc.id}')">
