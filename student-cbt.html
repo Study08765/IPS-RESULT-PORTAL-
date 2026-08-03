@@ -463,8 +463,6 @@ const now = new Date();
     snap.forEach((docSnap) => {
 
         const exam = docSnap.data();
-liveExamFound = true;
-        examList.innerHTML += `
         const start = new Date(exam.start);
 const end = new Date(exam.end);
 
@@ -500,11 +498,14 @@ Starts : ${exam.start}
 
 return;
 
-    }
+}
 
 if(now > end){
     return;
     }
+liveExamFound = true;
+        examList.innerHTML += `
+        
         <div class="exam-card">
 
             <div>
