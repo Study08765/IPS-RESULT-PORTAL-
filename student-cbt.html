@@ -428,25 +428,83 @@ async function loadExams() {
 
     examList.innerHTML = "Loading...";
 
-    const q = query(
-        collection(db, "cbtTests"),
-        where("status", "==", "OPEN")
-    );
+    const snap = await getDocs(collection(db,"cbtTests"));
 
-    const snap = await getDocs(q);
+const now = new Date();
+    let liveExamFound = false;
 
     examList.innerHTML = "";
 
     if (snap.empty) {
-        examList.innerHTML = "<p style='color:white;text-align:center;'>No Exam Available</p>";
-        return;
+    examList.innerHTML = `
+    <div style="
+        background:#fff;
+        border-radius:20px;
+        padding:35px;
+        text-align:center;
+        color:#1e3a8a;
+        box-shadow:0 10px 25px rgba(0,0,0,.15);
+    ">
+        <div style="font-size:60px;">⏳</div>
+
+        <h2 style="margin:10px 0;">
+            No Live Exam
+        </h2>
+
+        <p>
+            There is no active exam at this time.
+            Please check again later.
+        </p>
+    </div>
+    `;
+    return;
     }
 
     snap.forEach((docSnap) => {
 
         const exam = docSnap.data();
-
+liveExamFound = true;
         examList.innerHTML += `
+        const start = new Date(exam.start);
+const end = new Date(exam.end);
+
+if(exam.status !== "OPEN"){
+    return;
+}
+
+if(now < start){
+
+examList.innerHTML = `
+<div style="
+background:#fff;
+padding:25px;
+border-radius:18px;
+text-align:center;
+margin-bottom:20px;
+">
+
+<h2 style="color:#2563eb;">
+📅 Upcoming Exam
+</h2>
+
+<p style="margin-top:10px;">
+${exam.testName}
+</p>
+
+<p style="color:#666;">
+Starts : ${exam.start}
+</p>
+
+</div>
+`;
+
+return;
+
+    }
+
+if(now > end){
+    return;
+    }
         <div class="exam-card">
 
             <div>
@@ -463,7 +521,32 @@ async function loadExams() {
         `;
 
     });
+if(!liveExamFound){
 
+examList.innerHTML = `
+<div style="
+background:#fff;
+padding:35px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+">
+
+<div style="font-size:55px;">⏳</div>
+
+<h2 style="color:#1d4ed8;">
+No Live Exam
+</h2>
+
+<p style="margin-top:10px;color:#555;">
+There is no live exam right now.
+Please come back at the scheduled time.
+</p>
+
+</div>
+`;
+
+    }
 }
 
 window.selectExam = function(id, code) {
