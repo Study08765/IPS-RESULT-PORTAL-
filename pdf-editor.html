@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PDF Editor | THE STUDY POINT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Poppins,sans-serif}
+body{background:#eef4ff;color:#172033;padding:15px}
+.wrap{max-width:1250px;margin:auto}
+.head{background:linear-gradient(135deg,#003c8f,#1565c0,#42a5f5);color:white;border-radius:20px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 12px 30px #0b4aa833}
+.head h1{font-size:27px}.head p{font-size:12px;opacity:.9}
+.back{background:#ffd600;color:#111;text-decoration:none;padding:10px 15px;border-radius:10px;font-weight:700}
+.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:18px}
+.card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 8px 25px #00000010;margin-bottom:15px}
+.card h2{font-size:18px;color:#0755ae;margin-bottom:13px}
+label{font-size:12px;font-weight:700;display:block;margin:10px 0 6px;color:#31547d}
+input,select,button{font:inherit}
+input[type=file],input[type=text],input[type=number],select{width:100%;padding:10px;border:2px solid #dbeafe;border-radius:10px;background:#fff}
+.btns{display:grid;gap:9px;margin-top:12px}
+button{border:0;border-radius:10px;padding:11px;cursor:pointer;font-weight:700}
+.blue{background:#1565c0;color:#fff}.green{background:#16a34a;color:#fff}.red{background:#dc2626;color:#fff}.gray{background:#e5e7eb}
+.toolrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#workspace{background:#dbe7f8;border-radius:18px;padding:18px;min-height:650px;overflow:auto;text-align:center}
+#pdfCanvas{background:#fff;max-width:100%;height:auto;box-shadow:0 4px 18px #0003;display:none;margin:auto}
+.empty{height:600px;display:flex;align-items:center;justify-content:center;color:#64748b;flex-direction:column;gap:10px}
+.empty b{font-size:20px;color:#31547d}
+.status{padding:10px;border-radius:9px;background:#eff6ff;color:#174ea6;font-size:12px;margin-top:10px}
+.notice{display:none;padding:11px;border-radius:10px;margin-top:10px;font-size:12px;font-weight:600}
+.ok{background:#dcfce7;color:#166534}.bad{background:#fee2e2;color:#991b1b}
+.pages{display:flex;gap:7px;overflow:auto;margin-top:10px}
+.pageBtn{min-width:45px;background:#e8f1ff;color:#1452a0}
+.pageBtn.active{background:#1565c0;color:white}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.head{flex-direction:column;gap:12px;text-align:center}}
+</style>
+</head>
+<body>
+<script>
+if(localStorage.getItem("adminLogin")!=="true") location.href="admin-login.html";
+</script>
+
+<div class="wrap">
+<div class="head">
+ <div><h1>📄 PDF Editor</h1><p>THE STUDY POINT • CBT Portal & Paper Studio Pro</p></div>
+ <a class="back" href="admin-dashboard.html">← Dashboard</a>
+</div>
+
+<div class="grid">
+<div>
+ <div class="card">
+  <h2>Upload PDF</h2>
+  <input type="file" id="file" accept="application/pdf">
+  <div class="status" id="fileStatus">पहले PDF file चुनें।</div>
+  <div id="notice" class="notice"></div>
+ </div>
+
+ <div class="card">
+  <h2>PDF Tools</h2>
+  <div class="btns">
+   <button class="blue" id="prev">← Previous Page</button>
+   <button class="blue" id="next">Next Page →</button>
+   <button class="green" id="download">⬇ Download PDF</button>
+   <button class="gray" id="reset">Reset</button>
+  </div>
+ </div>
+
+ <div class="card">
+  <h2>Add Text</h2>
+  <label>Text</label>
+  <input type="text" id="text" placeholder="अपना Text लिखें">
+  <div class="toolrow">
+   <div><label>X Position</label><input type="number" id="x" value="60"></div>
+   <div><label>Y Position</label><input type="number" id="y" value="60"></div>
+  </div>
+  <div class="toolrow">
+   <div><label>Font Size</label><input type="number" id="size" value="18"></div>
+   <div><label>Page</label><input type="number" id="page" value="1" min="1"></div>
+  </div>
+  <div class="btns"><button class="blue" id="addText">＋ Add Text to PDF</button></div>
+ </div>
+
+ <div class="card">
+  <h2>Page</h2>
+  <label>Page Number</label>
+  <input type="number" id="gotoPage" value="1" min="1">
+  <div class="btns"><button class="gray" id="goto">Go to Page</button></div>
+  <div class="pages" id="pages"></div>
+ </div>
+</div>
+
+<div class="card" style="padding:12px">
+ <div id="workspace">
+  <div class="empty" id="empty"><b>PDF Preview</b><span>PDF upload करने के बाद यहाँ page दिखाई देगा।</span></div>
+  <canvas id="pdfCanvas"></canvas>
+ </div>
+</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs" type="module"></script>
+<script type="module">
+import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs";
+import { PDFDocument, rgb, StandardFonts } from "https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/+esm";
+
+pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs";
+
+const $=id=>document.getElementById(id);
+let originalBytes=null, pdfDoc=null, pdfJsDoc=null, currentPage=1, totalPages=0, edits=[];
+let renderScale=1.25;
+
+function note(msg,good=true){
+ const n=$("notice");n.textContent=msg;n.className="notice "+(good?"ok":"bad");n.style.display="block";
+ setTimeout(()=>n.style.display="none",3000);
+}
+function status(t){$("fileStatus").textContent=t}
+
+async function renderPage(num){
+ if(!pdfJsDoc)return;
+ currentPage=Math.max(1,Math.min(num,totalPages));
+ const page=await pdfJsDoc.getPage(currentPage);
+ const viewport=page.getViewport({scale:renderScale});
+ const canvas=$("pdfCanvas"),ctx=canvas.getContext("2d");
+ canvas.width=viewport.width;canvas.height=viewport.height;
+ $("empty").style.display="none";canvas.style.display="block";
+ await page.render({canvasContext:ctx,viewport}).promise;
+ $("gotoPage").value=currentPage;$("page").value=currentPage;
+ document.querySelectorAll(".pageBtn").forEach((b,i)=>b.classList.toggle("active",i+1===currentPage));
+}
+
+$("file").onchange=async e=>{
+ const f=e.target.files[0];if(!f)return;
+ if(f.type!=="application/pdf"){note("केवल PDF file चुनें।",false);return}
+ try{
+  originalBytes=await f.arrayBuffer();
+  pdfDoc=await PDFDocument.load(originalBytes);
+  pdfJsDoc=await pdfjsLib.getDocument({data:new Uint8Array(originalBytes.slice(0))}).promise;
+  totalPages=pdfJsDoc.numPages;currentPage=1;edits=[];
+  status(`${f.name} • ${totalPages} page`);
+  $("pages").innerHTML=Array.from({length:totalPages},(_,i)=>`<button class="pageBtn ${i===0?"active":""}" data-p="${i+1}">${i+1}</button>`).join("");
+  document.querySelectorAll(".pageBtn").forEach(b=>b.onclick=()=>renderPage(+b.dataset.p));
+  await renderPage(1);note("PDF successfully loaded.");
+ }catch(err){console.error(err);note("PDF open नहीं हो सकी।",false)}
+};
+
+$("prev").onclick=()=>renderPage(currentPage-1);
+$("next").onclick=()=>renderPage(currentPage+1);
+$("goto").onclick=()=>renderPage(+$("gotoPage").value||1);
+
+$("addText").onclick=()=>{
+ if(!pdfDoc)return note("पहले PDF upload करें।",false);
+ const text=$("text").value.trim();if(!text)return note("Text लिखें।",false);
+ edits.push({
+  page:Math.max(1,Math.min(totalPages,+$("page").value||currentPage)),
+  text,x:+$("x").value||0,y:+$("y").value||0,size:+$("size").value||18
+ });
+ $("text").value="";
+ note("Text edit queue में add हो गया। Download करते समय PDF में apply होगा।");
+};
+
+$("download").onclick=async()=>{
+ if(!pdfDoc)return note("पहले PDF upload करें।",false);
+ try{
+  const font=await pdfDoc.embedFont(StandardFonts.Helvetica);
+  for(const e of edits){
+   const p=pdfDoc.getPage(e.page-1);
+   const h=p.getHeight();
+   p.drawText(e.text,{x:e.x,y:h-e.y-e.size,size:e.size,font,color:rgb(0,0,0)});
+  }
+  const out=await pdfDoc.save();
+  const blob=new Blob([out],{type:"application/pdf"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download="edited-pdf.pdf";a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  note("Edited PDF तैयार है।");
+ }catch(err){console.error(err);note("PDF export नहीं हुआ।",false)}
+};
+
+$("reset").onclick=()=>{
+ if(!originalBytes)return;
+ edits=[];renderPage(currentPage);note("Edits reset हो गए।");
+};
+</script>
+</body>
+</html>
