@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Question Bank | THE STUDY POINT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#eef4ff;color:#1e293b;min-height:100vh;padding:18px}
+.container{max-width:1250px;margin:auto}
+.header{background:linear-gradient(135deg,#003c8f,#1565c0,#42a5f5);color:#fff;border-radius:22px;padding:22px 25px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 15px 35px rgba(0,71,171,.22);margin-bottom:20px}
+.header h1{font-size:28px;font-weight:800}.header p{font-size:13px;opacity:.9;margin-top:3px}
+.back{background:#ffd700;color:#111827;text-decoration:none;padding:11px 16px;border-radius:10px;font-weight:700}
+.panel{background:#fff;border-radius:20px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.08);margin-bottom:20px}
+.panel h2{color:#0047ab;margin-bottom:16px;font-size:21px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.stat{background:#f5f9ff;border:1px solid #dbeafe;border-radius:14px;padding:14px;text-align:center}
+.stat b{display:block;font-size:24px;color:#1565c0}.stat span{font-size:12px;color:#64748b}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+input,select,textarea{width:100%;padding:12px 13px;border:2px solid #dbeafe;border-radius:11px;outline:none;font-size:14px;background:#fff}
+input:focus,select:focus,textarea:focus{border-color:#2563eb}
+.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.full{grid-column:1/-1}
+textarea{min-height:100px;resize:vertical}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+button{border:0;border-radius:10px;padding:11px 15px;font-weight:700;cursor:pointer}
+.primary{background:#1565c0;color:#fff}.green{background:#16a34a;color:#fff}.gray{background:#e5e7eb;color:#111827}.red{background:#dc2626;color:#fff}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:850px}
+th{background:#1565c0;color:#fff;padding:13px;text-align:left;white-space:nowrap}
+td{padding:12px;border-bottom:1px solid #e5e7eb;vertical-align:top}
+tr:hover{background:#f8fbff}
+.qtext{max-width:390px;white-space:normal}
+.small{font-size:12px;color:#64748b}
+.badge{display:inline-block;padding:4px 8px;border-radius:15px;background:#e0ecff;color:#174ea6;font-size:11px;font-weight:700}
+.notice{display:none;padding:12px;border-radius:10px;margin-bottom:15px;font-weight:600}
+.success{background:#dcfce7;color:#166534}.error{background:#fee2e2;color:#991b1b}
+.empty{text-align:center;padding:30px;color:#64748b}
+.modal{display:none;position:fixed;inset:0;background:rgba(15,23,42,.6);z-index:1000;padding:18px;overflow:auto}
+.modal-card{background:#fff;max-width:750px;margin:40px auto;border-radius:20px;padding:22px}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.modal-head h2{color:#0047ab}
+.close{background:#fee2e2;color:#991b1b;border-radius:50%;width:38px;height:38px;padding:0}
+@media(max-width:700px){body{padding:10px}.header{flex-direction:column;gap:13px;text-align:center}.header h1{font-size:23px}.stats{grid-template-columns:1fr}.filters,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.panel{padding:16px}}
+</style>
+</head>
+<body>
+
+<script>
+if(localStorage.getItem("adminLogin")!=="true") location.href="admin-login.html";
+</script>
+
+<div class="container">
+<div class="header">
+  <div>
+    <h1><i class="fa-solid fa-book"></i> Question Bank</h1>
+    <p>THE STUDY POINT • CBT Portal & Paper Studio Pro</p>
+  </div>
+  <a class="back" href="admin-dashboard.html"><i class="fa-solid fa-arrow-left"></i> Dashboard</a>
+</div>
+
+<div id="notice" class="notice"></div>
+
+<div class="panel">
+  <h2><i class="fa-solid fa-chart-simple"></i> Question Bank Overview</h2>
+  <div class="stats">
+    <div class="stat"><b id="totalQuestions">0</b><span>Total Questions</span></div>
+    <div class="stat"><b id="totalTests">0</b><span>Total Tests</span></div>
+    <div class="stat"><b id="visibleQuestions">0</b><span>Filtered Questions</span></div>
+  </div>
+
+  <div class="filters">
+    <input id="search" placeholder="Search question, option or answer...">
+    <select id="testFilter"><option value="">All Tests</option></select>
+    <select id="subjectFilter"><option value="">All Subjects</option></select>
+  </div>
+</div>
+
+<div class="panel">
+  <h2><i class="fa-solid fa-circle-plus"></i> Add Question</h2>
+  <div class="formgrid">
+    <div class="full">
+      <label>Select Test</label>
+      <select id="addTest"><option value="">Select Test</option></select>
+    </div>
+    <div class="full">
+      <textarea id="question" placeholder="Enter Question"></textarea>
+    </div>
+    <input id="optionA" placeholder="Option A">
+    <input id="optionB" placeholder="Option B">
+    <input id="optionC" placeholder="Option C">
+    <input id="optionD" placeholder="Option D">
+    <select id="answer">
+      <option value="">Correct Answer</option>
+      <option value="A">Option A</option>
+      <option value="B">Option B</option>
+      <option value="C">Option C</option>
+      <option value="D">Option D</option>
+    </select>
+  </div>
+  <div class="actions">
+    <button class="green" id="addBtn"><i class="fa-solid fa-plus"></i> SAVE QUESTION</button>
+    <button class="gray" id="clearBtn">CLEAR</button>
+  </div>
+</div>
+
+<div class="panel">
+  <h2><i class="fa-solid fa-list"></i> All Questions</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Question</th><th>Test</th><th>Answer</th><th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="questionList">
+        <tr><td colspan="5" class="empty">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="modal" id="editModal">
+ <div class="modal-card">
+  <div class="modal-head">
+    <h2><i class="fa-solid fa-pen-to-square"></i> Edit Question</h2>
+    <button class="close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <input type="hidden" id="editId">
+  <textarea id="editQuestion" placeholder="Question"></textarea>
+  <div class="formgrid" style="margin-top:12px">
+    <input id="editA" placeholder="Option A">
+    <input id="editB" placeholder="Option B">
+    <input id="editC" placeholder="Option C">
+    <input id="editD" placeholder="Option D">
+    <select id="editAnswer">
+      <option value="">Correct Answer</option>
+      <option value="A">Option A</option><option value="B">Option B</option>
+      <option value="C">Option C</option><option value="D">Option D</option>
+    </select>
+  </div>
+  <div class="actions">
+    <button class="primary" id="updateBtn"><i class="fa-solid fa-floppy-disk"></i> UPDATE QUESTION</button>
+    <button class="gray" id="cancelEdit">CANCEL</button>
+  </div>
+ </div>
+</div>
+
+<script type="module">
+import { db } from "./firebase.js";
+import {
+ collection, query, onSnapshot, addDoc, updateDoc, deleteDoc, doc,
+ serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+let tests=[];
+let questions=[];
+let testMap={};
+
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+
+function notice(msg,type="success"){
+ $("notice").textContent=msg;
+ $("notice").className="notice "+type;
+ $("notice").style.display="block";
+ setTimeout(()=>$("notice").style.display="none",3000);
+}
+
+function fillTestSelects(){
+ const opts=tests.map(t=>`<option value="${esc(t.id)}">${esc(t.data.testName||"Untitled Test")} — ${esc(t.data.subject||"")}</option>`).join("");
+ $("addTest").innerHTML='<option value="">Select Test</option>'+opts;
+ $("testFilter").innerHTML='<option value="">All Tests</option>'+tests.map(t=>`<option value="${esc(t.id)}">${esc(t.data.testName||"Untitled Test")}</option>`).join("");
+ const subjects=[...new Set(tests.map(t=>t.data.subject).filter(Boolean))].sort();
+ $("subjectFilter").innerHTML='<option value="">All Subjects</option>'+subjects.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join("");
+}
+
+function render(){
+ const search=$("search").value.trim().toLowerCase();
+ const tf=$("testFilter").value;
+ const sf=$("subjectFilter").value;
+
+ const filtered=questions.filter(q=>{
+   const x=q.data, t=testMap[x.testId]?.data||{};
+   const hay=[x.question,x.optionA,x.optionB,x.optionC,x.optionD,x.answer,t.testName,t.subject].join(" ").toLowerCase();
+   return (!search||hay.includes(search)) && (!tf||x.testId===tf) && (!sf||t.subject===sf);
+ });
+ $("visibleQuestions").textContent=filtered.length;
+ $("totalQuestions").textContent=questions.length;
+ $("totalTests").textContent=tests.length;
+
+ if(!filtered.length){
+   $("questionList").innerHTML='<tr><td colspan="5" class="empty">कोई Question नहीं मिला।</td></tr>';
+   return;
+ }
+ $("questionList").innerHTML=filtered.map((q,i)=>{
+   const x=q.data,t=testMap[x.testId]?.data||{};
+   return `<tr>
+    <td>${i+1}</td>
+    <td class="qtext"><b>${esc(x.question)}</b><div class="small">A: ${esc(x.optionA)}<br>B: ${esc(x.optionB)}<br>C: ${esc(x.optionC)}<br>D: ${esc(x.optionD)}</div></td>
+    <td><b>${esc(t.testName||"Unknown Test")}</b><br><span class="badge">${esc(t.subject||"-")}</span></td>
+    <td><span class="badge">${esc(x.answer||"-")}</span></td>
+    <td>
+      <button class="primary edit" data-id="${q.id}"><i class="fa-solid fa-pen"></i> Edit</button>
+      <button class="red del" data-id="${q.id}"><i class="fa-solid fa-trash"></i> Delete</button>
+    </td>
+   </tr>`;
+ }).join("");
+
+ document.querySelectorAll(".edit").forEach(b=>b.onclick=()=>openEdit(b.dataset.id));
+ document.querySelectorAll(".del").forEach(b=>b.onclick=()=>removeQuestion(b.dataset.id));
+}
+
+function clearForm(){
+ ["question","optionA","optionB","optionC","optionD"].forEach(id=>$(id).value="");
+ $("answer").value=""; $("addTest").value="";
+}
+
+async function addQuestion(){
+ const testId=$("addTest").value;
+ const question=$("question").value.trim();
+ const optionA=$("optionA").value.trim(), optionB=$("optionB").value.trim();
+ const optionC=$("optionC").value.trim(), optionD=$("optionD").value.trim();
+ const answer=$("answer").value;
+ if(!testId) return notice("पहले Test चुनें।","error");
+ if(!question) return notice("Question लिखें।","error");
+ if(!answer) return notice("Correct Answer चुनें।","error");
+ try{
+  await addDoc(collection(db,"cbtQuestions"),{
+   testId,question,optionA,optionB,optionC,optionD,answer,createdAt:serverTimestamp()
+  });
+  clearForm(); notice("Question सफलतापूर्वक Save हो गया।");
+ }catch(e){console.error(e);notice("Question save नहीं हुआ। Firebase permission/check करें।","error")}
+}
+
+function openEdit(id){
+ const q=questions.find(x=>x.id===id); if(!q)return;
+ const x=q.data;
+ $("editId").value=id;$("editQuestion").value=x.question||"";
+ $("editA").value=x.optionA||"";$("editB").value=x.optionB||"";
+ $("editC").value=x.optionC||"";$("editD").value=x.optionD||"";
+ $("editAnswer").value=x.answer||"";
+ $("editModal").style.display="block";
+}
+function closeEdit(){$("editModal").style.display="none"}
+
+async function updateQuestion(){
+ const id=$("editId").value;
+ const question=$("editQuestion").value.trim();
+ const answer=$("editAnswer").value;
+ if(!question||!answer)return notice("Question और Correct Answer आवश्यक हैं।","error");
+ try{
+  await updateDoc(doc(db,"cbtQuestions",id),{
+   question,optionA:$("editA").value.trim(),optionB:$("editB").value.trim(),
+   optionC:$("editC").value.trim(),optionD:$("editD").value.trim(),answer
+  });
+  closeEdit();notice("Question सफलतापूर्वक Update हो गया।");
+ }catch(e){console.error(e);notice("Update नहीं हुआ।","error")}
+}
+
+async function removeQuestion(id){
+ if(!confirm("क्या आप इस Question को Delete करना चाहते हैं?"))return;
+ try{await deleteDoc(doc(db,"cbtQuestions",id));notice("Question Delete हो गया.");}
+ catch(e){console.error(e);notice("Delete नहीं हुआ।","error")}
+}
+
+$("addBtn").onclick=addQuestion;
+$("clearBtn").onclick=clearForm;
+$("updateBtn").onclick=updateQuestion;
+$("closeModal").onclick=closeEdit;
+$("cancelEdit").onclick=closeEdit;
+["search","testFilter","subjectFilter"].forEach(id=>{
+ $(id).addEventListener(id==="search"?"input":"change",render);
+});
+
+onSnapshot(collection(db,"cbtTests"),snap=>{
+ tests=[];testMap={};
+ snap.forEach(d=>{const item={id:d.id,data:d.data()};tests.push(item);testMap[d.id]=item});
+ fillTestSelects();render();
+},err=>{console.error(err);notice("Tests load नहीं हुए।","error")});
+
+onSnapshot(collection(db,"cbtQuestions"),snap=>{
+ questions=[];snap.forEach(d=>questions.push({id:d.id,data:d.data()}));
+ questions.sort((a,b)=>(b.data.createdAt?.seconds||0)-(a.data.createdAt?.seconds||0));
+ render();
+},err=>{console.error(err);notice("Questions load नहीं हुए।","error")});
+</script>
+</body>
+</html>
