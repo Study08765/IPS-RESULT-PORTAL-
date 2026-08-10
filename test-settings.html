@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Test | THE STUDY POINT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#eef4ff;color:#222;min-height:100vh;padding:18px}
+.container{max-width:1100px;margin:auto}
+.header{
+  background:linear-gradient(135deg,#003c8f,#1565c0,#42a5f5);
+  color:#fff;border-radius:22px;padding:22px 25px;
+  display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 15px 35px rgba(0,71,171,.22);margin-bottom:20px
+}
+.header h1{font-size:28px;font-weight:800}
+.header p{font-size:13px;opacity:.9;margin-top:3px}
+.back{
+  text-decoration:none;background:#ffd700;color:#111827;
+  padding:11px 16px;border-radius:10px;font-weight:700
+}
+.panel{
+  background:#fff;border-radius:20px;padding:24px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);margin-bottom:20px
+}
+.panel h2{color:#0047ab;font-size:21px;margin-bottom:16px}
+.test-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.test-card{
+  border:2px solid #e3edff;border-radius:15px;padding:15px;
+  cursor:pointer;transition:.2s;background:#fff
+}
+.test-card:hover,.test-card.active{border-color:#1565c0;background:#f4f8ff}
+.test-card strong{display:block;font-size:16px;margin-bottom:5px}
+.test-card span{font-size:13px;color:#666;display:block}
+.badge{display:inline-block;margin-top:8px;padding:4px 9px;border-radius:20px;font-size:11px;font-weight:700}
+.open{background:#dcfce7;color:#166534}.closed{background:#fee2e2;color:#991b1b}
+.empty{padding:20px;text-align:center;color:#777}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.group{margin-bottom:16px}
+label{display:block;font-weight:700;color:#174ea6;margin-bottom:7px;font-size:14px}
+input,select{
+ width:100%;padding:13px;border:2px solid #dbeafe;border-radius:11px;
+ outline:none;font-size:14px;background:#fff
+}
+input:focus,select:focus{border-color:#2563eb;box-shadow:0 0 8px rgba(37,99,235,.15)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+button{
+ border:0;border-radius:11px;padding:13px 18px;font-weight:700;
+ cursor:pointer;font-size:14px
+}
+.save{background:#1565c0;color:#fff}.save:hover{background:#0047ab}
+.cancel{background:#e5e7eb;color:#111827}
+.question-btn{background:#16a34a;color:#fff}
+.status-box{
+ background:#f8fbff;border:1px solid #dbeafe;border-radius:13px;
+ padding:14px;margin:15px 0
+}
+.status-box label{display:flex;align-items:center;gap:10px;color:#222;margin:0}
+.status-box input{width:auto}
+.notice{display:none;padding:12px;border-radius:10px;margin-bottom:15px;font-weight:600}
+.success{background:#dcfce7;color:#166534}.error{background:#fee2e2;color:#991b1b}
+@media(max-width:700px){
+ body{padding:10px}.header{flex-direction:column;gap:14px;text-align:center}
+ .header h1{font-size:23px}.row{grid-template-columns:1fr}.panel{padding:17px}
+}
+</style>
+</head>
+
+<body>
+<script>
+if(localStorage.getItem("adminLogin")!=="true"){
+  location.href="admin-login.html";
+}
+</script>
+
+<div class="container">
+
+  <div class="header">
+    <div>
+      <h1><i class="fa-solid fa-gear"></i> Edit Test</h1>
+      <p>THE STUDY POINT • CBT Portal & Paper Studio Pro</p>
+    </div>
+    <a class="back" href="admin-dashboard.html">
+      <i class="fa-solid fa-arrow-left"></i> Dashboard
+    </a>
+  </div>
+
+  <div id="notice" class="notice"></div>
+
+  <div class="panel">
+    <h2><i class="fa-solid fa-list-check"></i> Select Test to Edit</h2>
+    <div id="testList" class="test-list">
+      <div class="empty">Tests loading...</div>
+    </div>
+  </div>
+
+  <div class="panel" id="editPanel" style="display:none">
+    <h2><i class="fa-solid fa-pen-to-square"></i> Test Information</h2>
+
+    <input type="hidden" id="testId">
+
+    <div class="row">
+      <div class="group">
+        <label>Test Name</label>
+        <input id="testName" type="text" placeholder="Science Monthly Test">
+      </div>
+      <div class="group">
+        <label>Exam Code</label>
+        <input id="examCode" type="text" placeholder="SCI501">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="group">
+        <label>Class</label>
+        <select id="className">
+          <option>Select Class</option>
+          <option>Class 3</option><option>Class 4</option><option>Class 5</option>
+          <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+        </select>
+      </div>
+      <div class="group">
+        <label>Subject</label>
+        <select id="subject">
+          <option>Select Subject</option>
+          <option>English</option><option>Hindi</option><option>Mathematics</option>
+          <option>Science</option><option>Social Science</option><option>Computer</option><option>GK</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="group">
+        <label>Duration (Minutes)</label>
+        <input id="duration" type="number" min="1">
+      </div>
+      <div class="group">
+        <label>Total Questions</label>
+        <input id="questions" type="number" min="1">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="group">
+        <label>Total Marks</label>
+        <input id="marks" type="number" min="0">
+      </div>
+      <div class="group">
+        <label>Status</label>
+        <select id="status">
+          <option>OPEN</option>
+          <option>CLOSED</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="group">
+        <label>Start Date & Time</label>
+        <input id="start" type="datetime-local">
+      </div>
+      <div class="group">
+        <label>End Date & Time</label>
+        <input id="end" type="datetime-local">
+      </div>
+    </div>
+
+    <div class="status-box">
+      <label>
+        <input id="isLive" type="checkbox">
+        <span><b>Exam Live</b> — students can access the live exam when other conditions allow.</span>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button class="save" id="saveBtn">
+        <i class="fa-solid fa-floppy-disk"></i> SAVE CHANGES
+      </button>
+      <button class="cancel" id="cancelBtn">
+        <i class="fa-solid fa-xmark"></i> CANCEL
+      </button>
+      <button class="question-btn" id="questionBtn">
+        <i class="fa-solid fa-circle-question"></i> EDIT QUESTIONS
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script type="module">
+import { db } from "./firebase.js";
+import {
+  collection,
+  onSnapshot,
+  doc,
+  updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const list = document.getElementById("testList");
+const panel = document.getElementById("editPanel");
+const notice = document.getElementById("notice");
+
+let tests = [];
+let selectedId = "";
+
+function showNotice(message, type="success"){
+  notice.textContent = message;
+  notice.className = "notice " + type;
+  notice.style.display = "block";
+  setTimeout(()=>notice.style.display="none",3000);
+}
+
+function setValue(id, value){
+  document.getElementById(id).value = value ?? "";
+}
+
+function formatDateTime(value){
+  if(!value) return "";
+  const d = new Date(value);
+  if(Number.isNaN(d.getTime())) return value;
+  const pad=n=>String(n).padStart(2,"0");
+  return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())+
+         "T"+pad(d.getHours())+":"+pad(d.getMinutes());
+}
+
+function renderTests(){
+  if(!tests.length){
+    list.innerHTML = '<div class="empty">अभी कोई CBT Test उपलब्ध नहीं है।</div>';
+    return;
+  }
+
+  list.innerHTML = tests.map(t=>{
+    const x=t.data;
+    const status=(x.status || "CLOSED").toUpperCase();
+    return `
+      <div class="test-card ${selectedId===t.id ? "active":""}" data-id="${t.id}">
+        <strong>${escapeHtml(x.testName || "Untitled Test")}</strong>
+        <span>${escapeHtml(x.className || "-")} • ${escapeHtml(x.subject || "-")}</span>
+        <span>Code: ${escapeHtml(x.examCode || "-")}</span>
+        <span class="badge ${status==="OPEN" ? "open":"closed"}">${status}</span>
+      </div>
+    `;
+  }).join("");
+
+  document.querySelectorAll(".test-card").forEach(card=>{
+    card.onclick=()=>selectTest(card.dataset.id);
+  });
+}
+
+function selectTest(id){
+  const t=tests.find(x=>x.id===id);
+  if(!t) return;
+
+  selectedId=id;
+  const x=t.data;
+
+  setValue("testId",id);
+  setValue("testName",x.testName);
+  setValue("examCode",x.examCode);
+  setValue("className",x.className);
+  setValue("subject",x.subject);
+  setValue("duration",x.duration);
+  setValue("questions",x.questions);
+  setValue("marks",x.marks);
+  setValue("status",x.status || "OPEN");
+  setValue("start",formatDateTime(x.start));
+  setValue("end",formatDateTime(x.end));
+  document.getElementById("isLive").checked = x.isLive === true;
+
+  panel.style.display="block";
+  renderTests();
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+document.getElementById("saveBtn").onclick=async()=>{
+  if(!selectedId){
+    showNotice("पहले कोई Test चुनें।","error");
+    return;
+  }
+
+  const testName=document.getElementById("testName").value.trim();
+  if(!testName){
+    showNotice("Test Name भरें।","error");
+    return;
+  }
+
+  const data={
+    testName,
+    examCode:document.getElementById("examCode").value.trim(),
+    className:document.getElementById("className").value,
+    subject:document.getElementById("subject").value,
+    duration:document.getElementById("duration").value,
+    questions:document.getElementById("questions").value,
+    marks:document.getElementById("marks").value,
+    start:document.getElementById("start").value,
+    end:document.getElementById("end").value,
+    status:document.getElementById("status").value,
+    isLive:document.getElementById("isLive").checked
+  };
+
+  try{
+    await updateDoc(doc(db,"cbtTests",selectedId),data);
+    showNotice("Test की जानकारी सफलतापूर्वक अपडेट हो गई।","success");
+  }catch(error){
+    console.error(error);
+    showNotice("Update नहीं हुआ। Firebase permission/check करें।","error");
+  }
+};
+
+document.getElementById("cancelBtn").onclick=()=>{
+  selectedId="";
+  panel.style.display="none";
+  renderTests();
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+
+document.getElementById("questionBtn").onclick=()=>{
+  if(!selectedId){
+    showNotice("पहले कोई Test चुनें।","error");
+    return;
+  }
+  location.href="add-questions.html?testId="+encodeURIComponent(selectedId);
+};
+
+function escapeHtml(value){
+  return String(value ?? "").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[c]));
+}
+
+onSnapshot(collection(db,"cbtTests"),snapshot=>{
+  tests=[];
+  snapshot.forEach(d=>tests.push({id:d.id,data:d.data()}));
+  tests.sort((a,b)=>{
+    const aa=a.data.createdAt?.seconds || 0;
+    const bb=b.data.createdAt?.seconds || 0;
+    return bb-aa;
+  });
+  renderTests();
+},error=>{
+  console.error(error);
+  list.innerHTML='<div class="empty">Tests लोड नहीं हो पाए। Firebase connection/check करें।</div>';
+});
+</script>
+</body>
+</html>
