@@ -60,26 +60,26 @@ background:#073a82;
 }
 
 .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
 
-content:"";
+    background:
+    linear-gradient(
+        rgba(3,35,83,.10),
+        rgba(3,35,83,.18)
+    ),
+    url("hero-bg.jpg");
 
-position:absolute;
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
 
-inset:0;
-
-background:
-
-linear-gradient(
-rgba(3,35,83,.18),
-rgba(3,35,83,.38)
-),
-
-url("hero-bg.jpg");
-
-background-position:center;
-background-size:cover;
-background-repeat:no-repeat;
-
+.portal-btn{
+    min-height:160px;
+    padding:15px 10px;
+    border-radius:23px;
 }
 
 .hero-content{
@@ -737,31 +737,20 @@ gap:11px;
 
 }
 
-.portal-btn{
+    .portal-btn{
+        min-height:150px;
+        padding:14px 8px;
+    }
 
-min-height:135px;
+    .icon-box{
+        width:68px;
+        height:68px;
+        font-size:29px;
+    }
 
-border-radius:20px;
-
-}
-
-.icon-box{
-
-width:62px;
-
-height:62px;
-
-font-size:27px;
-
-border-radius:18px;
-
-}
-
-.button-title{
-
-font-size:13px;
-
-}
+    .button-title{
+        font-size:14px;
+    }
 
 .button-sub{
 
