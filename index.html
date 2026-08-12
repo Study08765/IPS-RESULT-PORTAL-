@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THE STUDY POINT | CBT PORTAL</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#0047AB">
+
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    margin:0;
+    padding:0;
+
+    overflow:hidden;
+
+    background:#eaf3ff;
+
+}
+
+
+/* =====================================================
+   FULL SCREEN IMAGE
+===================================================== */
+
+.hero{
+
+    position:relative;
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:#dcecff;
+
+}
+
+
+/* ORIGINAL IMAGE */
+
+.hero-image{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center center;
+
+    opacity:1;
+
+    filter:none;
+
+}
+
+
+/* =====================================================
+   CONTENT OVER IMAGE
+===================================================== */
+
+.overlay-content{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:12px;
+
+    width:100%;
+
+    padding:0 10px 5px;
+
+    z-index:10;
+
+}
+
+
+/* =====================================================
+   BRAND ABOVE BUTTONS
+===================================================== */
+
+.brand{
+
+    text-align:center;
+
+    margin-bottom:8px;
+
+}
+
+
+/* LOGO */
+
+.brand-logo{
+
+    width:55px;
+    height:55px;
+
+    margin:auto;
+
+    padding:3px;
+
+    background:#fff;
+
+    border:2px solid #FFD700;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 5px 14px rgba(0,0,0,.20);
+
+}
+
+.brand-logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+}
+
+
+/* SCHOOL NAME */
+
+.school-name{
+
+    margin-top:3px;
+
+    font-size:20px;
+
+    line-height:1.1;
+
+    font-weight:800;
+
+    color:#064b99;
+
+    text-shadow:
+    0 1px 2px rgba(255,255,255,.9);
+
+}
+
+
+/* PORTAL TITLE */
+
+.portal-title{
+
+    margin-top:2px;
+
+    font-size:10px;
+
+    line-height:1.1;
+
+    font-weight:800;
+
+    color:#084b91;
+
+}
+
+
+/* SUBTITLE */
+
+.portal-subtitle{
+
+    margin-top:2px;
+
+    font-size:6px;
+
+    line-height:1;
+
+    color:#536b86;
+
+}
+
+
+/* =====================================================
+   BUTTON GRID
+===================================================== */
+
+.menu{
+
+    width:100%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:9px;
+
+}
+
+
+/* =====================================================
+   PORTAL BUTTON
+===================================================== */
+
+.portal{
+
+    min-height:112px;
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:10px 16px;
+
+    text-decoration:none;
+
+    color:#123963;
+
+    border:2px solid
+    rgba(255,255,255,.95);
+
+    border-radius:22px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.97),
+        rgba(226,239,253,.92)
+    );
+
+    box-shadow:
+
+    0 7px 20px
+    rgba(15,55,100,.22),
+
+    inset 0 2px 5px
+    rgba(255,255,255,.95),
+
+    inset 0 -4px 8px
+    rgba(70,110,150,.12);
+
+    backdrop-filter:blur(7px);
+
+    -webkit-backdrop-filter:blur(7px);
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+/* HOVER */
+
+.portal:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 11px 25px
+    rgba(15,55,100,.28),
+
+    inset 0 2px 5px
+    rgba(255,255,255,.98);
+
+}
+
+
+/* PRESS */
+
+.portal:active{
+
+    transform:scale(.97);
+
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.icon{
+
+    width:64px;
+    height:64px;
+
+    flex:0 0 64px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:29px;
+
+    border-radius:18px;
+
+    border:2px solid
+    rgba(255,255,255,.78);
+
+    box-shadow:
+
+    0 7px 15px
+    rgba(0,0,0,.20),
+
+    inset 0 2px 5px
+    rgba(255,255,255,.55);
+
+}
+
+
+/* =====================================================
+   ICON COLORS
+===================================================== */
+
+.exam .icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #35baf5,
+        #0968e8
+    );
+
+}
+
+
+.result .icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffc72c,
+        #f47a00
+    );
+
+}
+
+
+.notes .icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #d04be0,
+        #bd17aa
+    );
+
+}
+
+
+.leave .icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #34d6b0,
+        #00a49f
+    );
+
+}
+
+
+.admin .icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #8a9db5,
+        #263c57
+    );
+
+}
+
+
+.holiday .icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffb62f,
+        #ef6900
+    );
+
+}
+
+
+/* =====================================================
+   BUTTON TEXT
+===================================================== */
+
+.button-text{
+
+    text-align:left;
+
+    min-width:0;
+
+}
+
+
+.name{
+
+    font-size:14px;
+
+    line-height:1.15;
+
+    font-weight:800;
+
+    color:#123b6c;
+
+}
+
+
+.small{
+
+    font-size:7px;
+
+    line-height:1.2;
+
+    color:#536b86;
+
+    margin-top:4px;
+
+}
+
+
+/* =====================================================
+   ADMIN LOGIN POPUP
+===================================================== */
+
+.login-overlay{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    padding:20px;
+
+    background:
+    rgba(0,15,45,.68);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+
+}
+
+
+/* LOGIN CARD */
+
+.login-card{
+
+    width:100%;
+
+    max-width:360px;
+
+    margin:16vh auto 0;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:24px;
+
+    background:
+    rgba(255,255,255,.18);
+
+    border:
+    1px solid rgba(255,255,255,.4);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    box-shadow:
+    0 20px 55px rgba(0,0,0,.45);
+
+}
+
+
+/* LOGIN LOGO */
+
+.login-logo{
+
+    width:65px;
+    height:65px;
+
+    margin:auto;
+
+    padding:4px;
+
+    background:#fff;
+
+    border:3px solid #FFD700;
+
+    border-radius:50%;
+
+}
+
+.login-logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+}
+
+
+/* LOGIN TITLE */
+
+.login-card h2{
+
+    margin-top:9px;
+
+    color:#fff;
+
+    font-size:21px;
+
+    font-weight:800;
+
+}
+
+
+/* LOGIN TEXT */
+
+.login-card p{
+
+    margin:4px 0 16px;
+
+    color:#fff;
+
+    font-size:10px;
+
+}
+
+
+/* PASSWORD */
+
+.password-box{
+
+    position:relative;
+
+}
+
+
+.password-box input{
+
+    width:100%;
+
+    padding:14px 44px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:11px;
+
+    font-size:15px;
+
+}
+
+
+/* LOCK */
+
+.lock-icon{
+
+    position:absolute;
+
+    left:14px;
+
+    top:14px;
+
+    color:#164a84;
+
+}
+
+
+/* EYE */
+
+.eye{
+
+    position:absolute;
+
+    right:14px;
+
+    top:13px;
+
+    color:#555;
+
+    cursor:pointer;
+
+}
+
+
+/* LOGIN BUTTON */
+
+.login-button{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:11px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #FFD700,
+        #FFB000
+    );
+
+    color:#073c7d;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+/* ERROR */
+
+.login-error{
+
+    display:none;
+
+    margin-top:8px;
+
+    color:#ffd0d0;
+
+    font-size:11px;
+
+}
+
+
+/* CLOSE */
+
+.close-login{
+
+    position:fixed;
+
+    top:18px;
+    right:18px;
+
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.20);
+
+    color:#fff;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .hero{
+
+        height:100vh;
+
+    }
+
+
+    .overlay-content{
+
+        bottom:8px;
+
+        padding:
+        0 8px 5px;
+
+    }
+
+
+    .brand{
+
+        margin-bottom:7px;
+
+    }
+
+
+    .brand-logo{
+
+        width:48px;
+        height:48px;
+
+    }
+
+
+    .school-name{
+
+        font-size:17px;
+
+    }
+
+
+    .portal-title{
+
+        font-size:8px;
+
+    }
+
+
+    .portal-subtitle{
+
+        font-size:5px;
+
+    }
+
+
+    .menu{
+
+        gap:7px;
+
+    }
+
+
+    .portal{
+
+        min-height:103px;
+
+        padding:
+        8px 9px;
+
+        gap:9px;
+
+        border-radius:19px;
+
+    }
+
+
+    .icon{
+
+        width:56px;
+        height:56px;
+
+        flex:0 0 56px;
+
+        font-size:26px;
+
+        border-radius:17px;
+
+    }
+
+
+    .name{
+
+        font-size:10px;
+
+    }
+
+
+    .small{
+
+        font-size:5px;
+
+        margin-top:3px;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media(max-width:380px){
+
+    .overlay-content{
+
+        bottom:5px;
+
+    }
+
+
+    .brand-logo{
+
+        width:42px;
+        height:42px;
+
+    }
+
+
+    .school-name{
+
+        font-size:15px;
+
+    }
+
+
+    .portal-title{
+
+        font-size:7px;
+
+    }
+
+
+    .portal{
+
+        min-height:94px;
+
+        padding:7px;
+
+    }
+
+
+    .icon{
+
+        width:50px;
+        height:50px;
+
+        flex:0 0 50px;
+
+        font-size:23px;
+
+    }
+
+
+    .name{
+
+        font-size:9px;
+
+    }
+
+
+    .small{
+
+        font-size:5px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     FULL SCREEN STUDENTS IMAGE
+===================================================== -->
+
+<section class="hero">
+
+
+<img
+src="hero-bg.jpg"
+class="hero-image"
+alt="THE STUDY POINT Students">
+
+
+<!-- =====================================================
+     LOGO + BUTTONS OVER IMAGE
+===================================================== -->
+
+<div class="overlay-content">
+
+
+<!-- BRAND ABOVE BUTTONS -->
+
+<div class="brand">
+
+
+<div class="brand-logo">
+
+<img
+src="icon-512.png"
+alt="TSPCBT">
+
+</div>
+
+
+<div class="school-name">
+
+THE STUDY POINT
+
+</div>
+
+
+<div class="portal-title">
+
+CBT PORTAL &amp; STUDENT SERVICES
+
+</div>
+
+
+<div class="portal-subtitle">
+
+Your Digital Examination &amp; Student Portal
+
+</div>
+
+
+</div>
+
+
+<!-- =================================================
+     SIX BUTTONS
+================================================= -->
+
+<div class="menu">
+
+
+<!-- CBT EXAM -->
+
+<a
+href="student-cbt.html"
+class="portal exam"
+>
+
+<div class="icon">
+
+<i class="fa-solid fa-pen-to-square"></i>
+
+</div>
+
+
+<div class="button-text">
+
+<div class="name">
+
+CBT EXAM
+
+</div>
+
+<div class="small">
+
+Online Examination
+
+</div>
+
+</div>
+
+</a>
+
+
+<!-- CBT RESULT -->
+
+<a
+href="student-result.html"
+class="portal result"
+>
+
+<div class="icon">
+
+<i class="fa-solid fa-trophy"></i>
+
+</div>
+
+
+<div class="button-text">
+
+<div class="name">
+
+CBT RESULT
+
+</div>
+
+<div class="small">
+
+Check Examination Result
+
+</div>
+
+</div>
+
+</a>
+
+
+<!-- PAID NOTES -->
+
+<a
+href="paid-notes.html"
+class="portal notes"
+>
+
+<div class="icon">
+
+<i class="fa-solid fa-book-open"></i>
+
+</div>
+
+
+<div class="button-text">
+
+<div class="name">
+
+PAID NOTES
+
+</div>
+
+<div class="small">
+
+Study Material &amp; Notes
+
+</div>
+
+</div>
+
+</a>
+
+
+<!-- LEAVE APPLICATION -->
+
+<a
+href="student-leave.html"
+class="portal leave"
+>
+
+<div class="icon">
+
+<i class="fa-solid fa-file-pen"></i>
+
+</div>
+
+
+<div class="button-text">
+
+<div class="name">
+
+LEAVE APPLICATION
+
+</div>
+
+<div class="small">
+
+Apply for School Leave
+
+</div>
+
+</div>
+
+</a>
+
+
+<!-- ADMIN LOGIN -->
+
+<button
+type="button"
+id="adminOpen"
+class="portal admin"
+>
+
+<div class="icon">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+</div>
+
+
+<div class="button-text">
+
+<div class="name">
+
+ADMIN LOGIN
+
+</div>
+
+<div class="small">
+
+Administrator Panel
+
+</div>
+
+</div>
+
+</button>
+
+
+<!-- HOLIDAY -->
+
+<a
+href="holiday.html"
+class="portal holiday"
+>
+
+<div class="icon">
+
+<i class="fa-solid fa-umbrella-beach"></i>
+
+</div>
+
+
+<div class="button-text">
+
+<div class="name">
+
+HOLIDAY
+
+</div>
+
+<div class="small">
+
+School Holiday List
+
+</div>
+
+</div>
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =====================================================
+     ADMIN LOGIN POPUP
+===================================================== -->
+
+<div
+id="loginOverlay"
+class="login-overlay"
+>
+
+
+<button
+id="closeLogin"
+class="close-login">
+
+×
+
+</button>
+
+
+<div class="login-card">
+
+
+<div class="login-logo">
+
+<img
+src="icon-512.png"
+alt="TSPCBT">
+
+</div>
+
+
+<h2>
+
+ADMIN LOGIN
+
+</h2>
+
+
+<p>
+
+Enter administrator password
+
+</p>
+
+
+<div class="password-box">
+
+
+<i
+class="fa-solid fa-lock lock-icon">
+</i>
+
+
+<input
+type="password"
+id="adminPassword"
+placeholder="Enter Password"
+autocomplete="off"
+>
+
+
+<span
+class="eye"
+id="eye">
+
+<i
+class="fa-solid fa-eye">
+</i>
+
+</span>
+
+
+</div>
+
+
+<button
+class="login-button"
+id="loginButton">
+
+LOGIN
+
+</button>
+
+
+<div
+class="login-error"
+id="loginError">
+
+Incorrect Password
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   ADMIN LOGIN
+===================================================== */
+
+const overlay =
+document.getElementById(
+"loginOverlay"
+);
+
+const password =
+document.getElementById(
+"adminPassword"
+);
+
+const error =
+document.getElementById(
+"loginError"
+);
+
+
+/* OPEN ADMIN LOGIN */
+
+document
+.getElementById("adminOpen")
+.addEventListener(
+"click",
+function(){
+
+overlay.style.display =
+"block";
+
+setTimeout(
+function(){
+
+password.focus();
+
+},
+100
+);
+
+}
+);
+
+
+/* CLOSE */
+
+document
+.getElementById("closeLogin")
+.addEventListener(
+"click",
+function(){
+
+overlay.style.display =
+"none";
+
+password.value="";
+
+error.style.display =
+"none";
+
+}
+);
+
+
+/* SHOW / HIDE PASSWORD */
+
+document
+.getElementById("eye")
+.addEventListener(
+"click",
+function(){
+
+if(
+password.type ===
+"password"
+){
+
+password.type =
+"text";
+
+}else{
+
+password.type =
+"password";
+
+}
+
+}
+);
+
+
+/* LOGIN */
+
+function adminLogin(){
+
+const enteredPassword =
+password.value.trim();
+
+
+/*
+   ADMIN PASSWORD
+   admin123
+*/
+
+if(
+enteredPassword ===
+"admin123"
+){
+
+localStorage.setItem(
+"adminLogin",
+"true"
+);
+
+
+/* OPEN ADMIN DASHBOARD */
+
+window.location.href =
+"admin-dashboard.html";
+
+}else{
+
+error.style.display =
+"block";
+
+password.value="";
+
+password.focus();
+
+}
+
+}
+
+
+/* LOGIN BUTTON */
+
+document
+.getElementById("loginButton")
+.addEventListener(
+"click",
+adminLogin
+);
+
+
+/* ENTER KEY */
+
+password.addEventListener(
+"keypress",
+function(event){
+
+if(
+event.key ===
+"Enter"
+){
+
+adminLogin();
+
+}
+
+});
+
+
+/* =====================================================
+   SERVICE WORKER
+===================================================== */
+
+if(
+"serviceWorker"
+in navigator
+){
+
+window.addEventListener(
+"load",
+function(){
+
+navigator.serviceWorker
+.register(
+"./service-worker.js"
+)
+.catch(
+function(error){
+
+console.log(
+"Service Worker Error:",
+error
+);
+
+}
+);
+
+});
+
+}
+
+</script>
+
+
+</body>
+  </html>
