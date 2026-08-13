@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THE STUDY POINT | Premium Admin Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style>
+
+/* ==================================================
+   RESET
+================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef4ff;
+    color:#222;
+    overflow-x:hidden;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.header{
+
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    background:#fff;
+
+    padding:18px 30px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.08);
+}
+
+.logo-box{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-box img{
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    border:3px solid gold;
+
+    background:#fff;
+
+    padding:5px;
+}
+
+.logo-box h1{
+
+    font-size:28px;
+
+    color:#0047AB;
+
+    font-weight:800;
+}
+
+.logo-box p{
+
+    font-size:14px;
+
+    color:#666;
+
+    font-weight:600;
+}
+
+
+/* ==================================================
+   HEADER RIGHT
+================================================== */
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.admin-box{
+
+    background:#0047AB;
+
+    color:#fff;
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.logout-top{
+
+    border:none;
+
+    background:#fff0f0;
+
+    color:#c62828;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.logout-top:hover{
+
+    background:#c62828;
+
+    color:#fff;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero{
+
+    margin:25px;
+
+    padding:40px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #003c8f,
+        #1565c0,
+        #42a5f5
+    );
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#fff;
+
+    box-shadow:
+    0 20px 45px rgba(0,71,171,.25);
+}
+
+.hero-left h2{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+.hero-left p{
+
+    font-size:17px;
+
+    line-height:30px;
+
+    margin-bottom:20px;
+}
+
+.hero-btn{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.hero-btn button{
+
+    padding:14px 24px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.btn-primary{
+
+    background:#FFD700;
+
+    color:#111;
+}
+
+.btn-secondary{
+
+    background:rgba(255,255,255,.2);
+
+    color:#fff;
+
+    border:
+    1px solid
+    rgba(255,255,255,.4) !important;
+}
+
+.profile-card{
+
+    width:250px;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    text-align:center;
+}
+
+.profile-card img{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    border:4px solid #fff;
+
+    margin-bottom:15px;
+}
+
+.profile-card h3{
+
+    margin-bottom:8px;
+}
+
+.profile-card p{
+
+    font-size:14px;
+}
+
+
+/* ==================================================
+   SEARCH
+================================================== */
+
+.search-section{
+
+    margin:25px;
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    background:#fff;
+
+    padding:18px 20px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.search-box i{
+
+    color:#1565c0;
+
+    font-size:18px;
+
+    margin-right:12px;
+}
+
+.search-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:16px;
+}
+
+
+/* ==================================================
+   DASHBOARD GRID
+================================================== */
+
+.dashboard{
+
+    margin:25px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(260px,1fr)
+    );
+
+    gap:22px;
+
+    padding-bottom:30px;
+}
+
+
+/* ==================================================
+   CARD
+================================================== */
+
+.card{
+
+    background:#fff;
+
+    padding:30px 20px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+    border:
+    1px solid
+    rgba(0,71,171,.04);
+}
+
+.card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+    box-shadow:
+    0 20px 45px
+    rgba(0,71,171,.20);
+}
+
+.card i{
+
+    font-size:46px;
+
+    color:#1565c0;
+
+    margin-bottom:15px;
+}
+
+.card h2{
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+    color:#222;
+}
+
+.card p{
+
+    color:#666;
+
+    font-size:15px;
+
+    line-height:24px;
+}
+
+
+/* ==================================================
+   SPECIAL LCD CARD
+================================================== */
+
+.card.lcd-card{
+
+    background:
+    linear-gradient(
+        135deg,
+        #061724,
+        #0b3853
+    );
+
+    color:#fff;
+
+    border:
+    2px solid
+    rgba(80,220,255,.25);
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,60,100,.25);
+}
+
+.card.lcd-card i{
+
+    color:#55eaff;
+
+    text-shadow:
+    0 0 12px
+    rgba(0,220,255,.7);
+}
+
+.card.lcd-card h2{
+
+    color:#fff;
+}
+
+.card.lcd-card p{
+
+    color:#b9eaff;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:768px){
+
+    .header{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        padding:20px;
+    }
+
+    .logo-box{
+
+        width:100%;
+
+        justify-content:center;
+
+        text-align:left;
+    }
+
+    .header-right{
+
+        width:100%;
+
+        justify-content:center;
+    }
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        margin:15px;
+
+        padding:28px 20px;
+    }
+
+    .hero-left h2{
+
+        font-size:32px;
+    }
+
+    .hero-left p{
+
+        font-size:14px;
+
+        line-height:24px;
+    }
+
+    .hero-btn{
+
+        justify-content:center;
+    }
+
+    .profile-card{
+
+        margin-top:25px;
+
+        width:220px;
+    }
+
+    .search-section{
+
+        margin:15px;
+    }
+
+    .dashboard{
+
+        margin:15px;
+
+        grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+        gap:12px;
+    }
+
+    .card{
+
+        padding:22px 10px;
+
+        border-radius:18px;
+    }
+
+    .card i{
+
+        font-size:34px;
+
+        margin-bottom:10px;
+    }
+
+    .card h2{
+
+        font-size:15px;
+    }
+
+    .card p{
+
+        font-size:10px;
+
+        line-height:16px;
+    }
+
+    .logo-box h1{
+
+        font-size:22px;
+    }
+
+    .logo-box p{
+
+        font-size:11px;
+    }
+
+}
+
+
+/* ==================================================
+   SMALL PHONE
+================================================== */
+
+@media(max-width:380px){
+
+    .dashboard{
+
+        gap:9px;
+
+        margin:10px;
+    }
+
+    .card{
+
+        padding:18px 7px;
+    }
+
+    .card i{
+
+        font-size:30px;
+    }
+
+    .card h2{
+
+        font-size:13px;
+    }
+
+    .card p{
+
+        font-size:8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     ADMIN LOGIN CHECK
+================================================== -->
+
+<script>
+
+if(
+    localStorage.getItem("adminLogin") !== "true"
+){
+
+    location.href="admin-login.html";
+
+}
+
+</script>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="header">
+
+
+<div class="logo-box">
+
+    <img
+        src="icon-512.png"
+        alt="THE STUDY POINT">
+
+    <div>
+
+        <h1>
+            THE STUDY POINT
+        </h1>
+
+        <p>
+            CBT Portal &amp; Paper Studio Pro
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="header-right">
+
+    <div class="admin-box">
+
+        <i class="fa-solid fa-user-shield"></i>
+
+        <span>
+            Welcome Admin
+        </span>
+
+    </div>
+
+
+    <button
+        class="logout-top"
+        id="logoutTop"
+        title="Logout">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+    </button>
+
+</div>
+
+
+</header>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero">
+
+
+<div class="hero-left">
+
+    <h2>
+        Premium Admin Dashboard
+    </h2>
+
+    <p>
+
+        Manage CBT Exams, Question Papers, Students,
+        Results and School Settings from one place.
+
+    </p>
+
+
+    <div class="hero-btn">
+
+        <button
+            class="btn-primary"
+            onclick="location.href='paper-creator.html'">
+
+            Paper Creator
+
+        </button>
+
+
+        <button
+            class="btn-secondary"
+            onclick="location.href='create-test.html'">
+
+            Create CBT Test
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="profile-card">
+
+    <img
+        src="icon-512.png"
+        alt="Administrator">
+
+    <h3>
+        Administrator
+    </h3>
+
+    <p id="liveDate">
+        Loading...
+    </p>
+
+</div>
+
+
+</section>
+
+
+<!-- ==================================================
+     SEARCH
+================================================== -->
+
+<section class="search-section">
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Dashboard Modules...">
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     DASHBOARD MODULES
+================================================== -->
+
+<div class="dashboard">
+
+
+<!-- 1 CREATE TEST -->
+
+<div
+    class="card"
+    data-link="create-test.html">
+
+    <i class="fa-solid fa-plus"></i>
+
+    <h2>
+        Create Test
+    </h2>
+
+    <p>
+        Create New Online CBT Test
+    </p>
+
+</div>
+
+
+<!-- 2 QUESTION BANK -->
+
+<div
+    class="card"
+    data-link="question-bank.html">
+
+    <i class="fa-solid fa-book"></i>
+
+    <h2>
+        Question Bank
+    </h2>
+
+    <p>
+        Add / Edit Questions
+    </p>
+
+</div>
+
+
+<!-- 3 PAPER CREATOR -->
+
+<div
+    class="card"
+    data-link="paper-creator.html">
+
+    <i class="fa-solid fa-file-lines"></i>
+
+    <h2>
+        Paper Creator
+    </h2>
+
+    <p>
+        Create School Question Papers
+    </p>
+
+</div>
+
+
+<!-- 4 STUDENT RESPONSES -->
+
+<div
+    class="card"
+    data-link="student-responses.html">
+
+    <i class="fa-solid fa-users"></i>
+
+    <h2>
+        Student Responses
+    </h2>
+
+    <p>
+        View Submitted Answers
+    </p>
+
+</div>
+
+
+<!-- 5 PUBLISH RESULT -->
+
+<div
+    class="card"
+    data-link="publish-result.html">
+
+    <i class="fa-solid fa-square-poll-vertical"></i>
+
+    <h2>
+        Publish Result
+    </h2>
+
+    <p>
+        Publish / Hide Results
+    </p>
+
+</div>
+
+
+<!-- 6 MY PAPERS -->
+
+<div
+    class="card"
+    data-link="my-papers.html">
+
+    <i class="fa-solid fa-folder-open"></i>
+
+    <h2>
+        My Papers
+    </h2>
+
+    <p>
+        Saved Question Papers
+    </p>
+
+</div>
+
+
+<!-- 7 TEST SETTINGS -->
+
+<div
+    class="card"
+    data-link="test-settings.html">
+
+    <i class="fa-solid fa-gear"></i>
+
+    <h2>
+        Test Settings
+    </h2>
+
+    <p>
+        Manage Test Information
+    </p>
+
+</div>
+
+
+<!-- 8 LEAVE APPLICATION -->
+
+<div
+    class="card"
+    data-link="admin-leave-applications.html">
+
+    <i class="fa-solid fa-file-pen"></i>
+
+    <h2>
+        Leave Application
+    </h2>
+
+    <p>
+        View &amp; Manage Student Leave
+    </p>
+
+</div>
+
+
+<!-- 9 PAID NOTES -->
+
+<div
+    class="card"
+    data-link="paid-notes.html">
+
+    <i class="fa-solid fa-book-open"></i>
+
+    <h2>
+        Paid Notes
+    </h2>
+
+    <p>
+        Manage Paid Study Material
+    </p>
+
+</div>
+
+
+<!-- 10 LCD DISPLAY -->
+
+<div
+    class="card lcd-card"
+    data-link="lcd-display.html">
+
+    <i class="fa-solid fa-tv"></i>
+
+    <h2>
+        LCD Display
+    </h2>
+
+    <p>
+        Manage Text, Image &amp; Video Display
+    </p>
+
+</div>
+
+
+</div>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+
+/* ==================================================
+   LIVE DATE & TIME
+================================================== */
+
+function updateDateTime(){
+
+    const now =
+        new Date();
+
+    const options = {
+
+        weekday:"long",
+
+        day:"numeric",
+
+        month:"long",
+
+        year:"numeric"
+
+    };
+
+    const date =
+        now.toLocaleDateString(
+            "en-IN",
+            options
+        );
+
+    const time =
+        now.toLocaleTimeString(
+            "en-IN"
+        );
+
+    document.getElementById(
+        "liveDate"
+    ).innerHTML =
+        date +
+        "<br>" +
+        time;
+
+}
+
+updateDateTime();
+
+setInterval(
+    updateDateTime,
+    1000
+);
+
+
+/* ==================================================
+   SEARCH MODULES
+================================================== */
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+searchInput.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            this.value
+                .toLowerCase()
+                .trim();
+
+
+        document
+            .querySelectorAll(
+                ".dashboard .card"
+            )
+            .forEach(
+                function(card){
+
+                    const text =
+                        card.innerText
+                            .toLowerCase();
+
+
+                    card.style.display =
+                        text.includes(value)
+                            ? ""
+                            : "none";
+
+                }
+            );
+
+    }
+);
+
+
+/* ==================================================
+   MODULE LINKS
+================================================== */
+
+document
+    .querySelectorAll(
+        ".dashboard .card[data-link]"
+    )
+    .forEach(
+        function(card){
+
+            card.addEventListener(
+                "click",
+                function(){
+
+                    const link =
+                        this.getAttribute(
+                            "data-link"
+                        );
+
+                    if(link){
+
+                        window.location.href =
+                            link;
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+/* ==================================================
+   LOGOUT
+================================================== */
+
+document
+    .getElementById("logoutTop")
+    .addEventListener(
+        "click",
+        function(){
+
+            const confirmLogout =
+                confirm(
+                    "Logout Admin?"
+                );
+
+
+            if(confirmLogout){
+
+                localStorage.removeItem(
+                    "adminLogin"
+                );
+
+                window.location.href =
+                    "index.html";
+
+            }
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+  </html>
