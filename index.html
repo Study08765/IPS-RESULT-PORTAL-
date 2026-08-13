@@ -1447,103 +1447,260 @@ password.addEventListener(
 );
 
 
+<script type="module">
+
 /* ==================================================
-   LCD DIGITAL DISPLAY
+   FIREBASE LCD DISPLAY
 ================================================== */
 
-/*
-   अभी यह default/demo data है।
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-   अगले चरण में इसी जगह Firebase से
-   Admin Dashboard का saved data आएगा।
+import {
+    getFirestore,
+    doc,
+    onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-   इसलिए अभी index.html दोबारा बदलने की
-   जरूरत नहीं पड़ेगी।
-*/
 
-const displays = [
+/* FIREBASE CONFIG */
 
-    {
-        type: "🔔 UPCOMING TEST",
-        heading: "GENERAL SCIENCE",
-        message: "MONTHLY CBT TEST",
-        info: "📅 20 AUGUST 2026 | ⏰ 07:00 PM",
-        badge: "CBT EXAM"
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyAUcTdpMctPg2lcqSapoTgFHXizEE35RCY",
+
+    authDomain:
+    "ips-result-portal.firebaseapp.com",
+
+    projectId:
+    "ips-result-portal",
+
+    storageBucket:
+    "ips-result-portal.firebasestorage.app",
+
+    messagingSenderId:
+    "877536597914",
+
+    appId:
+    "1:877536597914:web:d77c26ef46a9da2c928c23",
+
+    measurementId:
+    "G-4PD16WMHTT"
+
+};
+
+
+/* FIREBASE START */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const db =
+    getFirestore(app);
+
+
+/* LCD ELEMENT */
+
+const lcdContent =
+    document.getElementById("lcdContent");
+
+
+/* FIRESTORE LCD DOCUMENT */
+
+const lcdRef =
+    doc(
+        db,
+        "portalSettings",
+        "lcdDisplay"
+    );
+
+
+/* LIVE LCD */
+
+onSnapshot(
+    lcdRef,
+
+    function(snapshot){
+
+        if(!snapshot.exists()){
+
+            showDefaultLCD();
+
+            return;
+
+        }
+
+
+        const data =
+            snapshot.data();
+
+
+        /* DISPLAY OFF */
+
+        if(data.visible === false){
+
+            lcdContent.innerHTML = `
+
+                <div class="lcd-type">
+                    📺 DISPLAY
+                </div>
+
+                <div class="lcd-heading">
+                    DISPLAY OFF
+                </div>
+
+                <div class="lcd-message">
+                    Please check back later
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /* DATA */
+
+        const type =
+            data.type ||
+            "📢 IMPORTANT NOTICE";
+
+        const heading =
+            data.heading ||
+            "";
+
+        const message =
+            data.message ||
+            "";
+
+        const date =
+            data.date ||
+            "";
+
+        const time =
+            data.time ||
+            "";
+
+        const badge =
+            data.badge ||
+            "";
+
+
+        let info = "";
+
+
+        if(date){
+
+            info +=
+                "📅 " + escapeHTML(date);
+
+        }
+
+
+        if(time){
+
+            if(info){
+
+                info +=
+                    " &nbsp; | &nbsp; ";
+
+            }
+
+            info +=
+                "⏰ " + escapeHTML(time);
+
+        }
+
+
+        lcdContent.innerHTML = `
+
+            <div class="lcd-type">
+                ${escapeHTML(type)}
+            </div>
+
+            <div class="lcd-heading">
+                ${escapeHTML(heading)}
+            </div>
+
+            <div class="lcd-message">
+                ${escapeHTML(message)}
+            </div>
+
+            <div class="lcd-info">
+                ${info}
+            </div>
+
+            <div class="lcd-badge">
+                ${escapeHTML(badge)}
+            </div>
+
+        `;
+
     },
 
-    {
-        type: "🏆 CONGRATULATIONS!",
-        heading: "AMAN KUMAR",
-        message: "EXCELLENT PERFORMANCE",
-        info: "⭐ SCORE: 48 / 50",
-        badge: "CONGRATULATIONS"
-    },
+    function(error){
 
-    {
-        type: "📢 IMPORTANT NOTICE",
-        heading: "QUARTERLY EXAMINATION",
-        message: "EXAMINATION PROPOSED IN SEPTEMBER 2026",
-        info: "📚 PREPARE YOURSELF",
-        badge: "IMPORTANT"
+        console.error(
+            "LCD Firebase Error:",
+            error
+        );
+
+        showDefaultLCD();
+
     }
-
-];
-
-
-let displayIndex = 0;
+);
 
 
-function changeLCD(){
+/* DEFAULT LCD */
 
-    const d =
-        displays[displayIndex];
+function showDefaultLCD(){
 
-
-    document.getElementById(
-        "lcdContent"
-    ).innerHTML = `
+    lcdContent.innerHTML = `
 
         <div class="lcd-type">
-            ${d.type}
+            🔔 UPCOMING TEST
         </div>
 
         <div class="lcd-heading">
-            ${d.heading}
+            GENERAL SCIENCE
         </div>
 
         <div class="lcd-message">
-            ${d.message}
+            MONTHLY CBT TEST
         </div>
 
         <div class="lcd-info">
-            ${d.info}
+            📅 20 AUGUST 2026
+            &nbsp; | &nbsp;
+            ⏰ 07:00 PM
         </div>
 
         <div class="lcd-badge">
-            ${d.badge}
+            CBT EXAM
         </div>
 
     `;
 
-
-    displayIndex++;
-
-
-    if(displayIndex >= displays.length){
-
-        displayIndex = 0;
-
-    }
-
 }
 
 
-/* START LCD */
+/* SECURITY */
 
-setInterval(
-    changeLCD,
-    5000
-);
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+</script>
 
 
 /* ==================================================
