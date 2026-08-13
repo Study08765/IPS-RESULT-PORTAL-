@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>THE STUDY POINT | PAID NOTES</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:
+        linear-gradient(
+            180deg,
+            #eaf5ff 0%,
+            #f7fbff 100%
+        );
+    color:#173b62;
+}
+
+
+/* ================= HEADER ================= */
+
+.header{
+    background:
+        linear-gradient(
+            135deg,
+            #043f87,
+            #0878d8
+        );
+
+    color:#fff;
+
+    padding:
+        20px
+        16px
+        24px;
+
+    border-radius:
+        0 0 30px 30px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,60,130,.22);
+}
+
+.top{
+    max-width:1100px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.logo{
+    width:58px;
+    height:58px;
+
+    flex:0 0 58px;
+
+    background:#fff;
+
+    border:
+        3px solid
+        #ffd700;
+
+    border-radius:50%;
+
+    padding:3px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0,0,0,.15);
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+}
+
+.header-title{
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:.2px;
+}
+
+.header-sub{
+    font-size:9px;
+    margin-top:3px;
+    opacity:.9;
+    letter-spacing:.4px;
+}
+
+.back{
+    display:inline-flex;
+
+    align-items:center;
+    gap:6px;
+
+    margin-top:15px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    opacity:.95;
+}
+
+
+/* ================= MAIN ================= */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+
+    padding:
+        18px
+        12px
+        35px;
+}
+
+
+/* ================= TITLE ================= */
+
+.title{
+    text-align:center;
+
+    margin:
+        4px
+        0
+        17px;
+}
+
+.title h2{
+    margin:0;
+
+    color:#064b99;
+
+    font-size:24px;
+
+    font-weight:800;
+}
+
+.title p{
+    margin:
+        5px
+        0
+        0;
+
+    color:#70849a;
+
+    font-size:10px;
+
+    line-height:1.7;
+}
+
+
+/* ================= FILTER ================= */
+
+.filter-box{
+    background:#fff;
+
+    padding:13px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 7px 22px
+        rgba(30,80,130,.10);
+
+    margin-bottom:17px;
+}
+
+.filter-title{
+    font-size:10px;
+    font-weight:700;
+    color:#4e6c88;
+    margin-bottom:6px;
+}
+
+select{
+    width:100%;
+
+    padding:12px;
+
+    border:
+        1px solid
+        #d3e0ec;
+
+    border-radius:11px;
+
+    background:#f9fcff;
+
+    color:#234b70;
+
+    outline:none;
+
+    font-size:12px;
+}
+
+
+/* ================= GRID ================= */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+}
+
+
+/* ================= CARD ================= */
+
+.card{
+
+    background:
+        rgba(255,255,255,.98);
+
+    border:
+        1px solid
+        #e5eef7;
+
+    border-radius:20px;
+
+    padding:17px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(20,70,120,.10);
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+.card:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(20,70,120,.15);
+}
+
+
+/* top line */
+
+.card:before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #075fb6,
+            #13a0ff
+        );
+}
+
+
+/* ================= BADGE ================= */
+
+.badge{
+
+    display:inline-flex;
+
+    padding:
+        5px
+        10px;
+
+    border-radius:20px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    background:#fff0d0;
+
+    color:#8a5a00;
+}
+
+.badge.free{
+
+    background:#e4f8ec;
+
+    color:#087a3b;
+}
+
+
+/* ================= CARD CONTENT ================= */
+
+.class-name{
+
+    margin:
+        10px
+        0
+        3px;
+
+    color:#064b99;
+
+    font-size:18px;
+
+    font-weight:800;
+}
+
+.note-title{
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#294f73;
+
+    margin-bottom:4px;
+}
+
+.subject{
+
+    font-size:10px;
+
+    color:#7890a7;
+
+    line-height:1.5;
+}
+
+.price{
+
+    margin:
+        12px
+        0
+        13px;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    color:#064b99;
+}
+
+.price.free-price{
+
+    color:#087a3b;
+}
+
+
+/* ================= BUY BUTTON ================= */
+
+.main-btn{
+
+    width:100%;
+
+    border:0;
+
+    border-radius:12px;
+
+    padding:
+        12px
+        10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0878d8,
+            #0752a5
+        );
+
+    color:#fff;
+
+    font-weight:800;
+
+    font-size:11px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 12px
+        rgba(5,90,170,.18);
+}
+
+.main-btn.free-btn{
+
+    background:
+        linear-gradient(
+            135deg,
+            #08a34f,
+            #087a3b
+        );
+}
+
+
+/* ================= MODAL ================= */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(4,24,45,.72);
+
+    z-index:999;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px;
+
+    backdrop-filter:
+        blur(4px);
+}
+
+.modal.show{
+
+    display:flex;
+}
+
+.modal-box{
+
+    width:
+        min(440px,100%);
+
+    max-height:
+        92vh;
+
+    overflow-y:auto;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:20px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.25);
+
+    animation:
+        pop .18s ease;
+}
+
+@keyframes pop{
+
+    from{
+        transform:scale(.94);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.modal-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    margin-bottom:10px;
+}
+
+.modal-title{
+
+    color:#064b99;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    margin:0;
+}
+
+.close{
+
+    width:32px;
+    height:32px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#edf4fb;
+
+    color:#315579;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+
+/* ================= INFO ================= */
+
+.info{
+
+    background:#f1f8ff;
+
+    border-left:
+        4px solid
+        #0878d8;
+
+    border-radius:10px;
+
+    padding:11px;
+
+    font-size:10px;
+
+    color:#57718a;
+
+    line-height:1.6;
+
+    margin:
+        10px
+        0
+        14px;
+}
+
+
+/* ================= ACTION BUTTONS ================= */
+
+.action-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+
+    margin-top:13px;
+}
+
+.action{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    text-decoration:none;
+
+    border:0;
+
+    border-radius:11px;
+
+    padding:12px 8px;
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    text-align:center;
+}
+
+.view-btn{
+
+    background:
+        linear-gradient(
+            135deg,
+            #0878d8,
+            #0752a5
+        );
+}
+
+.download-btn{
+
+    background:
+        linear-gradient(
+            135deg,
+            #087a3b,
+            #05652f
+        );
+}
+
+
+/* ================= QR ================= */
+
+.qr{
+
+    display:block;
+
+    width:220px;
+    height:220px;
+
+    object-fit:contain;
+
+    margin:
+        14px
+        auto;
+
+    border:
+        1px solid
+        #dce6ef;
+
+    border-radius:14px;
+
+    padding:7px;
+
+    background:#fff;
+}
+
+.payment-title{
+
+    text-align:center;
+
+    color:#064b99;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    margin-top:4px;
+}
+
+.payment-price{
+
+    text-align:center;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    color:#087a3b;
+
+    margin:5px 0;
+}
+
+.small{
+
+    font-size:10px;
+
+    line-height:1.7;
+
+    color:#687e94;
+
+    text-align:center;
+}
+
+
+/* ================= PAID STATUS ================= */
+
+.paid-btn{
+
+    width:100%;
+
+    margin-top:12px;
+
+    border:0;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9f00,
+            #e27600
+        );
+
+    color:#fff;
+
+    font-weight:800;
+
+    font-size:11px;
+
+    cursor:pointer;
+}
+
+
+/* ================= EMPTY ================= */
+
+.empty{
+
+    grid-column:
+        1 / -1;
+
+    background:#fff;
+
+    padding:30px 15px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    color:#71849a;
+
+    font-size:12px;
+
+}
+
+
+/* ================= LOADING ================= */
+
+.loading{
+
+    grid-column:
+        1 / -1;
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#70849a;
+
+    font-size:12px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    .grid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .container{
+
+        padding:
+            15px
+            10px
+            30px;
+    }
+
+    .title h2{
+
+        font-size:21px;
+    }
+
+    .header-title{
+
+        font-size:18px;
+    }
+
+    .modal-box{
+
+        padding:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="top">
+
+        <div class="logo">
+
+            <img
+                src="icon-512.png"
+                alt="THE STUDY POINT">
+
+        </div>
+
+        <div>
+
+            <div class="header-title">
+                THE STUDY POINT
+            </div>
+
+            <div class="header-sub">
+                PAID NOTES & STUDY MATERIAL
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <a
+        class="back"
+        href="index.html">
+
+        ← Back to Portal
+
+    </a>
+
+</header>
+
+
+
+<!-- =====================================================
+MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <div class="title">
+
+        <h2>
+            📚 PAID NOTES
+        </h2>
+
+        <p>
+            Class 6 to 10 • Hindi • English • Mathematics • Science • Social Science • General Knowledge
+        </p>
+
+    </div>
+
+
+
+    <!-- FILTER -->
+
+    <div class="filter-box">
+
+        <div class="filter-title">
+            SELECT CLASS
+        </div>
+
+        <select id="classFilter">
+
+            <option value="all">
+                All Classes
+            </option>
+
+            <option value="Class 6">
+                Class 6
+            </option>
+
+            <option value="Class 7">
+                Class 7
+            </option>
+
+            <option value="Class 8">
+                Class 8
+            </option>
+
+            <option value="Class 9">
+                Class 9
+            </option>
+
+            <option value="Class 10">
+                Class 10
+            </option>
+
+        </select>
+
+    </div>
+
+
+
+    <!-- NOTES -->
+
+    <div
+        id="grid"
+        class="grid">
+
+        <div class="loading">
+            Loading notes...
+        </div>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+MODAL
+===================================================== -->
+
+<div
+    id="modal"
+    class="modal">
+
+    <div class="modal-box">
+
+
+        <div class="modal-top">
+
+            <h3
+                id="modalTitle"
+                class="modal-title">
+
+            </h3>
+
+            <button
+                class="close"
+                onclick="closeModal()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="modalBody">
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+FIREBASE
+===================================================== -->
+
+<script type="module">
+
+
+import {
+
+    initializeApp
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+
+    getFirestore,
+    collection,
+    getDocs
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyAUcTdpMctPg2lcqSapoTgFHXizEE35RCY",
+
+    authDomain:
+    "ips-result-portal.firebaseapp.com",
+
+    projectId:
+    "ips-result-portal",
+
+    storageBucket:
+    "ips-result-portal.firebasestorage.app",
+
+    messagingSenderId:
+    "877536597914",
+
+    appId:
+    "1:877536597914:web:d77c26ef46a9da2c928c23",
+
+    measurementId:
+    "G-4PD16WMHTT"
+
+};
+
+
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const db =
+    getFirestore(app);
+
+
+let notes = [];
+
+
+const grid =
+    document.getElementById(
+        "grid"
+    );
+
+
+const filter =
+    document.getElementById(
+        "classFilter"
+    );
+
+
+
+/* ================= ESCAPE ================= */
+
+function esc(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /[&<>"']/g,
+        function(match){
+
+            const map = {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            };
+
+            return map[match];
+
+        }
+    );
+
+}
+
+
+
+/* ================= LOAD ================= */
+
+async function load(){
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "paidNotes"
+                )
+            );
+
+
+        notes =
+            snapshot.docs
+            .map(
+                d => ({
+                    id:d.id,
+                    ...d.data()
+                })
+            )
+            .filter(
+                x =>
+                    x.enabled !== false
+            );
+
+
+        render();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                ❌ Notes load नहीं हो सके।<br><br>
+
+                ${esc(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+/* ================= RENDER ================= */
+
+function render(){
+
+    const selected =
+        filter.value;
+
+
+    const filtered =
+        notes.filter(
+            note =>
+                selected === "all" ||
+                note.className === selected
+        );
+
+
+    if(
+        !filtered.length
+    ){
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                📚 अभी इस class के लिए कोई notes available नहीं हैं।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML =
+        filtered
+        .map(
+            note => {
+
+                const free =
+                    note.accessType ===
+                    "free";
+
+
+                return `
+
+                <div class="card">
+
+
+                    <span class="badge ${
+                        free
+                        ? "free"
+                        : ""
+                    }">
+
+                        ${
+                            free
+                            ? "🟢 FREE"
+                            : "🟠 PAID"
+                        }
+
+                    </span>
+
+
+                    <div class="class-name">
+
+                        ${esc(
+                            note.className
+                        )}
+
+                    </div>
+
+
+                    <div class="note-title">
+
+                        ${esc(
+                            note.title ||
+                            "Study Notes"
+                        )}
+
+                    </div>
+
+
+                    <div class="subject">
+
+                        📖 ${esc(
+                            note.subject
+                        )}
+
+                    </div>
+
+
+                    <div class="price ${
+                        free
+                        ? "free-price"
+                        : ""
+                    }">
+
+                        ${
+                            free
+                            ? "FREE"
+                            : "₹" +
+                            (
+                                note.price ||
+                                0
+                            )
+                        }
+
+                    </div>
+
+
+                    <button
+                        class="main-btn ${
+                            free
+                            ? "free-btn"
+                            : ""
+                        }"
+                        onclick="openNote('${esc(note.id)}')">
+
+                        ${
+                            free
+                            ? "📖 OPEN NOTES"
+                            : "🔐 BUY NOW"
+                        }
+
+                    </button>
+
+
+                </div>
+
+                `;
+
+            }
+        )
+        .join("");
+
+}
+
+
+
+/* ================= OPEN NOTE ================= */
+
+window.openNote =
+function(id){
+
+    const note =
+        notes.find(
+            n =>
+                n.id === id
+        );
+
+
+    if(!note){
+
+        return;
+
+    }
+
+
+    document
+    .getElementById(
+        "modalTitle"
+    )
+    .textContent =
+        note.className +
+        " • " +
+        note.subject;
+
+
+    const body =
+        document.getElementById(
+            "modalBody"
+        );
+
+
+
+    /* ================= FREE ================= */
+
+    if(
+        note.accessType ===
+        "free"
+    ){
+
+        body.innerHTML = `
+
+            <div class="info">
+
+                🟢 यह study material
+                <b>FREE</b> है।<br>
+
+                आप इसे online देख भी सकते हैं
+                और अपने device में download भी कर सकते हैं।
+
+            </div>
+
+
+            <div class="action-grid">
+
+
+                <a
+                    class="action view-btn"
+                    href="${esc(note.pdfUrl)}"
+                    target="_blank"
+                    rel="noopener">
+
+                    👁️ VIEW PDF
+
+                </a>
+
+
+                <a
+                    class="action download-btn"
+                    href="${esc(note.pdfUrl)}"
+                    download>
+
+                    ⬇️ DOWNLOAD PDF
+
+                </a>
+
+
+            </div>
+
+        `;
+
+
+    }
+
+
+    /* ================= PAID ================= */
+
+    else{
+
+        body.innerHTML = `
+
+            <div class="payment-title">
+
+                🔐 Premium Study Material
+
+            </div>
+
+
+            <div class="payment-price">
+
+                ₹${note.price || 0}
+
+            </div>
+
+
+            <div class="info">
+
+                नीचे दिए गए QR Code को scan करके
+                payment करें।<br>
+
+                Payment के बाद
+                <b>I HAVE PAID</b>
+                दबाएँ।
+
+            </div>
+
+
+            ${
+                note.qrUrl
+
+                ?
+
+                `
+
+                <img
+                    class="qr"
+                    src="${esc(note.qrUrl)}"
+                    alt="Payment QR">
+
+                `
+
+                :
+
+                `
+
+                <div class="info">
+
+                    ⚠️ Admin ने अभी QR Code
+                    add नहीं किया है।
+
+                </div>
+
+                `
+            }
+
+
+            <button
+                class="paid-btn"
+                onclick="paidRequest('${esc(note.id)}')">
+
+                ✅ I HAVE PAID
+
+            </button>
+
+
+            <div class="small">
+
+                Payment verification के बाद
+                आपको PDF access दिया जाएगा।
+
+            </div>
+
+        `;
+
+    }
+
+
+    document
+    .getElementById(
+        "modal"
+    )
+    .classList
+    .add("show");
+
+};
+
+
+
+/* ================= PAID REQUEST ================= */
+
+window.paidRequest =
+function(id){
+
+    const note =
+        notes.find(
+            n =>
+                n.id === id
+        );
+
+
+    if(!note){
+
+        return;
+
+    }
+
+
+    alert(
+        "Payment request भेज दी गई है। Admin verification के बाद PDF access उपलब्ध होगा।"
+    );
+
+};
+
+
+
+/* ================= CLOSE ================= */
+
+window.closeModal =
+function(){
+
+    document
+    .getElementById(
+        "modal"
+    )
+    .classList
+    .remove("show");
+
+};
+
+
+
+/* ================= OUTSIDE CLICK ================= */
+
+document
+.getElementById("modal")
+.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            e.target === this
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+
+/* ================= FILTER ================= */
+
+filter.onchange =
+    render;
+
+
+
+/* ================= START ================= */
+
+load();
+
+
+</script>
+
+
+</body>
+
+  </html>
