@@ -1335,14 +1335,12 @@ function(id){
 
 
                 <a
-                    class="action view-btn"
-                    href="${esc(note.pdfUrl)}"
-                    target="_blank"
-                    rel="noopener">
-
-                    👁️ VIEW PDF
-
-                </a>
+    class="action view-btn"
+    href="https://docs.google.com/gview?embedded=1&url=${encodeURIComponent(note.pdfUrl)}"
+    target="_blank"
+    rel="noopener">
+    👁️ VIEW PDF
+</a>
 
 
                 <a
