@@ -1315,6 +1315,89 @@ button.portal{
     }
 
    }
+   /* =================================
+   NO PAGE SCROLL + FOOTER
+================================= */
+
+html,
+body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+
+
+/* LCD को थोड़ा compact */
+
+.lcd-screen{
+    min-height:300px !important;
+}
+
+.lcd-content{
+    min-height:215px !important;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.site-footer{
+    width:100%;
+
+    padding:10px 8px;
+
+    text-align:center;
+
+    background:#063d78;
+
+    color:#fff;
+
+    font-size:9px;
+
+    line-height:1.5;
+}
+
+.site-footer strong{
+    color:#FFD700;
+   }
+   .premium-footer{
+    width:100%;
+    padding:14px 8px;
+    text-align:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        #042c59,
+        #0757a5,
+        #042c59
+    );
+
+    color:#FFD700;
+
+    font-size:18px;
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-shadow:
+    0 2px 5px rgba(0,0,0,.35);
+
+    border-top:
+    2px solid
+    rgba(255,255,255,.2);
+}
+
+@media(max-width:700px){
+
+    .premium-footer{
+        font-size:14px;
+        padding:12px 5px;
+        letter-spacing:.5px;
+    }
+
+   }
 </style>
 
 </head>
@@ -1621,6 +1704,9 @@ School Holiday List
     </div>
 
    </section>
+   <footer class="premium-footer">
+    THE STUDY POINT CBT EXAM PORTAL
+   </footer>
 <!-- ==================================================
      ADMIN LOGIN POPUP
 ================================================== -->
