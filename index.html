@@ -859,7 +859,265 @@ button.portal{
     -webkit-appearance:none;
 
 }
+/* ==============================
+   DIGITAL LCD DISPLAY
+================================ */
 
+.lcd-section{
+    width:100%;
+    max-width:1050px;
+    margin:8px auto 0;
+    padding:0 15px 22px;
+}
+
+.lcd-screen{
+    position:relative;
+    overflow:hidden;
+
+    min-height:230px;
+
+    border-radius:25px;
+
+    padding:14px 18px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #071b2d,
+        #0b3047 50%,
+        #061725
+    );
+
+    border:3px solid #6b8193;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.28),
+    inset 0 0 30px rgba(0,180,255,.08);
+
+}
+
+/* LCD glass effect */
+
+.lcd-screen::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,.025) 0px,
+        rgba(255,255,255,.025) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+}
+
+
+/* TOP BAR */
+
+.lcd-top{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    color:#b8eaff;
+
+    font-size:10px;
+    font-weight:700;
+
+    padding-bottom:10px;
+
+    border-bottom:
+    1px solid
+    rgba(100,210,255,.25);
+}
+
+.live-dot{
+    color:#63ff9b;
+    font-size:9px;
+}
+
+
+/* LCD CONTENT */
+
+.lcd-content{
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+
+    padding:18px 5px 10px;
+
+    color:#fff;
+
+    text-shadow:
+    0 0 8px rgba(70,220,255,.35);
+}
+
+
+.lcd-type{
+    color:#59dfff;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    margin-bottom:7px;
+}
+
+
+.lcd-heading{
+    color:#fff;
+
+    font-size:25px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+}
+
+
+.lcd-message{
+    color:#aeeaff;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-top:3px;
+}
+
+
+.lcd-info{
+    margin-top:12px;
+
+    color:#d9f6ff;
+
+    font-size:11px;
+
+    font-weight:600;
+}
+
+
+.lcd-badge{
+    display:inline-block;
+
+    margin-top:13px;
+
+    padding:7px 18px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0789e8,
+        #0752a5
+    );
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    box-shadow:
+    0 0 15px
+    rgba(0,160,255,.35);
+}
+
+
+/* DOTS */
+
+.lcd-dots{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    justify-content:center;
+    gap:6px;
+
+    margin-top:5px;
+}
+
+.lcd-dots span{
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#526a7c;
+}
+
+.lcd-dots span.active{
+    background:#55dfff;
+
+    box-shadow:
+    0 0 8px #55dfff;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .lcd-section{
+        padding:
+        4px 8px 18px;
+    }
+
+    .lcd-screen{
+        min-height:210px;
+
+        padding:
+        12px 12px;
+
+        border-radius:22px;
+    }
+
+    .lcd-top{
+        font-size:8px;
+    }
+
+    .live-dot{
+        font-size:7px;
+    }
+
+    .lcd-content{
+        padding-top:18px;
+    }
+
+    .lcd-type{
+        font-size:11px;
+    }
+
+    .lcd-heading{
+        font-size:21px;
+    }
+
+    .lcd-message{
+        font-size:11px;
+    }
+
+    .lcd-info{
+        font-size:8px;
+    }
+
+    .lcd-badge{
+        font-size:8px;
+        padding:6px 15px;
+    }
+
+   }
 </style>
 
 </head>
@@ -1128,7 +1386,46 @@ School Holiday List
 
 </div>
 
+<!-- ==============================
+     BLACK LCD DISPLAY
+================================ -->
 
+<section class="lcd-section">
+
+    <div class="lcd-screen">
+
+        <div class="lcd-header">
+            <span>THE STUDY POINT DIGITAL DISPLAY</span>
+            <span class="live">● LIVE</span>
+        </div>
+
+        <div id="lcdContent" class="lcd-content">
+
+            <div class="lcd-type">
+                🔔 UPCOMING TEST
+            </div>
+
+            <div class="lcd-heading">
+                GENERAL SCIENCE
+            </div>
+
+            <div class="lcd-message">
+                MONTHLY CBT TEST
+            </div>
+
+            <div class="lcd-info">
+                📅 20 AUGUST 2026 &nbsp; | &nbsp; ⏰ 07:00 PM
+            </div>
+
+            <div class="lcd-badge">
+                CBT EXAM
+            </div>
+
+        </div>
+
+    </div>
+
+   </section>
 <!-- ==================================================
      ADMIN LOGIN POPUP
 ================================================== -->
@@ -1400,6 +1697,87 @@ error
 
 </script>
 
+const displays = [
+
+{
+type:"🔔 UPCOMING TEST",
+heading:"GENERAL SCIENCE",
+message:"MONTHLY CBT TEST",
+info:"📅 20 AUGUST 2026  |  ⏰ 07:00 PM",
+badge:"CBT EXAM"
+},
+
+{
+type:"🏆 CONGRATULATIONS!",
+heading:"AMAN KUMAR",
+message:"EXCELLENT PERFORMANCE",
+info:"⭐ SCORE: 48 / 50",
+badge:"CONGRATULATIONS"
+},
+
+{
+type:"📢 IMPORTANT NOTICE",
+heading:"QUARTERLY EXAMINATION",
+message:"EXAMINATION IS PROPOSED IN SEPTEMBER 2026",
+info:"📚 PREPARE YOURSELF",
+badge:"IMPORTANT"
+}
+
+];
+
+let displayIndex = 0;
+
+function changeLCD(){
+
+const d = displays[displayIndex];
+
+document.getElementById("lcdContent").innerHTML = `
+
+<div class="lcd-type">
+${d.type}
+</div>
+
+<div class="lcd-heading">
+${d.heading}
+</div>
+
+<div class="lcd-message">
+${d.message}
+</div>
+
+<div class="lcd-info">
+${d.info}
+</div>
+
+<div class="lcd-badge">
+${d.badge}
+</div>
+
+`;
+
+const dots =
+document.querySelectorAll(".lcd-dots span");
+
+dots.forEach((dot,i)=>{
+
+dot.classList.toggle(
+"active",
+i === displayIndex
+);
+
+});
+
+displayIndex++;
+
+if(displayIndex >= displays.length){
+displayIndex = 0;
+}
+
+}
+
+setInterval(changeLCD,5000);
+
+</script>
 
 </body>
   </html>
