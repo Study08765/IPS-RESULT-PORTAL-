@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LCD Display Control | THE STUDY POINT</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef4ff;
+    color:#222;
+    padding-bottom:30px;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    padding:16px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand img{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:3px solid gold;
+    padding:4px;
+    background:#fff;
+}
+
+.brand h1{
+    color:#0047AB;
+    font-size:23px;
+    font-weight:800;
+}
+
+.brand p{
+    color:#666;
+    font-size:11px;
+}
+
+.back-btn{
+    border:none;
+    background:#0047AB;
+    color:#fff;
+    padding:11px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1100px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+.title-box{
+    background:
+    linear-gradient(
+        135deg,
+        #003c8f,
+        #1565c0,
+        #42a5f5
+    );
+
+    color:#fff;
+    padding:28px;
+    border-radius:24px;
+    box-shadow:0 15px 35px rgba(0,71,171,.22);
+}
+
+.title-box h2{
+    font-size:30px;
+    font-weight:800;
+}
+
+.title-box p{
+    margin-top:5px;
+    font-size:14px;
+}
+
+/* LCD PREVIEW */
+
+.preview-box{
+    margin-top:22px;
+    background:#fff;
+    padding:20px;
+    border-radius:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.preview-title{
+    font-size:18px;
+    font-weight:800;
+    color:#0047AB;
+    margin-bottom:12px;
+}
+
+.lcd{
+    min-height:280px;
+    border-radius:22px;
+    padding:20px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #123c55 0%,
+        #061724 55%,
+        #020a10 100%
+    );
+
+    border:3px solid #536d7d;
+
+    color:#fff;
+    text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    box-shadow:
+    inset 0 0 35px rgba(0,190,255,.15),
+    0 12px 30px rgba(0,0,0,.25);
+}
+
+.lcd-type{
+    color:#55eaff;
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.lcd-heading{
+    font-size:35px;
+    font-weight:800;
+    margin-top:8px;
+}
+
+.lcd-message{
+    font-size:18px;
+    color:#a9f0ff;
+    font-weight:600;
+    margin-top:5px;
+}
+
+.lcd-info{
+    margin-top:12px;
+    padding:7px 16px;
+    border-radius:25px;
+    background:rgba(0,150,210,.15);
+    font-size:13px;
+}
+
+.lcd-badge{
+    margin-top:12px;
+    padding:8px 22px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#0799ee,#064da0);
+    font-size:11px;
+    font-weight:800;
+}
+
+/* FORM */
+
+.form-box{
+    margin-top:22px;
+    background:#fff;
+    padding:25px;
+    border-radius:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.form-title{
+    color:#0047AB;
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-size:13px;
+    font-weight:700;
+    color:#333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid #d5dfec;
+    border-radius:12px;
+    outline:none;
+    font-size:14px;
+    background:#f9fbff;
+}
+
+.form-group textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:18px;
+}
+
+.btn{
+    border:none;
+    padding:13px 22px;
+    border-radius:12px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.publish{
+    background:#0069d9;
+    color:#fff;
+}
+
+.clear{
+    background:#eef2f7;
+    color:#333;
+}
+
+.hide{
+    background:#d32f2f;
+    color:#fff;
+}
+
+/* STATUS */
+
+.status{
+    margin-top:15px;
+    padding:12px;
+    border-radius:10px;
+    display:none;
+    font-size:13px;
+    font-weight:700;
+}
+
+.success{
+    display:block;
+    background:#e5f8ed;
+    color:#087a3b;
+}
+
+.error{
+    display:block;
+    background:#ffe8e8;
+    color:#b00020;
+}
+
+/* CURRENT */
+
+.current-box{
+    margin-top:22px;
+    background:#fff;
+    padding:22px;
+    border-radius:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.current-title{
+    color:#0047AB;
+    font-size:19px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.current-status{
+    padding:12px;
+    border-radius:12px;
+    background:#f3f7ff;
+    font-size:13px;
+}
+
+.online{
+    color:#087a3b;
+    font-weight:800;
+}
+
+.offline{
+    color:#c62828;
+    font-weight:800;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .header{
+        padding:12px 15px;
+    }
+
+    .brand h1{
+        font-size:18px;
+    }
+
+    .brand p{
+        font-size:8px;
+    }
+
+    .brand img{
+        width:48px;
+        height:48px;
+    }
+
+    .back-btn{
+        padding:9px 12px;
+        font-size:11px;
+    }
+
+    .title-box{
+        padding:22px 18px;
+    }
+
+    .title-box h2{
+        font-size:24px;
+    }
+
+    .lcd{
+        min-height:250px;
+        padding:15px;
+    }
+
+    .lcd-type{
+        font-size:14px;
+    }
+
+    .lcd-heading{
+        font-size:27px;
+    }
+
+    .lcd-message{
+        font-size:15px;
+    }
+
+    .lcd-info{
+        font-size:10px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="brand">
+
+        <img
+            src="icon-512.png"
+            alt="THE STUDY POINT">
+
+        <div>
+
+            <h1>
+                THE STUDY POINT
+            </h1>
+
+            <p>
+                LCD DISPLAY CONTROL
+            </p>
+
+        </div>
+
+    </div>
+
+    <button
+        class="back-btn"
+        onclick="location.href='admin-dashboard.html'">
+
+        <i class="fa-solid fa-arrow-left"></i>
+        Dashboard
+
+    </button>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- TITLE -->
+
+<section class="title-box">
+
+    <h2>
+        📺 Digital LCD Display
+    </h2>
+
+    <p>
+        यहाँ से Home Page पर दिखाई देने वाला Display Control करें।
+    </p>
+
+</section>
+
+
+<!-- PREVIEW -->
+
+<section class="preview-box">
+
+    <div class="preview-title">
+        <i class="fa-solid fa-display"></i>
+        Live Preview
+    </div>
+
+
+    <div class="lcd">
+
+        <div
+            class="lcd-type"
+            id="previewType">
+
+            🔔 UPCOMING TEST
+
+        </div>
+
+
+        <div
+            class="lcd-heading"
+            id="previewHeading">
+
+            GENERAL SCIENCE
+
+        </div>
+
+
+        <div
+            class="lcd-message"
+            id="previewMessage">
+
+            MONTHLY CBT TEST
+
+        </div>
+
+
+        <div
+            class="lcd-info"
+            id="previewInfo">
+
+            📅 20 AUGUST 2026 | ⏰ 07:00 PM
+
+        </div>
+
+
+        <div
+            class="lcd-badge"
+            id="previewBadge">
+
+            CBT EXAM
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FORM -->
+
+<section class="form-box">
+
+    <div class="form-title">
+        <i class="fa-solid fa-pen-to-square"></i>
+        Display Content
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Display Type
+        </label>
+
+        <select id="displayType">
+
+            <option value="🔔 UPCOMING TEST">
+                🔔 Upcoming Test
+            </option>
+
+            <option value="🏆 CONGRATULATIONS!">
+                🏆 Congratulations
+            </option>
+
+            <option value="📢 IMPORTANT NOTICE">
+                📢 Important Notice
+            </option>
+
+            <option value="📣 GENERAL NOTICE">
+                📣 General Notice
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Heading
+        </label>
+
+        <input
+            type="text"
+            id="heading"
+            placeholder="Example: GENERAL SCIENCE">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Message
+        </label>
+
+        <textarea
+            id="message"
+            placeholder="Enter display message"></textarea>
+
+    </div>
+
+
+    <div class="form-row">
+
+
+        <div class="form-group">
+
+            <label>
+                Date
+            </label>
+
+            <input
+                type="text"
+                id="date"
+                placeholder="20 AUGUST 2026">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Time
+            </label>
+
+            <input
+                type="text"
+                id="time"
+                placeholder="07:00 PM">
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Badge
+        </label>
+
+        <input
+            type="text"
+            id="badge"
+            placeholder="CBT EXAM">
+
+    </div>
+
+
+    <div class="buttons">
+
+        <button
+            class="btn publish"
+            id="publishBtn">
+
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            PUBLISH DISPLAY
+
+        </button>
+
+
+        <button
+            class="btn clear"
+            id="clearBtn">
+
+            <i class="fa-solid fa-rotate-left"></i>
+            CLEAR
+
+        </button>
+
+
+        <button
+            class="btn hide"
+            id="hideBtn">
+
+            <i class="fa-solid fa-eye-slash"></i>
+            HIDE DISPLAY
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="status"
+        class="status">
+
+    </div>
+
+</section>
+
+
+<!-- CURRENT STATUS -->
+
+<section class="current-box">
+
+    <div class="current-title">
+
+        <i class="fa-solid fa-signal"></i>
+        Display Status
+
+    </div>
+
+
+    <div
+        class="current-status"
+        id="currentStatus">
+
+        Loading...
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* ==================================================
+   FIREBASE CONFIG
+================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyAUcTdpMctPg2lcqSapoTgFHXizEE35RCY",
+
+    authDomain:
+    "ips-result-portal.firebaseapp.com",
+
+    projectId:
+    "ips-result-portal",
+
+    storageBucket:
+    "ips-result-portal.firebasestorage.app",
+
+    messagingSenderId:
+    "877536597914",
+
+    appId:
+    "1:877536597914:web:d77c26ef46a9da2c928c23",
+
+    measurementId:
+    "G-4PD16WMHTT"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const db =
+    getFirestore(app);
+
+
+/* ==================================================
+   FIRESTORE DOCUMENT
+================================================== */
+
+const displayRef =
+    doc(
+        db,
+        "portalSettings",
+        "lcdDisplay"
+    );
+
+
+/* ==================================================
+   ELEMENTS
+================================================== */
+
+const displayType =
+    document.getElementById(
+        "displayType"
+    );
+
+const heading =
+    document.getElementById(
+        "heading"
+    );
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+const date =
+    document.getElementById(
+        "date"
+    );
+
+const time =
+    document.getElementById(
+        "time"
+    );
+
+const badge =
+    document.getElementById(
+        "badge"
+    );
+
+
+const previewType =
+    document.getElementById(
+        "previewType"
+    );
+
+const previewHeading =
+    document.getElementById(
+        "previewHeading"
+    );
+
+const previewMessage =
+    document.getElementById(
+        "previewMessage"
+    );
+
+const previewInfo =
+    document.getElementById(
+        "previewInfo"
+    );
+
+const previewBadge =
+    document.getElementById(
+        "previewBadge"
+    );
+
+
+const statusBox =
+    document.getElementById(
+        "status"
+    );
+
+const currentStatus =
+    document.getElementById(
+        "currentStatus"
+    );
+
+
+/* ==================================================
+   STATUS MESSAGE
+================================================== */
+
+function showStatus(
+    text,
+    type
+){
+
+    statusBox.textContent =
+        text;
+
+    statusBox.className =
+        "status " + type;
+
+}
+
+
+/* ==================================================
+   PREVIEW
+================================================== */
+
+function updatePreview(){
+
+    previewType.textContent =
+        displayType.value;
+
+    previewHeading.textContent =
+        heading.value ||
+        "YOUR HEADING";
+
+    previewMessage.textContent =
+        message.value ||
+        "Your message will appear here";
+
+    let info = "";
+
+    if(date.value){
+
+        info +=
+            "📅 " +
+            date.value;
+
+    }
+
+    if(time.value){
+
+        if(info){
+
+            info +=
+                " | ";
+
+        }
+
+        info +=
+            "⏰ " +
+            time.value;
+
+    }
+
+    previewInfo.textContent =
+        info ||
+        "📅 DATE | ⏰ TIME";
+
+    previewBadge.textContent =
+        badge.value ||
+        "IMPORTANT";
+
+}
+
+
+/* ==================================================
+   LIVE PREVIEW
+================================================== */
+
+[
+    displayType,
+    heading,
+    message,
+    date,
+    time,
+    badge
+].forEach(
+    function(element){
+
+        element.addEventListener(
+            "input",
+            updatePreview
+        );
+
+        element.addEventListener(
+            "change",
+            updatePreview
+        );
+
+    }
+);
+
+
+/* ==================================================
+   LOAD DISPLAY
+================================================== */
+
+async function loadDisplay(){
+
+    try{
+
+        const snap =
+            await getDoc(
+                displayRef
+            );
+
+
+        if(
+            snap.exists()
+        ){
+
+            const data =
+                snap.data();
+
+
+            displayType.value =
+                data.type ||
+                "📢 IMPORTANT NOTICE";
+
+            heading.value =
+                data.heading ||
+                "";
+
+            message.value =
+                data.message ||
+                "";
+
+            date.value =
+                data.date ||
+                "";
+
+            time.value =
+                data.time ||
+                "";
+
+            badge.value =
+                data.badge ||
+                "";
+
+
+            updatePreview();
+
+
+            if(
+                data.visible === false
+            ){
+
+                currentStatus.innerHTML =
+                    '<span class="offline">● DISPLAY HIDDEN</span>';
+
+            }else{
+
+                currentStatus.innerHTML =
+                    '<span class="online">● DISPLAY LIVE</span>';
+
+            }
+
+        }else{
+
+            currentStatus.innerHTML =
+                '<span class="offline">● NO DISPLAY SAVED</span>';
+
+        }
+
+
+    }catch(error){
+
+        console.error(error);
+
+        currentStatus.innerHTML =
+            '<span class="offline">Firebase connection error</span>';
+
+    }
+
+}
+
+
+/* ==================================================
+   PUBLISH
+================================================== */
+
+document
+    .getElementById("publishBtn")
+    .addEventListener(
+        "click",
+        async function(){
+
+            if(
+                !heading.value.trim()
+            ){
+
+                showStatus(
+                    "Please enter a heading.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            try{
+
+                await setDoc(
+                    displayRef,
+                    {
+
+                        type:
+                            displayType.value,
+
+                        heading:
+                            heading.value.trim(),
+
+                        message:
+                            message.value.trim(),
+
+                        date:
+                            date.value.trim(),
+
+                        time:
+                            time.value.trim(),
+
+                        badge:
+                            badge.value.trim(),
+
+                        visible:
+                            true,
+
+                        updatedAt:
+                            serverTimestamp()
+
+                    },
+                    {
+                        merge:true
+                    }
+                );
+
+
+                showStatus(
+                    "✓ Display published successfully.",
+                    "success"
+                );
+
+
+                currentStatus.innerHTML =
+                    '<span class="online">● DISPLAY LIVE</span>';
+
+
+            }catch(error){
+
+                console.error(error);
+
+                showStatus(
+                    "Display save नहीं हुआ। Firebase Rules check करें.",
+                    "error"
+                );
+
+            }
+
+        }
+    );
+
+
+/* ==================================================
+   HIDE
+================================================== */
+
+document
+    .getElementById("hideBtn")
+    .addEventListener(
+        "click",
+        async function(){
+
+            try{
+
+                await setDoc(
+                    displayRef,
+                    {
+
+                        visible:false,
+
+                        updatedAt:
+                            serverTimestamp()
+
+                    },
+                    {
+                        merge:true
+                    }
+                );
+
+
+                currentStatus.innerHTML =
+                    '<span class="offline">● DISPLAY HIDDEN</span>';
+
+
+                showStatus(
+                    "✓ LCD Display hidden.",
+                    "success"
+                );
+
+
+            }catch(error){
+
+                console.error(error);
+
+                showStatus(
+                    "Display hide नहीं हुआ.",
+                    "error"
+                );
+
+            }
+
+        }
+    );
+
+
+/* ==================================================
+   CLEAR FORM
+================================================== */
+
+document
+    .getElementById("clearBtn")
+    .addEventListener(
+        "click",
+        function(){
+
+            displayType.value =
+                "🔔 UPCOMING TEST";
+
+            heading.value =
+                "";
+
+            message.value =
+                "";
+
+            date.value =
+                "";
+
+            time.value =
+                "";
+
+            badge.value =
+                "";
+
+            updatePreview();
+
+            statusBox.className =
+                "status";
+
+            statusBox.textContent =
+                "";
+
+        }
+    );
+
+
+/* ==================================================
+   START
+================================================== */
+
+loadDisplay();
+
+updatePreview();
+
+</script>
+
+</body>
+  </html>
