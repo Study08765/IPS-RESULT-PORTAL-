@@ -1084,11 +1084,11 @@ button.portal{
         border-radius:22px;
     }
 
-    .lcd-top{
+    .lcd-header{
         font-size:8px;
     }
 
-    .live-dot{
+    .live{
         font-size:7px;
     }
 
@@ -1381,8 +1381,6 @@ School Holiday List
 
 </a>
 
-
-</div>
 
 </div>
 
@@ -1694,41 +1692,46 @@ error
 });
 
 }
+/* ==================================================
+   LCD DIGITAL DISPLAY
+================================================== */
 
-   <script>
 const displays = [
-    {
-        type: "🔔 UPCOMING TEST",
-        heading: "GENERAL SCIENCE",
-        message: "MONTHLY CBT TEST",
-        info: "📅 20 AUGUST 2026 | ⏰ 07:00 PM",
-        badge: "CBT EXAM"
-    },
 
-    {
-        type: "🏆 CONGRATULATIONS!",
-        heading: "AMAN KUMAR",
-        message: "EXCELLENT PERFORMANCE",
-        info: "⭐ SCORE: 48 / 50",
-        badge: "EXCELLENT PERFORMANCE"
-    },
+{
+    type: "🔔 UPCOMING TEST",
+    heading: "GENERAL SCIENCE",
+    message: "MONTHLY CBT TEST",
+    info: "📅 20 AUGUST 2026 | ⏰ 07:00 PM",
+    badge: "CBT EXAM"
+},
 
-    {
-        type: "📢 IMPORTANT NOTICE",
-        heading: "QUARTERLY EXAMINATION",
-        message: "Examination is proposed in September 2026",
-        info: "📚 PREPARE YOURSELF",
-        badge: "IMPORTANT"
-    }
+{
+    type: "🏆 CONGRATULATIONS!",
+    heading: "AMAN KUMAR",
+    message: "EXCELLENT PERFORMANCE",
+    info: "⭐ SCORE: 48 / 50",
+    badge: "CONGRATULATIONS"
+},
+
+{
+    type: "📢 IMPORTANT NOTICE",
+    heading: "QUARTERLY EXAMINATION",
+    message: "Examination is proposed in September 2026",
+    info: "📚 PREPARE YOURSELF",
+    badge: "IMPORTANT"
+}
+
 ];
 
 let displayIndex = 0;
 
-function changeLCD() {
+function changeLCD(){
 
     const d = displays[displayIndex];
 
     document.getElementById("lcdContent").innerHTML = `
+
         <div class="lcd-type">
             ${d.type}
         </div>
@@ -1748,26 +1751,20 @@ function changeLCD() {
         <div class="lcd-badge">
             ${d.badge}
         </div>
+
     `;
-
-    const dots =
-        document.querySelectorAll(".lcd-dots span");
-
-    dots.forEach((dot, i) => {
-        dot.classList.toggle(
-            "active",
-            i === displayIndex
-        );
-    });
 
     displayIndex++;
 
-    if (displayIndex >= displays.length) {
+    if(displayIndex >= displays.length){
         displayIndex = 0;
     }
+
 }
 
-setInterval(changeLCD, 5000);
+changeLCD();
+
+setInterval(changeLCD,5000);
    </script>
 </body>
   </html>
