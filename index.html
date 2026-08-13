@@ -1118,6 +1118,203 @@ button.portal{
     }
 
    }
+   /* =========================================
+   VIP FULL SCREEN LCD DISPLAY
+========================================= */
+
+.lcd-screen{
+    min-height:330px !important;
+    padding:12px 15px !important;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #123c55 0%,
+        #061724 55%,
+        #020a10 100%
+    ) !important;
+
+    border:3px solid #536d7d !important;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.45),
+    inset 0 0 35px rgba(0,190,255,.15) !important;
+}
+
+
+/* TOP BAR */
+
+.lcd-header{
+    font-size:12px !important;
+    padding-bottom:9px !important;
+
+    color:#8fe9ff !important;
+
+    letter-spacing:.8px;
+}
+
+
+/* MAIN CONTENT */
+
+.lcd-content{
+    min-height:245px;
+
+    padding:
+    18px 5px 8px !important;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+
+/* TYPE */
+
+.lcd-type{
+    font-size:20px !important;
+
+    font-weight:800 !important;
+
+    color:#55eaff !important;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:8px !important;
+
+    text-shadow:
+    0 0 8px #00cfff,
+    0 0 18px rgba(0,210,255,.6);
+}
+
+
+/* MAIN HEADING */
+
+.lcd-heading{
+    font-size:38px !important;
+
+    line-height:1.05 !important;
+
+    font-weight:800 !important;
+
+    color:#ffffff !important;
+
+    letter-spacing:1px;
+
+    text-shadow:
+    0 0 8px rgba(255,255,255,.7),
+    0 0 18px rgba(0,200,255,.55);
+}
+
+
+/* MESSAGE */
+
+.lcd-message{
+    font-size:21px !important;
+
+    line-height:1.15 !important;
+
+    font-weight:700 !important;
+
+    color:#a9f0ff !important;
+
+    margin-top:8px !important;
+
+    text-shadow:
+    0 0 10px rgba(0,220,255,.5);
+}
+
+
+/* DATE + TIME */
+
+.lcd-info{
+    font-size:16px !important;
+
+    font-weight:700 !important;
+
+    color:#e9fbff !important;
+
+    margin-top:15px !important;
+
+    padding:
+    8px 18px;
+
+    border-radius:30px;
+
+    background:
+    rgba(0,150,210,.13);
+
+    border:
+    1px solid
+    rgba(80,220,255,.25);
+}
+
+
+/* BADGE */
+
+.lcd-badge{
+    font-size:13px !important;
+
+    padding:
+    9px 25px !important;
+
+    margin-top:14px !important;
+
+    border-radius:30px !important;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0799ee,
+        #064da0
+    ) !important;
+
+    box-shadow:
+    0 0 12px rgba(0,160,255,.45),
+    0 0 25px rgba(0,160,255,.18) !important;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .lcd-screen{
+        min-height:300px !important;
+    }
+
+    .lcd-content{
+        min-height:225px;
+    }
+
+    .lcd-header{
+        font-size:9px !important;
+    }
+
+    .lcd-type{
+        font-size:16px !important;
+    }
+
+    .lcd-heading{
+        font-size:30px !important;
+    }
+
+    .lcd-message{
+        font-size:17px !important;
+    }
+
+    .lcd-info{
+        font-size:11px !important;
+    }
+
+    .lcd-badge{
+        font-size:10px !important;
+    }
+
+   }
 </style>
 
 </head>
