@@ -883,21 +883,62 @@ button.portal{
 }
 html,
 body{
-    margin:0 !important;
-    padding:0 !important;
-    height:auto !important;
-    min-height:0 !important;
+    width:100%;
+    min-height:100%;
+    margin:0;
+    padding:0;
+}
+
+body{
+    overflow-x:hidden;
 }
 
 .page{
-    height:auto !important;
-    min-height:0 !important;
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    background:
+    linear-gradient(
+        180deg,
+        #e5f1ff 0%,
+        #f3f8ff 100%
+    );
 }
 
 .premium-footer{
-    margin:0 !important;
-    display:block;
-   }
+    width:100%;
+    margin-top:auto !important;
+    flex-shrink:0;
+
+    padding:14px 8px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        #042c59,
+        #0757a5,
+        #042c59
+    );
+
+    color:#FFD700;
+
+    font-size:18px;
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-shadow:
+    0 2px 5px rgba(0,0,0,.35);
+
+    border-top:
+    2px solid
+    rgba(255,255,255,.2);
+}
 </style>
 
 </head>
