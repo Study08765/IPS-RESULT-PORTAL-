@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paid Notes Control</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;font-family:Poppins,sans-serif}body{margin:0;background:#eef6ff;color:#173b62}
+.header{background:linear-gradient(135deg,#064b99,#0878d8);color:#fff;padding:20px}.container{max-width:1050px;margin:auto;padding:15px}
+.card{background:#fff;border-radius:18px;padding:17px;margin-bottom:14px;box-shadow:0 7px 20px #164b7a18}h2{color:#064b99;font-size:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;font-size:11px;font-weight:700;margin:7px 0 5px}
+input,select{width:100%;padding:11px;border:1px solid #ccd9e7;border-radius:10px}.btn{border:0;border-radius:10px;padding:11px 14px;background:#075fb6;color:#fff;font-weight:800;margin:8px 5px 0 0}.free{background:#087a3b}.danger{background:#c62828}.row{border:1px solid #e1eaf4;border-radius:13px;padding:12px;margin-top:10px}.tag{font-size:10px;font-weight:800}@media(max-width:650px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header class="header"><h1>📚 PAID NOTES CONTROL</h1><div>THE STUDY POINT • Admin</div></header>
+<main class="container">
+<div class="card"><h2>Add / Edit Note</h2><div class="grid">
+<div><label>Class</label><select id="className"><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option></select></div>
+<div><label>Subject</label><select id="subject"><option>Hindi</option><option>English</option><option>Mathematics</option><option>Science</option><option>Social Science</option><option>General Knowledge</option></select></div>
+<div><label>Title</label><input id="title" placeholder="General Knowledge Notes"></div>
+<div><label>Price ₹</label><input id="price" type="number" min="0" placeholder="99"></div>
+<div><label>PDF URL</label><input id="pdfUrl" placeholder="https://.../file.pdf"></div>
+<div><label>QR Image URL</label><input id="qrUrl" placeholder="https://.../qr.png"></div>
+</div><label>Access</label><select id="accessType"><option value="paid">PAID</option><option value="free">FREE</option></select>
+<button class="btn" onclick="saveNote()">SAVE NOTE</button></div>
+<div class="card"><h2>Current Notes</h2><div id="list">Loading...</div></div>
+</main>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getFirestore,collection,getDocs,doc,setDoc,deleteDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyAUcTdpMctPg2lcqSapoTgFHXizEE35RCY",
+  authDomain: "ips-result-portal.firebaseapp.com",
+  projectId: "ips-result-portal",
+  storageBucket: "ips-result-portal.firebasestorage.app",
+  messagingSenderId: "877536597914",
+  appId: "1:877536597914:web:d77c26ef46a9da2c928c23",
+  measurementId: "G-4PD16WMHTT"
+};
+const db=getFirestore(initializeApp(firebaseConfig)); let notes=[];
+const $=id=>document.getElementById(id);
+const esc=x=>String(x??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#039;"}[m]));
+async function load(){
+ const s=await getDocs(collection(db,"paidNotes"));notes=s.docs.map(d=>({id:d.id,...d.data()}));
+ $("list").innerHTML=notes.length?notes.map(n=>`<div class="row"><b>${esc(n.className)} • ${esc(n.subject)}</b><br><small>${esc(n.title)}</small><br>
+ <span class="tag">${n.accessType==="free"?"🟢 FREE":"🟠 PAID ₹"+(n.price||0)}</span><br>
+ <button class="btn ${n.accessType==="free"?"":"free"}" onclick="toggle('${n.id}','${n.accessType==="free"?"paid":"free"}')">${n.accessType==="free"?"MAKE PAID":"MAKE FREE"}</button>
+ <button class="btn" onclick="editNote('${n.id}')">EDIT</button><button class="btn danger" onclick="deleteNote('${n.id}')">DELETE</button></div>`).join(""):"No notes yet.";
+}
+window.editNote=id=>{const n=notes.find(x=>x.id===id);if(!n)return;$("className").value=n.className;$("subject").value=n.subject;$("title").value=n.title||"";$("price").value=n.price||0;$("pdfUrl").value=n.pdfUrl||"";$("qrUrl").value=n.qrUrl||"";$("accessType").value=n.accessType||"paid";window.editing=id;scrollTo(0,0)};
+window.toggle=async(id,type)=>{await setDoc(doc(db,"paidNotes",id),{accessType:type},{merge:true});load()};
+window.deleteNote=async id=>{if(confirm("Delete this note?")){await deleteDoc(doc(db,"paidNotes",id));load()}};
+window.saveNote=async()=>{
+ const data={className:$("className").value,subject:$("subject").value,title:$("title").value.trim(),price:Number($("price").value||0),pdfUrl:$("pdfUrl").value.trim(),qrUrl:$("qrUrl").value.trim(),accessType:$("accessType").value,enabled:true};
+ if(!data.title||!data.pdfUrl){alert("Title और PDF URL भरें");return}
+ const id=window.editing||("note_"+Date.now());await setDoc(doc(db,"paidNotes",id),data,{merge:true});window.editing=null;alert("Note saved successfully");load();
+};
+load();
+</script></body></html>
