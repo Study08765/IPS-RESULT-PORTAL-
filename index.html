@@ -866,8 +866,8 @@ button.portal{
 .lcd-section{
     width:100%;
     max-width:1050px;
-    margin:8px auto 0;
-    padding:0 15px 22px;
+    margin:10px auto 0;
+    padding:0 10px 20px;
 }
 
 .lcd-screen{
@@ -1695,89 +1695,79 @@ error
 
 }
 
-</script>
-
+   <script>
 const displays = [
+    {
+        type: "🔔 UPCOMING TEST",
+        heading: "GENERAL SCIENCE",
+        message: "MONTHLY CBT TEST",
+        info: "📅 20 AUGUST 2026 | ⏰ 07:00 PM",
+        badge: "CBT EXAM"
+    },
 
-{
-type:"🔔 UPCOMING TEST",
-heading:"GENERAL SCIENCE",
-message:"MONTHLY CBT TEST",
-info:"📅 20 AUGUST 2026  |  ⏰ 07:00 PM",
-badge:"CBT EXAM"
-},
+    {
+        type: "🏆 CONGRATULATIONS!",
+        heading: "AMAN KUMAR",
+        message: "EXCELLENT PERFORMANCE",
+        info: "⭐ SCORE: 48 / 50",
+        badge: "EXCELLENT PERFORMANCE"
+    },
 
-{
-type:"🏆 CONGRATULATIONS!",
-heading:"AMAN KUMAR",
-message:"EXCELLENT PERFORMANCE",
-info:"⭐ SCORE: 48 / 50",
-badge:"CONGRATULATIONS"
-},
-
-{
-type:"📢 IMPORTANT NOTICE",
-heading:"QUARTERLY EXAMINATION",
-message:"EXAMINATION IS PROPOSED IN SEPTEMBER 2026",
-info:"📚 PREPARE YOURSELF",
-badge:"IMPORTANT"
-}
-
+    {
+        type: "📢 IMPORTANT NOTICE",
+        heading: "QUARTERLY EXAMINATION",
+        message: "Examination is proposed in September 2026",
+        info: "📚 PREPARE YOURSELF",
+        badge: "IMPORTANT"
+    }
 ];
 
 let displayIndex = 0;
 
-function changeLCD(){
+function changeLCD() {
 
-const d = displays[displayIndex];
+    const d = displays[displayIndex];
 
-document.getElementById("lcdContent").innerHTML = `
+    document.getElementById("lcdContent").innerHTML = `
+        <div class="lcd-type">
+            ${d.type}
+        </div>
 
-<div class="lcd-type">
-${d.type}
-</div>
+        <div class="lcd-heading">
+            ${d.heading}
+        </div>
 
-<div class="lcd-heading">
-${d.heading}
-</div>
+        <div class="lcd-message">
+            ${d.message}
+        </div>
 
-<div class="lcd-message">
-${d.message}
-</div>
+        <div class="lcd-info">
+            ${d.info}
+        </div>
 
-<div class="lcd-info">
-${d.info}
-</div>
+        <div class="lcd-badge">
+            ${d.badge}
+        </div>
+    `;
 
-<div class="lcd-badge">
-${d.badge}
-</div>
+    const dots =
+        document.querySelectorAll(".lcd-dots span");
 
-`;
+    dots.forEach((dot, i) => {
+        dot.classList.toggle(
+            "active",
+            i === displayIndex
+        );
+    });
 
-const dots =
-document.querySelectorAll(".lcd-dots span");
+    displayIndex++;
 
-dots.forEach((dot,i)=>{
-
-dot.classList.toggle(
-"active",
-i === displayIndex
-);
-
-});
-
-displayIndex++;
-
-if(displayIndex >= displays.length){
-displayIndex = 0;
+    if (displayIndex >= displays.length) {
+        displayIndex = 0;
+    }
 }
 
-}
-
-setInterval(changeLCD,5000);
-
-</script>
-
+setInterval(changeLCD, 5000);
+   </script>
 </body>
   </html>
