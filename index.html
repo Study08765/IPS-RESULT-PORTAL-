@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | CBT PORTAL</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#0047AB">
+
+
+<style>
+
+/* ==================================================
+   RESET
+================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+    margin:0;
+    padding:0;
+    background:#eaf3ff;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+
+/* ==================================================
+   PAGE
+================================================== */
+
+.page{
+    width:100%;
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        180deg,
+        #e5f1ff 0%,
+        #f3f8ff 100%
+    );
+}
+
+
+/* ==================================================
+   HERO IMAGE
+   IMPORTANT:
+   Only upper student portion is shown.
+================================================== */
+
+.students-image{
+    width:100% !important;
+
+    height:220px !important;
+    min-height:220px !important;
+    max-height:220px !important;
+
+    overflow:hidden !important;
+
+    background:#dcecff;
+
+    line-height:0;
+
+    position:relative;
+}
+
+.students-image img{
+    width:100% !important;
+    height:100% !important;
+
+    display:block;
+
+    object-fit:cover !important;
+
+    /*
+       बच्चों वाला हिस्सा साफ दिखाने के लिए
+    */
+
+    object-position:center 25% !important;
+
+    transform:none !important;
+
+    max-width:none;
+}
+
+
+/* ==================================================
+   BRANDING
+================================================== */
+
+.brand{
+    width:100%;
+    max-width:1050px;
+
+    margin:0 auto;
+
+    padding:14px 18px 12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:20px;
+
+    text-align:left;
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.brand-logo{
+    width:100px;
+    height:100px;
+
+    flex:0 0 100px;
+
+    padding:4px;
+
+    background:#fff;
+
+    border:4px solid #FFD700;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 8px 22px rgba(0,0,0,.20);
+}
+
+.brand-logo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+}
+
+
+/* ==================================================
+   BRAND TEXT
+================================================== */
+
+.brand-text{
+    min-width:0;
+}
+
+.school-name{
+    font-size:36px;
+
+    line-height:1.05;
+
+    font-weight:800;
+
+    color:#064b99;
+
+    letter-spacing:.7px;
+
+    white-space:nowrap;
+}
+
+.portal-title{
+    margin-top:6px;
+
+    font-size:18px;
+
+    line-height:1.2;
+
+    font-weight:800;
+
+    color:#0b4e97;
+
+    white-space:nowrap;
+}
+
+.portal-subtitle{
+    margin-top:4px;
+
+    font-size:10px;
+
+    color:#536b86;
+}
+
+
+/* ==================================================
+   MENU
+================================================== */
+
+.menu{
+    width:100%;
+    max-width:1050px;
+
+    margin:0 auto;
+
+    padding:0 12px 10px;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:9px;
+}
+
+
+/* ==================================================
+   PORTAL BUTTON
+================================================== */
+
+.portal{
+    width:100%;
+
+    min-height:112px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:12px 20px;
+
+    text-decoration:none;
+
+    color:#123963;
+
+    border:
+    2px solid
+    rgba(255,255,255,.96);
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #dfedfc
+    );
+
+    box-shadow:
+
+    0 7px 18px
+    rgba(25,70,115,.16),
+
+    inset 0 2px 5px
+    rgba(255,255,255,.98),
+
+    inset 0 -3px 7px
+    rgba(80,120,160,.08);
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.portal:hover{
+    transform:translateY(-2px);
+}
+
+.portal:active{
+    transform:scale(.98);
+}
+
+
+/* ==================================================
+   ICON
+================================================== */
+
+.icon{
+    width:72px;
+    height:72px;
+
+    flex:0 0 72px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:19px;
+
+    color:#fff;
+
+    font-size:32px;
+
+    border:
+    2px solid
+    rgba(255,255,255,.8);
+
+    box-shadow:
+
+    0 7px 15px
+    rgba(0,0,0,.17),
+
+    inset 0 2px 5px
+    rgba(255,255,255,.55);
+}
+
+
+/* ==================================================
+   BUTTON COLORS
+================================================== */
+
+.exam .icon{
+    background:
+    linear-gradient(
+        135deg,
+        #35baf5,
+        #0968e8
+    );
+}
+
+.result .icon{
+    background:
+    linear-gradient(
+        135deg,
+        #ffc72c,
+        #f47a00
+    );
+}
+
+.notes .icon{
+    background:
+    linear-gradient(
+        135deg,
+        #d04be0,
+        #bd17aa
+    );
+}
+
+.course .icon{
+    background:
+    linear-gradient(
+        135deg,
+        #34d6b0,
+        #00a49f
+    );
+}
+
+.registration .icon{
+    background:
+    linear-gradient(
+        135deg,
+        #ffb62f,
+        #ef6900
+    );
+}
+
+.admin .icon{
+    background:
+    linear-gradient(
+        135deg,
+        #8a9db5,
+        #263c57
+    );
+}
+
+
+/* ==================================================
+   BUTTON TEXT
+================================================== */
+
+.button-text{
+    text-align:left;
+
+    min-width:0;
+}
+
+.name{
+    font-size:18px;
+
+    line-height:1.15;
+
+    font-weight:800;
+
+    color:#123b6c;
+}
+
+.small{
+    margin-top:5px;
+
+    font-size:9px;
+
+    color:#536b86;
+}
+
+
+/* ==================================================
+   LCD SECTION
+================================================== */
+
+.lcd-section{
+    width:100%;
+    max-width:1050px;
+
+    margin:3px auto 0;
+
+    padding:0 9px 8px;
+}
+
+.lcd-screen{
+    position:relative;
+
+    overflow:hidden;
+
+    width:100%;
+
+    height:295px;
+
+    padding:11px 14px;
+
+    border-radius:23px;
+
+    border:
+    3px solid
+    #536d7d;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #123c55 0%,
+        #061724 55%,
+        #020a10 100%
+    );
+
+    box-shadow:
+
+    0 12px 28px
+    rgba(0,0,0,.40),
+
+    inset 0 0 30px
+    rgba(0,190,255,.12);
+}
+
+
+/* ==================================================
+   LCD SCAN LINES
+================================================== */
+
+.lcd-screen::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,.018) 0px,
+        rgba(255,255,255,.018) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+}
+
+
+/* ==================================================
+   LCD HEADER
+================================================== */
+
+.lcd-header{
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-bottom:8px;
+
+    color:#FFD700;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.6px;
+
+    border-bottom:
+    1px solid
+    rgba(255,215,0,.30);
+}
+
+.live{
+    color:#63ff9b;
+}
+
+
+/* ==================================================
+   LCD CONTENT
+================================================== */
+
+.lcd-content{
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    height:238px;
+
+    padding:8px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:#fff;
+}
+
+
+/* ==================================================
+   LCD TYPE
+================================================== */
+
+.lcd-type{
+    color:#55eaff;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    margin-bottom:7px;
+
+    text-shadow:
+    0 1px 2px #000;
+}
+
+
+/* ==================================================
+   LCD MAIN HEADING
+   GENERAL SCIENCE CLEAR
+================================================== */
+
+.lcd-heading{
+
+    display:block;
+
+    width:100%;
+
+    color:#FFD700;
+
+    font-size:38px;
+
+    line-height:1.08;
+
+    font-weight:900;
+
+    letter-spacing:.4px;
+
+    text-align:center;
+
+    white-space:normal;
+
+    overflow-wrap:anywhere;
+
+    filter:none;
+
+    text-shadow:
+    0 2px 2px #000;
+
+}
+
+
+/* ==================================================
+   LCD MESSAGE
+================================================== */
+
+.lcd-message{
+    color:#d9f8ff;
+
+    font-size:19px;
+
+    line-height:1.15;
+
+    font-weight:700;
+
+    margin-top:8px;
+
+    text-shadow:
+    0 2px 3px #000;
+}
+
+
+/* ==================================================
+   LCD INFO
+================================================== */
+
+.lcd-info{
+    margin-top:12px;
+
+    padding:7px 17px;
+
+    border-radius:30px;
+
+    background:
+    rgba(0,150,210,.13);
+
+    border:
+    1px solid
+    rgba(80,220,255,.25);
+
+    color:#e9fbff;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+
+/* ==================================================
+   LCD BADGE
+================================================== */
+
+.lcd-badge{
+    margin-top:10px;
+
+    padding:7px 21px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0799ee,
+        #064da0
+    );
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.premium-footer{
+    width:100%;
+
+    margin-top:2px;
+
+    padding:9px 8px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        #042c59,
+        #0757a5,
+        #042c59
+    );
+
+    color:#FFD700;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    letter-spacing:.7px;
+
+    border-top:
+    2px solid
+    rgba(255,255,255,.2);
+}
+
+
+/* ==================================================
+   ADMIN LOGIN
+================================================== */
+
+.login-overlay{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    padding:20px;
+
+    background:
+    rgba(0,15,45,.68);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+}
+
+.login-card{
+    width:100%;
+
+    max-width:370px;
+
+    margin:15vh auto 0;
+
+    padding:26px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,.18);
+
+    border:
+    1px solid
+    rgba(255,255,255,.4);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    box-shadow:
+    0 20px 55px
+    rgba(0,0,0,.45);
+}
+
+.login-logo{
+    width:70px;
+    height:70px;
+
+    margin:auto;
+
+    padding:4px;
+
+    background:#fff;
+
+    border:
+    3px solid
+    #FFD700;
+
+    border-radius:50%;
+}
+
+.login-logo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+}
+
+.login-card h2{
+    margin-top:10px;
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:800;
+}
+
+.login-card p{
+    margin:4px 0 16px;
+
+    color:#fff;
+
+    font-size:11px;
+}
+
+.password-box{
+    position:relative;
+}
+
+.password-box input{
+    width:100%;
+
+    padding:15px 45px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    font-size:15px;
+}
+
+.lock-icon{
+    position:absolute;
+
+    left:14px;
+    top:15px;
+
+    color:#164a84;
+}
+
+.eye{
+    position:absolute;
+
+    right:14px;
+    top:14px;
+
+    color:#555;
+
+    cursor:pointer;
+}
+
+.login-button{
+    width:100%;
+
+    padding:15px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #FFD700,
+        #FFB000
+    );
+
+    color:#073c7d;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.login-error{
+    display:none;
+
+    margin-top:8px;
+
+    color:#ffd0d0;
+
+    font-size:11px;
+}
+
+.close-login{
+    position:fixed;
+
+    top:18px;
+    right:18px;
+
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.20);
+
+    color:#fff;
+
+    font-size:24px;
+
+    cursor:pointer;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:700px){
+
+    /* HERO */
+
+    .students-image{
+        width:100% !important;
+
+        height:220px !important;
+        min-height:220px !important;
+        max-height:220px !important;
+
+        overflow:hidden !important;
+    }
+
+    .students-image img{
+        width:100% !important;
+        height:100% !important;
+
+        object-fit:cover !important;
+
+        object-position:center 25% !important;
+
+        transform:none !important;
+    }
+
+
+    /* BRAND */
+
+    .brand{
+        padding:10px 9px 9px;
+
+        gap:11px;
+
+        justify-content:flex-start;
+
+        align-items:center;
+    }
+
+    .brand-logo{
+        width:78px;
+        height:78px;
+
+        flex:0 0 78px;
+
+        border-width:3px;
+    }
+
+    .school-name{
+        font-size:23px;
+
+        line-height:1.05;
+    }
+
+    .portal-title{
+        font-size:11px;
+
+        margin-top:4px;
+    }
+
+    .portal-subtitle{
+        font-size:6.5px;
+
+        margin-top:3px;
+    }
+
+
+    /* MENU */
+
+    .menu{
+        padding:0 7px 7px;
+
+        gap:7px;
+    }
+
+    .portal{
+        min-height:104px;
+
+        padding:8px 8px;
+
+        gap:8px;
+
+        border-radius:19px;
+    }
+
+    .icon{
+        width:54px;
+        height:54px;
+
+        flex:0 0 54px;
+
+        font-size:25px;
+
+        border-radius:16px;
+    }
+
+    .name{
+        font-size:11px;
+
+        line-height:1.15;
+    }
+
+    .small{
+        font-size:6px;
+
+        margin-top:3px;
+    }
+
+
+    /* LCD */
+
+    .lcd-section{
+        padding:3px 7px 6px;
+    }
+
+    .lcd-screen{
+        height:270px;
+
+        padding:9px;
+
+        border-radius:20px;
+    }
+
+    .lcd-header{
+        font-size:7.5px;
+    }
+
+    .lcd-content{
+        height:220px;
+
+        padding:5px;
+    }
+
+    .lcd-type{
+        font-size:13px;
+
+        margin-bottom:5px;
+    }
+
+    .lcd-heading{
+        font-size:28px;
+
+        line-height:1.08;
+
+        text-shadow:
+        0 2px 2px #000;
+    }
+
+    .lcd-message{
+        font-size:14px;
+
+        margin-top:6px;
+    }
+
+    .lcd-info{
+        font-size:8.5px;
+
+        margin-top:8px;
+
+        padding:6px 11px;
+    }
+
+    .lcd-badge{
+        font-size:8.5px;
+
+        margin-top:7px;
+
+        padding:6px 14px;
+    }
+
+    .premium-footer{
+        font-size:10px;
+
+        padding:8px 5px;
+    }
+
+}
+
+
+/* ==================================================
+   SMALL PHONE
+================================================== */
+
+@media(max-width:380px){
+
+    .students-image{
+        height:205px !important;
+        min-height:205px !important;
+        max-height:205px !important;
+    }
+
+    .students-image img{
+        object-position:center 25% !important;
+    }
+
+    .brand{
+        gap:8px;
+
+        padding:8px 7px;
+    }
+
+    .brand-logo{
+        width:68px;
+        height:68px;
+
+        flex:0 0 68px;
+    }
+
+    .school-name{
+        font-size:20px;
+    }
+
+    .portal-title{
+        font-size:9px;
+    }
+
+    .portal-subtitle{
+        font-size:5.5px;
+    }
+
+    .portal{
+        min-height:94px;
+
+        padding:7px;
+    }
+
+    .icon{
+        width:48px;
+        height:48px;
+
+        flex:0 0 48px;
+
+        font-size:21px;
+    }
+
+    .name{
+        font-size:9px;
+    }
+
+    .small{
+        font-size:5px;
+    }
+
+    .lcd-screen{
+        height:245px;
+    }
+
+    .lcd-content{
+        height:195px;
+    }
+
+    .lcd-heading{
+        font-size:24px;
+    }
+
+    .lcd-message{
+        font-size:12px;
+    }
+
+}
+
+
+/* ==================================================
+   BUTTON RESET
+================================================== */
+
+button.portal{
+    font-family:'Poppins',sans-serif;
+
+    appearance:none;
+    -webkit-appearance:none;
+
+    border:2px solid
+    rgba(255,255,255,.96);
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- ==================================================
+     STUDENTS IMAGE
+================================================== -->
+
+<div class="students-image">
+
+    <img
+        src="hero-bg.jpg"
+        alt="THE STUDY POINT Students">
+
+</div>
+
+
+<!-- ==================================================
+     BRANDING
+================================================== -->
+
+<div class="brand">
+
+    <div class="brand-logo">
+
+        <img
+            src="icon-512.png"
+            alt="THE STUDY POINT">
+
+    </div>
+
+
+    <div class="brand-text">
+
+        <div class="school-name">
+            THE STUDY POINT
+        </div>
+
+        <div class="portal-title">
+            CBT PORTAL &amp; STUDENT SERVICES
+        </div>
+
+        <div class="portal-subtitle">
+            Your Digital Examination &amp; Student Portal
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     PORTAL MENU
+================================================== -->
+
+<div class="menu">
+
+
+<a
+href="student-cbt.html"
+class="portal exam">
+
+    <div class="icon">
+        <i class="fa-solid fa-pen-to-square"></i>
+    </div>
+
+    <div class="button-text">
+
+        <div class="name">
+            CBT EXAM
+        </div>
+
+        <div class="small">
+            Online Examination
+        </div>
+
+    </div>
+
+</a>
+
+
+<a
+href="student-result.html"
+class="portal result">
+
+    <div class="icon">
+        <i class="fa-solid fa-trophy"></i>
+    </div>
+
+    <div class="button-text">
+
+        <div class="name">
+            CBT RESULT
+        </div>
+
+        <div class="small">
+            Check Examination Result
+        </div>
+
+    </div>
+
+</a>
+
+
+<a
+href="paid-notes.html"
+class="portal notes">
+
+    <div class="icon">
+        <i class="fa-solid fa-book-open"></i>
+    </div>
+
+    <div class="button-text">
+
+        <div class="name">
+            PAID NOTES
+        </div>
+
+        <div class="small">
+            Study Material &amp; Notes
+        </div>
+
+    </div>
+
+</a>
+
+
+<a
+href="course-details.html"
+class="portal course">
+
+    <div class="icon">
+        <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+    <div class="button-text">
+
+        <div class="name">
+            COURSE DETAILS
+        </div>
+
+        <div class="small">
+            View Course &amp; Study Details
+        </div>
+
+    </div>
+
+</a>
+
+
+<a
+href="student-registration.html"
+class="portal registration">
+
+    <div class="icon">
+        <i class="fa-solid fa-user-plus"></i>
+    </div>
+
+    <div class="button-text">
+
+        <div class="name">
+            NEW STUDENT REGISTRATION
+        </div>
+
+        <div class="small">
+            Register for Student Portal
+        </div>
+
+    </div>
+
+</a>
+
+
+<button
+type="button"
+id="adminOpen"
+class="portal admin">
+
+    <div class="icon">
+        <i class="fa-solid fa-shield-halved"></i>
+    </div>
+
+    <div class="button-text">
+
+        <div class="name">
+            ADMIN LOGIN
+        </div>
+
+        <div class="small">
+            Administrator Panel
+        </div>
+
+    </div>
+
+</button>
+
+
+</div>
+
+
+<!-- ==================================================
+     LCD DISPLAY
+================================================== -->
+
+<section class="lcd-section">
+
+    <div class="lcd-screen">
+
+        <div class="lcd-header">
+
+            <span>
+                THE STUDY POINT DIGITAL DISPLAY
+            </span>
+
+            <span class="live">
+                ● LIVE
+            </span>
+
+        </div>
+
+
+        <div
+            id="lcdContent"
+            class="lcd-content">
+
+            <div class="lcd-type">
+                🔔 UPCOMING TEST
+            </div>
+
+            <div class="lcd-heading">
+                GENERAL SCIENCE
+            </div>
+
+            <div class="lcd-message">
+                MONTHLY CBT TEST
+            </div>
+
+            <div class="lcd-info">
+                📅 20 AUGUST 2026
+                &nbsp; | &nbsp;
+                ⏰ 07:00 PM
+            </div>
+
+            <div class="lcd-badge">
+                CBT EXAM
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="premium-footer">
+
+    THE STUDY POINT CBT EXAM PORTAL
+
+</footer>
+
+
+</div>
+
+
+<!-- ==================================================
+     ADMIN LOGIN POPUP
+================================================== -->
+
+<div
+id="loginOverlay"
+class="login-overlay">
+
+    <button
+        id="closeLogin"
+        class="close-login"
+        type="button">
+
+        ×
+
+    </button>
+
+
+    <div class="login-card">
+
+        <div class="login-logo">
+
+            <img
+                src="icon-512.png"
+                alt="TSPCBT">
+
+        </div>
+
+        <h2>
+            ADMIN LOGIN
+        </h2>
+
+        <p>
+            Enter administrator password
+        </p>
+
+        <div class="password-box">
+
+            <i
+                class="fa-solid fa-lock lock-icon">
+            </i>
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Enter Password"
+                autocomplete="off">
+
+            <span
+                class="eye"
+                id="eye">
+
+                <i
+                    class="fa-solid fa-eye">
+                </i>
+
+            </span>
+
+        </div>
+
+        <button
+            class="login-button"
+            id="loginButton"
+            type="button">
+
+            LOGIN
+
+        </button>
+
+        <div
+            class="login-error"
+            id="loginError">
+
+            Incorrect Password
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     ADMIN LOGIN JAVASCRIPT
+================================================== -->
+
+<script>
+
+const overlay =
+document.getElementById("loginOverlay");
+
+const password =
+document.getElementById("adminPassword");
+
+const error =
+document.getElementById("loginError");
+
+
+document
+.getElementById("adminOpen")
+.addEventListener(
+"click",
+function(){
+
+    overlay.style.display = "block";
+
+    password.value = "";
+
+    error.style.display = "none";
+
+    password.focus();
+
+});
+
+
+document
+.getElementById("closeLogin")
+.addEventListener(
+"click",
+function(){
+
+    overlay.style.display = "none";
+
+    password.value = "";
+
+    error.style.display = "none";
+
+});
+
+
+overlay.addEventListener(
+"click",
+function(e){
+
+    if(e.target === overlay){
+
+        overlay.style.display = "none";
+
+        password.value = "";
+
+        error.style.display = "none";
+
+    }
+
+});
+
+
+document
+.getElementById("eye")
+.addEventListener(
+"click",
+function(){
+
+    if(password.type === "password"){
+
+        password.type = "text";
+
+        this.innerHTML =
+        '<i class="fa-solid fa-eye-slash"></i>';
+
+    }
+    else{
+
+        password.type = "password";
+
+        this.innerHTML =
+        '<i class="fa-solid fa-eye"></i>';
+
+    }
+
+});
+
+
+function adminLogin(){
+
+    const pass =
+    password.value.trim();
+
+    if(pass === "admin123"){
+
+        localStorage.setItem(
+            "adminLogin",
+            "true"
+        );
+
+        window.location.href =
+        "admin-dashboard.html";
+
+    }
+    else{
+
+        error.style.display = "block";
+
+        password.value = "";
+
+        password.focus();
+
+    }
+
+}
+
+
+document
+.getElementById("loginButton")
+.addEventListener(
+"click",
+adminLogin
+);
+
+
+password.addEventListener(
+"keydown",
+function(e){
+
+    if(e.key === "Enter"){
+
+        adminLogin();
+
+    }
+
+});
+
+</script>
+
+
+<!-- ==================================================
+     FIREBASE LCD DISPLAY
+================================================== -->
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getFirestore,
+    doc,
+    onSnapshot
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyAUcTdpMctPg2lcqSapoTgFHXizEE35RCY",
+
+    authDomain:
+    "ips-result-portal.firebaseapp.com",
+
+    projectId:
+    "ips-result-portal",
+
+    storageBucket:
+    "ips-result-portal.firebasestorage.app",
+
+    messagingSenderId:
+    "877536597914",
+
+    appId:
+    "1:877536597914:web:d77c26ef46a9da2c928c23",
+
+    measurementId:
+    "G-4PD16WMHTT"
+
+};
+
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+const lcdContent =
+document.getElementById(
+    "lcdContent"
+);
+
+const lcdRef =
+doc(
+    db,
+    "portalSettings",
+    "lcdDisplay"
+);
+
+
+onSnapshot(
+lcdRef,
+
+function(snapshot){
+
+    if(!snapshot.exists()){
+
+        showDefaultLCD();
+
+        return;
+
+    }
+
+    const data =
+    snapshot.data();
+
+
+    if(data.visible === false){
+
+        lcdContent.innerHTML = `
+
+            <div class="lcd-type">
+                📺 DISPLAY
+            </div>
+
+            <div class="lcd-heading">
+                DISPLAY OFF
+            </div>
+
+            <div class="lcd-message">
+                Please check back later
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const type =
+    data.type ||
+    "🔔 UPCOMING TEST";
+
+    const heading =
+    data.heading ||
+    "GENERAL SCIENCE";
+
+    const message =
+    data.message ||
+    "MONTHLY CBT TEST";
+
+    const date =
+    data.date ||
+    "";
+
+    const time =
+    data.time ||
+    "";
+
+    const badge =
+    data.badge ||
+    "CBT EXAM";
+
+
+    let info = "";
+
+
+    if(date){
+
+        info +=
+        "📅 " +
+        escapeHTML(date);
+
+    }
+
+
+    if(time){
+
+        if(info){
+
+            info +=
+            " &nbsp; | &nbsp; ";
+
+        }
+
+        info +=
+        "⏰ " +
+        escapeHTML(time);
+
+    }
+
+
+    lcdContent.innerHTML = `
+
+        <div class="lcd-type">
+            ${escapeHTML(type)}
+        </div>
+
+        <div class="lcd-heading">
+            ${escapeHTML(heading)}
+        </div>
+
+        <div class="lcd-message">
+            ${escapeHTML(message)}
+        </div>
+
+        <div class="lcd-info">
+            ${info}
+        </div>
+
+        <div class="lcd-badge">
+            ${escapeHTML(badge)}
+        </div>
+
+    `;
+
+},
+
+function(firebaseError){
+
+    console.error(
+        "LCD Firebase Error:",
+        firebaseError
+    );
+
+    showDefaultLCD();
+
+});
+
+
+function showDefaultLCD(){
+
+    lcdContent.innerHTML = `
+
+        <div class="lcd-type">
+            🔔 UPCOMING TEST
+        </div>
+
+        <div class="lcd-heading">
+            GENERAL SCIENCE
+        </div>
+
+        <div class="lcd-message">
+            MONTHLY CBT TEST
+        </div>
+
+        <div class="lcd-info">
+            📅 20 AUGUST 2026
+            &nbsp; | &nbsp;
+            ⏰ 07:00 PM
+        </div>
+
+        <div class="lcd-badge">
+            CBT EXAM
+        </div>
+
+    `;
+
+}
+
+
+function escapeHTML(value){
+
+    return String(value)
+
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+
+<!-- ==================================================
+     SERVICE WORKER
+================================================== -->
+
+<script>
+
+if("serviceWorker" in navigator){
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            navigator.serviceWorker
+            .register(
+                "./service-worker.js"
+            )
+            .catch(
+                function(err){
+
+                    console.log(
+                        "Service Worker Error:",
+                        err
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
