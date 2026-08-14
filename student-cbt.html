@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | CBT EXAM LOGIN</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(5,25,60,.18),
+        rgba(5,25,60,.28)
+    ),
+    url("hero-bg.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    overflow-x:hidden;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+
+    width:100%;
+
+    max-width:900px;
+
+    padding-top:40px;
+}
+
+
+/* =========================================================
+   LOGO / HEADER
+========================================================= */
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+    color:#fff;
+}
+
+
+.logo-img{
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    padding:8px;
+
+    border:4px solid #FFD700;
+
+    box-shadow:
+    0 0 25px
+    rgba(255,215,0,.70);
+
+    margin-bottom:20px;
+}
+
+
+.logo h1{
+
+    font-size:52px;
+
+    font-weight:900;
+
+    color:#FFD700;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    text-shadow:
+    0 4px 12px #000,
+    0 0 25px rgba(255,215,0,.80);
+}
+
+
+.logo p{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    margin-top:12px;
+
+    color:#fff;
+}
+
+
+.logo h2{
+
+    margin-top:20px;
+
+    font-size:42px;
+
+    font-weight:900;
+
+    color:#fff;
+
+    text-transform:uppercase;
+
+    text-shadow:
+    0 3px 8px #000,
+    0 0 15px rgba(255,255,255,.80);
+}
+
+
+.logo h3{
+
+    margin-top:8px;
+
+    font-size:22px;
+
+    color:#FFD700;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.card{
+
+    background:
+    rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border:
+    2px solid
+    rgba(255,215,0,.35);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    box-shadow:
+    0 15px 45px
+    rgba(0,0,0,.35),
+
+    0 0 25px
+    rgba(255,215,0,.15);
+
+    animation:
+    fade .6s ease;
+
+    transition:.35s;
+}
+
+
+.card:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.45),
+
+    0 0 35px
+    rgba(255,215,0,.25);
+}
+
+
+.card > h2{
+
+    font-size:36px;
+
+    font-weight:900;
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    letter-spacing:1px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #FFD700,
+        #FFF4B0,
+        #FFD700
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+    0 3px 10px
+    rgba(0,0,0,.40);
+}
+
+
+/* =========================================================
+   EXAM CARD
+========================================================= */
+
+.exam-card{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff,
+        #f8fafc
+    );
+
+    border:
+    2px solid
+    rgba(255,215,0,.35);
+
+    border-radius:22px;
+
+    padding:24px;
+
+    margin-bottom:22px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,0,0,.18),
+
+    0 0 18px
+    rgba(255,215,0,.12);
+
+    transition:.35s;
+}
+
+
+.exam-card:hover{
+
+    transform:
+    translateY(-6px)
+    scale(1.02);
+
+    border-color:#FFD700;
+}
+
+
+.exam-code{
+
+    font-size:30px;
+
+    font-weight:900;
+
+    color:#2563eb;
+
+    letter-spacing:1px;
+}
+
+
+.exam-card small{
+
+    color:#555;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
+   SELECT BUTTON
+========================================================= */
+
+.select-btn{
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:#fff;
+
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 8px 20px
+    rgba(37,99,235,.35);
+
+    transition:.3s;
+}
+
+
+.select-btn:hover{
+
+    transform:
+    scale(1.05);
+
+    box-shadow:
+    0 12px 28px
+    rgba(37,99,235,.45);
+}
+
+
+/* =========================================================
+   LOGIN BOX
+========================================================= */
+
+#loginBox{
+
+    margin-top:30px;
+
+    padding-top:30px;
+
+    border-top:
+    2px solid
+    rgba(255,215,0,.25);
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   SELECTED EXAM
+========================================================= */
+
+#selectedCode{
+
+    display:inline-block;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:#fff;
+
+    padding:12px 22px;
+
+    border-radius:40px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    margin:
+    0 auto 20px;
+
+    box-shadow:
+    0 8px 20px
+    rgba(37,99,235,.35);
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   INPUT GROUP
+========================================================= */
+
+.input-group{
+
+    position:relative;
+
+    margin-bottom:18px;
+}
+
+
+.input-group i{
+
+    position:absolute;
+
+    left:20px;
+
+    top:50%;
+
+    transform:
+    translateY(-50%);
+
+    font-size:20px;
+
+    color:#2563eb;
+
+    z-index:2;
+}
+
+
+.input-group input{
+
+    padding-left:60px;
+
+    height:60px;
+
+    width:100%;
+}
+
+
+input{
+
+    width:100%;
+
+    height:60px;
+
+    padding:
+    0 20px;
+
+    background:
+    rgba(255,255,255,.95);
+
+    border:
+    2px solid
+    rgba(255,215,0,.35);
+
+    border-radius:16px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#111;
+
+    outline:none;
+
+    transition:.3s;
+
+    box-shadow:
+    0 8px 20px
+    rgba(0,0,0,.12);
+}
+
+
+input:focus{
+
+    border-color:#FFD700;
+
+    box-shadow:
+
+    0 0 20px
+    rgba(255,215,0,.45),
+
+    0 8px 20px
+    rgba(0,0,0,.15);
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+#continueBtn{
+
+    width:100%;
+
+    height:62px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8,
+        #0f172a
+    );
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    box-shadow:
+
+    0 12px 30px
+    rgba(37,99,235,.45),
+
+    0 0 20px
+    rgba(37,99,235,.25);
+
+    transition:.35s;
+}
+
+
+#continueBtn:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.02);
+
+    background:
+    linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb,
+        #0f172a
+    );
+
+    box-shadow:
+
+    0 18px 40px
+    rgba(37,99,235,.55),
+
+    0 0 30px
+    rgba(37,99,235,.35);
+}
+
+
+#continueBtn:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+    transform:none;
+}
+
+
+/* =========================================================
+   STATUS MESSAGE
+========================================================= */
+
+.status-message{
+
+    display:none;
+
+    margin-top:16px;
+
+    padding:13px 15px;
+
+    border-radius:14px;
+
+    background:
+    rgba(255,255,255,.95);
+
+    color:#1e3a8a;
+
+    text-align:center;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    line-height:1.6;
+
+    box-shadow:
+    0 8px 20px
+    rgba(0,0,0,.12);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    body{
+
+        padding:12px;
+
+        background-attachment:
+        scroll;
+    }
+
+
+    .container{
+
+        padding-top:15px;
+    }
+
+
+    .logo{
+
+        margin-bottom:25px;
+    }
+
+
+    .logo-img{
+
+        width:105px;
+
+        height:105px;
+
+        margin-bottom:12px;
+    }
+
+
+    .logo h1{
+
+        font-size:34px;
+
+        letter-spacing:2px;
+    }
+
+
+    .logo p{
+
+        font-size:16px;
+
+        margin-top:7px;
+    }
+
+
+    .logo h2{
+
+        font-size:27px;
+
+        margin-top:14px;
+    }
+
+
+    .logo h3{
+
+        font-size:16px;
+
+        margin-top:6px;
+    }
+
+
+    .card{
+
+        padding:22px;
+
+        border-radius:23px;
+    }
+
+
+    .card > h2{
+
+        font-size:27px;
+
+        margin-bottom:22px;
+    }
+
+
+    .exam-card{
+
+        padding:17px;
+
+        border-radius:18px;
+
+        gap:12px;
+    }
+
+
+    .exam-code{
+
+        font-size:21px;
+    }
+
+
+    .select-btn{
+
+        padding:
+        11px 16px;
+
+        font-size:13px;
+
+        border-radius:11px;
+    }
+
+
+    #selectedCode{
+
+        font-size:13px;
+
+        padding:
+        10px 16px;
+    }
+
+
+    .input-group input{
+
+        height:56px;
+    }
+
+
+    input{
+
+        height:56px;
+
+        font-size:16px;
+    }
+
+
+    #continueBtn{
+
+        height:58px;
+
+        font-size:17px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media(max-width:380px){
+
+    .logo-img{
+
+        width:90px;
+
+        height:90px;
+    }
+
+
+    .logo h1{
+
+        font-size:28px;
+    }
+
+
+    .logo p{
+
+        font-size:13px;
+    }
+
+
+    .logo h2{
+
+        font-size:23px;
+    }
+
+
+    .logo h3{
+
+        font-size:14px;
+    }
+
+
+    .card{
+
+        padding:17px;
+    }
+
+
+    .card > h2{
+
+        font-size:23px;
+    }
+
+
+    .exam-code{
+
+        font-size:18px;
+    }
+
+
+    .select-btn{
+
+        padding:
+        9px 12px;
+
+        font-size:11px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<div class="logo">
+
+    <img
+        src="icon-512.png"
+        class="logo-img"
+        alt="THE STUDY POINT">
+
+    <h1>
+        THE STUDY POINT
+    </h1>
+
+    <p>
+        Computer Based Test
+    </p>
+
+    <h2 id="examTitle">
+        AVAILABLE EXAMS
+    </h2>
+
+    <h3>
+        SESSION 2026-27
+    </h3>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN CARD
+===================================================== -->
+
+<div class="card">
+
+
+<h2>
+    Available Exam Codes
+</h2>
+
+
+<div id="examList">
+
+    Loading...
+
+</div>
+
+
+<!-- =====================================================
+     LOGIN BOX
+===================================================== -->
+
+<div
+    id="loginBox"
+    style="display:none;">
+
+
+    <h3 id="selectedCode"></h3>
+
+
+    <div class="input-group">
+
+        <i class="fas fa-id-card"></i>
+
+        <input
+            type="text"
+            id="roll"
+            placeholder="Enter Roll Number"
+            autocomplete="off"
+            maxlength="30">
+
+    </div>
+
+
+    <button
+        id="continueBtn"
+        type="button">
+
+        Continue
+
+    </button>
+
+
+    <div
+        id="statusMessage"
+        class="status-message">
+    </div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import { db }
+from "./firebase.js";
+
+
+import {
+
+    collection,
+
+    query,
+
+    where,
+
+    getDocs,
+
+    doc,
+
+    getDoc
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const examList =
+document.getElementById(
+    "examList"
+);
+
+
+const loginBox =
+document.getElementById(
+    "loginBox"
+);
+
+
+const selectedCode =
+document.getElementById(
+    "selectedCode"
+);
+
+
+const rollInput =
+document.getElementById(
+    "roll"
+);
+
+
+const continueBtn =
+document.getElementById(
+    "continueBtn"
+);
+
+
+const statusMessage =
+document.getElementById(
+    "statusMessage"
+);
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let selectedExamId = "";
+
+let selectedExamCode = "";
+
+
+/* =========================================================
+   STATUS MESSAGE
+========================================================= */
+
+function showStatus(message){
+
+    statusMessage.textContent =
+        message;
+
+    statusMessage.style.display =
+        "block";
+
+}
+
+
+function hideStatus(){
+
+    statusMessage.textContent =
+        "";
+
+    statusMessage.style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   LOAD OPEN EXAMS
+========================================================= */
+
+async function loadExams(){
+
+    examList.innerHTML =
+        "Loading...";
+
+
+    try{
+
+        const snap =
+            await getDocs(
+                collection(
+                    db,
+                    "cbtTests"
+                )
+            );
+
+
+        const now =
+            new Date();
+
+
+        let liveExamFound =
+            false;
+
+
+        let upcomingExamFound =
+            false;
+
+
+        examList.innerHTML =
+            "";
+
+
+        if(snap.empty){
+
+            showNoLiveExam();
+
+            return;
+
+        }
+
+
+        snap.forEach(
+        (docSnap)=>{
+
+            const exam =
+                docSnap.data();
+
+
+            const start =
+                new Date(
+                    exam.start
+                );
+
+
+            const end =
+                new Date(
+                    exam.end
+                );
+
+
+            /* ONLY OPEN EXAMS */
+
+            if(
+                exam.status !==
+                "OPEN"
+            ){
+
+                return;
+
+            }
+
+
+            /* UPCOMING */
+
+            if(
+                now < start
+            ){
+
+                upcomingExamFound =
+                    true;
+
+                examList.innerHTML += `
+
+                    <div style="
+                    background:#fff;
+                    padding:25px;
+                    border-radius:18px;
+                    text-align:center;
+                    margin-bottom:20px;
+                    box-shadow:
+                    0 10px 25px
+                    rgba(0,0,0,.15);
+                    ">
+
+                        <h2 style="
+                        color:#2563eb;
+                        ">
+
+                            📅 Upcoming Exam
+
+                        </h2>
+
+                        <p style="
+                        margin-top:10px;
+                        font-weight:700;
+                        ">
+
+                            ${escapeHTML(
+                                exam.testName ||
+                                exam.examCode ||
+                                "CBT Exam"
+                            )}
+
+                        </p>
+
+                        <p style="
+                        color:#666;
+                        margin-top:5px;
+                        ">
+
+                            Starts :
+                            ${escapeHTML(
+                                exam.start || ""
+                            )}
+
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            /* EXPIRED */
+
+            if(
+                now > end
+            ){
+
+                return;
+
+            }
+
+
+            /* LIVE */
+
+            liveExamFound =
+                true;
+
+
+            examList.innerHTML += `
+
+                <div class="exam-card">
+
+                    <div>
+
+                        <div class="exam-code">
+
+                            ${escapeHTML(
+                                exam.examCode ||
+                                "EXAM"
+                            )}
+
+                        </div>
+
+                        <small>
+
+                            ${escapeHTML(
+                                exam.subject ||
+                                ""
+                            )}
+
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        class="select-btn"
+                        type="button"
+                        onclick="selectExam(
+                            '${escapeJS(docSnap.id)}',
+                            '${escapeJS(
+                                exam.examCode || ""
+                            )}'
+                        )">
+
+                        Select
+
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+
+        if(!liveExamFound){
+
+            if(upcomingExamFound){
+
+                /* Upcoming exam already shown */
+
+                return;
+
+            }
+
+
+            showNoLiveExam();
+
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            "Load Exam Error:",
+            error
+        );
+
+
+        examList.innerHTML = `
+
+            <div style="
+            background:#fff;
+            padding:30px;
+            border-radius:20px;
+            text-align:center;
+            color:#b91c1c;
+            ">
+
+                <div style="
+                font-size:45px;
+                ">
+
+                    ⚠️
+
+                </div>
+
+                <h2>
+                    Unable to Load Exams
+                </h2>
+
+                <p style="
+                margin-top:8px;
+                ">
+
+                    Please try again later.
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   NO LIVE EXAM
+========================================================= */
+
+function showNoLiveExam(){
+
+    examList.innerHTML = `
+
+        <div style="
+        background:#fff;
+        padding:35px;
+        border-radius:20px;
+        text-align:center;
+        box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.15);
+        ">
+
+            <div style="
+            font-size:55px;
+            ">
+
+                ⏳
+
+            </div>
+
+            <h2 style="
+            color:#1d4ed8;
+            ">
+
+                No Live Exam
+
+            </h2>
+
+            <p style="
+            margin-top:10px;
+            color:#555;
+            ">
+
+                There is no live exam right now.
+                Please come back at the scheduled time.
+
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   SELECT EXAM
+========================================================= */
+
+window.selectExam =
+function(id,code){
+
+    selectedExamId =
+        id;
+
+
+    selectedExamCode =
+        code;
+
+
+    loginBox.style.display =
+        "block";
+
+
+    hideStatus();
+
+
+    selectedCode.innerHTML =
+        '<i class="fas fa-check-circle"></i> ' +
+        'Selected Exam : <b>' +
+        escapeHTML(code) +
+        '</b>';
+
+
+    rollInput.value =
+        "";
+
+
+    setTimeout(
+    function(){
+
+        rollInput.focus();
+
+        loginBox.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    },
+    100
+    );
+
+};
+
+
+/* =========================================================
+   CONTINUE / ROLL LOGIN
+========================================================= */
+
+continueBtn.onclick =
+async function(){
+
+    const roll =
+        rollInput.value.trim();
+
+
+    /* -----------------------------------------
+       VALIDATION
+    ----------------------------------------- */
+
+    if(!roll){
+
+        showStatus(
+            "Please enter your Roll Number."
+        );
+
+        rollInput.focus();
+
+        return;
+
+    }
+
+
+    if(!selectedExamId){
+
+        showStatus(
+            "Please select an exam first."
+        );
+
+        return;
+
+    }
+
+
+    continueBtn.disabled =
+        true;
+
+    continueBtn.textContent =
+        "Checking...";
+
+
+    hideStatus();
+
+
+    try{
+
+        let student = null;
+
+
+        /* =================================================
+           STEP 1
+           NEW REGISTERED STUDENT
+           
+           Collection:
+           subscriptionStudents
+
+           Fields:
+           roll
+           name
+           className
+           status
+           enabled
+        ================================================= */
+
+        const newStudentQuery =
+            query(
+
+                collection(
+                    db,
+                    "subscriptionStudents"
+                ),
+
+                where(
+                    "roll",
+                    "==",
+                    roll
+                )
+
+            );
+
+
+        const newStudentSnap =
+            await getDocs(
+                newStudentQuery
+            );
+
+
+        if(
+            !newStudentSnap.empty
+        ){
+
+            const newData =
+                newStudentSnap
+                .docs[0]
+                .data();
+
+
+            /* =============================================
+               ADMIN APPROVAL
+            ============================================= */
+
+            const approved =
+                newData.status === "approved" ||
+                newData.status === "Approved" ||
+                newData.status === "APPROVED" ||
+                newData.enabled === true;
+
+
+            if(!approved){
+
+                showStatus(
+                    "Your registration is pending Admin Approval. Please wait until the Admin approves your registration."
+                );
+
+
+                continueBtn.disabled =
+                    false;
+
+                continueBtn.textContent =
+                    "Continue";
+
+                return;
+
+            }
+
+
+            /* =============================================
+               CONVERT NEW STUDENT DATA
+               TO OLD CBT FORMAT
+            ============================================= */
+
+            student = {
+
+                Roll:
+                    newData.roll || roll,
+
+                Name:
+                    newData.name || "",
+
+                Class:
+                    newData.className || "",
+
+                Mobile:
+                    newData.mobile || "",
+
+                Father:
+                    newData.fatherName || ""
+
+            };
+
+        }
+
+
+        /* =================================================
+           STEP 2
+           OLD STUDENT
+
+           Collection:
+           students_v2
+
+           Fields:
+           Roll
+           Name
+           Class
+        ================================================= */
+
+        if(!student){
+
+            const oldStudentQuery =
+                query(
+
+                    collection(
+                        db,
+                        "students_v2"
+                    ),
+
+                    where(
+                        "Roll",
+                        "==",
+                        roll
+                    )
+
+                );
+
+
+            const oldStudentSnap =
+                await getDocs(
+                    oldStudentQuery
+                );
+
+
+            if(
+                !oldStudentSnap.empty
+            ){
+
+                student =
+                    oldStudentSnap
+                    .docs[0]
+                    .data();
+
+            }
+
+        }
+
+
+        /* =================================================
+           STEP 3
+           NOT FOUND
+        ================================================= */
+
+        if(!student){
+
+            showStatus(
+                "Invalid Roll Number. Please enter a valid registered Roll Number."
+            );
+
+
+            continueBtn.disabled =
+                false;
+
+            continueBtn.textContent =
+                "Continue";
+
+            return;
+
+        }
+
+
+        /* =================================================
+           STEP 4
+           CHECK PREVIOUS RESPONSE
+        ================================================= */
+
+        const responseId =
+            selectedExamId +
+            "_" +
+            student.Roll;
+
+
+        const responseSnap =
+            await getDoc(
+
+                doc(
+                    db,
+                    "cbtResponses",
+                    responseId
+                )
+
+            );
+
+
+        if(
+            responseSnap.exists()
+        ){
+
+            const response =
+                responseSnap.data();
+
+
+            if(
+                response.submitted === true &&
+                response.allowRetest === false
+            ){
+
+                showStatus(
+                    "Dear " +
+                    (student.Name || "Student") +
+                    ", you have already submitted this exam. Re-examination is not allowed."
+                );
+
+
+                continueBtn.disabled =
+                    false;
+
+                continueBtn.textContent =
+                    "Continue";
+
+                return;
+
+            }
+
+        }
+
+
+        /* =================================================
+           STEP 5
+           SAVE SESSION
+        ================================================= */
+
+        sessionStorage.setItem(
+            "studentRoll",
+            student.Roll || roll
+        );
+
+
+        sessionStorage.setItem(
+            "studentName",
+            student.Name || ""
+        );
+
+
+        sessionStorage.setItem(
+            "studentClass",
+            student.Class || ""
+        );
+
+
+        sessionStorage.setItem(
+            "examId",
+            selectedExamId
+        );
+
+
+        sessionStorage.setItem(
+            "examCode",
+            selectedExamCode
+        );
+
+
+        /* =================================================
+           STEP 6
+           OPEN EXAM DASHBOARD
+        ================================================= */
+
+        location.href =
+            "exam-dashboard.html";
+
+    }
+    catch(error){
+
+        console.error(
+            "CBT Login Error:",
+            error
+        );
+
+
+        showStatus(
+            "Unable to verify Roll Number. Please try again."
+        );
+
+
+        continueBtn.disabled =
+            false;
+
+        continueBtn.textContent =
+            "Continue";
+
+    }
+
+};
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+rollInput.addEventListener(
+"keydown",
+function(event){
+
+    if(
+        event.key === "Enter" &&
+        !continueBtn.disabled
+    ){
+
+        continueBtn.click();
+
+    }
+
+});
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   ESCAPE JAVASCRIPT STRING
+========================================================= */
+
+function escapeJS(value){
+
+    return String(value)
+
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+
+        .replace(
+            /'/g,
+            "\\'"
+        )
+
+        .replace(
+            /"/g,
+            '\\"'
+        )
+
+        .replace(
+            /\r/g,
+            "\\r"
+        )
+
+        .replace(
+            /\n/g,
+            "\\n"
+        );
+
+}
+
+
+/* =========================================================
+   LOAD EXAMS
+========================================================= */
+
+loadExams();
+
+</script>
+
+</body>
+
+  </html>
