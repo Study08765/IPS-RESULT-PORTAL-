@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Student Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+    linear-gradient(
+        rgba(0,25,65,.55),
+        rgba(0,10,35,.80)
+    ),
+    url("hero-bg.jpg") center/cover fixed;
+
+}
+
+
+/* MAIN */
+
+.container{
+
+    width:100%;
+
+    max-width:470px;
+
+}
+
+
+/* LOGO */
+
+.logo{
+
+    text-align:center;
+
+    color:#fff;
+
+    margin-bottom:25px;
+
+}
+
+.logo img{
+
+    width:100px;
+
+    height:100px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    padding:6px;
+
+    border:4px solid #FFD700;
+
+    box-shadow:
+    0 0 30px
+    rgba(255,215,0,.55);
+
+}
+
+.logo h1{
+
+    margin-top:12px;
+
+    color:#FFD700;
+
+    font-size:29px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+}
+
+.logo p{
+
+    font-size:12px;
+
+    margin-top:4px;
+
+}
+
+
+/* CARD */
+
+.card{
+
+    background:
+    rgba(255,255,255,.14);
+
+    backdrop-filter:blur(22px);
+
+    -webkit-backdrop-filter:blur(22px);
+
+    border:
+    2px solid
+    rgba(255,215,0,.30);
+
+    border-radius:28px;
+
+    padding:28px 22px;
+
+    box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.40);
+
+}
+
+
+/* TITLE */
+
+.title{
+
+    text-align:center;
+
+    color:#fff;
+
+    margin-bottom:22px;
+
+}
+
+.title h2{
+
+    font-size:24px;
+
+    font-weight:800;
+
+}
+
+.title p{
+
+    font-size:11px;
+
+    color:#dcecff;
+
+    margin-top:5px;
+
+}
+
+
+/* INPUT */
+
+.field{
+
+    margin-bottom:15px;
+
+}
+
+label{
+
+    display:block;
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+input{
+
+    width:100%;
+
+    height:55px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:13px;
+
+    padding:0 16px;
+
+    background:#fff;
+
+    color:#111;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+input:focus{
+
+    box-shadow:
+    0 0 0 3px
+    rgba(255,215,0,.35);
+
+}
+
+
+/* LOGIN BUTTON */
+
+.login-btn{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #FFD700,
+        #ffae00
+    );
+
+    color:#111;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.login-btn:hover{
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 10px 25px
+    rgba(255,174,0,.35);
+
+}
+
+
+/* REGISTER */
+
+.register-box{
+
+    margin-top:22px;
+
+    padding-top:20px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.25);
+
+    text-align:center;
+
+}
+
+.register-box p{
+
+    color:#fff;
+
+    font-size:11px;
+
+    margin-bottom:9px;
+
+}
+
+.register-btn{
+
+    display:block;
+
+    width:100%;
+
+    padding:12px;
+
+    border:
+    1px solid
+    rgba(255,215,0,.6);
+
+    border-radius:12px;
+
+    color:#FFD700;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    background:
+    rgba(255,255,255,.08);
+
+}
+
+
+/* MESSAGE */
+
+.message{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    line-height:1.6;
+
+}
+
+.error{
+
+    display:block;
+
+    background:#ffe4e4;
+
+    color:#a00000;
+
+}
+
+.waiting{
+
+    display:block;
+
+    background:#fff5d9;
+
+    color:#815900;
+
+}
+
+.success{
+
+    display:block;
+
+    background:#e5fff0;
+
+    color:#08743c;
+
+}
+
+
+/* ADMIN */
+
+.admin{
+
+    text-align:center;
+
+    margin-top:18px;
+
+}
+
+.admin a{
+
+    color:
+    rgba(255,255,255,.65);
+
+    font-size:10px;
+
+    text-decoration:none;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+    .logo img{
+
+        width:85px;
+        height:85px;
+
+    }
+
+    .logo h1{
+
+        font-size:24px;
+
+    }
+
+    .card{
+
+        padding:23px 16px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        <img
+            src="icon-512.png"
+            alt="THE STUDY POINT">
+
+        <h1>
+            THE STUDY POINT
+        </h1>
+
+        <p>
+            STUDENT PORTAL • SESSION 2026-27
+        </p>
+
+    </div>
+
+
+    <!-- LOGIN CARD -->
+
+    <div class="card">
+
+
+        <div class="title">
+
+            <h2>
+                🔐 STUDENT LOGIN
+            </h2>
+
+            <p>
+                Login using your Registration Roll Number
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                STUDENT ROLL NUMBER
+            </label>
+
+            <input
+                id="roll"
+                type="text"
+                placeholder="Example: TSP001"
+                maxlength="20"
+                autocomplete="off">
+
+        </div>
+
+
+        <button
+            id="loginBtn"
+            class="login-btn">
+
+            LOGIN
+
+        </button>
+
+
+        <div
+            id="message"
+            class="message">
+        </div>
+
+
+        <!-- REGISTRATION -->
+
+        <div class="register-box">
+
+            <p>
+                New Student? पहले Registration करें
+            </p>
+
+            <a
+                href="student-registration.html"
+                class="register-btn">
+
+                📝 REGISTER NOW
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ADMIN -->
+
+    <div class="admin">
+
+        <a href="admin-login.html">
+
+            Admin Login
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<script type="module">
+
+/* ==========================================
+   FIREBASE
+========================================== */
+
+import { db } from "./firebase.js";
+
+import {
+
+    collection,
+    query,
+    where,
+    getDocs
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const rollInput =
+document.getElementById(
+    "roll"
+);
+
+const loginBtn =
+document.getElementById(
+    "loginBtn"
+);
+
+const message =
+document.getElementById(
+    "message"
+);
+
+
+/* ==========================================
+   MESSAGE
+========================================== */
+
+function showMessage(
+    text,
+    type
+){
+
+    message.className =
+    "message " + type;
+
+    message.textContent =
+    text;
+
+}
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+loginBtn.addEventListener(
+"click",
+async function(){
+
+    let roll =
+    rollInput.value
+    .trim()
+    .toUpperCase();
+
+
+    if(!roll){
+
+        showMessage(
+            "अपना Roll Number डालें।",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    loginBtn.disabled =
+    true;
+
+    loginBtn.textContent =
+    "CHECKING...";
+
+
+    try{
+
+
+        /* ======================================
+           ONLY NEW PORTAL COLLECTION
+        ====================================== */
+
+        const q =
+        query(
+
+            collection(
+                db,
+                "subscriptionStudents"
+            ),
+
+            where(
+                "roll",
+                "==",
+                roll
+            )
+
+        );
+
+
+        const snap =
+        await getDocs(q);
+
+
+        /* STUDENT NOT FOUND */
+
+        if(snap.empty){
+
+            showMessage(
+                "यह Roll Number इस Student Portal में registered नहीं है।",
+                "error"
+            );
+
+            loginBtn.disabled =
+            false;
+
+            loginBtn.textContent =
+            "LOGIN";
+
+            return;
+
+        }
+
+
+        const student =
+        snap.docs[0].data();
+
+
+        /* ======================================
+           REJECTED
+        ====================================== */
+
+        if(
+            student.status ===
+            "rejected"
+        ){
+
+            showMessage(
+                "आपका registration Admin द्वारा reject किया गया है।",
+                "error"
+            );
+
+            loginBtn.disabled =
+            false;
+
+            loginBtn.textContent =
+            "LOGIN";
+
+            return;
+
+        }
+
+
+        /* ======================================
+           PENDING
+        ====================================== */
+
+        if(
+            student.status !==
+            "approved"
+        ){
+
+            showMessage(
+                "आपका registration अभी Admin Approval के लिए pending है।",
+                "waiting"
+            );
+
+            loginBtn.disabled =
+            false;
+
+            loginBtn.textContent =
+            "LOGIN";
+
+            return;
+
+        }
+
+
+        /* ======================================
+           ACCESS CHECK
+        ====================================== */
+
+        if(
+            student.enabled !== true
+        ){
+
+            showMessage(
+                "आपका account अभी active नहीं है। Admin से access activate करवाएँ।",
+                "waiting"
+            );
+
+            loginBtn.disabled =
+            false;
+
+            loginBtn.textContent =
+            "LOGIN";
+
+            return;
+
+        }
+
+
+        /* ======================================
+           FREE ACCESS
+        ====================================== */
+
+        if(
+            student.accessType ===
+            "free"
+        ){
+
+            saveLogin(
+                student,
+                snap.docs[0].id
+            );
+
+            return;
+
+        }
+
+
+        /* ======================================
+           SUBSCRIPTION
+        ====================================== */
+
+        if(
+            student.accessType ===
+            "subscription"
+        ){
+
+            const expiry =
+            student.subscriptionExpiry;
+
+
+            if(!expiry){
+
+                showMessage(
+                    "Subscription expiry date नहीं मिली। Admin से संपर्क करें।",
+                    "error"
+                );
+
+                loginBtn.disabled =
+                false;
+
+                loginBtn.textContent =
+                "LOGIN";
+
+                return;
+
+            }
+
+
+            const expiryDate =
+            new Date(expiry);
+
+
+            const now =
+            new Date();
+
+
+            if(
+                isNaN(
+                    expiryDate.getTime()
+                )
+            ){
+
+                showMessage(
+                    "Subscription date invalid है।",
+                    "error"
+                );
+
+                loginBtn.disabled =
+                false;
+
+                loginBtn.textContent =
+                "LOGIN";
+
+                return;
+
+            }
+
+
+            if(
+                now > expiryDate
+            ){
+
+                showMessage(
+                    "आपकी subscription expire हो चुकी है।",
+                    "waiting"
+                );
+
+                loginBtn.disabled =
+                false;
+
+                loginBtn.textContent =
+                "LOGIN";
+
+                return;
+
+            }
+
+
+            saveLogin(
+                student,
+                snap.docs[0].id
+            );
+
+            return;
+
+        }
+
+
+        /* ======================================
+           NO ACCESS
+        ====================================== */
+
+        showMessage(
+            "Admin ने अभी आपके account को Free Access या Subscription नहीं दिया है।",
+            "waiting"
+        );
+
+
+        loginBtn.disabled =
+        false;
+
+        loginBtn.textContent =
+        "LOGIN";
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "Login error: " +
+            error.message,
+            "error"
+        );
+
+        loginBtn.disabled =
+        false;
+
+        loginBtn.textContent =
+        "LOGIN";
+
+    }
+
+});
+
+
+/* ==========================================
+   SAVE LOGIN
+========================================== */
+
+function saveLogin(
+    student,
+    studentId
+){
+
+    sessionStorage.setItem(
+        "subscriptionStudentLogin",
+        "true"
+    );
+
+
+    sessionStorage.setItem(
+        "subscriptionStudentId",
+        studentId
+    );
+
+
+    sessionStorage.setItem(
+        "subscriptionStudentRoll",
+        student.roll || ""
+    );
+
+
+    sessionStorage.setItem(
+        "subscriptionStudentName",
+        student.name || ""
+    );
+
+
+    sessionStorage.setItem(
+        "subscriptionStudentClass",
+        student.className || ""
+    );
+
+
+    sessionStorage.setItem(
+        "subscriptionAccessType",
+        student.accessType || ""
+    );
+
+
+    showMessage(
+        "Login successful! Opening Student Dashboard...",
+        "success"
+    );
+
+
+    setTimeout(
+    function(){
+
+        window.location.href =
+        "index.html";
+
+    },
+    700
+    );
+
+}
+
+
+/* ==========================================
+   ENTER KEY LOGIN
+========================================== */
+
+rollInput.addEventListener(
+"keydown",
+function(event){
+
+    if(
+        event.key ===
+        "Enter"
+    ){
+
+        loginBtn.click();
+
+    }
+
+});
+
+
+</script>
+
+
+</body>
+
+  </html>
