@@ -1,0 +1,3262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THE STUDY POINT | Premium Admin Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+/* ==================================================
+   RESET
+================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef4ff;
+    color:#222;
+    overflow-x:hidden;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    background:#fff;
+
+    padding:18px 30px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.08);
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-box img{
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    border:3px solid gold;
+
+    background:#fff;
+
+    padding:5px;
+}
+
+.logo-box h1{
+    font-size:28px;
+    color:#0047AB;
+    font-weight:800;
+}
+
+.logo-box p{
+    font-size:14px;
+    color:#666;
+    font-weight:600;
+}
+
+
+/* ==================================================
+   HEADER RIGHT
+================================================== */
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.admin-box{
+    background:#0047AB;
+    color:#fff;
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.logout-top{
+    border:none;
+
+    background:#fff0f0;
+    color:#c62828;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.logout-top:hover{
+    background:#c62828;
+    color:#fff;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero{
+    margin:25px;
+
+    padding:40px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #003c8f,
+        #1565c0,
+        #42a5f5
+    );
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    color:#fff;
+
+    box-shadow:
+    0 20px 45px rgba(0,71,171,.25);
+}
+
+.hero-left h2{
+    font-size:42px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.hero-left p{
+    font-size:17px;
+    line-height:30px;
+    margin-bottom:20px;
+}
+
+.hero-btn{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.hero-btn button{
+    padding:14px 24px;
+    border:none;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:#FFD700;
+    color:#111;
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.2);
+    color:#fff;
+
+    border:
+    1px solid
+    rgba(255,255,255,.4) !important;
+}
+
+.profile-card{
+    width:250px;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    text-align:center;
+}
+
+.profile-card img{
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    border:4px solid #fff;
+
+    margin-bottom:15px;
+}
+
+.profile-card h3{
+    margin-bottom:8px;
+}
+
+.profile-card p{
+    font-size:14px;
+}
+
+
+/* ==================================================
+   SEARCH
+================================================== */
+
+.search-section{
+    margin:25px;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+
+    background:#fff;
+
+    padding:18px 20px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.search-box i{
+    color:#1565c0;
+    font-size:18px;
+    margin-right:12px;
+}
+
+.search-box input{
+    width:100%;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    font-size:16px;
+}
+
+
+/* ==================================================
+   DASHBOARD GRID
+================================================== */
+
+.dashboard{
+    margin:25px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(260px,1fr)
+    );
+
+    gap:22px;
+
+    padding-bottom:30px;
+}
+
+
+/* ==================================================
+   CARD
+================================================== */
+
+.card{
+    background:#fff;
+
+    padding:30px 20px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+    border:
+    1px solid
+    rgba(0,71,171,.04);
+}
+
+.card:hover{
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+    box-shadow:
+    0 20px 45px
+    rgba(0,71,171,.20);
+}
+
+.card i{
+    font-size:46px;
+
+    color:#1565c0;
+
+    margin-bottom:15px;
+}
+
+.card h2{
+    font-size:22px;
+    margin-bottom:8px;
+    color:#222;
+}
+
+.card p{
+    color:#666;
+    font-size:15px;
+    line-height:24px;
+}
+
+
+/* ==================================================
+   SPECIAL LCD CARD
+================================================== */
+
+.card.lcd-card{
+    background:
+    linear-gradient(
+        135deg,
+        #061724,
+        #0b3853
+    );
+
+    color:#fff;
+
+    border:
+    2px solid
+    rgba(80,220,255,.25);
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,60,100,.25);
+}
+
+.card.lcd-card i{
+    color:#55eaff;
+
+    text-shadow:
+    0 0 12px
+    rgba(0,220,255,.7);
+}
+
+.card.lcd-card h2{
+    color:#fff;
+}
+
+.card.lcd-card p{
+    color:#b9eaff;
+}
+
+
+/* ==================================================
+   SUBSCRIPTION PANEL
+================================================== */
+
+.subscription-panel{
+
+    display:none;
+
+    margin:0 25px 30px;
+
+    background:#fff;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.12);
+
+    animation:panelOpen .3s ease;
+}
+
+.subscription-panel.show{
+    display:block;
+}
+
+@keyframes panelOpen{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* ==================================================
+   SUBSCRIPTION HEADER
+================================================== */
+
+.subscription-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding-bottom:20px;
+
+    border-bottom:1px solid #e5edf7;
+}
+
+.subscription-header h2{
+
+    color:#064b99;
+
+    font-size:24px;
+
+}
+
+.subscription-header p{
+
+    color:#71849a;
+
+    font-size:12px;
+
+    margin-top:4px;
+
+}
+
+.close-subscription{
+
+    width:42px;
+    height:42px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#ffecec;
+
+    color:#c62828;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    flex-shrink:0;
+}
+
+
+/* ==================================================
+   SUB SECTIONS
+================================================== */
+
+.sub-section{
+
+    margin-top:22px;
+
+    padding:18px;
+
+    background:#f8fbff;
+
+    border:1px solid #e2ebf5;
+
+    border-radius:18px;
+}
+
+.section-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:15px;
+
+}
+
+.section-title h3{
+
+    color:#17436d;
+
+    font-size:17px;
+
+}
+
+.section-count{
+
+    background:#fff0d0;
+
+    color:#8a5a00;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+
+/* ==================================================
+   STUDENT ROW
+================================================== */
+
+.student-row{
+
+    background:#fff;
+
+    border:1px solid #e1eaf4;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.student-info{
+
+    min-width:0;
+}
+
+.student-info h4{
+
+    color:#064b99;
+
+    font-size:15px;
+
+    word-break:break-word;
+
+}
+
+.student-info p{
+
+    color:#71849a;
+
+    font-size:10px;
+
+    margin-top:4px;
+
+    line-height:18px;
+
+}
+
+.student-actions{
+
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+    justify-content:flex-end;
+
+}
+
+.action-btn{
+
+    border:0;
+
+    border-radius:9px;
+
+    padding:9px 12px;
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+
+}
+
+.action-btn:disabled{
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+}
+
+.approve-btn{
+    background:#087a3b;
+}
+
+.reject-btn{
+    background:#c62828;
+}
+
+.free-btn{
+    background:#075fb6;
+}
+
+.sub-btn{
+    background:#7b1fa2;
+}
+
+.disable-btn{
+    background:#455a64;
+}
+
+.enable-btn{
+    background:#087a3b;
+}
+
+
+/* ==================================================
+   PLAN FORM
+================================================== */
+
+.plan-form{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 150px 130px auto;
+
+    gap:8px;
+
+    margin-bottom:15px;
+}
+
+.plan-form input{
+
+    width:100%;
+
+    height:45px;
+
+    padding:0 11px;
+
+    border:1px solid #ccd9e7;
+
+    border-radius:10px;
+
+    outline:none;
+
+    background:#fff;
+
+}
+
+.plan-form input:focus{
+
+    border-color:#1565c0;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(21,101,192,.08);
+}
+
+#addPlan{
+
+    border:0;
+
+    border-radius:10px;
+
+    background:#075fb6;
+
+    color:#fff;
+
+    padding:0 15px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+#addPlan:hover{
+
+    background:#064b99;
+}
+
+
+/* ==================================================
+   PLAN ROW
+================================================== */
+
+.plan{
+
+    background:#fff;
+
+    border:1px solid #e1eaf4;
+
+    border-radius:13px;
+
+    padding:13px;
+
+    margin-top:8px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.plan-name{
+
+    color:#064b99;
+
+    font-weight:800;
+
+    font-size:13px;
+
+}
+
+.plan-detail{
+
+    color:#71849a;
+
+    font-size:10px;
+
+    margin-top:3px;
+
+}
+
+.plan-actions{
+
+    display:flex;
+
+    gap:6px;
+
+}
+
+.plan-btn{
+
+    border:0;
+
+    border-radius:8px;
+
+    padding:7px 9px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    color:#fff;
+
+}
+
+.plan-toggle{
+
+    background:#075fb6;
+}
+
+.plan-delete{
+
+    background:#c62828;
+}
+
+
+/* ==================================================
+   EMPTY
+================================================== */
+
+.empty-box{
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#7890a7;
+
+    font-size:12px;
+
+    background:#fff;
+
+    border-radius:12px;
+
+}
+
+
+/* ==================================================
+   TOAST
+================================================== */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:
+    translate(-50%,120px);
+
+    background:#173b62;
+
+    color:#fff;
+
+    padding:13px 20px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    z-index:5000;
+
+    opacity:0;
+
+    transition:.3s;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.2);
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+    translate(-50%,0);
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:768px){
+
+    .header{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        padding:20px;
+
+    }
+
+    .logo-box{
+
+        width:100%;
+
+        justify-content:center;
+
+        text-align:left;
+
+    }
+
+    .header-right{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        margin:15px;
+
+        padding:28px 20px;
+
+    }
+
+    .hero-left h2{
+
+        font-size:32px;
+
+    }
+
+    .hero-left p{
+
+        font-size:14px;
+
+        line-height:24px;
+
+    }
+
+    .hero-btn{
+
+        justify-content:center;
+
+    }
+
+    .profile-card{
+
+        margin-top:25px;
+
+        width:220px;
+
+    }
+
+    .search-section{
+
+        margin:15px;
+
+    }
+
+    .dashboard{
+
+        margin:15px;
+
+        grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+        gap:12px;
+
+    }
+
+    .card{
+
+        padding:22px 10px;
+
+        border-radius:18px;
+
+    }
+
+    .card i{
+
+        font-size:34px;
+
+        margin-bottom:10px;
+
+    }
+
+    .card h2{
+
+        font-size:15px;
+
+    }
+
+    .card p{
+
+        font-size:10px;
+
+        line-height:16px;
+
+    }
+
+    .logo-box h1{
+
+        font-size:22px;
+
+    }
+
+    .logo-box p{
+
+        font-size:11px;
+
+    }
+
+    .subscription-panel{
+
+        margin:0 15px 25px;
+
+        padding:15px;
+
+    }
+
+    .subscription-header h2{
+
+        font-size:18px;
+
+    }
+
+    .student-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .student-actions{
+
+        width:100%;
+
+        justify-content:flex-start;
+
+    }
+
+    .action-btn{
+
+        flex:1;
+
+    }
+
+    .plan-form{
+
+        grid-template-columns:1fr;
+
+    }
+
+    #addPlan{
+
+        height:45px;
+
+    }
+
+    .plan{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+    .plan-actions{
+
+        width:100%;
+
+    }
+
+    .plan-btn{
+
+        flex:1;
+
+    }
+
+}
+
+
+/* ==================================================
+   SMALL PHONE
+================================================== */
+
+@media(max-width:380px){
+
+    .dashboard{
+
+        gap:9px;
+
+        margin:10px;
+
+    }
+
+    .card{
+
+        padding:18px 7px;
+
+    }
+
+    .card i{
+
+        font-size:30px;
+
+    }
+
+    .card h2{
+
+        font-size:13px;
+
+    }
+
+    .card p{
+
+        font-size:8px;
+
+    }
+
+    .action-btn{
+
+        font-size:8px;
+
+        padding:8px 6px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     ADMIN LOGIN CHECK
+================================================== -->
+
+<script>
+
+if(
+    localStorage.getItem("adminLogin") !== "true"
+){
+
+    location.href="admin-login.html";
+
+}
+
+</script>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="header">
+
+
+<div class="logo-box">
+
+    <img
+        src="icon-512.png"
+        alt="THE STUDY POINT">
+
+    <div>
+
+        <h1>
+            THE STUDY POINT
+        </h1>
+
+        <p>
+            CBT Portal &amp; Paper Studio Pro
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="header-right">
+
+    <div class="admin-box">
+
+        <i class="fa-solid fa-user-shield"></i>
+
+        <span>
+            Welcome Admin
+        </span>
+
+    </div>
+
+
+    <button
+        class="logout-top"
+        id="logoutTop"
+        title="Logout">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+    </button>
+
+</div>
+
+
+</header>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero">
+
+
+<div class="hero-left">
+
+    <h2>
+        Premium Admin Dashboard
+    </h2>
+
+    <p>
+
+        Manage CBT Exams, Question Papers, Students,
+        Results and School Settings from one place.
+
+    </p>
+
+
+    <div class="hero-btn">
+
+        <button
+            class="btn-primary"
+            onclick="location.href='paper-creator.html'">
+
+            Paper Creator
+
+        </button>
+
+
+        <button
+            class="btn-secondary"
+            onclick="location.href='create-test.html'">
+
+            Create CBT Test
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="profile-card">
+
+    <img
+        src="icon-512.png"
+        alt="Administrator">
+
+    <h3>
+        Administrator
+    </h3>
+
+    <p id="liveDate">
+        Loading...
+    </p>
+
+</div>
+
+
+</section>
+
+
+<!-- ==================================================
+     SEARCH
+================================================== -->
+
+<section class="search-section">
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Dashboard Modules...">
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     DASHBOARD MODULES
+================================================== -->
+
+<div class="dashboard">
+
+
+<!-- 1 CREATE TEST -->
+
+<div
+    class="card"
+    data-link="create-test.html">
+
+    <i class="fa-solid fa-plus"></i>
+
+    <h2>
+        Create Test
+    </h2>
+
+    <p>
+        Create New Online CBT Test
+    </p>
+
+</div>
+
+
+<!-- 2 QUESTION BANK -->
+
+<div
+    class="card"
+    data-link="question-bank.html">
+
+    <i class="fa-solid fa-book"></i>
+
+    <h2>
+        Question Bank
+    </h2>
+
+    <p>
+        Add / Edit Questions
+    </p>
+
+</div>
+
+
+<!-- 3 PAPER CREATOR -->
+
+<div
+    class="card"
+    data-link="paper-creator.html">
+
+    <i class="fa-solid fa-file-lines"></i>
+
+    <h2>
+        Paper Creator
+    </h2>
+
+    <p>
+        Create School Question Papers
+    </p>
+
+</div>
+
+
+<!-- 4 STUDENT RESPONSES -->
+
+<div
+    class="card"
+    data-link="student-responses.html">
+
+    <i class="fa-solid fa-users"></i>
+
+    <h2>
+        Student Responses
+    </h2>
+
+    <p>
+        View Submitted Answers
+    </p>
+
+</div>
+
+
+<!-- 5 PUBLISH RESULT -->
+
+<div
+    class="card"
+    data-link="publish-result.html">
+
+    <i class="fa-solid fa-square-poll-vertical"></i>
+
+    <h2>
+        Publish Result
+    </h2>
+
+    <p>
+        Publish / Hide Results
+    </p>
+
+</div>
+
+
+<!-- 6 MY PAPERS -->
+
+<div
+    class="card"
+    data-link="my-papers.html">
+
+    <i class="fa-solid fa-folder-open"></i>
+
+    <h2>
+        My Papers
+    </h2>
+
+    <p>
+        Saved Question Papers
+    </p>
+
+</div>
+
+
+<!-- 7 TEST SETTINGS -->
+
+<div
+    class="card"
+    data-link="test-settings.html">
+
+    <i class="fa-solid fa-gear"></i>
+
+    <h2>
+        Test Settings
+    </h2>
+
+    <p>
+        Manage Test Information
+    </p>
+
+</div>
+
+
+<!-- 8 LEAVE APPLICATION -->
+
+<div
+    class="card"
+    data-link="admin-leave-applications.html">
+
+    <i class="fa-solid fa-file-pen"></i>
+
+    <h2>
+        Leave Application
+    </h2>
+
+    <p>
+        View &amp; Manage Student Leave
+    </p>
+
+</div>
+
+
+<!-- 9 PAID NOTES -->
+
+<div
+    class="card"
+    data-link="paid-notes-admin.html">
+
+    <i class="fa-solid fa-book-open"></i>
+
+    <h2>
+        Paid Notes
+    </h2>
+
+    <p>
+        Manage Paid Study Material
+    </p>
+
+</div>
+
+
+<!-- 10 STUDENT SUBSCRIPTION -->
+
+<div
+    class="card"
+    id="subscriptionCard">
+
+    <i class="fa-solid fa-user-graduate"></i>
+
+    <h2>
+        Student Subscription
+    </h2>
+
+    <p>
+        Registration, Approval &amp; Subscription
+    </p>
+
+</div>
+
+
+<!-- 11 LCD DISPLAY -->
+
+<div
+    class="card lcd-card"
+    data-link="lcd-display.html">
+
+    <i class="fa-solid fa-tv"></i>
+
+    <h2>
+        LCD Display
+    </h2>
+
+    <p>
+        Manage Text, Image &amp; Video Display
+    </p>
+
+</div>
+
+
+</div>
+
+
+<!-- ==================================================
+     STUDENT SUBSCRIPTION PANEL
+================================================== -->
+
+<div
+    id="subscriptionPanel"
+    class="subscription-panel">
+
+
+    <div class="subscription-header">
+
+        <div>
+
+            <h2>
+                <i class="fa-solid fa-user-graduate"></i>
+                Student Subscription Management
+            </h2>
+
+            <p>
+                Manage Registration, Approval, Free Access &amp; Subscription Plans
+            </p>
+
+        </div>
+
+
+        <button
+            id="closeSubscription"
+            class="close-subscription"
+            title="Close">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================================
+         REGISTRATION REQUESTS
+    ========================================== -->
+
+    <div class="sub-section">
+
+        <div class="section-title">
+
+            <h3>
+                <i class="fa-solid fa-user-clock"></i>
+                Registration Requests
+            </h3>
+
+            <span
+                id="pendingCount"
+                class="section-count">
+
+                0 Pending
+
+            </span>
+
+        </div>
+
+
+        <div id="registrationList">
+
+            Loading...
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         APPROVED STUDENTS
+    ========================================== -->
+
+    <div class="sub-section">
+
+        <div class="section-title">
+
+            <h3>
+                <i class="fa-solid fa-users"></i>
+                Approved Students
+            </h3>
+
+            <span
+                id="approvedCount"
+                class="section-count">
+
+                0
+
+            </span>
+
+        </div>
+
+
+        <div id="approvedList">
+
+            Loading...
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         SUBSCRIPTION PLANS
+    ========================================== -->
+
+    <div class="sub-section">
+
+        <div class="section-title">
+
+            <h3>
+                <i class="fa-solid fa-credit-card"></i>
+                Subscription Plans
+            </h3>
+
+            <span class="section-count">
+
+                ADMIN CONTROLLED
+
+            </span>
+
+        </div>
+
+
+        <div class="plan-form">
+
+            <input
+                id="planName"
+                type="text"
+                placeholder="Plan Name">
+
+            <input
+                id="planDays"
+                type="number"
+                min="1"
+                placeholder="Days">
+
+            <input
+                id="planPrice"
+                type="number"
+                min="0"
+                placeholder="Price ₹">
+
+            <button
+                id="addPlan">
+
+                + ADD PLAN
+
+            </button>
+
+        </div>
+
+
+        <div id="plansList">
+
+            Loading...
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast">
+
+</div>
+
+
+<!-- ==================================================
+     MAIN JAVASCRIPT
+================================================== -->
+
+<script>
+
+/* ==================================================
+   LIVE DATE & TIME
+================================================== */
+
+function updateDateTime(){
+
+    const now =
+        new Date();
+
+    const options = {
+
+        weekday:"long",
+        day:"numeric",
+        month:"long",
+        year:"numeric"
+
+    };
+
+    const date =
+        now.toLocaleDateString(
+            "en-IN",
+            options
+        );
+
+    const time =
+        now.toLocaleTimeString(
+            "en-IN"
+        );
+
+    document.getElementById(
+        "liveDate"
+    ).innerHTML =
+        date +
+        "<br>" +
+        time;
+
+}
+
+updateDateTime();
+
+setInterval(
+    updateDateTime,
+    1000
+);
+
+
+/* ==================================================
+   SEARCH
+================================================== */
+
+const searchInput =
+document.getElementById(
+    "searchInput"
+);
+
+searchInput.addEventListener(
+"input",
+function(){
+
+    const value =
+    this.value
+    .toLowerCase()
+    .trim();
+
+
+    document
+    .querySelectorAll(
+        ".dashboard .card"
+    )
+    .forEach(
+    function(card){
+
+        const text =
+        card.innerText
+        .toLowerCase();
+
+
+        card.style.display =
+        text.includes(value)
+        ? ""
+        : "none";
+
+    });
+
+});
+
+
+/* ==================================================
+   MODULE LINKS
+================================================== */
+
+document
+.querySelectorAll(
+    ".dashboard .card[data-link]"
+)
+.forEach(
+function(card){
+
+    card.addEventListener(
+    "click",
+    function(){
+
+        const link =
+        this.getAttribute(
+            "data-link"
+        );
+
+
+        if(link){
+
+            window.location.href =
+            link;
+
+        }
+
+    });
+
+});
+
+
+/* ==================================================
+   LOGOUT
+================================================== */
+
+document
+.getElementById(
+    "logoutTop"
+)
+.addEventListener(
+"click",
+function(){
+
+    const confirmLogout =
+    confirm(
+        "Logout Admin?"
+    );
+
+
+    if(confirmLogout){
+
+        localStorage.removeItem(
+            "adminLogin"
+        );
+
+        window.location.href =
+        "index.html";
+
+    }
+
+});
+
+</script>
+
+
+<!-- ==================================================
+     SUBSCRIPTION FIREBASE SYSTEM
+================================================== -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+
+    collection,
+    getDocs,
+    doc,
+    updateDoc,
+    addDoc,
+    deleteDoc,
+    serverTimestamp
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* ==================================================
+   ELEMENTS
+================================================== */
+
+const subscriptionCard =
+document.getElementById(
+    "subscriptionCard"
+);
+
+const subscriptionPanel =
+document.getElementById(
+    "subscriptionPanel"
+);
+
+const closeSubscription =
+document.getElementById(
+    "closeSubscription"
+);
+
+const registrationList =
+document.getElementById(
+    "registrationList"
+);
+
+const approvedList =
+document.getElementById(
+    "approvedList"
+);
+
+const pendingCount =
+document.getElementById(
+    "pendingCount"
+);
+
+const approvedCount =
+document.getElementById(
+    "approvedCount"
+);
+
+const plansList =
+document.getElementById(
+    "plansList"
+);
+
+const toast =
+document.getElementById(
+    "toast"
+);
+
+
+/* ==================================================
+   TOAST
+================================================== */
+
+function showToast(text){
+
+    toast.textContent =
+    text;
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+    function(){
+
+        toast.classList.remove(
+            "show"
+        );
+
+    },
+    2500
+    );
+
+}
+
+
+/* ==================================================
+   ESCAPE HTML
+================================================== */
+
+function esc(value){
+
+    return String(
+        value ?? ""
+    ).replace(
+        /[&<>"']/g,
+        function(m){
+
+            return {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[m];
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   OPEN SUBSCRIPTION PANEL
+================================================== */
+
+subscriptionCard.addEventListener(
+"click",
+function(){
+
+    subscriptionPanel.classList.add(
+        "show"
+    );
+
+
+    subscriptionPanel.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+
+    loadStudents();
+    loadPlans();
+
+});
+
+
+/* ==================================================
+   CLOSE PANEL
+================================================== */
+
+closeSubscription.addEventListener(
+"click",
+function(){
+
+    subscriptionPanel.classList.remove(
+        "show"
+    );
+
+});
+
+
+/* ==================================================
+   LOAD STUDENTS
+================================================== */
+
+async function loadStudents(){
+
+    registrationList.innerHTML =
+    `<div class="empty-box">
+        Loading registration requests...
+    </div>`;
+
+
+    approvedList.innerHTML =
+    `<div class="empty-box">
+        Loading students...
+    </div>`;
+
+
+    try{
+
+        const snap =
+        await getDocs(
+            collection(
+                db,
+                "subscriptionStudents"
+            )
+        );
+
+
+        let pending = [];
+        let approved = [];
+
+
+        snap.forEach(
+        function(d){
+
+            const data =
+            d.data();
+
+
+            const student = {
+
+                id:d.id,
+
+                ...data
+
+            };
+
+
+            if(
+                data.status === "pending"
+            ){
+
+                pending.push(
+                    student
+                );
+
+            }
+
+
+            if(
+                data.status === "approved"
+            ){
+
+                approved.push(
+                    student
+                );
+
+            }
+
+        });
+
+
+        /* SORT */
+
+        pending.sort(
+        function(a,b){
+
+            return String(a.roll || "")
+            .localeCompare(
+                String(b.roll || "")
+            );
+
+        });
+
+
+        approved.sort(
+        function(a,b){
+
+            return String(a.roll || "")
+            .localeCompare(
+                String(b.roll || "")
+            );
+
+        });
+
+
+        /* COUNTS */
+
+        pendingCount.textContent =
+        pending.length +
+        " Pending";
+
+
+        approvedCount.textContent =
+        approved.length;
+
+
+        /* =========================================
+           PENDING LIST
+        ========================================== */
+
+        if(!pending.length){
+
+            registrationList.innerHTML = `
+
+                <div class="empty-box">
+
+                    <i
+                    class="fa-solid fa-circle-check"
+                    style="font-size:28px;color:#087a3b;margin-bottom:8px">
+                    </i>
+
+                    <br>
+
+                    No new registration requests.
+
+                </div>
+
+            `;
+
+        }
+        else{
+
+            registrationList.innerHTML =
+            pending.map(
+            function(s){
+
+                return `
+
+                <div class="student-row">
+
+                    <div class="student-info">
+
+                        <h4>
+                            ${esc(s.name)}
+                        </h4>
+
+                        <p>
+
+                            <b>Roll:</b>
+                            ${esc(s.roll)}
+
+                            &nbsp;•&nbsp;
+
+                            <b>Class:</b>
+                            ${esc(s.className)}
+
+                            <br>
+
+                            <b>Mobile:</b>
+                            ${esc(s.mobile)}
+
+                            &nbsp;•&nbsp;
+
+                            <b>Father:</b>
+                            ${esc(s.fatherName)}
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="student-actions">
+
+                        <button
+                        class="action-btn approve-btn"
+                        onclick="approveStudent('${s.id}')">
+
+                            <i class="fa-solid fa-check"></i>
+                            APPROVE
+
+                        </button>
+
+
+                        <button
+                        class="action-btn reject-btn"
+                        onclick="rejectStudent('${s.id}')">
+
+                            <i class="fa-solid fa-xmark"></i>
+                            REJECT
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                `;
+
+            }).join("");
+
+        }
+
+
+        /* =========================================
+           APPROVED LIST
+        ========================================== */
+
+        if(!approved.length){
+
+            approvedList.innerHTML = `
+
+                <div class="empty-box">
+
+                    No approved students yet.
+
+                </div>
+
+            `;
+
+        }
+        else{
+
+            approvedList.innerHTML =
+            approved.map(
+            function(s){
+
+                const access =
+                s.accessType ||
+                "none";
+
+
+                const enabled =
+                s.enabled === true;
+
+
+                let accessText =
+                "NO ACCESS";
+
+
+                if(
+                    access === "free"
+                ){
+
+                    accessText =
+                    "FREE ACCESS";
+
+                }
+
+                if(
+                    access === "subscription"
+                ){
+
+                    accessText =
+                    "SUBSCRIPTION";
+
+                }
+
+
+                let expiryText =
+                "—";
+
+
+                if(
+                    s.subscriptionExpiry
+                ){
+
+                    const d =
+                    new Date(
+                        s.subscriptionExpiry
+                    );
+
+
+                    if(
+                        !isNaN(
+                            d.getTime()
+                        )
+                    ){
+
+                        expiryText =
+                        d.toLocaleDateString(
+                            "en-IN"
+                        );
+
+                    }
+
+                }
+
+
+                return `
+
+                <div class="student-row">
+
+                    <div class="student-info">
+
+                        <h4>
+
+                            ${esc(s.name)}
+
+                        </h4>
+
+                        <p>
+
+                            <b>Roll:</b>
+                            ${esc(s.roll)}
+
+                            &nbsp;•&nbsp;
+
+                            ${esc(s.className)}
+
+                            <br>
+
+                            <b>Access:</b>
+                            ${accessText}
+
+                            &nbsp;•&nbsp;
+
+                            <b>Expiry:</b>
+                            ${expiryText}
+
+                            <br>
+
+                            <b>Status:</b>
+                            ${enabled
+                                ? "ACTIVE"
+                                : "DISABLED"}
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="student-actions">
+
+                        <button
+                        class="action-btn free-btn"
+                        onclick="freeStudent('${s.id}')">
+
+                            FREE ACCESS
+
+                        </button>
+
+
+                        <button
+                        class="action-btn sub-btn"
+                        onclick="giveSubscription('${s.id}')">
+
+                            SUBSCRIPTION
+
+                        </button>
+
+
+                        <button
+                        class="action-btn ${enabled
+                            ? "disable-btn"
+                            : "enable-btn"}"
+                        onclick="${enabled
+                            ? `disableStudent('${s.id}')`
+                            : `enableStudent('${s.id}')`}">
+
+                            ${enabled
+                                ? "DISABLE"
+                                : "ENABLE"}
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                `;
+
+            }).join("");
+
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        registrationList.innerHTML = `
+
+            <div class="empty-box"
+            style="color:#c62828">
+
+                Firebase Error:
+                ${esc(error.message)}
+
+            </div>
+
+        `;
+
+
+        approvedList.innerHTML =
+        "";
+
+    }
+
+}
+
+
+/* ==================================================
+   APPROVE STUDENT
+================================================== */
+
+window.approveStudent =
+async function(id){
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "subscriptionStudents",
+                id
+            ),
+
+            {
+
+                status:"approved",
+
+                approvedAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        showToast(
+            "Student approved successfully."
+        );
+
+
+        loadStudents();
+
+    }
+    catch(error){
+
+        alert(
+            "Approval failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* ==================================================
+   REJECT STUDENT
+================================================== */
+
+window.rejectStudent =
+async function(id){
+
+    const ok =
+    confirm(
+        "क्या आप इस registration को reject करना चाहते हैं?"
+    );
+
+
+    if(!ok)
+        return;
+
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "subscriptionStudents",
+                id
+            ),
+
+            {
+
+                status:"rejected",
+
+                enabled:false,
+
+                accessType:"none"
+
+            }
+
+        );
+
+
+        showToast(
+            "Registration rejected."
+        );
+
+
+        loadStudents();
+
+    }
+    catch(error){
+
+        alert(
+            "Reject failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* ==================================================
+   FREE ACCESS
+================================================== */
+
+window.freeStudent =
+async function(id){
+
+    const ok =
+    confirm(
+        "इस student को FREE FULL ACCESS देना है?"
+    );
+
+
+    if(!ok)
+        return;
+
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "subscriptionStudents",
+                id
+            ),
+
+            {
+
+                status:"approved",
+
+                accessType:"free",
+
+                enabled:true,
+
+                subscriptionPlan:"FREE",
+
+                subscriptionExpiry:null,
+
+                activatedAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        showToast(
+            "FREE ACCESS activated."
+        );
+
+
+        loadStudents();
+
+    }
+    catch(error){
+
+        alert(
+            "Free access failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* ==================================================
+   MANUAL SUBSCRIPTION
+================================================== */
+
+window.giveSubscription =
+async function(id){
+
+    const daysInput =
+    prompt(
+        "Subscription कितने दिनों की देनी है?\n\nउदाहरण: 30"
+    );
+
+
+    if(
+        daysInput === null
+    ){
+
+        return;
+
+    }
+
+
+    const days =
+    Number(
+        daysInput
+    );
+
+
+    if(
+        !Number.isInteger(days) ||
+        days <= 0
+    ){
+
+        alert(
+            "कृपया valid days डालें।"
+        );
+
+        return;
+
+    }
+
+
+    const expiry =
+    new Date();
+
+
+    expiry.setDate(
+        expiry.getDate() +
+        days
+    );
+
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "subscriptionStudents",
+                id
+            ),
+
+            {
+
+                status:"approved",
+
+                accessType:
+                "subscription",
+
+                enabled:true,
+
+                subscriptionPlan:
+                days + " Days",
+
+                subscriptionExpiry:
+                expiry.toISOString(),
+
+                activatedAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        showToast(
+            "Subscription activated for " +
+            days +
+            " days."
+        );
+
+
+        loadStudents();
+
+    }
+    catch(error){
+
+        alert(
+            "Subscription failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* ==================================================
+   DISABLE
+================================================== */
+
+window.disableStudent =
+async function(id){
+
+    const ok =
+    confirm(
+        "इस student का access disable करना है?"
+    );
+
+
+    if(!ok)
+        return;
+
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "subscriptionStudents",
+                id
+            ),
+
+            {
+
+                enabled:false
+
+            }
+
+        );
+
+
+        showToast(
+            "Student disabled."
+        );
+
+
+        loadStudents();
+
+    }
+    catch(error){
+
+        alert(
+            "Disable failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* ==================================================
+   ENABLE
+================================================== */
+
+window.enableStudent =
+async function(id){
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "subscriptionStudents",
+                id
+            ),
+
+            {
+
+                enabled:true
+
+            }
+
+        );
+
+
+        showToast(
+            "Student enabled."
+        );
+
+
+        loadStudents();
+
+    }
+    catch(error){
+
+        alert(
+            "Enable failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* ==================================================
+   ADD PLAN
+================================================== */
+
+document
+.getElementById(
+    "addPlan"
+)
+.addEventListener(
+"click",
+async function(){
+
+    const name =
+    document
+    .getElementById(
+        "planName"
+    )
+    .value
+    .trim();
+
+
+    const days =
+    Number(
+        document
+        .getElementById(
+            "planDays"
+        )
+        .value
+    );
+
+
+    const price =
+    Number(
+        document
+        .getElementById(
+            "planPrice"
+        )
+        .value
+    );
+
+
+    if(!name){
+
+        alert(
+            "Plan Name डालें।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !Number.isInteger(days) ||
+        days <= 0
+    ){
+
+        alert(
+            "Duration Days सही डालें।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !Number.isFinite(price) ||
+        price < 0
+    ){
+
+        alert(
+            "Price सही डालें।"
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        await addDoc(
+
+            collection(
+                db,
+                "subscriptionPlans"
+            ),
+
+            {
+
+                name:name,
+
+                days:days,
+
+                price:price,
+
+                active:true,
+
+                createdAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        document
+        .getElementById(
+            "planName"
+        )
+        .value = "";
+
+
+        document
+        .getElementById(
+            "planDays"
+        )
+        .value = "";
+
+
+        document
+        .getElementById(
+            "planPrice"
+        )
+        .value = "";
+
+
+        showToast(
+            "Subscription plan added."
+        );
+
+
+        loadPlans();
+
+    }
+    catch(error){
+
+        alert(
+            "Plan save failed: " +
+            error.message
+        );
+
+    }
+
+});
+
+
+/* ==================================================
+   LOAD PLANS
+================================================== */
+
+async function loadPlans(){
+
+    plansList.innerHTML = `
+
+        <div class="empty-box">
+
+            Loading plans...
+
+        </div>
+
+    `;
+
+
+    try{
+
+        const snap =
+        await getDocs(
+
+            collection(
+                db,
+                "subscriptionPlans"
+            )
+
+        );
+
+
+        if(
+            snap.empty
+        ){
+
+            plansList.innerHTML = `
+
+                <div class="empty-box">
+
+                    अभी कोई Subscription Plan नहीं बनाया गया।
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        const plans =
+        snap.docs.map(
+        function(d){
+
+            return {
+
+                id:d.id,
+
+                ...d.data()
+
+            };
+
+        });
+
+
+        plans.sort(
+        function(a,b){
+
+            return String(
+                a.name || ""
+            ).localeCompare(
+                String(
+                    b.name || ""
+                )
+            );
+
+        });
+
+
+        plansList.innerHTML =
+        plans.map(
+        function(p){
+
+            const active =
+            p.active === true;
+
+
+            return `
+
+            <div class="plan">
+
+                <div>
+
+                    <div class="plan-name">
+
+                        ${esc(p.name)}
+
+                    </div>
+
+                    <div class="plan-detail">
+
+                        ${Number(p.days || 0)}
+                        Days
+
+                        &nbsp;•&nbsp;
+
+                        ₹${Number(p.price || 0)}
+
+                        &nbsp;•&nbsp;
+
+                        <b style="
+                        color:${active
+                            ? "#087a3b"
+                            : "#c62828"};
+                        ">
+
+                        ${active
+                            ? "ACTIVE"
+                            : "INACTIVE"}
+
+                        </b>
+
+                    </div>
+
+                </div>
+
+
+                <div class="plan-actions">
+
+                    <button
+                    class="plan-btn plan-toggle"
+                    onclick="togglePlan('${p.id}',${active})">
+
+                        ${active
+                            ? "MAKE INACTIVE"
+                            : "MAKE ACTIVE"}
+
+                    </button>
+
+
+                    <button
+                    class="plan-btn plan-delete"
+                    onclick="deletePlan('${p.id}')">
+
+                        DELETE
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        }).join("");
+
+    }
+    catch(error){
+
+        plansList.innerHTML = `
+
+            <div class="empty-box"
+            style="color:#c62828">
+
+                Error:
+                ${esc(error.message)}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* ==================================================
+   TOGGLE PLAN
+================================================== */
+
+window.togglePlan =
+async function(id,current){
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "subscriptionPlans",
+                id
+            ),
+
+            {
+
+                active:
+                !current
+
+            }
+
+        );
+
+
+        showToast(
+            current
+            ? "Plan disabled."
+            : "Plan activated."
+        );
+
+
+        loadPlans();
+
+    }
+    catch(error){
+
+        alert(
+            "Plan update failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* ==================================================
+   DELETE PLAN
+================================================== */
+
+window.deletePlan =
+async function(id){
+
+    const ok =
+    confirm(
+        "इस Subscription Plan को delete करना है?"
+    );
+
+
+    if(!ok)
+        return;
+
+
+    try{
+
+        await deleteDoc(
+
+            doc(
+                db,
+                "subscriptionPlans",
+                id
+            )
+
+        );
+
+
+        showToast(
+            "Plan deleted."
+        );
+
+
+        loadPlans();
+
+    }
+    catch(error){
+
+        alert(
+            "Delete failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* ==================================================
+   INITIAL LOAD
+================================================== */
+
+loadStudents();
+loadPlans();
+
+</script>
+
+
+</body>
+
+  </html>
