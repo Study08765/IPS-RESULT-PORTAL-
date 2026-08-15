@@ -1,0 +1,2665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color" content="#0646b5">
+
+<title>THE STUDY POINT | CBT RESULT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at 5% 5%,rgba(37,99,235,.14),transparent 25%),
+    radial-gradient(circle at 95% 20%,rgba(124,58,237,.10),transparent 25%),
+    linear-gradient(
+        180deg,
+        #edf6ff 0%,
+        #f8fbff 45%,
+        #edf5ff 100%
+    );
+
+    color:#172554;
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   MAIN FULL PAGE
+===================================================== */
+
+.container{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:18px 22px 35px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    position:relative;
+    overflow:hidden;
+
+    min-height:260px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:35px 25px;
+
+    color:#fff;
+
+    border-radius:30px;
+
+    background:
+    radial-gradient(
+        circle at 50% -20%,
+        rgba(96,165,250,.85),
+        transparent 45%
+    ),
+    linear-gradient(
+        135deg,
+        #04164e 0%,
+        #063a9e 45%,
+        #087cf0 100%
+    );
+
+    border:1px solid rgba(255,255,255,.20);
+
+    box-shadow:
+    0 25px 55px rgba(0,61,145,.28);
+}
+
+.header::before{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.07);
+
+    top:-190px;
+    left:-100px;
+}
+
+.header::after{
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.07);
+
+    right:-110px;
+    bottom:-150px;
+}
+
+
+/* Decorative stars */
+
+.header-stars{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.header-stars span{
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 10px rgba(255,255,255,.9);
+}
+
+.header-stars span:nth-child(1){
+    top:22%;
+    left:15%;
+}
+
+.header-stars span:nth-child(2){
+    top:35%;
+    right:18%;
+    width:3px;
+    height:3px;
+}
+
+.header-stars span:nth-child(3){
+    bottom:25%;
+    left:23%;
+    width:3px;
+    height:3px;
+}
+
+.header-stars span:nth-child(4){
+    bottom:20%;
+    right:28%;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    position:relative;
+    z-index:3;
+
+    width:92px;
+    height:92px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:15px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #e8f2ff
+    );
+
+    border:5px solid rgba(255,255,255,.30);
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.25),
+    0 0 30px rgba(255,255,255,.20);
+
+    font-size:43px;
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+
+/* =====================================================
+   HEADER TEXT
+===================================================== */
+
+.header h1{
+
+    position:relative;
+    z-index:3;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-shadow:
+    0 5px 15px rgba(0,0,0,.25);
+}
+
+.header p{
+
+    position:relative;
+    z-index:3;
+
+    margin-top:7px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:3px;
+
+    color:#dbeafe;
+}
+
+.hero-line{
+
+    position:relative;
+    z-index:3;
+
+    width:95px;
+    height:3px;
+
+    margin:15px auto 11px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #fbbf24,
+        transparent
+    );
+}
+
+.hero-tagline{
+
+    position:relative;
+    z-index:3;
+
+    color:#fef3c7;
+
+    font-size:12px;
+
+    font-weight:500;
+
+    letter-spacing:.8px;
+}
+
+
+/* =====================================================
+   LIVE BAR
+===================================================== */
+
+.liveBar{
+
+    display:flex;
+    align-items:stretch;
+
+    margin-top:15px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+    background:#fff;
+
+    border:1px solid #e2e8f0;
+
+    box-shadow:
+    0 10px 25px rgba(15,23,42,.08);
+}
+
+.live{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:90px;
+
+    padding:12px 16px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #c90000,
+        #ef4444
+    );
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+}
+
+.live::before{
+
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    margin-right:6px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+    0 0 0 4px rgba(255,255,255,.18);
+
+    animation:blink 1.2s infinite;
+}
+
+@keyframes blink{
+
+    0%,100%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:.35;
+    }
+}
+
+.liveBar marquee{
+
+    flex:1;
+
+    padding:12px 15px;
+
+    color:#b91c1c;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+
+/* =====================================================
+   SEARCH SECTION
+===================================================== */
+
+.search-section{
+
+    margin-top:18px;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.searchCard{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:820px;
+
+    padding:30px 34px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.98),
+        rgba(247,251,255,.98)
+    );
+
+    border-radius:25px;
+
+    border:1px solid #e1eaf5;
+
+    box-shadow:
+    0 20px 45px rgba(15,23,42,.10),
+    inset 0 1px 0 rgba(255,255,255,.9);
+
+    overflow:hidden;
+}
+
+.searchCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+    rgba(37,99,235,.045);
+
+    top:-115px;
+    right:-70px;
+}
+
+.searchCard::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+    rgba(124,58,237,.035);
+
+    bottom:-80px;
+    left:-55px;
+}
+
+.search-badge{
+
+    position:relative;
+    z-index:2;
+
+    display:table;
+
+    margin:0 auto 9px;
+
+    padding:5px 13px;
+
+    border-radius:50px;
+
+    background:#eff6ff;
+
+    border:1px solid #dbeafe;
+
+    color:#1d4ed8;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+}
+
+.searchCard h2{
+
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+
+    color:#123b83;
+
+    font-size:25px;
+
+    font-weight:800;
+}
+
+.search-subtitle{
+
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+
+    margin-top:5px;
+
+    margin-bottom:21px;
+
+    color:#64748b;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.input-wrap{
+
+    position:relative;
+    z-index:2;
+}
+
+.input-icon{
+
+    position:absolute;
+
+    left:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:18px;
+
+    pointer-events:none;
+}
+
+.searchCard input{
+
+    width:100%;
+
+    padding:17px 18px 17px 51px;
+
+    border:1.5px solid #d7e1ef;
+
+    border-radius:15px;
+
+    outline:none;
+
+    background:#fff;
+
+    color:#172554;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    box-shadow:
+    inset 0 2px 7px rgba(15,23,42,.035),
+    0 4px 12px rgba(15,23,42,.035);
+
+    transition:.25s;
+
+    margin-bottom:15px;
+}
+
+.searchCard input::placeholder{
+    color:#94a3b8;
+    font-weight:500;
+}
+
+.searchCard input:focus{
+
+    border-color:#1677e8;
+
+    box-shadow:
+    0 0 0 4px rgba(37,99,235,.09),
+    0 8px 20px rgba(37,99,235,.08);
+}
+
+
+/* =====================================================
+   3D SEARCH BUTTON
+===================================================== */
+
+.search-btn{
+
+    position:relative;
+    z-index:2;
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #2698ff 0%,
+        #087cf0 38%,
+        #0646b5 72%,
+        #04357f 100%
+    );
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 6px 0 #032f75,
+    0 13px 27px rgba(0,70,180,.32),
+    inset 0 1px 1px rgba(255,255,255,.45);
+
+    transform:translateY(0);
+
+    transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.search-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:2px;
+    left:12%;
+
+    width:76%;
+    height:1px;
+
+    background:
+    rgba(255,255,255,.55);
+
+    border-radius:50%;
+}
+
+.search-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 9px 0 #032f75,
+    0 18px 32px rgba(0,70,180,.38),
+    inset 0 1px 1px rgba(255,255,255,.50);
+}
+
+.search-btn:active{
+
+    transform:translateY(5px);
+
+    box-shadow:
+    0 2px 0 #032f75,
+    0 6px 13px rgba(0,70,180,.25);
+}
+
+.search-btn:disabled{
+
+    opacity:.75;
+
+    cursor:not-allowed;
+
+    transform:translateY(0);
+}
+
+
+/* =====================================================
+   RESULT AREA
+===================================================== */
+
+#resultBox{
+
+    display:none;
+
+    width:100%;
+
+    margin-top:20px;
+}
+
+.result-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    width:100%;
+
+    background:#fff;
+
+    border-radius:27px;
+
+    border:1px solid #dce6f2;
+
+    box-shadow:
+    0 25px 55px rgba(15,23,42,.13);
+}
+
+.result-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:6px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #fbbf24,
+        #087cf0,
+        #0646b5,
+        #7c3aed,
+        #fbbf24
+    );
+}
+
+
+/* =====================================================
+   RESULT HEADER
+===================================================== */
+
+.result-header{
+
+    text-align:center;
+
+    padding:28px 20px 18px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #f8fbff,
+        #ffffff
+    );
+
+    border-bottom:1px solid #edf2f7;
+}
+
+.result-badge{
+
+    display:inline-block;
+
+    padding:5px 13px;
+
+    border-radius:50px;
+
+    background:#eff6ff;
+
+    color:#1d4ed8;
+
+    border:1px solid #dbeafe;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    margin-bottom:8px;
+}
+
+.result-title{
+
+    color:#0f3b82;
+
+    font-size:27px;
+
+    font-weight:800;
+}
+
+.result-subtitle{
+
+    margin-top:4px;
+
+    color:#94a3b8;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   STUDENT INFO
+===================================================== */
+
+.student-info{
+
+    margin:18px 22px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #edf6ff,
+        #f8fbff
+    );
+
+    border:1px solid #dbeafe;
+
+    box-shadow:
+    inset 0 1px 0 #fff;
+}
+
+.student-name{
+
+    text-align:center;
+
+    color:#123b83;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    margin-bottom:14px;
+
+    word-break:break-word;
+}
+
+.student-details{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+}
+
+.student-detail{
+
+    padding:10px 7px;
+
+    text-align:center;
+
+    background:#fff;
+
+    border:1px solid #e5edf8;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 3px 9px rgba(15,23,42,.025);
+}
+
+.student-detail span{
+
+    display:block;
+
+    color:#64748b;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    letter-spacing:.6px;
+
+    text-transform:uppercase;
+}
+
+.student-detail strong{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#123b83;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    word-break:break-word;
+}
+
+.exam-name{
+
+    margin-top:10px;
+
+    padding:10px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    background:#fff;
+
+    border:1px solid #e5edf8;
+
+    color:#334155;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+
+/* =====================================================
+   RESULT SUMMARY TITLE
+===================================================== */
+
+.table-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:0 22px 10px;
+
+    color:#123b83;
+
+    font-size:14px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   RESULT TABLE
+===================================================== */
+
+.result-table-wrap{
+
+    margin:0 22px;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    border:1px solid #dbe5f1;
+
+    box-shadow:
+    0 8px 20px rgba(15,23,42,.055);
+}
+
+.result-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#fff;
+}
+
+.result-table thead th{
+
+    padding:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #061c63,
+        #0646b5
+    );
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.6px;
+}
+
+.result-table thead th:last-child{
+    text-align:right;
+}
+
+.result-table tbody tr{
+
+    border-bottom:1px solid #edf2f7;
+
+    transition:.15s;
+}
+
+.result-table tbody tr:last-child{
+    border-bottom:none;
+}
+
+.result-table tbody tr:nth-child(even){
+    background:#f8fbff;
+}
+
+.result-table td{
+
+    padding:11px 13px;
+
+    color:#475569;
+
+    font-size:11px;
+
+    font-weight:500;
+}
+
+.result-table td:last-child{
+
+    text-align:right;
+
+    color:#123b83;
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+.result-table tr.highlight{
+
+    background:
+    linear-gradient(
+        90deg,
+        #fffdf1,
+        #fffbeb
+    );
+}
+
+.result-table tr.highlight td{
+
+    color:#92400e;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   TOTAL / OBTAINED PREMIUM STRIP
+===================================================== */
+
+.marks-strip{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin:16px 22px 0;
+}
+
+.mark-box{
+
+    position:relative;
+
+    padding:16px 10px;
+
+    text-align:center;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        145deg,
+        #f8fbff,
+        #eef6ff
+    );
+
+    border:1px solid #dbeafe;
+
+    box-shadow:
+    0 7px 18px rgba(15,23,42,.06);
+}
+
+.mark-box:first-child{
+
+    border-top:3px solid #2563eb;
+}
+
+.mark-box:last-child{
+
+    border-top:3px solid #f59e0b;
+
+    background:
+    linear-gradient(
+        145deg,
+        #fffdf4,
+        #fffbeb
+    );
+}
+
+.mark-box span{
+
+    display:block;
+
+    color:#64748b;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:.8px;
+}
+
+.mark-box strong{
+
+    display:block;
+
+    margin-top:5px;
+
+    color:#123b83;
+
+    font-size:25px;
+
+    font-weight:800;
+}
+
+.mark-box:last-child strong{
+    color:#b45309;
+}
+
+
+/* =====================================================
+   PERCENTAGE
+===================================================== */
+
+.percentage-box{
+
+    margin:12px 22px 0;
+
+    padding:14px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f8fbff,
+        #eef6ff
+    );
+
+    border:1px solid #dbeafe;
+}
+
+.percentage-box span{
+
+    display:block;
+
+    color:#64748b;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+}
+
+.percentage-box strong{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#123b83;
+
+    font-size:22px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   PERFORMANCE
+===================================================== */
+
+.performance{
+
+    margin:12px 22px 0;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f8fbff,
+        #edf6ff
+    );
+
+    border:1px solid #dbeafe;
+}
+
+.performance-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:9px;
+}
+
+.performance-top span{
+
+    color:#475569;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+}
+
+.performance-top strong{
+
+    color:#123b83;
+
+    font-size:16px;
+
+    font-weight:800;
+}
+
+.progress{
+
+    width:100%;
+
+    height:9px;
+
+    overflow:hidden;
+
+    border-radius:50px;
+
+    background:#dbeafe;
+}
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #087cf0,
+        #2563eb,
+        #7c3aed
+    );
+
+    box-shadow:
+    0 0 8px rgba(37,99,235,.25);
+
+    transition:
+    width .9s ease;
+}
+
+
+/* =====================================================
+   PASS / FAIL MESSAGE
+===================================================== */
+
+#statusBox{
+
+    margin:14px 22px 0;
+
+    padding:14px 12px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.pass-message{
+
+    color:#15803d;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ecfdf5,
+        #f0fdf4
+    );
+
+    border:1px solid #bbf7d0;
+
+    box-shadow:
+    0 8px 18px rgba(22,163,74,.08);
+}
+
+.fail-message{
+
+    color:#dc2626;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff7ed,
+        #fef2f2
+    );
+
+    border:1px solid #fecaca;
+
+    box-shadow:
+    0 8px 18px rgba(220,38,38,.07);
+}
+
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.actionButtons{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    padding:17px 22px 22px;
+}
+
+.actionButtons button{
+
+    position:relative;
+
+    padding:14px 8px;
+
+    border:none;
+
+    border-radius:14px;
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.15s;
+
+    box-shadow:
+    0 5px 0 rgba(0,0,0,.20),
+    0 10px 20px rgba(15,23,42,.15);
+}
+
+#answerBtn{
+
+    background:
+    linear-gradient(
+        145deg,
+        #a855f7,
+        #7c3aed,
+        #5b21b6
+    );
+}
+
+.print-btn{
+
+    background:
+    linear-gradient(
+        145deg,
+        #2698ff,
+        #087cf0,
+        #0646b5
+    );
+}
+
+.actionButtons button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 7px 0 rgba(0,0,0,.20),
+    0 14px 25px rgba(15,23,42,.18);
+}
+
+.actionButtons button:active{
+
+    transform:translateY(4px);
+
+    box-shadow:
+    0 2px 0 rgba(0,0,0,.20),
+    0 5px 10px rgba(15,23,42,.12);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    padding:22px 10px 5px;
+
+    text-align:center;
+
+    color:#64748b;
+
+    font-size:9px;
+}
+
+.footer-brand{
+
+    margin-bottom:4px;
+
+    color:#123b83;
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+.footer span{
+
+    color:#2563eb;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:850px){
+
+    .container{
+        max-width:850px;
+        padding:14px 16px 30px;
+    }
+
+    .header{
+        min-height:230px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .container{
+        padding:10px 9px 25px;
+    }
+
+    .header{
+
+        min-height:205px;
+
+        padding:25px 14px;
+
+        border-radius:23px;
+    }
+
+    .logo{
+
+        width:70px;
+        height:70px;
+
+        font-size:31px;
+
+        border-width:4px;
+    }
+
+    .header h1{
+        font-size:25px;
+    }
+
+    .header p{
+        font-size:8px;
+        letter-spacing:1.6px;
+    }
+
+    .hero-tagline{
+        font-size:9px;
+    }
+
+    .liveBar{
+        margin-top:11px;
+        border-radius:12px;
+    }
+
+    .live{
+        min-width:64px;
+        padding:10px 9px;
+        font-size:9px;
+    }
+
+    .liveBar marquee{
+        padding:10px 7px;
+        font-size:9px;
+    }
+
+    .searchCard{
+
+        padding:20px 15px;
+
+        border-radius:20px;
+    }
+
+    .searchCard h2{
+        font-size:19px;
+    }
+
+    .search-subtitle{
+        font-size:9px;
+    }
+
+    .searchCard input{
+        padding:15px 13px 15px 44px;
+        font-size:13px;
+    }
+
+    .search-btn{
+        padding:15px;
+        font-size:13px;
+    }
+
+    .result-card{
+        border-radius:22px;
+    }
+
+    .result-header{
+        padding:23px 12px 15px;
+    }
+
+    .result-title{
+        font-size:21px;
+    }
+
+    .result-subtitle{
+        font-size:8px;
+    }
+
+    .student-info{
+        margin:13px;
+        padding:13px;
+    }
+
+    .student-name{
+        font-size:18px;
+    }
+
+    .student-details{
+        gap:7px;
+    }
+
+    .student-detail{
+        padding:8px 4px;
+    }
+
+    .student-detail strong{
+        font-size:10px;
+    }
+
+    .exam-name{
+        font-size:9px;
+    }
+
+    .table-title{
+        padding:0 13px 8px;
+        font-size:12px;
+    }
+
+    .result-table-wrap{
+        margin:0 13px;
+    }
+
+    .result-table thead th{
+        padding:10px 8px;
+        font-size:8px;
+    }
+
+    .result-table td{
+        padding:9px 8px;
+        font-size:9px;
+    }
+
+    .result-table td:last-child{
+        font-size:10px;
+    }
+
+    .marks-strip{
+        margin:13px 13px 0;
+        gap:8px;
+    }
+
+    .mark-box{
+        padding:13px 7px;
+        border-radius:14px;
+    }
+
+    .mark-box span{
+        font-size:8px;
+    }
+
+    .mark-box strong{
+        font-size:22px;
+    }
+
+    .percentage-box{
+        margin:10px 13px 0;
+    }
+
+    .performance{
+        margin:10px 13px 0;
+    }
+
+    #statusBox{
+        margin:12px 13px 0;
+        font-size:11px;
+    }
+
+    .actionButtons{
+        padding:13px;
+        gap:8px;
+    }
+
+    .actionButtons button{
+        padding:12px 5px;
+        font-size:9px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:360px){
+
+    .student-details{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .student-detail:last-child{
+        grid-column:1 / -1;
+    }
+
+    .result-table td,
+    .result-table th{
+        font-size:8px;
+    }
+
+    .marks-strip{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+@media print{
+
+    @page{
+        size:A4;
+        margin:12mm;
+    }
+
+    body{
+        background:#fff !important;
+        padding:0;
+    }
+
+    .container{
+        max-width:none;
+        padding:0;
+    }
+
+    .header,
+    .liveBar,
+    .search-section,
+    .footer{
+        display:none !important;
+    }
+
+    #resultBox{
+        display:block !important;
+        margin:0;
+    }
+
+    .result-card{
+        border:1px solid #cbd5e1;
+        box-shadow:none;
+        border-radius:0;
+    }
+
+    .actionButtons{
+        display:none !important;
+    }
+
+    .performance{
+        break-inside:avoid;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<div class="header">
+
+<div class="header-stars">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="logo">
+🏆
+</div>
+
+<h1>
+THE STUDY POINT
+</h1>
+
+<p>
+COMPUTER BASED TEST RESULT
+</p>
+
+<div class="hero-line"></div>
+
+<div class="hero-tagline">
+✦ Your Result • Your Achievement • Your Future ✦
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     LIVE NOTICE
+===================================================== -->
+
+<div class="liveBar">
+
+<div class="live">
+LIVE
+</div>
+
+<marquee id="liveText">
+
+WELCOME TO THE STUDY POINT CBT RESULT PORTAL • ENTER YOUR ROLL NUMBER TO CHECK YOUR RESULT •
+
+</marquee>
+
+</div>
+
+
+<!-- =====================================================
+     SEARCH
+===================================================== -->
+
+<section class="search-section">
+
+<div class="searchCard">
+
+<div class="search-badge">
+RESULT SEARCH
+</div>
+
+<h2>
+🔍 Check Your Result
+</h2>
+
+<div class="search-subtitle">
+Enter your CBT Roll Number to view your result
+</div>
+
+<div class="input-wrap">
+
+<span class="input-icon">
+🎫
+</span>
+
+<input
+type="text"
+id="rollInput"
+placeholder="Enter Roll Number"
+autocomplete="off">
+
+</div>
+
+<button
+class="search-btn"
+id="searchBtn"
+onclick="searchResult()">
+
+🔎 &nbsp; SEARCH RESULT
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULT
+===================================================== -->
+
+<div id="resultBox">
+
+<div class="result-card">
+
+
+<!-- RESULT HEADER -->
+
+<div class="result-header">
+
+<div class="result-badge">
+OFFICIAL CBT RESULT
+</div>
+
+<div class="result-title">
+🎓 Student Result
+</div>
+
+<div class="result-subtitle">
+THE STUDY POINT • COMPUTER BASED TEST
+</div>
+
+</div>
+
+
+<!-- STUDENT DETAILS -->
+
+<div class="student-info">
+
+<div
+class="student-name"
+id="studentName">
+
+-
+
+</div>
+
+
+<div class="student-details">
+
+
+<div class="student-detail">
+
+<span>
+ROLL NUMBER
+</span>
+
+<strong id="studentRoll">
+-
+</strong>
+
+</div>
+
+
+<div class="student-detail">
+
+<span>
+CLASS
+</span>
+
+<strong id="studentClass">
+-
+</strong>
+
+</div>
+
+
+<div class="student-detail">
+
+<span>
+TEST
+</span>
+
+<strong>
+CBT
+</strong>
+
+</div>
+
+
+</div>
+
+
+<div
+class="exam-name"
+id="examName">
+
+-
+
+</div>
+
+</div>
+
+
+<!-- RESULT SUMMARY -->
+
+<div class="table-title">
+
+📊 RESULT SUMMARY
+
+</div>
+
+
+<div class="result-table-wrap">
+
+<table class="result-table">
+
+<thead>
+
+<tr>
+
+<th>
+RESULT
+</th>
+
+<th>
+DETAILS
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+
+<tr>
+
+<td>
+Total Questions
+</td>
+
+<td id="totalQuestions">
+0
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Attempted
+</td>
+
+<td id="attempted">
+0
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Correct Answers
+</td>
+
+<td id="correct">
+0
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Wrong Answers
+</td>
+
+<td id="wrong">
+0
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Unattempted
+</td>
+
+<td id="unattempted">
+0
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<!-- =====================================================
+     TOTAL / OBTAINED
+===================================================== -->
+
+<div class="marks-strip">
+
+
+<div class="mark-box">
+
+<span>
+TOTAL MARKS
+</span>
+
+<strong id="totalMarks">
+0
+</strong>
+
+</div>
+
+
+<div class="mark-box">
+
+<span>
+OBTAINED MARKS
+</span>
+
+<strong id="obtainedMarks">
+0
+</strong>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     PERCENTAGE
+===================================================== -->
+
+<div class="percentage-box">
+
+<span>
+PERCENTAGE
+</span>
+
+<strong id="percentage">
+0%
+</strong>
+
+</div>
+
+
+<!-- =====================================================
+     PERFORMANCE
+===================================================== -->
+
+<div class="performance">
+
+<div class="performance-top">
+
+<span>
+PERFORMANCE
+</span>
+
+<strong id="performancePercent">
+0%
+</strong>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="progressBar">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     STATUS MESSAGE
+===================================================== -->
+
+<div id="statusBox">
+RESULT
+</div>
+
+
+<!-- =====================================================
+     ACTION BUTTONS
+===================================================== -->
+
+<div class="actionButtons">
+
+<button
+id="answerBtn">
+
+📖 VIEW ANSWER KEY
+
+</button>
+
+
+<button
+class="print-btn"
+onclick="window.print()">
+
+🖨️ PRINT RESULT
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+<div class="footer-brand">
+🏆 THE STUDY POINT
+</div>
+
+Computer Based Test Result Portal
+
+<br>
+
+© 2026 <span>The Study Point</span> • All Rights Reserved
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    getDocs,
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+window.searchResult = async function(){
+
+
+const roll =
+document
+.getElementById("rollInput")
+.value
+.trim();
+
+
+const resultArea =
+document.getElementById("resultBox");
+
+
+const searchBtn =
+document.getElementById("searchBtn");
+
+
+if(!roll){
+
+alert("Please enter Roll Number");
+
+document
+.getElementById("rollInput")
+.focus();
+
+return;
+
+}
+
+
+resultArea.style.display="none";
+
+searchBtn.disabled=true;
+
+searchBtn.innerHTML=
+"⏳ &nbsp; SEARCHING RESULT...";
+
+
+try{
+
+
+const results =
+await getDocs(
+collection(db,"cbtResults")
+);
+
+
+let found=false;
+
+
+for(const d of results.docs){
+
+
+const result=d.data();
+
+
+if(
+String(result.studentRoll).trim()
+===
+roll
+){
+
+
+found=true;
+
+
+/* =================================================
+   GET TEST
+================================================= */
+
+const testRef =
+await getDoc(
+
+doc(
+db,
+"cbtTests",
+result.examId
+)
+
+);
+
+
+if(!testRef.exists()){
+
+alert("Exam not found");
+
+return;
+
+}
+
+
+const test =
+testRef.data();
+
+
+/* =================================================
+   RESULT PUBLISH CHECK
+================================================= */
+
+if(!test.resultPublished){
+
+document.getElementById(
+"liveText"
+).innerHTML=
+
+"🔴 RESULT HAS NOT BEEN DECLARED YET • PLEASE CHECK AGAIN LATER •";
+
+
+alert(
+"Result has not been published yet."
+);
+
+return;
+
+}
+
+
+/* =================================================
+   VALUES
+================================================= */
+
+const total =
+Number(
+result.totalQuestions ?? 0
+);
+
+
+const correct =
+Number(
+result.correct ?? 0
+);
+
+
+const wrong =
+Number(
+result.wrong ?? 0
+);
+
+
+/* Attempted */
+
+const attempted =
+correct + wrong;
+
+
+/* Unattempted */
+
+const unattempted =
+Math.max(
+0,
+total - attempted
+);
+
+
+/* Percentage */
+
+const percentage =
+Number(
+result.percentage ?? 0
+);
+
+
+/* =================================================
+   LIVE MESSAGE
+================================================= */
+
+document.getElementById(
+"liveText"
+).innerHTML=
+
+"🟢 LIVE : COMPUTER BASED TEST RESULT HAS BEEN DECLARED •";
+
+
+/* =================================================
+   STUDENT DETAILS
+================================================= */
+
+document.getElementById(
+"studentName"
+).textContent =
+result.studentName || "-";
+
+
+document.getElementById(
+"studentRoll"
+).textContent =
+result.studentRoll || "-";
+
+
+document.getElementById(
+"studentClass"
+).textContent =
+result.studentClass || "-";
+
+
+document.getElementById(
+"examName"
+).textContent =
+test.testName || "-";
+
+
+/* =================================================
+   RESULT TABLE
+================================================= */
+
+document.getElementById(
+"totalQuestions"
+).textContent =
+total;
+
+
+document.getElementById(
+"attempted"
+).textContent =
+attempted;
+
+
+document.getElementById(
+"correct"
+).textContent =
+correct;
+
+
+document.getElementById(
+"wrong"
+).textContent =
+wrong;
+
+
+document.getElementById(
+"unattempted"
+).textContent =
+unattempted;
+
+
+/* =================================================
+   TOTAL MARKS
+================================================= */
+
+document.getElementById(
+"totalMarks"
+).textContent =
+total;
+
+
+/* =================================================
+   OBTAINED MARKS
+================================================= */
+
+document.getElementById(
+"obtainedMarks"
+).textContent =
+correct;
+
+
+/* =================================================
+   PERCENTAGE
+================================================= */
+
+document.getElementById(
+"percentage"
+).textContent =
+percentage + "%";
+
+
+document.getElementById(
+"performancePercent"
+).textContent =
+percentage + "%";
+
+
+/* =================================================
+   PERFORMANCE BAR
+================================================= */
+
+const progress =
+document.getElementById(
+"progressBar"
+);
+
+
+progress.style.width =
+Math.min(
+100,
+Math.max(
+0,
+percentage
+)
+)
++
+"%";
+
+
+/* =================================================
+   PASS / FAIL
+================================================= */
+
+const statusBox =
+document.getElementById(
+"statusBox"
+);
+
+
+if(
+String(result.result)
+.toUpperCase()
+===
+"PASS"
+){
+
+statusBox.className =
+"pass-message";
+
+statusBox.innerHTML =
+"🎉 Congratulations — You Passed!";
+
+
+}else{
+
+statusBox.className =
+"fail-message";
+
+statusBox.innerHTML =
+"⚠️ Test Not Cleared — Keep Practicing";
+
+}
+
+
+/* =================================================
+   ANSWER KEY
+================================================= */
+
+const btn =
+document.getElementById(
+"answerBtn"
+);
+
+
+if(test.answerKeyPublished){
+
+btn.style.display="block";
+
+btn.onclick=function(){
+
+location.href =
+"view-response.html?id="
++
+d.id;
+
+};
+
+}else{
+
+btn.style.display="none";
+
+}
+
+
+/* =================================================
+   SHOW RESULT
+================================================= */
+
+resultArea.style.display="block";
+
+
+/* Smooth scroll */
+
+setTimeout(()=>{
+
+resultArea.scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+});
+
+},150);
+
+
+break;
+
+}
+
+}
+
+
+/* =================================================
+   NOT FOUND
+================================================= */
+
+if(!found){
+
+alert("❌ Result Not Found");
+
+document.getElementById(
+"liveText"
+).innerHTML=
+
+"WELCOME TO THE STUDY POINT CBT RESULT PORTAL • PLEASE CHECK YOUR ROLL NUMBER •";
+
+}
+
+
+}catch(error){
+
+
+console.error(error);
+
+
+alert(
+"Unable to load result. Please check your internet connection and try again."
+);
+
+
+}finally{
+
+
+searchBtn.disabled=false;
+
+searchBtn.innerHTML=
+"🔎 &nbsp; SEARCH RESULT";
+
+
+}
+
+};
+
+
+/* =====================================================
+   ENTER KEY SEARCH
+===================================================== */
+
+document
+.getElementById("rollInput")
+.addEventListener(
+"keydown",
+function(event){
+
+if(event.key==="Enter"){
+
+window.searchResult();
+
+}
+
+});
+
+</script>
+
+
+</body>
+  </html>
