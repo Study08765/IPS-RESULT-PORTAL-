@@ -1,0 +1,3072 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#064e3b">
+
+<title>THE STUDY POINT | CBT RESULT</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+GLOBAL
+===================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+width:100%;
+overflow-x:hidden;
+}
+
+body{
+
+background:
+radial-gradient(
+circle at 10% 5%,
+rgba(37,99,235,.12),
+transparent 25%
+),
+
+linear-gradient(
+180deg,
+#edf6ff 0%,
+#f8fbff 55%,
+#edf5ff 100%
+);
+
+color:#172554;
+}
+
+
+/* =====================================================
+MAIN PAGE
+===================================================== */
+
+.page{
+
+width:100%;
+max-width:1050px;
+margin:0 auto;
+padding:8px;
+
+}
+
+
+/* =====================================================
+HERO
+===================================================== */
+
+.hero{
+
+width:100%;
+
+height:43vh;
+
+min-height:260px;
+
+max-height:520px;
+
+overflow:hidden;
+
+border-radius:24px;
+
+background:#eaf3ff;
+
+border:
+1px solid
+rgba(255,255,255,.95);
+
+box-shadow:
+0 20px 45px
+rgba(0,61,145,.22);
+
+}
+
+.hero img{
+
+width:100%;
+height:100%;
+
+display:block;
+
+object-fit:cover;
+
+object-position:center center;
+
+}
+
+
+/* =====================================================
+BRAND CARD
+===================================================== */
+
+.brand-card{
+
+position:relative;
+
+width:100%;
+
+height:145px;
+
+margin-top:12px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+overflow:hidden;
+
+border-radius:22px;
+
+background:
+linear-gradient(
+135deg,
+#03154d 0%,
+#0646b5 55%,
+#087cf0 100%
+);
+
+border:
+1px solid
+rgba(255,255,255,.18);
+
+box-shadow:
+0 16px 35px
+rgba(0,61,145,.24);
+
+}
+
+.brand-card::before{
+
+content:"";
+
+position:absolute;
+
+width:190px;
+height:190px;
+
+right:-100px;
+top:-105px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.07);
+
+}
+
+.brand-card::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:50%;
+
+transform:translateX(-50%);
+
+width:175px;
+height:4px;
+
+border-radius:
+0 0 12px 12px;
+
+background:#fbbf24;
+
+box-shadow:
+0 2px 8px
+rgba(251,191,36,.4);
+
+}
+
+.brand-title{
+
+position:relative;
+z-index:2;
+
+color:#fff;
+
+font-size:
+clamp(30px,7vw,48px);
+
+line-height:1;
+
+font-weight:900;
+
+letter-spacing:2.5px;
+
+text-transform:uppercase;
+
+text-shadow:
+0 3px 10px
+rgba(0,0,0,.35);
+
+}
+
+.brand-tagline{
+
+position:relative;
+z-index:2;
+
+margin-top:9px;
+
+color:#fbbf24;
+
+font-size:12px;
+
+font-weight:700;
+
+letter-spacing:1.7px;
+
+}
+
+
+/* =====================================================
+RESULT SEARCH
+===================================================== */
+
+.search-section{
+
+width:100%;
+
+margin-top:14px;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.search-card{
+
+position:relative;
+
+width:100%;
+
+max-width:850px;
+
+padding:
+25px
+25px
+28px;
+
+background:
+linear-gradient(
+145deg,
+#ffffff,
+#f5f9ff
+);
+
+border-radius:23px;
+
+border:
+1px solid
+#dce8f5;
+
+box-shadow:
+0 18px 40px
+rgba(15,23,42,.10);
+
+text-align:center;
+
+overflow:hidden;
+
+}
+
+.search-card::before{
+
+content:"";
+
+position:absolute;
+
+width:170px;
+height:170px;
+
+right:-95px;
+top:-95px;
+
+border-radius:50%;
+
+background:
+rgba(37,99,235,.05);
+
+}
+
+.search-card::after{
+
+content:"";
+
+position:absolute;
+
+width:110px;
+height:110px;
+
+left:-65px;
+bottom:-65px;
+
+border-radius:50%;
+
+background:
+rgba(124,58,237,.04);
+
+}
+
+
+/* =====================================================
+SEARCH HEADER
+===================================================== */
+
+.search-badge{
+
+position:relative;
+z-index:2;
+
+display:inline-block;
+
+padding:
+6px
+16px;
+
+border-radius:50px;
+
+background:
+linear-gradient(
+135deg,
+#eff6ff,
+#dbeafe
+);
+
+color:#1450a3;
+
+border:
+1px solid
+#cfe0f7;
+
+font-size:9px;
+
+font-weight:800;
+
+letter-spacing:1.1px;
+
+}
+
+.search-card h2{
+
+position:relative;
+z-index:2;
+
+margin-top:9px;
+
+color:#123b83;
+
+font-size:
+clamp(22px,4vw,30px);
+
+font-weight:800;
+
+}
+
+.search-subtitle{
+
+position:relative;
+z-index:2;
+
+margin-top:5px;
+
+margin-bottom:19px;
+
+color:#64748b;
+
+font-size:10px;
+
+font-weight:500;
+
+}
+
+
+/* =====================================================
+INPUT
+===================================================== */
+
+.input-wrap{
+
+position:relative;
+z-index:2;
+
+width:100%;
+
+}
+
+.input-icon{
+
+position:absolute;
+
+left:17px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+font-size:18px;
+
+pointer-events:none;
+
+}
+
+#rollInput{
+
+width:100%;
+
+height:56px;
+
+padding:
+0
+17px
+0
+49px;
+
+border:
+1.5px solid
+#d7e2ef;
+
+border-radius:15px;
+
+outline:none;
+
+background:#fff;
+
+color:#172554;
+
+font-size:14px;
+
+font-weight:600;
+
+box-shadow:
+
+inset
+0 2px 8px
+rgba(15,23,42,.035),
+
+0 5px 15px
+rgba(15,23,42,.035);
+
+transition:.25s;
+
+}
+
+#rollInput::placeholder{
+
+color:#94a3b8;
+
+font-weight:500;
+
+}
+
+#rollInput:focus{
+
+border-color:#1677e8;
+
+box-shadow:
+
+0 0 0 4px
+rgba(37,99,235,.08),
+
+0 10px 25px
+rgba(37,99,235,.10);
+
+}
+
+
+/* =====================================================
+SEARCH BUTTON
+===================================================== */
+
+.search-btn{
+
+position:relative;
+z-index:2;
+
+width:100%;
+
+height:56px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:15px;
+
+cursor:pointer;
+
+color:#fff;
+
+font-size:13px;
+
+font-weight:800;
+
+letter-spacing:1px;
+
+background:
+linear-gradient(
+145deg,
+#31a2ff 0%,
+#087cf0 38%,
+#0646b5 72%,
+#04357f 100%
+);
+
+box-shadow:
+
+0 6px 0 #032f75,
+
+0 14px 28px
+rgba(0,70,180,.30),
+
+inset
+0 1px 2px
+rgba(255,255,255,.5);
+
+transition:
+transform .15s ease,
+box-shadow .15s ease;
+
+}
+
+.search-btn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+
+0 8px 0 #032f75,
+
+0 19px 34px
+rgba(0,70,180,.35),
+
+inset
+0 1px 2px
+rgba(255,255,255,.5);
+
+}
+
+.search-btn:active{
+
+transform:translateY(4px);
+
+box-shadow:
+
+0 2px 0 #032f75,
+
+0 7px 14px
+rgba(0,70,180,.22);
+
+}
+
+.search-btn:disabled{
+
+opacity:.7;
+
+cursor:not-allowed;
+
+transform:none;
+
+}
+
+
+/* =====================================================
+CHILDREN IMAGE
+===================================================== */
+
+.children-image{
+
+width:100%;
+
+margin-top:10px;
+
+margin-bottom:8px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:flex-end;
+
+overflow:hidden;
+
+}
+
+.children-image img{
+
+width:100%;
+
+max-width:650px;
+
+height:auto;
+
+display:block;
+
+object-fit:contain;
+
+}
+
+
+/* =====================================================
+PREMIUM ANSWER KEY SECTION
+===================================================== */
+
+.answer-key-section{
+
+width:100%;
+
+margin-top:8px;
+
+margin-bottom:13px;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+
+/* =====================================================
+ANSWER KEY BUTTON
+DARK GREEN + GOLDEN
+===================================================== */
+
+.answer-key-btn{
+
+position:relative;
+
+width:100%;
+
+max-width:850px;
+
+min-height:125px;
+
+padding:20px;
+
+border:none;
+
+border-radius:24px;
+
+cursor:pointer;
+
+overflow:hidden;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+color:#fff;
+
+background:
+
+radial-gradient(
+circle at 50% 0%,
+rgba(251,191,36,.18),
+transparent 42%
+),
+
+linear-gradient(
+135deg,
+#022c22 0%,
+#064e3b 48%,
+#052e25 100%
+);
+
+border:
+2px solid
+#d4a72c;
+
+box-shadow:
+
+0 6px 0 #06372b,
+
+0 18px 38px
+rgba(4,78,59,.25),
+
+inset
+0 1px 2px
+rgba(255,255,255,.16);
+
+transition:
+transform .18s ease,
+box-shadow .18s ease;
+
+}
+
+
+/* Golden shine */
+
+.answer-key-btn::before{
+
+content:"";
+
+position:absolute;
+
+width:260px;
+
+height:260px;
+
+top:-190px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+border-radius:50%;
+
+background:
+rgba(251,191,36,.13);
+
+}
+
+
+/* Golden border glow */
+
+.answer-key-btn::after{
+
+content:"";
+
+position:absolute;
+
+inset:7px;
+
+border-radius:18px;
+
+border:
+1px solid
+rgba(251,191,36,.28);
+
+pointer-events:none;
+
+}
+
+
+/* =====================================================
+ICON
+===================================================== */
+
+.answer-key-icon{
+
+position:relative;
+
+z-index:3;
+
+width:46px;
+
+height:46px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:14px;
+
+background:
+linear-gradient(
+135deg,
+#ffd86a,
+#f5b301
+);
+
+color:#064e3b;
+
+font-size:25px;
+
+box-shadow:
+
+0 5px 15px
+rgba(251,191,36,.30);
+
+margin-bottom:7px;
+
+}
+
+
+/* =====================================================
+BIG CENTER TITLE
+===================================================== */
+
+.answer-key-title{
+
+position:relative;
+
+z-index:3;
+
+font-size:
+clamp(27px,7vw,40px);
+
+font-weight:900;
+
+letter-spacing:2px;
+
+line-height:1;
+
+color:#fff;
+
+text-shadow:
+
+0 2px 7px
+rgba(0,0,0,.35);
+
+}
+
+
+/* =====================================================
+SUBTITLE
+===================================================== */
+
+.answer-key-subtitle{
+
+position:relative;
+
+z-index:3;
+
+margin-top:8px;
+
+font-size:10px;
+
+font-weight:600;
+
+letter-spacing:1.3px;
+
+color:#f8d66d;
+
+text-transform:uppercase;
+
+}
+
+
+/* =====================================================
+RELEASED TEXT
+===================================================== */
+
+.answer-released{
+
+position:relative;
+
+z-index:3;
+
+display:none;
+
+margin-top:7px;
+
+padding:
+4px
+11px;
+
+border-radius:30px;
+
+background:
+rgba(34,197,94,.14);
+
+border:
+1px solid
+rgba(134,239,172,.35);
+
+color:#86efac;
+
+font-size:9px;
+
+font-weight:800;
+
+letter-spacing:.8px;
+
+}
+
+
+/* =====================================================
+NEW BADGE
+===================================================== */
+
+.answer-new{
+
+position:absolute;
+
+right:14px;
+
+top:12px;
+
+z-index:5;
+
+display:none;
+
+padding:
+5px
+10px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+135deg,
+#fbbf24,
+#f59e0b
+);
+
+color:#064e3b;
+
+font-size:8px;
+
+font-weight:900;
+
+letter-spacing:.8px;
+
+box-shadow:
+0 4px 12px
+rgba(251,191,36,.3);
+
+}
+
+
+/* =====================================================
+ARROW
+===================================================== */
+
+.answer-key-arrow{
+
+position:absolute;
+
+right:18px;
+
+bottom:16px;
+
+z-index:4;
+
+font-size:24px;
+
+font-weight:800;
+
+color:#fbbf24;
+
+}
+
+
+/* =====================================================
+RELEASED STATE
+===================================================== */
+
+.answer-key-btn.released{
+
+animation:
+answerPremiumPulse
+2.2s
+ease-in-out
+infinite;
+
+}
+
+.answer-key-btn.released
+.answer-released{
+
+display:inline-block;
+
+}
+
+.answer-key-btn.released
+.answer-new{
+
+display:block;
+
+}
+
+
+/* =====================================================
+PREMIUM GOLDEN PULSE
+===================================================== */
+
+@keyframes answerPremiumPulse{
+
+0%{
+
+transform:scale(1);
+
+box-shadow:
+
+0 6px 0 #06372b,
+
+0 18px 38px
+rgba(4,78,59,.25),
+
+0 0 0 0
+rgba(251,191,36,.42);
+
+}
+
+50%{
+
+transform:scale(1.012);
+
+box-shadow:
+
+0 7px 0 #06372b,
+
+0 22px 42px
+rgba(4,78,59,.30),
+
+0 0 0 8px
+rgba(251,191,36,.09);
+
+}
+
+100%{
+
+transform:scale(1);
+
+box-shadow:
+
+0 6px 0 #06372b,
+
+0 18px 38px
+rgba(4,78,59,.25),
+
+0 0 0 0
+rgba(251,191,36,0);
+
+}
+
+}
+
+
+/* =====================================================
+MODAL
+===================================================== */
+
+.answer-modal{
+
+position:fixed;
+
+inset:0;
+
+z-index:9999;
+
+display:none;
+
+align-items:center;
+
+justify-content:center;
+
+padding:14px;
+
+background:
+rgba(2,10,35,.74);
+
+backdrop-filter:blur(7px);
+
+}
+
+.answer-modal.show{
+
+display:flex;
+
+}
+
+.answer-modal-box{
+
+width:100%;
+
+max-width:850px;
+
+max-height:92vh;
+
+overflow:hidden;
+
+background:#f8fbff;
+
+border-radius:24px;
+
+box-shadow:
+0 30px 80px
+rgba(0,0,0,.38);
+
+}
+
+.answer-modal-header{
+
+padding:19px;
+
+color:#fff;
+
+background:
+
+linear-gradient(
+135deg,
+#022c22,
+#064e3b,
+#0b6b50
+);
+
+border-bottom:
+3px solid
+#d4a72c;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:10px;
+
+}
+
+.answer-modal-header h2{
+
+font-size:21px;
+
+font-weight:800;
+
+}
+
+.answer-modal-header p{
+
+margin-top:3px;
+
+color:#f8d66d;
+
+font-size:9px;
+
+}
+
+.close-answer{
+
+width:39px;
+
+height:39px;
+
+border:none;
+
+border-radius:50%;
+
+background:
+rgba(251,191,36,.18);
+
+border:
+1px solid
+rgba(251,191,36,.4);
+
+color:#f8d66d;
+
+font-size:24px;
+
+cursor:pointer;
+
+}
+
+.answer-modal-content{
+
+padding:18px;
+
+max-height:
+calc(92vh - 88px);
+
+overflow-y:auto;
+
+}
+
+
+/* =====================================================
+TEST LIST
+===================================================== */
+
+.test-item{
+
+width:100%;
+
+padding:17px;
+
+margin-bottom:12px;
+
+border:
+1px solid
+#d4a72c;
+
+border-radius:16px;
+
+background:
+linear-gradient(
+135deg,
+#ffffff,
+#fffdf4
+);
+
+cursor:pointer;
+
+text-align:left;
+
+transition:.2s;
+
+box-shadow:
+0 5px 15px
+rgba(15,23,42,.06);
+
+}
+
+.test-item:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+0 10px 24px
+rgba(180,130,20,.14);
+
+}
+
+.test-item-title{
+
+color:#064e3b;
+
+font-size:15px;
+
+font-weight:800;
+
+}
+
+.test-item-sub{
+
+margin-top:5px;
+
+color:#15803d;
+
+font-size:10px;
+
+font-weight:700;
+
+}
+
+
+/* =====================================================
+COMMON ANSWER KEY
+===================================================== */
+
+.key-question{
+
+background:#fff;
+
+border:
+1px solid
+#e2e8f0;
+
+border-radius:17px;
+
+padding:17px;
+
+margin-bottom:13px;
+
+box-shadow:
+0 5px 15px
+rgba(15,23,42,.05);
+
+}
+
+.key-question-title{
+
+display:flex;
+
+gap:10px;
+
+align-items:flex-start;
+
+margin-bottom:13px;
+
+color:#172554;
+
+font-size:14px;
+
+font-weight:700;
+
+line-height:1.6;
+
+}
+
+.key-number{
+
+min-width:36px;
+
+height:36px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:10px;
+
+background:#ecfdf3;
+
+color:#064e3b;
+
+border:
+1px solid
+#bbf7d0;
+
+font-size:12px;
+
+font-weight:900;
+
+}
+
+.key-option{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:10px 12px;
+
+margin-top:7px;
+
+border:
+1px solid
+#e2e8f0;
+
+border-radius:11px;
+
+background:#f8fafc;
+
+font-size:12px;
+
+line-height:1.5;
+
+}
+
+.key-option-letter{
+
+min-width:31px;
+
+height:31px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#fff;
+
+border:
+1px solid
+#dbe2ea;
+
+font-weight:800;
+
+}
+
+.key-option.correct{
+
+background:#ecfdf3;
+
+border-color:#22c55e;
+
+color:#166534;
+
+font-weight:700;
+
+}
+
+.key-option.correct
+.key-option-letter{
+
+background:#16a34a;
+
+border-color:#16a34a;
+
+color:#fff;
+
+}
+
+.big-green-tick{
+
+margin-left:auto;
+
+width:36px;
+
+height:36px;
+
+flex-shrink:0;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#16a34a;
+
+color:white;
+
+font-size:24px;
+
+font-weight:900;
+
+box-shadow:
+0 4px 10px
+rgba(22,163,74,.28);
+
+}
+
+.key-back{
+
+width:100%;
+
+height:48px;
+
+margin-bottom:15px;
+
+border:none;
+
+border-radius:12px;
+
+background:#ecfdf3;
+
+border:
+1px solid
+#bbf7d0;
+
+color:#064e3b;
+
+font-weight:800;
+
+cursor:pointer;
+
+}
+
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+.footer{
+
+width:100%;
+
+margin-top:3px;
+
+padding:
+15px
+8px;
+
+text-align:center;
+
+background:
+linear-gradient(
+135deg,
+#03154d,
+#0646b5
+);
+
+border-top:
+3px solid
+#fbbf24;
+
+border-radius:
+15px
+15px
+0
+0;
+
+color:#ffffff;
+
+font-size:11px;
+
+font-weight:700;
+
+letter-spacing:.4px;
+
+white-space:nowrap;
+
+overflow:hidden;
+
+box-shadow:
+0 -5px 18px
+rgba(3,21,77,.15);
+
+}
+
+.footer-name{
+
+color:#fbbf24;
+
+font-weight:900;
+
+letter-spacing:.7px;
+
+}
+
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+.page{
+
+padding:7px;
+
+}
+
+.hero{
+
+height:41vh;
+
+min-height:250px;
+
+max-height:none;
+
+border-radius:20px;
+
+}
+
+.brand-card{
+
+height:145px;
+
+margin-top:10px;
+
+border-radius:19px;
+
+}
+
+.brand-title{
+
+font-size:29px;
+
+font-weight:900;
+
+letter-spacing:1.5px;
+
+}
+
+.brand-tagline{
+
+margin-top:8px;
+
+font-size:9px;
+
+letter-spacing:1px;
+
+}
+
+.search-section{
+
+margin-top:12px;
+
+}
+
+.search-card{
+
+padding:
+22px
+14px
+25px;
+
+border-radius:20px;
+
+}
+
+.search-card h2{
+
+font-size:21px;
+
+}
+
+.search-subtitle{
+
+font-size:9px;
+
+margin-bottom:17px;
+
+}
+
+#rollInput,
+.search-btn{
+
+height:55px;
+
+}
+
+.search-btn{
+
+font-size:12px;
+
+}
+
+
+/* Answer Key */
+
+.answer-key-section{
+
+margin-top:7px;
+
+margin-bottom:10px;
+
+}
+
+.answer-key-btn{
+
+min-height:120px;
+
+border-radius:20px;
+
+padding:
+18px
+12px;
+
+}
+
+.answer-key-icon{
+
+width:43px;
+
+height:43px;
+
+font-size:22px;
+
+border-radius:12px;
+
+margin-bottom:6px;
+
+}
+
+.answer-key-title{
+
+font-size:28px;
+
+letter-spacing:1.4px;
+
+}
+
+.answer-key-subtitle{
+
+font-size:8px;
+
+letter-spacing:.9px;
+
+}
+
+.answer-released{
+
+font-size:7px;
+
+}
+
+.answer-new{
+
+right:9px;
+
+top:9px;
+
+font-size:7px;
+
+}
+
+.answer-key-arrow{
+
+right:12px;
+
+bottom:10px;
+
+font-size:20px;
+
+}
+
+.answer-modal{
+
+padding:8px;
+
+}
+
+.answer-modal-box{
+
+border-radius:18px;
+
+max-height:94vh;
+
+}
+
+.answer-modal-header{
+
+padding:16px;
+
+}
+
+.answer-modal-header h2{
+
+font-size:17px;
+
+}
+
+.answer-modal-content{
+
+padding:12px;
+
+}
+
+.key-question{
+
+padding:13px;
+
+}
+
+.key-option{
+
+font-size:11px;
+
+}
+
+.children-image{
+
+margin-top:8px;
+
+margin-bottom:3px;
+
+}
+
+.children-image img{
+
+width:100%;
+
+max-width:none;
+
+}
+
+.footer{
+
+margin-top:2px;
+
+padding:
+14px
+3px;
+
+font-size:9px;
+
+border-radius:
+14px
+14px
+0
+0;
+
+}
+
+}
+
+
+/* =====================================================
+SMALL MOBILE
+===================================================== */
+
+@media(max-width:350px){
+
+.hero{
+
+min-height:235px;
+
+}
+
+.brand-card{
+
+height:135px;
+
+}
+
+.brand-title{
+
+font-size:25px;
+
+}
+
+.brand-tagline{
+
+font-size:8px;
+
+}
+
+.search-card h2{
+
+font-size:19px;
+
+}
+
+.answer-key-title{
+
+font-size:25px;
+
+}
+
+.footer{
+
+font-size:8px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- =====================================================
+HERO
+===================================================== -->
+
+<section class="hero">
+
+<img
+src="result-hero.jpg"
+alt="THE STUDY POINT">
+
+</section>
+
+
+<!-- =====================================================
+BRAND
+===================================================== -->
+
+<section class="brand-card">
+
+<div class="brand-title">
+
+THE STUDY POINT
+
+</div>
+
+<div class="brand-tagline">
+
+Dream • Learn • Achieve
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+RESULT SEARCH
+===================================================== -->
+
+<section class="search-section">
+
+<div class="search-card">
+
+
+<div class="search-badge">
+
+RESULT SEARCH
+
+</div>
+
+
+<h2>
+
+🔍 Check Your Result
+
+</h2>
+
+
+<div class="search-subtitle">
+
+Enter your CBT Roll Number to view your result
+
+</div>
+
+
+<div class="input-wrap">
+
+<span class="input-icon">
+
+🎫
+
+</span>
+
+
+<input
+type="text"
+id="rollInput"
+placeholder="Enter Roll Number"
+autocomplete="off">
+
+</div>
+
+
+<button
+class="search-btn"
+id="searchBtn"
+onclick="searchResult()">
+
+🔎 &nbsp; SEARCH RESULT
+
+</button>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+CHILDREN
+===================================================== -->
+
+<div class="children-image">
+
+<img
+src="students-study.png"
+alt="Students Studying">
+
+</div>
+
+
+<!-- =====================================================
+PREMIUM ANSWER KEY
+===================================================== -->
+
+<section class="answer-key-section">
+
+<button
+class="answer-key-btn"
+id="answerKeyBtn"
+onclick="openAnswerKeys()">
+
+
+<div class="answer-key-icon">
+
+📘
+
+</div>
+
+
+<div class="answer-key-title">
+
+ANSWER KEY
+
+</div>
+
+
+<div class="answer-key-subtitle">
+
+OFFICIAL ANSWER KEY
+
+</div>
+
+
+<div class="answer-released">
+
+🟢 ANSWER KEY RELEASED
+
+</div>
+
+
+<div class="answer-new">
+
+NEW
+
+</div>
+
+
+<div class="answer-key-arrow">
+
+→
+
+</div>
+
+
+</button>
+
+</section>
+
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+Developed &amp; Designed by
+
+<span class="footer-name">
+
+A.K. SINGH CHANDEL
+
+</span>
+
+</footer>
+
+
+</div>
+
+
+<!-- =====================================================
+ANSWER KEY MODAL
+===================================================== -->
+
+<div
+class="answer-modal"
+id="answerModal">
+
+
+<div class="answer-modal-box">
+
+
+<div class="answer-modal-header">
+
+<div>
+
+<h2 id="answerModalTitle">
+
+📘 Answer Key
+
+</h2>
+
+<p id="answerModalSubtitle">
+
+Officially released correct answers
+
+</p>
+
+</div>
+
+
+<button
+class="close-answer"
+onclick="closeAnswerModal()">
+
+×
+
+</button>
+
+</div>
+
+
+<div
+class="answer-modal-content"
+id="answerModalContent">
+
+
+<div style="
+text-align:center;
+padding:35px;
+color:#64748b;
+">
+
+⏳ Loading...
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+
+collection,
+getDocs,
+query,
+where
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+RESULT SEARCH
+===================================================== */
+
+window.searchResult = async function(){
+
+const input =
+document.getElementById(
+"rollInput"
+);
+
+const button =
+document.getElementById(
+"searchBtn"
+);
+
+const enteredRoll =
+input.value.trim();
+
+
+if(!enteredRoll){
+
+alert(
+"Please enter Roll Number"
+);
+
+input.focus();
+
+return;
+
+}
+
+
+button.disabled=true;
+
+button.innerHTML=
+"⏳ &nbsp; SEARCHING RESULT...";
+
+
+try{
+
+const snapshot =
+await getDocs(
+collection(
+db,
+"cbtResults"
+)
+);
+
+
+let found=false;
+
+let foundRoll="";
+
+
+const normalizedEntered =
+String(
+enteredRoll
+)
+.trim()
+.replace(/^0+/,"")
+|| "0";
+
+
+for(
+const d of snapshot.docs
+){
+
+const result =
+d.data();
+
+
+const savedRoll =
+String(
+result.studentRoll ?? ""
+)
+.trim()
+.replace(/^0+/,"")
+|| "0";
+
+
+if(
+savedRoll ===
+normalizedEntered
+){
+
+found=true;
+
+foundRoll =
+result.studentRoll;
+
+break;
+
+}
+
+}
+
+
+if(found){
+
+window.location.href =
+"result-view.html?roll="
++
+encodeURIComponent(
+foundRoll
+);
+
+return;
+
+}
+
+
+alert(
+"❌ Result Not Found"
+);
+
+
+}
+
+catch(error){
+
+console.error(error);
+
+alert(
+"Unable to load result. Please check your internet connection."
+);
+
+}
+
+finally{
+
+button.disabled=false;
+
+button.innerHTML=
+"🔎 &nbsp; SEARCH RESULT";
+
+}
+
+};
+
+
+/* =====================================================
+CHECK ANSWER KEY STATUS
+===================================================== */
+
+async function checkAnswerKeyStatus(){
+
+const button =
+document.getElementById(
+"answerKeyBtn"
+);
+
+try{
+
+const snapshot =
+await getDocs(
+collection(
+db,
+"cbtTests"
+)
+);
+
+
+const released =
+snapshot.docs.some(
+docSnapshot => {
+
+const data =
+docSnapshot.data();
+
+return (
+data.answerKeyPublished === true
+);
+
+}
+);
+
+
+if(released){
+
+button.classList.add(
+"released"
+);
+
+}
+else{
+
+button.classList.remove(
+"released"
+);
+
+}
+
+}
+
+catch(error){
+
+console.error(
+"Answer Key Status Error:",
+error
+);
+
+}
+
+}
+
+
+/* =====================================================
+OPEN ANSWER KEYS
+===================================================== */
+
+window.openAnswerKeys =
+async function(){
+
+const modal =
+document.getElementById(
+"answerModal"
+);
+
+const content =
+document.getElementById(
+"answerModalContent"
+);
+
+const title =
+document.getElementById(
+"answerModalTitle"
+);
+
+const subtitle =
+document.getElementById(
+"answerModalSubtitle"
+);
+
+
+modal.classList.add(
+"show"
+);
+
+
+title.textContent =
+"📘 Answer Key";
+
+
+subtitle.textContent =
+"Officially released correct answers";
+
+
+content.innerHTML = `
+
+<div style="
+text-align:center;
+padding:35px;
+color:#64748b;
+">
+
+⏳ Loading published tests...
+
+</div>
+
+`;
+
+
+try{
+
+const testsSnapshot =
+await getDocs(
+collection(
+db,
+"cbtTests"
+)
+);
+
+
+const publishedTests =
+testsSnapshot.docs
+
+.map(
+d => ({
+
+id:d.id,
+
+...d.data()
+
+})
+)
+
+.filter(
+test =>
+test.answerKeyPublished === true
+);
+
+
+if(
+publishedTests.length === 0
+){
+
+content.innerHTML = `
+
+<div style="
+text-align:center;
+padding:45px 20px;
+">
+
+<div style="
+font-size:48px;
+">
+
+📘
+
+</div>
+
+
+<h3 style="
+margin-top:12px;
+color:#172554;
+">
+
+Answer Key Not Released
+
+</h3>
+
+
+<p style="
+margin-top:7px;
+color:#64748b;
+font-size:12px;
+">
+
+The Answer Key will appear here after it is officially published.
+
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+content.innerHTML = `
+
+<div style="
+margin-bottom:15px;
+color:#475569;
+font-size:12px;
+font-weight:600;
+">
+
+Select a test to view its Answer Key
+
+</div>
+
+`;
+
+
+publishedTests.forEach(
+test => {
+
+const item =
+document.createElement(
+"div"
+);
+
+item.className =
+"test-item";
+
+
+item.innerHTML = `
+
+<div class="test-item-title">
+
+📘
+${escapeHTML(
+test.testName ||
+"CBT Test"
+)}
+
+</div>
+
+
+<div class="test-item-sub">
+
+🟢 Answer Key Published
+&nbsp; • &nbsp;
+Tap to View
+
+</div>
+
+`;
+
+
+item.onclick = () =>
+showCommonAnswerKey(
+test
+);
+
+
+content.appendChild(
+item
+);
+
+});
+
+}
+
+catch(error){
+
+console.error(error);
+
+
+content.innerHTML = `
+
+<div style="
+text-align:center;
+padding:35px;
+color:#dc2626;
+">
+
+❌ Unable to load Answer Key.
+
+<br><br>
+
+<small>
+
+Please try again later.
+
+</small>
+
+</div>
+
+`;
+
+}
+
+};
+
+
+/* =====================================================
+SHOW COMMON ANSWER KEY
+===================================================== */
+
+async function showCommonAnswerKey(
+test
+){
+
+const content =
+document.getElementById(
+"answerModalContent"
+);
+
+const title =
+document.getElementById(
+"answerModalTitle"
+);
+
+const subtitle =
+document.getElementById(
+"answerModalSubtitle"
+);
+
+
+title.textContent =
+"📘 " +
+(
+test.testName ||
+"Answer Key"
+);
+
+
+subtitle.textContent =
+"Official Answer Key • Correct answers marked in green";
+
+
+content.innerHTML = `
+
+<button
+class="key-back"
+onclick="openAnswerKeys()">
+
+← Back to Answer Keys
+
+</button>
+
+
+<div style="
+background:#ecfdf3;
+border:1px solid #bbf7d0;
+color:#166534;
+padding:12px 14px;
+border-radius:12px;
+margin-bottom:15px;
+font-size:11px;
+font-weight:600;
+">
+
+🟢 Correct answer is marked with a Green Tick.
+
+</div>
+
+
+<div style="
+text-align:center;
+padding:25px;
+color:#64748b;
+">
+
+⏳ Loading questions...
+
+</div>
+
+`;
+
+
+try{
+
+const questionsQuery =
+query(
+collection(
+db,
+"cbtQuestions"
+),
+
+where(
+"testId",
+"==",
+test.id
+)
+
+);
+
+
+const snapshot =
+await getDocs(
+questionsQuery
+);
+
+
+let questions=[];
+
+
+snapshot.forEach(
+d => {
+
+questions.push({
+
+id:d.id,
+
+...d.data()
+
+});
+
+});
+
+
+questions.sort(
+(a,b)=>{
+
+const x =
+a.createdAt?.seconds ||
+0;
+
+const y =
+b.createdAt?.seconds ||
+0;
+
+return x-y;
+
+}
+);
+
+
+if(
+questions.length === 0
+){
+
+content.innerHTML = `
+
+<button
+class="key-back"
+onclick="openAnswerKeys()">
+
+← Back to Answer Keys
+
+</button>
+
+
+<div style="
+text-align:center;
+padding:35px;
+color:#64748b;
+">
+
+No questions found for this test.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+content.innerHTML = `
+
+<button
+class="key-back"
+onclick="openAnswerKeys()">
+
+← Back to Answer Keys
+
+</button>
+
+
+<div style="
+background:#ecfdf3;
+border:1px solid #bbf7d0;
+color:#166534;
+padding:12px 14px;
+border-radius:12px;
+margin-bottom:15px;
+font-size:11px;
+font-weight:600;
+">
+
+🟢 Correct answers are marked with a Green Tick.
+
+</div>
+
+`;
+
+
+questions.forEach(
+(q,index)=>{
+
+
+const correctAnswer =
+String(
+q.answer ?? ""
+)
+.trim()
+.toUpperCase();
+
+
+const options=[
+
+{
+letter:"A",
+text:q.optionA ?? ""
+},
+
+{
+letter:"B",
+text:q.optionB ?? ""
+},
+
+{
+letter:"C",
+text:q.optionC ?? ""
+},
+
+{
+letter:"D",
+text:q.optionD ?? ""
+}
+
+];
+
+
+const questionDiv =
+document.createElement(
+"div"
+);
+
+questionDiv.className =
+"key-question";
+
+
+let optionsHTML="";
+
+
+options.forEach(
+option=>{
+
+
+const isCorrect =
+option.letter ===
+correctAnswer;
+
+
+optionsHTML += `
+
+<div class="
+key-option
+${isCorrect ? "correct" : ""}
+">
+
+
+<div class="key-option-letter">
+
+${option.letter}
+
+</div>
+
+
+<div style="
+flex:1;
+">
+
+${escapeHTML(
+String(
+option.text
+)
+)}
+
+</div>
+
+
+${
+isCorrect
+?
+
+`
+
+<div class="big-green-tick">
+
+✓
+
+</div>
+
+`
+
+:
+
+""
+
+}
+
+</div>
+
+`;
+
+});
+
+
+questionDiv.innerHTML = `
+
+<div class="key-question-title">
+
+<div class="key-number">
+
+Q${index+1}
+
+</div>
+
+
+<div>
+
+${escapeHTML(
+String(
+q.question ?? ""
+)
+)}
+
+</div>
+
+</div>
+
+
+${optionsHTML}
+
+`;
+
+
+content.appendChild(
+questionDiv
+);
+
+});
+
+}
+
+catch(error){
+
+console.error(error);
+
+
+content.innerHTML = `
+
+<button
+class="key-back"
+onclick="openAnswerKeys()">
+
+← Back to Answer Keys
+
+</button>
+
+
+<div style="
+text-align:center;
+padding:35px;
+color:#dc2626;
+">
+
+❌ Unable to load questions.
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =====================================================
+CLOSE MODAL
+===================================================== */
+
+window.closeAnswerModal =
+function(){
+
+document
+.getElementById(
+"answerModal"
+)
+.classList.remove(
+"show"
+);
+
+};
+
+
+/* =====================================================
+ESCAPE HTML
+===================================================== */
+
+function escapeHTML(
+value
+){
+
+return String(value)
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+/* =====================================================
+CLICK OUTSIDE MODAL
+===================================================== */
+
+document
+.getElementById(
+"answerModal"
+)
+.addEventListener(
+"click",
+function(event){
+
+if(
+event.target ===
+this
+){
+
+closeAnswerModal();
+
+}
+
+}
+);
+
+
+/* =====================================================
+ENTER KEY
+===================================================== */
+
+document
+.getElementById(
+"rollInput"
+)
+.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key === "Enter"
+){
+
+window.searchResult();
+
+}
+
+}
+);
+
+
+/* =====================================================
+INITIAL STATUS
+===================================================== */
+
+checkAnswerKeyStatus();
+
+</script>
+
+
+</body>
+
+  </html>
