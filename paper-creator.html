@@ -526,11 +526,9 @@ QUESTION
 
 .q{
     font-size:14px;
-    line-height:1.4;
-
+    line-height:1 !important;
     margin:0;
     padding:0;
-
     break-inside:avoid;
     page-break-inside:avoid;
 }
@@ -549,8 +547,7 @@ Instruction → Actual Question = ONLY 2px
     gap:5px !important;
     margin:0 !important;
     padding:0 !important;
-    line-height:1.15 !important;
-    width:100% !important;
+    line-height:1 !important;
 }
 
 .qno{
@@ -596,9 +593,11 @@ NO EXTRA TOP GAP
 .qtext{
     margin:0 0 0 22px !important;
     padding:0 !important;
+    position:relative !important;
+    top:-2px !important;
     white-space:pre-wrap;
     word-break:break-word;
-    line-height:1.11 !important;
+    line-height:1.3 !important;
 }
 
 
