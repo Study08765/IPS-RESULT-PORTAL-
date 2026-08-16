@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Responses | IPS CBT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef4ff;
+    color:#172033;
+    min-height:100vh;
+    padding:18px;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:
+    radial-gradient(circle at top right,rgba(255,255,255,.18),transparent 35%),
+    linear-gradient(135deg,#063b91,#0066e6);
+    color:white;
+    padding:24px;
+    border-radius:22px;
+    margin-bottom:18px;
+    box-shadow:0 12px 30px rgba(0,82,212,.20);
+    position:relative;
+    overflow:hidden;
+}
+
+.header:after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(255,255,255,.07);
+    right:-60px;
+    top:-70px;
+}
+
+.header-content{
+    position:relative;
+    z-index:2;
+}
+
+.header h1{
+    font-size:25px;
+    font-weight:700;
+}
+
+.header p{
+    font-size:13px;
+    opacity:.88;
+    margin-top:4px;
+}
+
+.header-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,.15);
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:11px;
+    margin-bottom:10px;
+}
+
+/* ================= TOP ACTION ================= */
+
+.top-actions{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:15px;
+}
+
+.refresh-btn{
+    border:0;
+    background:white;
+    color:#1557c0;
+    padding:10px 15px;
+    border-radius:11px;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.07);
+}
+
+.refresh-btn:active{
+    transform:scale(.97);
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+    margin-bottom:18px;
+}
+
+.stat-card{
+    background:white;
+    border-radius:17px;
+    padding:17px;
+    box-shadow:0 7px 20px rgba(0,0,0,.06);
+    position:relative;
+    overflow:hidden;
+}
+
+.stat-card:after{
+    content:"";
+    position:absolute;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#edf5ff;
+    right:-15px;
+    bottom:-20px;
+}
+
+.stat-icon{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    background:#eaf2ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    margin-bottom:9px;
+}
+
+.stat-card small{
+    display:block;
+    color:#718096;
+    font-size:11px;
+    font-weight:500;
+}
+
+.stat-card strong{
+    display:block;
+    font-size:24px;
+    color:#0755bd;
+    margin-top:2px;
+}
+
+/* ================= FILTER PANEL ================= */
+
+.control-panel{
+    background:white;
+    border-radius:19px;
+    padding:17px;
+    margin-bottom:18px;
+    box-shadow:0 7px 20px rgba(0,0,0,.06);
+}
+
+.control-title{
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.controls{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:11px;
+}
+
+.select-wrap,
+.search-wrap{
+    position:relative;
+}
+
+.select-wrap span,
+.search-wrap span{
+    position:absolute;
+    left:13px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+}
+
+select,
+.search-input{
+    width:100%;
+    height:45px;
+    border:1px solid #dbe3ef;
+    border-radius:11px;
+    background:#f9fbff;
+    padding:0 13px 0 39px;
+    outline:none;
+    color:#1e293b;
+    font-size:12px;
+    font-weight:500;
+}
+
+select:focus,
+.search-input:focus{
+    border-color:#2876e8;
+    box-shadow:0 0 0 3px rgba(40,118,232,.09);
+}
+
+/* ================= TEST INFO ================= */
+
+.test-info{
+    display:none;
+    background:linear-gradient(135deg,#f4f8ff,#ffffff);
+    border:1px solid #e0eaff;
+    border-radius:16px;
+    padding:14px;
+    margin-bottom:17px;
+}
+
+.test-info.show{
+    display:block;
+}
+
+.test-info-title{
+    color:#1458bc;
+    font-size:15px;
+    font-weight:700;
+}
+
+.test-info-sub{
+    color:#718096;
+    font-size:11px;
+    margin-top:3px;
+}
+
+/* ================= TABLE CARD ================= */
+
+.table-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 9px 25px rgba(0,0,0,.07);
+}
+
+.table-head{
+    padding:17px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #edf1f7;
+}
+
+.table-head h3{
+    font-size:16px;
+}
+
+.table-head span{
+    font-size:11px;
+    color:#718096;
+}
+
+.table-scroll{
+    width:100%;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    min-width:850px;
+    border-collapse:collapse;
+}
+
+th{
+    background:#0756c4;
+    color:white;
+    padding:13px 10px;
+    font-size:11px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+td{
+    padding:13px 10px;
+    text-align:center;
+    border-bottom:1px solid #edf1f6;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+tbody tr{
+    transition:.2s;
+}
+
+tbody tr:hover{
+    background:#f7faff;
+}
+
+/* ================= STUDENT ================= */
+
+.student-name{
+    font-weight:600;
+    color:#172033;
+}
+
+.roll{
+    font-weight:700;
+    color:#0756c4;
+}
+
+.class-badge{
+    background:#f0f5ff;
+    color:#2459a7;
+    padding:5px 9px;
+    border-radius:7px;
+    font-size:10px;
+    font-weight:600;
+}
+
+.exam-name{
+    color:#1458bc;
+    font-weight:600;
+    max-width:220px;
+    white-space:normal;
+}
+
+/* ================= STATUS ================= */
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:600;
+}
+
+.status.submitted{
+    color:#15803d;
+    background:#eaf9ef;
+}
+
+.status.pending{
+    color:#b45309;
+    background:#fff7e6;
+}
+
+/* ================= BUTTONS ================= */
+
+.actions{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:4px;
+}
+
+.action-btn{
+    border:0;
+    padding:7px 10px;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+    font-size:10px;
+    font-weight:600;
+}
+
+.view-btn{
+    background:#2563eb;
+}
+
+.retest{
+    background:#16a34a;
+}
+
+.delete{
+    background:#dc2626;
+}
+
+.action-btn:hover{
+    opacity:.9;
+}
+
+.action-btn:active{
+    transform:scale(.96);
+}
+
+/* ================= EMPTY ================= */
+
+.empty{
+    padding:45px 20px !important;
+    text-align:center !important;
+}
+
+.empty-icon{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.empty-title{
+    font-weight:700;
+    font-size:15px;
+}
+
+.empty-text{
+    font-size:11px;
+    color:#718096;
+    margin-top:4px;
+}
+
+/* ================= LOADING ================= */
+
+.loading{
+    padding:40px !important;
+    text-align:center !important;
+    color:#64748b;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    body{
+        padding:11px;
+    }
+
+    .header{
+        padding:20px;
+        border-radius:19px;
+    }
+
+    .header h1{
+        font-size:21px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat-card:last-child{
+        grid-column:span 2;
+    }
+
+    .controls{
+        grid-template-columns:1fr;
+    }
+
+    .table-head{
+        padding:14px;
+    }
+
+    .top-actions{
+        margin-top:2px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<div class="header">
+
+<div class="header-content">
+
+<div class="header-badge">
+    ● CBT ADMIN PANEL
+</div>
+
+<h1>Student Responses</h1>
+
+<p>Manage and review submitted CBT examination responses</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= REFRESH ================= -->
+
+<div class="top-actions">
+
+<button class="refresh-btn" id="refreshBtn">
+🔄 Refresh
+</button>
+
+</div>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats">
+
+<div class="stat-card">
+
+<div class="stat-icon">👥</div>
+
+<small>Total Responses</small>
+
+<strong id="totalResponses">0</strong>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">📝</div>
+
+<small>Selected Test</small>
+
+<strong id="selectedCount">0</strong>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">✅</div>
+
+<small>Submitted</small>
+
+<strong id="submittedCount">0</strong>
+
+</div>
+
+</div>
+
+
+<!-- ================= CONTROLS ================= -->
+
+<div class="control-panel">
+
+<div class="control-title">
+📋 Test & Student Filter
+</div>
+
+<div class="controls">
+
+<div class="select-wrap">
+
+<span>📝</span>
+
+<select id="examFilter">
+
+<option value="ALL">
+All Tests
+</option>
+
+</select>
+
+</div>
+
+
+<div class="search-wrap">
+
+<span>🔍</span>
+
+<input
+type="text"
+id="searchInput"
+class="search-input"
+placeholder="Search roll number or student name..."
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= SELECTED TEST ================= -->
+
+<div class="test-info" id="testInfo">
+
+<div class="test-info-title" id="testInfoTitle">
+All Tests
+</div>
+
+<div class="test-info-sub" id="testInfoSub">
+Showing all submitted responses
+</div>
+
+</div>
+
+
+<!-- ================= TABLE ================= -->
+
+<div class="table-card">
+
+<div class="table-head">
+
+<h3>📊 Response List</h3>
+
+<span id="responseLabel">
+All Responses
+</span>
+
+</div>
+
+
+<div class="table-scroll">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ROLL</th>
+
+<th>STUDENT</th>
+
+<th>CLASS</th>
+
+<th>TEST / EXAM</th>
+
+<th>STATUS</th>
+
+<th>ACTION</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="responseTable">
+
+<tr>
+
+<td colspan="6" class="loading">
+Loading responses...
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+collection,
+getDocs,
+doc,
+updateDoc,
+deleteDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const table =
+document.getElementById("responseTable");
+
+const examFilter =
+document.getElementById("examFilter");
+
+const searchInput =
+document.getElementById("searchInput");
+
+const totalResponses =
+document.getElementById("totalResponses");
+
+const selectedCount =
+document.getElementById("selectedCount");
+
+const submittedCount =
+document.getElementById("submittedCount");
+
+const testInfo =
+document.getElementById("testInfo");
+
+const testInfoTitle =
+document.getElementById("testInfoTitle");
+
+const testInfoSub =
+document.getElementById("testInfoSub");
+
+const responseLabel =
+document.getElementById("responseLabel");
+
+const refreshBtn =
+document.getElementById("refreshBtn");
+
+
+let allResponses = [];
+
+let examMap = {};
+
+
+/* =========================================
+   LOAD EXAM NAMES
+========================================= */
+
+async function loadExams(){
+
+examMap = {};
+
+try{
+
+const snapshot =
+await getDocs(
+collection(db,"cbtExams")
+);
+
+snapshot.forEach(item=>{
+
+const d = item.data();
+
+const name =
+d.examName ||
+d.examTitle ||
+d.testName ||
+d.title ||
+d.name ||
+d.subject;
+
+if(name){
+
+examMap[item.id] = name;
+
+}
+
+if(d.examId && name){
+
+examMap[d.examId] = name;
+
+}
+
+});
+
+}catch(error){
+
+console.log(
+"Exam name loading:",
+error
+);
+
+}
+
+}
+
+
+/* =========================================
+   LOAD RESPONSES
+========================================= */
+
+async function loadResponses(){
+
+table.innerHTML = `
+
+<tr>
+
+<td colspan="6" class="loading">
+
+⏳ Loading responses...
+
+</td>
+
+</tr>
+
+`;
+
+try{
+
+const snapshot =
+await getDocs(
+collection(db,"cbtResponses")
+);
+
+allResponses = [];
+
+snapshot.forEach(item=>{
+
+allResponses.push({
+
+id:item.id,
+
+...item.data()
+
+});
+
+});
+
+
+allResponses.sort((a,b)=>{
+
+const aTime =
+a.submittedAt?.seconds ||
+a.createdAt?.seconds ||
+0;
+
+const bTime =
+b.submittedAt?.seconds ||
+b.createdAt?.seconds ||
+0;
+
+return bTime-aTime;
+
+});
+
+
+totalResponses.textContent =
+allResponses.length;
+
+
+buildExamFilter();
+
+renderResponses();
+
+
+}catch(error){
+
+console.error(error);
+
+table.innerHTML = `
+
+<tr>
+
+<td colspan="6" class="empty">
+
+<div class="empty-icon">⚠️</div>
+
+<div class="empty-title">
+Unable to Load Responses
+</div>
+
+<div class="empty-text">
+${escapeHtml(error.message)}
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+}
+
+}
+
+
+/* =========================================
+   BUILD EXAM FILTER
+========================================= */
+
+function buildExamFilter(){
+
+const previous =
+examFilter.value || "ALL";
+
+
+const unique = [];
+
+allResponses.forEach(r=>{
+
+const id =
+r.examId || "UNKNOWN";
+
+if(!unique.includes(id)){
+
+unique.push(id);
+
+}
+
+});
+
+
+let html = `
+
+<option value="ALL">
+
+All Tests (${allResponses.length})
+
+</option>
+
+`;
+
+
+unique.forEach(id=>{
+
+const name =
+getExamName(id);
+
+const count =
+allResponses.filter(
+r => (r.examId || "UNKNOWN") === id
+).length;
+
+
+html += `
+
+<option value="${escapeHtml(id)}">
+
+${escapeHtml(name)} (${count})
+
+</option>
+
+`;
+
+});
+
+
+examFilter.innerHTML = html;
+
+
+if(
+previous !== "ALL" &&
+unique.includes(previous)
+){
+
+examFilter.value =
+previous;
+
+}else{
+
+examFilter.value =
+"ALL";
+
+}
+
+}
+
+
+/* =========================================
+   GET EXAM NAME
+========================================= */
+
+function getExamName(examId){
+
+if(examMap[examId]){
+
+return examMap[examId];
+
+}
+
+
+const response =
+allResponses.find(
+r => r.examId === examId
+);
+
+
+if(response){
+
+return response.examName ||
+response.examTitle ||
+response.testName ||
+response.exam ||
+examId;
+
+}
+
+
+return examId;
+
+}
+
+
+/* =========================================
+   RENDER RESPONSES
+========================================= */
+
+function renderResponses(){
+
+const selectedExam =
+examFilter.value;
+
+const search =
+searchInput.value
+.trim()
+.toLowerCase();
+
+
+let responses =
+allResponses;
+
+
+/* TEST FILTER */
+
+if(selectedExam !== "ALL"){
+
+responses =
+responses.filter(
+r => (r.examId || "UNKNOWN") === selectedExam
+);
+
+}
+
+
+/* SEARCH FILTER */
+
+if(search){
+
+responses =
+responses.filter(r=>{
+
+const roll =
+String(
+r.studentRoll || ""
+).toLowerCase();
+
+const name =
+String(
+r.studentName || ""
+).toLowerCase();
+
+return (
+roll.includes(search) ||
+name.includes(search)
+);
+
+});
+
+}
+
+
+/* STATS */
+
+selectedCount.textContent =
+responses.length;
+
+
+submittedCount.textContent =
+responses.filter(
+r => r.submitted === true
+).length;
+
+
+/* TEST INFO */
+
+if(selectedExam === "ALL"){
+
+testInfo.classList.remove("show");
+
+responseLabel.textContent =
+"All Responses";
+
+}else{
+
+const name =
+getExamName(selectedExam);
+
+testInfo.classList.add("show");
+
+testInfoTitle.textContent =
+name;
+
+testInfoSub.textContent =
+`${responses.length} response(s) found for this test`;
+
+responseLabel.textContent =
+`${responses.length} Students`;
+
+}
+
+
+/* EMPTY */
+
+if(responses.length === 0){
+
+table.innerHTML = `
+
+<tr>
+
+<td colspan="6" class="empty">
+
+<div class="empty-icon">📭</div>
+
+<div class="empty-title">
+No Responses Found
+</div>
+
+<div class="empty-text">
+Try selecting another test or changing your search.
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+/* TABLE */
+
+let html = "";
+
+
+responses.forEach(d=>{
+
+const examName =
+getExamName(
+d.examId || "UNKNOWN"
+);
+
+
+html += `
+
+<tr>
+
+<td class="roll">
+
+${escapeHtml(
+d.studentRoll || "-"
+)}
+
+</td>
+
+
+<td class="student-name">
+
+${escapeHtml(
+d.studentName || "-"
+)}
+
+</td>
+
+
+<td>
+
+<span class="class-badge">
+
+${escapeHtml(
+d.studentClass || "-"
+)}
+
+</span>
+
+</td>
+
+
+<td class="exam-name">
+
+${escapeHtml(examName)}
+
+</td>
+
+
+<td>
+
+${
+d.submitted
+
+?
+
+`<span class="status submitted">
+● Submitted
+</span>`
+
+:
+
+`<span class="status pending">
+● Pending
+</span>`
+
+}
+
+</td>
+
+
+<td>
+
+<div class="actions">
+
+<button
+class="action-btn view-btn"
+onclick="viewResponse('${d.id}')">
+
+👁 View
+
+</button>
+
+
+<button
+class="action-btn retest"
+data-id="${d.id}">
+
+↻ Retest
+
+</button>
+
+
+<button
+class="action-btn delete"
+data-id="${d.id}">
+
+🗑 Delete
+
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+
+table.innerHTML =
+html;
+
+
+/* =========================================
+   RETEST
+========================================= */
+
+document
+.querySelectorAll(".retest")
+.forEach(btn=>{
+
+btn.onclick =
+async function(){
+
+const id =
+this.dataset.id;
+
+if(
+!confirm(
+"Allow this student to attempt the test again?"
+)
+){
+
+return;
+
+}
+
+
+try{
+
+await updateDoc(
+doc(
+db,
+"cbtResponses",
+id
+),
+{
+allowRetest:true
+}
+);
+
+
+alert(
+"Retest Allowed Successfully"
+);
+
+
+await loadResponses();
+
+
+}catch(error){
+
+alert(
+"Error: " +
+error.message
+);
+
+}
+
+};
+
+});
+
+
+/* =========================================
+   DELETE RESPONSE
+========================================= */
+
+document
+.querySelectorAll(".delete")
+.forEach(btn=>{
+
+btn.onclick =
+async function(){
+
+const id =
+this.dataset.id;
+
+
+if(
+!confirm(
+"Delete this student's response?"
+)
+){
+
+return;
+
+}
+
+
+try{
+
+await deleteDoc(
+doc(
+db,
+"cbtResponses",
+id
+)
+);
+
+
+await loadResponses();
+
+
+}catch(error){
+
+alert(
+"Error: " +
+error.message
+);
+
+}
+
+};
+
+});
+
+}
+
+
+/* =========================================
+   FILTER EVENTS
+========================================= */
+
+examFilter.addEventListener(
+"change",
+renderResponses
+);
+
+
+searchInput.addEventListener(
+"input",
+renderResponses
+);
+
+
+/* =========================================
+   REFRESH
+========================================= */
+
+refreshBtn.onclick =
+async function(){
+
+this.textContent =
+"⏳ Refreshing...";
+
+await loadExams();
+
+await loadResponses();
+
+this.textContent =
+"🔄 Refresh";
+
+};
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHtml(value){
+
+return String(value)
+
+.replace(/&/g,"&amp;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================
+   VIEW RESPONSE
+========================================= */
+
+window.viewResponse =
+function(id){
+
+location.href =
+`view-response.html?id=${encodeURIComponent(id)}`;
+
+};
+
+
+/* =========================================
+   START
+========================================= */
+
+await loadExams();
+
+await loadResponses();
+
+</script>
+
+</body>
+  </html>
