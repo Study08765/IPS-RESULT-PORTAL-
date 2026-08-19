@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create Test | THE STUDY POINT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+min-height:100vh;
+padding:25px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+padding:20px 25px;
+border-radius:20px;
+margin-bottom:25px;
+border:1px solid rgba(255,255,255,.2);
+}
+
+.header h1{
+color:#fff;
+font-size:30px;
+font-weight:700;
+}
+
+.header a{
+text-decoration:none;
+background:#facc15;
+color:#111827;
+padding:10px 18px;
+border-radius:10px;
+font-weight:600;
+transition:.3s;
+}
+
+.header a:hover{
+transform:translateY(-2px);
+}
+
+.form-box{
+background:#fff;
+border-radius:20px;
+padding:30px;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+margin-bottom:25px;
+}
+
+.row{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
+}
+
+.input-group{
+margin-bottom:18px;
+}
+
+.input-group label{
+display:block;
+font-weight:600;
+margin-bottom:8px;
+color:#1e3a8a;
+}
+
+.input-group input,
+.input-group select{
+width:100%;
+padding:14px;
+border:2px solid #dbeafe;
+border-radius:12px;
+font-size:15px;
+outline:none;
+transition:.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus{
+border-color:#2563eb;
+box-shadow:0 0 10px rgba(37,99,235,.25);
+}
+
+.pin-box{
+background:linear-gradient(135deg,#fff7ed,#fef3c7);
+border:2px solid #f59e0b;
+border-radius:15px;
+padding:18px;
+margin-bottom:18px;
+text-align:center;
+}
+
+.pin-box label{
+display:block;
+font-weight:700;
+color:#92400e;
+margin-bottom:8px;
+}
+
+.pin-display{
+font-size:32px;
+font-weight:900;
+letter-spacing:8px;
+color:#b45309;
+}
+
+.pin-note{
+font-size:12px;
+color:#78350f;
+margin-top:5px;
+}
+
+.saveBtn{
+width:100%;
+margin-top:10px;
+padding:16px;
+border:none;
+border-radius:14px;
+background:linear-gradient(90deg,#2563eb,#1d4ed8);
+color:#fff;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.saveBtn:hover{
+transform:translateY(-3px);
+box-shadow:0 12px 25px rgba(37,99,235,.35);
+}
+
+.saveBtn:disabled{
+opacity:.6;
+cursor:not-allowed;
+transform:none;
+}
+
+.title{
+color:#fff;
+margin:20px 0;
+font-size:28px;
+font-weight:700;
+}
+
+.table-box{
+background:#fff;
+border-radius:20px;
+overflow:auto;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+min-width:1000px;
+}
+
+th{
+background:#1d4ed8;
+color:#fff;
+padding:16px;
+text-align:center;
+}
+
+td{
+padding:15px;
+text-align:center;
+border-bottom:1px solid #e5e7eb;
+}
+
+tr:hover{
+background:#eff6ff;
+}
+
+.editBtn{
+background:#22c55e;
+color:#fff;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+cursor:pointer;
+margin-right:6px;
+font-weight:600;
+}
+
+.pinBtn{
+background:#f59e0b;
+color:#fff;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+cursor:pointer;
+margin-right:6px;
+font-weight:600;
+}
+
+.deleteBtn{
+background:#ef4444;
+color:#fff;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+}
+
+.deleteBtn:hover{
+background:#b91c1c;
+}
+
+.statusBox{
+display:none;
+margin-top:15px;
+padding:13px;
+border-radius:12px;
+font-weight:600;
+text-align:center;
+}
+
+@media(max-width:768px){
+
+body{
+padding:15px;
+}
+
+.header{
+flex-direction:column;
+gap:15px;
+text-align:center;
+}
+
+.header h1{
+font-size:24px;
+}
+
+.form-box{
+padding:20px;
+}
+
+.title{
+font-size:22px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script>
+
+if(localStorage.getItem("adminLogin")!="true"){
+location.href="admin-login.html";
+}
+
+</script>
+
+
+<div class="container">
+
+<div class="header">
+
+<h1>
+<i class="fa-solid fa-file-circle-plus"></i>
+Create CBT Test
+</h1>
+
+<a href="admin-dashboard.html">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Dashboard
+
+</a>
+
+</div>
+
+
+<div class="form-box">
+
+
+<div class="input-group">
+
+<label>
+Test Name
+</label>
+
+<input
+type="text"
+id="testName"
+placeholder="English Weekly Test">
+
+</div>
+
+
+<div class="row">
+
+<div class="input-group">
+
+<label>
+Class
+</label>
+
+<select id="class">
+
+<option>Select Class</option>
+
+<option>Class 3</option>
+<option>Class 4</option>
+<option>Class 5</option>
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+
+</select>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Subject
+</label>
+
+<select id="subject">
+
+<option>Select Subject</option>
+
+<option>English</option>
+<option>Hindi</option>
+<option>Mathematics</option>
+<option>Science</option>
+<option>Social Science</option>
+<option>Computer</option>
+<option>GK</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="input-group">
+
+<label>
+Exam Code
+</label>
+
+<input
+type="text"
+id="examCode"
+placeholder="ENG-001">
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Duration (Minutes)
+</label>
+
+<input
+type="number"
+id="duration"
+placeholder="30">
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="input-group">
+
+<label>
+Total Questions
+</label>
+
+<input
+type="number"
+id="questions"
+placeholder="100">
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Total Marks
+</label>
+
+<input
+type="number"
+id="marks"
+placeholder="100">
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="input-group">
+
+<label>
+Start Date
+</label>
+
+<input
+type="datetime-local"
+id="start">
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+End Date
+</label>
+
+<input
+type="datetime-local"
+id="end">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Status
+</label>
+
+<select id="status">
+
+<option>OPEN</option>
+
+<option>CLOSED</option>
+
+</select>
+
+</div>
+
+
+<div class="pin-box">
+
+<label>
+<i class="fa-solid fa-key"></i>
+Exam PIN
+</label>
+
+<div class="pin-display" id="pinDisplay">
+----
+</div>
+
+<div class="pin-note">
+4-digit PIN automatically generate होगा
+</div>
+
+</div>
+
+
+<button
+class="saveBtn"
+id="saveBtn">
+
+<i class="fa-solid fa-floppy-disk"></i>
+
+CREATE TEST
+
+</button>
+
+
+<div
+id="statusBox"
+class="statusBox">
+</div>
+
+
+</div>
+
+
+<h2 class="title">
+
+<i class="fa-solid fa-list"></i>
+
+Created Tests
+
+</h2>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Test</th>
+
+<th>Class</th>
+
+<th>Subject</th>
+
+<th>Code</th>
+
+<th>Exam PIN</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="testList">
+
+<tr>
+
+<td colspan="7">
+Loading...
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+</div>
+
+
+<script type="module">
+
+import { db }
+from "./firebase.js";
+
+import {
+
+collection,
+addDoc,
+onSnapshot,
+deleteDoc,
+doc,
+serverTimestamp,
+getDocs,
+query,
+where,
+writeBatch,
+updateDoc
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const saveBtn =
+document.getElementById("saveBtn");
+
+const list =
+document.getElementById("testList");
+
+const statusBox =
+document.getElementById("statusBox");
+
+const pinDisplay =
+document.getElementById("pinDisplay");
+
+
+function showStatus(message,type="success"){
+
+statusBox.textContent=message;
+
+statusBox.style.display="block";
+
+if(type==="error"){
+
+statusBox.style.background="#fee2e2";
+statusBox.style.color="#991b1b";
+
+}else{
+
+statusBox.style.background="#dcfce7";
+statusBox.style.color="#166534";
+
+}
+
+setTimeout(()=>{
+
+statusBox.style.display="none";
+
+},5000);
+
+}
+
+
+function esc(value){
+
+return String(value ?? "")
+.replace(/[&<>"']/g,function(c){
+
+return {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[c];
+
+});
+
+}
+
+
+/* ================================
+   GENERATE 4 DIGIT PIN
+================================ */
+
+function generatePin(){
+
+return String(
+Math.floor(
+1000 +
+Math.random()*9000
+)
+);
+
+}
+
+
+/* ================================
+   CREATE TEST
+================================ */
+
+saveBtn.onclick=async()=>{
+
+const data={
+
+testName:
+document.getElementById("testName").value.trim(),
+
+className:
+document.getElementById("class").value,
+
+subject:
+document.getElementById("subject").value,
+
+examCode:
+document.getElementById("examCode").value.trim(),
+
+duration:
+document.getElementById("duration").value,
+
+questions:
+document.getElementById("questions").value,
+
+marks:
+document.getElementById("marks").value,
+
+start:
+document.getElementById("start").value,
+
+end:
+document.getElementById("end").value,
+
+status:
+document.getElementById("status").value,
+
+examPin:
+generatePin(),
+
+isLive:false,
+
+resultPublished:false,
+
+answerKeyPublished:false,
+
+createdAt:
+serverTimestamp()
+
+};
+
+
+if(data.testName===""){
+
+alert("Enter Test Name");
+return;
+
+}
+
+if(data.className==="Select Class"){
+
+alert("Select Class");
+return;
+
+}
+
+if(data.subject==="Select Subject"){
+
+alert("Select Subject");
+return;
+
+}
+
+
+try{
+
+saveBtn.disabled=true;
+
+saveBtn.innerHTML=
+"Creating Test...";
+
+
+await addDoc(
+collection(db,"cbtTests"),
+data
+);
+
+
+alert(
+"Test Created Successfully!\n\nExam PIN: "+
+data.examPin+
+"\n\nइस PIN को विद्यार्थियों को दें।"
+);
+
+
+clearForm();
+
+pinDisplay.textContent="----";
+
+showStatus(
+"Test Created Successfully. Exam PIN: "+
+data.examPin
+);
+
+
+}catch(error){
+
+console.error(error);
+
+showStatus(
+"Test Create नहीं हुआ। Firebase permission check करें।",
+"error"
+);
+
+}finally{
+
+saveBtn.disabled=false;
+
+saveBtn.innerHTML=
+'<i class="fa-solid fa-floppy-disk"></i> CREATE TEST';
+
+}
+
+};
+
+
+/* ================================
+   LOAD TESTS
+================================ */
+
+onSnapshot(
+
+collection(db,"cbtTests"),
+
+(snapshot)=>{
+
+list.innerHTML="";
+
+
+if(snapshot.empty){
+
+list.innerHTML=`
+
+<tr>
+<td colspan="7">
+No Tests Found
+</td>
+</tr>
+
+`;
+
+return;
+
+}
+
+
+snapshot.forEach((d)=>{
+
+const x=d.data();
+
+
+list.innerHTML+=`
+
+<tr>
+
+<td>
+<b>${esc(x.testName)}</b>
+</td>
+
+<td>
+${esc(x.className)}
+</td>
+
+<td>
+${esc(x.subject)}
+</td>
+
+<td>
+<b>${esc(x.examCode || "-")}</b>
+</td>
+
+<td>
+
+<b style="
+font-size:20px;
+color:#dc2626;
+letter-spacing:3px;
+">
+
+${esc(x.examPin || "NO PIN")}
+
+</b>
+
+</td>
+
+<td>
+${esc(x.status)}
+</td>
+
+<td>
+
+<button
+class="editBtn"
+onclick="openQuestions('${d.id}')">
+
+<i class="fa-solid fa-list-check"></i>
+
+Questions
+
+</button>
+
+
+<button
+class="pinBtn"
+onclick="generateExamPin('${d.id}')">
+
+<i class="fa-solid fa-key"></i>
+
+New PIN
+
+</button>
+
+
+<button
+class="deleteBtn"
+onclick="deleteTest('${d.id}','${esc(x.testName || "")}')">
+
+<i class="fa-solid fa-trash"></i>
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+},
+
+(error)=>{
+
+console.error(error);
+
+showStatus(
+"Tests load नहीं हुए।",
+"error"
+);
+
+}
+
+);
+
+
+/* ================================
+   NEW PIN FOR EXISTING TEST
+================================ */
+
+window.generateExamPin =
+async function(id){
+
+const newPin =
+generatePin();
+
+
+const confirmed =
+confirm(
+"नया Exam PIN बनाया जाएगा.\n\n"+
+"NEW PIN: "+newPin+
+"\n\nक्या आप इसे बदलना चाहते हैं?"
+);
+
+
+if(!confirmed){
+
+return;
+
+}
+
+
+try{
+
+await updateDoc(
+
+doc(
+db,
+"cbtTests",
+id
+),
+
+{
+examPin:newPin
+}
+
+);
+
+
+showStatus(
+"New Exam PIN: "+newPin
+);
+
+alert(
+"New Exam PIN: "+
+newPin+
+"\n\nयह PIN विद्यार्थियों को दें।"
+);
+
+
+}catch(error){
+
+console.error(error);
+
+showStatus(
+"PIN update नहीं हुआ।",
+"error"
+);
+
+}
+
+};
+
+
+/* ================================
+   DELETE TEST
+================================ */
+
+window.deleteTest =
+async function(id,testName){
+
+const confirmed =
+confirm(
+
+`⚠️ DELETE TEST
+
+Test:
+${testName || "Selected Test"}
+
+यह Test delete करने पर:
+
+✓ Test delete होगा
+✓ इस Test के सभी Questions delete होंगे
+✓ इस Test के Student Responses delete होंगे
+✓ इस Test के Results delete होंगे
+
+लेकिन:
+
+✓ Question Bank सुरक्षित रहेगा
+✓ दूसरे Tests सुरक्षित रहेंगे
+
+क्या आप सच में Delete करना चाहते हैं?`
+
+);
+
+
+if(!confirmed){
+
+return;
+
+}
+
+
+try{
+
+const questionSnap =
+await getDocs(
+
+query(
+
+collection(
+db,
+"cbtQuestions"
+),
+
+where(
+"testId",
+"==",
+id
+)
+
+)
+
+);
+
+
+const responseSnap =
+await getDocs(
+
+query(
+
+collection(
+db,
+"cbtResponses"
+),
+
+where(
+"examId",
+"==",
+id
+)
+
+)
+
+);
+
+
+const resultSnap =
+await getDocs(
+
+query(
+
+collection(
+db,
+"cbtResults"
+),
+
+where(
+"examId",
+"==",
+id
+)
+
+)
+
+);
+
+
+const deleteRefs=[];
+
+
+questionSnap.forEach(
+(d)=>{
+
+deleteRefs.push(
+doc(
+db,
+"cbtQuestions",
+d.id
+)
+);
+
+});
+
+
+responseSnap.forEach(
+(d)=>{
+
+deleteRefs.push(
+doc(
+db,
+"cbtResponses",
+d.id
+)
+);
+
+});
+
+
+resultSnap.forEach(
+(d)=>{
+
+deleteRefs.push(
+doc(
+db,
+"cbtResults",
+d.id
+)
+);
+
+});
+
+
+const chunkSize=400;
+
+
+for(
+let start=0;
+start<deleteRefs.length;
+start+=chunkSize
+){
+
+const chunk =
+deleteRefs.slice(
+start,
+start+chunkSize
+);
+
+
+const batch =
+writeBatch(db);
+
+
+chunk.forEach(
+(ref)=>{
+
+batch.delete(ref);
+
+});
+
+
+await batch.commit();
+
+}
+
+
+await deleteDoc(
+
+doc(
+db,
+"cbtTests",
+id
+)
+
+);
+
+
+showStatus(
+`"${testName || "Test"}" और उसका पूरा Data Delete हो गया।`
+);
+
+
+}catch(error){
+
+console.error(
+"DELETE TEST ERROR:",
+error
+);
+
+
+showStatus(
+
+"Test Delete नहीं हुआ। Firebase permission या Firestore rules check करें।",
+
+"error"
+
+);
+
+}
+
+};
+
+
+/* ================================
+   OPEN QUESTIONS
+================================ */
+
+window.openQuestions =
+(id)=>{
+
+location.href =
+"add-questions.html?testId="+id;
+
+};
+
+
+/* ================================
+   AUTO EXAM CODE
+================================ */
+
+function generateCode(){
+
+const subject =
+document.getElementById("subject").value;
+
+const cls =
+document.getElementById("class").value;
+
+
+if(
+subject==="Select Subject" ||
+cls==="Select Class"
+){
+
+return;
+
+}
+
+
+const prefix =
+subject
+.substring(0,3)
+.toUpperCase();
+
+
+const classNo =
+cls.replace("Class ","");
+
+
+const random =
+Math.floor(
+100+Math.random()*900
+);
+
+
+document.getElementById(
+"examCode"
+).value =
+prefix+
+classNo+
+random;
+
+}
+
+
+document.getElementById(
+"subject"
+).addEventListener(
+"change",
+generateCode
+);
+
+
+document.getElementById(
+"class"
+).addEventListener(
+"change",
+generateCode
+);
+
+
+/* ================================
+   PREVIEW PIN WHEN SUBJECT/CLASS
+================================ */
+
+pinDisplay.textContent="----";
+
+
+/* ================================
+   CLEAR FORM
+================================ */
+
+function clearForm(){
+
+document.getElementById(
+"testName"
+).value="";
+
+document.getElementById(
+"class"
+).selectedIndex=0;
+
+document.getElementById(
+"subject"
+).selectedIndex=0;
+
+document.getElementById(
+"examCode"
+).value="";
+
+document.getElementById(
+"duration"
+).value="";
+
+document.getElementById(
+"questions"
+).value="";
+
+document.getElementById(
+"marks"
+).value="";
+
+document.getElementById(
+"start"
+).value="";
+
+document.getElementById(
+"end"
+).value="";
+
+document.getElementById(
+"status"
+).selectedIndex=0;
+
+}
+
+</script>
+
+</body>
+  </html>
