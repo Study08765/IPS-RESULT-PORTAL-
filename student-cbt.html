@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | CBT EXAM LOGIN</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+min-height:100vh;
+
+background:
+linear-gradient(
+rgba(5,25,60,.18),
+rgba(5,25,60,.28)
+),
+url("hero-bg.jpg");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:20px;
+overflow-x:hidden;
+}
+
+.container{
+width:100%;
+max-width:900px;
+padding-top:40px;
+}
+
+.logo{
+text-align:center;
+margin-bottom:45px;
+color:#fff;
+}
+
+.logo-img{
+
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+background:#fff;
+
+padding:8px;
+
+border:4px solid #FFD700;
+
+box-shadow:
+0 0 25px
+rgba(255,215,0,.70);
+
+margin-bottom:20px;
+}
+
+.logo h1{
+
+font-size:52px;
+font-weight:900;
+
+color:#FFD700;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+text-shadow:
+0 4px 12px #000,
+0 0 25px rgba(255,215,0,.80);
+}
+
+.logo p{
+
+font-size:24px;
+font-weight:600;
+margin-top:12px;
+color:#fff;
+}
+
+.logo h2{
+
+margin-top:20px;
+
+font-size:42px;
+font-weight:900;
+
+color:#fff;
+
+text-transform:uppercase;
+
+text-shadow:
+0 3px 8px #000,
+0 0 15px rgba(255,255,255,.80);
+}
+
+.logo h3{
+
+margin-top:8px;
+
+font-size:22px;
+
+color:#FFD700;
+
+letter-spacing:2px;
+}
+
+.card{
+
+background:
+rgba(255,255,255,.12);
+
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+
+border:
+2px solid
+rgba(255,215,0,.35);
+
+border-radius:30px;
+
+padding:40px;
+
+box-shadow:
+0 15px 45px
+rgba(0,0,0,.35),
+
+0 0 25px
+rgba(255,215,0,.15);
+
+animation:fade .6s ease;
+}
+
+.card > h2{
+
+font-size:36px;
+
+font-weight:900;
+
+text-align:center;
+
+margin-bottom:30px;
+
+letter-spacing:1px;
+
+color:#FFD700;
+}
+
+.exam-card{
+
+background:
+linear-gradient(
+135deg,
+#ffffff,
+#f8fafc
+);
+
+border:
+2px solid
+rgba(255,215,0,.35);
+
+border-radius:22px;
+
+padding:24px;
+
+margin-bottom:22px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+box-shadow:
+0 12px 30px
+rgba(0,0,0,.18);
+
+transition:.35s;
+}
+
+.exam-card:hover{
+
+transform:
+translateY(-6px)
+scale(1.02);
+
+border-color:#FFD700;
+}
+
+.exam-code{
+
+font-size:30px;
+font-weight:900;
+color:#2563eb;
+letter-spacing:1px;
+}
+
+.exam-card small{
+
+color:#555;
+font-weight:600;
+}
+
+.select-btn{
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
+
+color:#fff;
+
+border:none;
+
+padding:14px 24px;
+
+border-radius:14px;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+box-shadow:
+0 8px 20px
+rgba(37,99,235,.35);
+}
+
+#loginBox{
+
+margin-top:30px;
+
+padding-top:30px;
+
+border-top:
+2px solid
+rgba(255,215,0,.25);
+
+text-align:center;
+}
+
+#selectedCode{
+
+display:inline-block;
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
+
+color:#fff;
+
+padding:12px 22px;
+
+border-radius:40px;
+
+font-size:17px;
+
+font-weight:700;
+
+margin:
+0 auto 20px;
+}
+
+.input-group{
+
+position:relative;
+margin-bottom:18px;
+}
+
+.input-group i{
+
+position:absolute;
+
+left:20px;
+
+top:50%;
+
+transform:
+translateY(-50%);
+
+font-size:20px;
+
+color:#2563eb;
+
+z-index:2;
+}
+
+.input-group input{
+
+padding-left:60px;
+}
+
+input{
+
+width:100%;
+
+height:60px;
+
+padding:
+0 20px;
+
+background:
+rgba(255,255,255,.95);
+
+border:
+2px solid
+rgba(255,215,0,.35);
+
+border-radius:16px;
+
+font-size:18px;
+
+font-weight:600;
+
+color:#111;
+
+outline:none;
+
+transition:.3s;
+
+box-shadow:
+0 8px 20px
+rgba(0,0,0,.12);
+}
+
+input:focus{
+
+border-color:#FFD700;
+
+box-shadow:
+0 0 20px
+rgba(255,215,0,.45);
+}
+
+#continueBtn{
+
+width:100%;
+
+height:62px;
+
+border:none;
+
+border-radius:18px;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8,
+#0f172a
+);
+
+color:#fff;
+
+font-size:20px;
+
+font-weight:800;
+
+letter-spacing:1px;
+
+box-shadow:
+0 12px 30px
+rgba(37,99,235,.45);
+
+transition:.35s;
+}
+
+#continueBtn:hover{
+
+transform:
+translateY(-4px)
+scale(1.02);
+}
+
+#continueBtn:disabled{
+
+opacity:.65;
+cursor:not-allowed;
+transform:none;
+}
+
+.status-message{
+
+display:none;
+
+margin-top:16px;
+
+padding:13px 15px;
+
+border-radius:14px;
+
+background:
+rgba(255,255,255,.95);
+
+color:#1e3a8a;
+
+text-align:center;
+
+font-size:13px;
+
+font-weight:700;
+
+line-height:1.6;
+
+box-shadow:
+0 8px 20px
+rgba(0,0,0,.12);
+}
+
+.pin-info{
+
+background:#fff7ed;
+
+border:1px solid #f59e0b;
+
+color:#92400e;
+
+padding:10px;
+
+border-radius:12px;
+
+font-size:12px;
+
+font-weight:600;
+
+margin-bottom:18px;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@media(max-width:600px){
+
+body{
+padding:12px;
+background-attachment:scroll;
+}
+
+.container{
+padding-top:15px;
+}
+
+.logo{
+margin-bottom:25px;
+}
+
+.logo-img{
+width:105px;
+height:105px;
+margin-bottom:12px;
+}
+
+.logo h1{
+font-size:34px;
+}
+
+.logo p{
+font-size:16px;
+}
+
+.logo h2{
+font-size:27px;
+}
+
+.logo h3{
+font-size:16px;
+}
+
+.card{
+padding:22px;
+border-radius:23px;
+}
+
+.card > h2{
+font-size:27px;
+}
+
+.exam-card{
+padding:17px;
+gap:12px;
+}
+
+.exam-code{
+font-size:21px;
+}
+
+.select-btn{
+padding:11px 16px;
+font-size:13px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+
+<img
+src="icon-512.png"
+class="logo-img"
+alt="THE STUDY POINT">
+
+<h1>
+THE STUDY POINT
+</h1>
+
+<p>
+Computer Based Test
+</p>
+
+<h2 id="examTitle">
+AVAILABLE EXAMS
+</h2>
+
+<h3>
+SESSION 2026-27
+</h3>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Available Exam Codes
+</h2>
+
+<div id="examList">
+Loading...
+</div>
+
+
+<div
+id="loginBox"
+style="display:none;">
+
+<h3 id="selectedCode"></h3>
+
+
+<div class="input-group">
+
+<i class="fas fa-id-card"></i>
+
+<input
+type="text"
+id="roll"
+placeholder="Enter Roll Number"
+autocomplete="off"
+maxlength="30">
+
+</div>
+
+
+<div class="pin-info">
+
+🔐 इस परीक्षा का 4-digit Exam PIN Admin से प्राप्त करें।
+
+</div>
+
+
+<div class="input-group">
+
+<i class="fas fa-key"></i>
+
+<input
+type="password"
+id="examPin"
+placeholder="Enter 4-Digit Exam PIN"
+autocomplete="off"
+inputmode="numeric"
+maxlength="4">
+
+</div>
+
+
+<button
+id="continueBtn"
+type="button">
+
+Continue
+
+</button>
+
+
+<div
+id="statusMessage"
+class="status-message">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import { db }
+from "./firebase.js";
+
+import {
+
+collection,
+query,
+where,
+getDocs,
+doc,
+getDoc
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const examList =
+document.getElementById("examList");
+
+const loginBox =
+document.getElementById("loginBox");
+
+const selectedCode =
+document.getElementById("selectedCode");
+
+const rollInput =
+document.getElementById("roll");
+
+const pinInput =
+document.getElementById("examPin");
+
+const continueBtn =
+document.getElementById("continueBtn");
+
+const statusMessage =
+document.getElementById("statusMessage");
+
+
+let selectedExamId="";
+let selectedExamCode="";
+
+
+function showStatus(message){
+
+statusMessage.textContent=message;
+statusMessage.style.display="block";
+
+}
+
+function hideStatus(){
+
+statusMessage.textContent="";
+statusMessage.style.display="none";
+
+}
+
+
+async function loadExams(){
+
+examList.innerHTML="Loading...";
+
+try{
+
+const snap =
+await getDocs(
+collection(db,"cbtTests")
+);
+
+const now=new Date();
+
+let liveExamFound=false;
+let upcomingExamFound=false;
+
+examList.innerHTML="";
+
+
+if(snap.empty){
+
+showNoLiveExam();
+return;
+
+}
+
+
+snap.forEach((docSnap)=>{
+
+const exam=docSnap.data();
+
+const start=new Date(exam.start);
+const end=new Date(exam.end);
+
+
+if(exam.status!=="OPEN"){
+return;
+}
+
+
+if(now<start){
+
+upcomingExamFound=true;
+
+examList.innerHTML+=`
+
+<div style="
+background:#fff;
+padding:25px;
+border-radius:18px;
+text-align:center;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+">
+
+<h2 style="color:#2563eb;">
+📅 Upcoming Exam
+</h2>
+
+<p style="
+margin-top:10px;
+font-weight:700;
+">
+
+${escapeHTML(
+exam.testName ||
+exam.examCode ||
+"CBT Exam"
+)}
+
+</p>
+
+<p style="
+color:#666;
+margin-top:5px;
+">
+
+Starts :
+${escapeHTML(exam.start || "")}
+
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+if(now>end){
+return;
+}
+
+
+liveExamFound=true;
+
+
+examList.innerHTML+=`
+
+<div class="exam-card">
+
+<div>
+
+<div class="exam-code">
+
+${escapeHTML(
+exam.examCode ||
+"EXAM"
+)}
+
+</div>
+
+<small>
+
+${escapeHTML(
+exam.subject ||
+""
+)}
+
+</small>
+
+</div>
+
+
+<button
+class="select-btn"
+type="button"
+onclick="selectExam(
+'${escapeJS(docSnap.id)}',
+'${escapeJS(exam.examCode || "")}'
+)">
+
+Select
+
+</button>
+
+</div>
+
+`;
+
+});
+
+
+if(!liveExamFound){
+
+if(upcomingExamFound){
+return;
+}
+
+showNoLiveExam();
+
+}
+
+}catch(error){
+
+console.error(error);
+
+examList.innerHTML=`
+
+<div style="
+background:#fff;
+padding:30px;
+border-radius:20px;
+text-align:center;
+color:#b91c1c;
+">
+
+<div style="font-size:45px;">
+⚠️
+</div>
+
+<h2>
+Unable to Load Exams
+</h2>
+
+<p style="margin-top:8px;">
+Please try again later.
+</p>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+function showNoLiveExam(){
+
+examList.innerHTML=`
+
+<div style="
+background:#fff;
+padding:35px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+">
+
+<div style="font-size:55px;">
+⏳
+</div>
+
+<h2 style="color:#1d4ed8;">
+No Live Exam
+</h2>
+
+<p style="
+margin-top:10px;
+color:#555;
+">
+
+There is no live exam right now.
+Please come back at the scheduled time.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+
+window.selectExam=function(id,code){
+
+selectedExamId=id;
+selectedExamCode=code;
+
+loginBox.style.display="block";
+
+hideStatus();
+
+selectedCode.innerHTML=
+'<i class="fas fa-check-circle"></i> '+
+'Selected Exam : <b>'+
+escapeHTML(code)+
+'</b>';
+
+rollInput.value="";
+pinInput.value="";
+
+setTimeout(()=>{
+
+rollInput.focus();
+
+loginBox.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+},100);
+
+};
+
+
+continueBtn.onclick=async function(){
+
+const roll=
+rollInput.value.trim();
+
+const examPin=
+pinInput.value.trim();
+
+
+if(!roll){
+
+showStatus(
+"Please enter your Roll Number."
+);
+
+rollInput.focus();
+
+return;
+
+}
+
+
+if(!selectedExamId){
+
+showStatus(
+"Please select an exam first."
+);
+
+return;
+
+}
+
+
+if(!/^\d{4}$/.test(examPin)){
+
+showStatus(
+"Please enter a valid 4-digit Exam PIN."
+);
+
+pinInput.focus();
+
+return;
+
+}
+
+
+continueBtn.disabled=true;
+continueBtn.textContent="Checking...";
+
+hideStatus();
+
+
+try{
+
+
+/* =========================================
+   STEP 1
+   VERIFY EXAM
+========================================= */
+
+const examSnap=
+await getDoc(
+doc(
+db,
+"cbtTests",
+selectedExamId
+)
+);
+
+
+if(!examSnap.exists()){
+
+showStatus(
+"Exam not found."
+);
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+return;
+
+}
+
+
+const exam=
+examSnap.data();
+
+
+/* =========================================
+   CHECK EXAM STATUS/TIME AGAIN
+========================================= */
+
+const now=new Date();
+
+const start=new Date(exam.start);
+const end=new Date(exam.end);
+
+
+if(exam.status!=="OPEN"){
+
+showStatus(
+"यह परीक्षा अभी उपलब्ध नहीं है."
+);
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+return;
+
+}
+
+
+if(now<start){
+
+showStatus(
+"यह परीक्षा अभी शुरू नहीं हुई है."
+);
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+return;
+
+}
+
+
+if(now>end){
+
+showStatus(
+"इस परीक्षा का समय समाप्त हो चुका है."
+);
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+return;
+
+}
+
+
+/* =========================================
+   VERIFY PIN
+========================================= */
+
+const savedPin=
+String(exam.examPin || "").trim();
+
+
+if(!savedPin){
+
+showStatus(
+"इस Exam का PIN अभी Admin ने generate नहीं किया है."
+);
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+return;
+
+}
+
+
+if(examPin!==savedPin){
+
+showStatus(
+"❌ गलत Exam PIN. कृपया सही 4-digit PIN डालें."
+);
+
+pinInput.value="";
+pinInput.focus();
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+return;
+
+}
+
+
+/* =========================================
+   STEP 2
+   FIND STUDENT
+========================================= */
+
+let student=null;
+
+
+const newStudentQuery=
+query(
+collection(
+db,
+"subscriptionStudents"
+),
+where(
+"roll",
+"==",
+roll
+)
+);
+
+
+const newStudentSnap=
+await getDocs(
+newStudentQuery
+);
+
+
+if(!newStudentSnap.empty){
+
+const newData=
+newStudentSnap.docs[0].data();
+
+
+const approved=
+newData.status==="approved" ||
+newData.status==="Approved" ||
+newData.status==="APPROVED" ||
+newData.enabled===true;
+
+
+if(!approved){
+
+showStatus(
+"Your registration is pending Admin Approval. Please wait until the Admin approves your registration."
+);
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+return;
+
+}
+
+
+student={
+
+Roll:newData.roll || roll,
+
+Name:newData.name || "",
+
+Class:newData.className || "",
+
+Mobile:newData.mobile || "",
+
+Father:newData.fatherName || ""
+
+};
+
+}
+
+
+/* =========================================
+   OLD STUDENT
+========================================= */
+
+if(!student){
+
+const oldStudentQuery=
+query(
+collection(
+db,
+"students_v2"
+),
+where(
+"Roll",
+"==",
+roll
+)
+);
+
+
+const oldStudentSnap=
+await getDocs(
+oldStudentQuery
+);
+
+
+if(!oldStudentSnap.empty){
+
+student=
+oldStudentSnap.docs[0].data();
+
+}
+
+}
+
+
+/* =========================================
+   STUDENT NOT FOUND
+========================================= */
+
+if(!student){
+
+showStatus(
+"Invalid Roll Number. Please enter a valid registered Roll Number."
+);
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+return;
+
+}
+
+
+/* =========================================
+   CHECK PREVIOUS RESPONSE
+========================================= */
+
+const responseId=
+selectedExamId+"_"+student.Roll;
+
+
+const responseSnap=
+await getDoc(
+doc(
+db,
+"cbtResponses",
+responseId
+)
+);
+
+
+if(responseSnap.exists()){
+
+const response=
+responseSnap.data();
+
+
+if(
+response.submitted===true &&
+response.allowRetest===false
+){
+
+showStatus(
+"Dear "+
+(student.Name || "Student")+
+", you have already submitted this exam. Re-examination is not allowed."
+);
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+return;
+
+}
+
+}
+
+
+/* =========================================
+   CLEAR OLD SESSION
+========================================= */
+
+sessionStorage.clear();
+
+
+/* =========================================
+   SAVE VERIFIED SESSION
+========================================= */
+
+sessionStorage.setItem(
+"studentRoll",
+student.Roll || roll
+);
+
+sessionStorage.setItem(
+"studentName",
+student.Name || ""
+);
+
+sessionStorage.setItem(
+"studentClass",
+student.Class || ""
+);
+
+sessionStorage.setItem(
+"examId",
+selectedExamId
+);
+
+sessionStorage.setItem(
+"examCode",
+selectedExamCode
+);
+
+sessionStorage.setItem(
+"examPinVerified",
+"true"
+);
+
+sessionStorage.setItem(
+"verifiedExamId",
+selectedExamId
+);
+
+
+/* =========================================
+   OPEN DASHBOARD
+========================================= */
+
+location.href="exam-dashboard.html";
+
+
+}catch(error){
+
+console.error(
+"CBT Login Error:",
+error
+);
+
+showStatus(
+"Unable to verify details. Please try again."
+);
+
+continueBtn.disabled=false;
+continueBtn.textContent="Continue";
+
+}
+
+};
+
+
+rollInput.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key==="Enter" &&
+!continueBtn.disabled
+){
+
+continueBtn.click();
+
+}
+
+});
+
+
+pinInput.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key==="Enter" &&
+!continueBtn.disabled
+){
+
+continueBtn.click();
+
+}
+
+});
+
+
+function escapeHTML(value){
+
+return String(value)
+
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+function escapeJS(value){
+
+return String(value)
+
+.replace(/\\/g,"\\\\")
+.replace(/'/g,"\\'")
+.replace(/"/g,'\\"')
+.replace(/\r/g,"\\r")
+.replace(/\n/g,"\\n");
+
+}
+
+
+loadExams();
+
+</script>
+
+</body>
+  </html>
