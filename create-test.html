@@ -1,0 +1,2490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Create Test | THE STUDY POINT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+min-height:100vh;
+padding:25px;
+}
+
+.container{
+max-width:1250px;
+margin:auto;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+padding:20px 25px;
+border-radius:20px;
+margin-bottom:25px;
+border:1px solid rgba(255,255,255,.2);
+}
+
+.header h1{
+color:#fff;
+font-size:30px;
+font-weight:700;
+}
+
+.header a{
+text-decoration:none;
+background:#facc15;
+color:#111827;
+padding:10px 18px;
+border-radius:10px;
+font-weight:600;
+}
+
+.form-box{
+background:#fff;
+border-radius:20px;
+padding:30px;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+margin-bottom:25px;
+}
+
+.row{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
+}
+
+.input-group{
+margin-bottom:18px;
+}
+
+.input-group label{
+display:block;
+font-weight:600;
+margin-bottom:8px;
+color:#1e3a8a;
+}
+
+.input-group input,
+.input-group select{
+width:100%;
+padding:14px;
+border:2px solid #dbeafe;
+border-radius:12px;
+font-size:15px;
+outline:none;
+}
+
+.input-group input:focus,
+.input-group select:focus{
+border-color:#2563eb;
+box-shadow:0 0 10px rgba(37,99,235,.25);
+}
+
+.saveBtn{
+width:100%;
+margin-top:10px;
+padding:16px;
+border:none;
+border-radius:14px;
+background:linear-gradient(90deg,#2563eb,#1d4ed8);
+color:#fff;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+}
+
+.saveBtn:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
+.title{
+color:#fff;
+margin:20px 0;
+font-size:28px;
+font-weight:700;
+}
+
+.table-box{
+background:#fff;
+border-radius:20px;
+overflow:auto;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+min-width:850px;
+}
+
+th{
+background:#1d4ed8;
+color:#fff;
+padding:16px;
+text-align:center;
+}
+
+td{
+padding:15px;
+text-align:center;
+border-bottom:1px solid #e5e7eb;
+}
+
+tr:hover{
+background:#eff6ff;
+}
+
+.questionBtn,
+.pinBtn,
+.deleteBtn{
+border:none;
+padding:9px 13px;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+margin:3px;
+}
+
+.questionBtn{
+background:#22c55e;
+color:#fff;
+}
+
+.pinBtn{
+background:#7c3aed;
+color:#fff;
+}
+
+.deleteBtn{
+background:#ef4444;
+color:#fff;
+}
+
+.statusBox{
+display:none;
+margin-top:15px;
+padding:13px;
+border-radius:12px;
+font-weight:600;
+text-align:center;
+}
+
+.statusBox.success{
+background:#dcfce7;
+color:#166534;
+}
+
+.statusBox.error{
+background:#fee2e2;
+color:#991b1b;
+}
+
+
+/* =========================================
+   PIN MODAL
+========================================= */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.65);
+z-index:9999;
+padding:20px;
+overflow:auto;
+}
+
+.modal-content{
+max-width:1000px;
+margin:40px auto;
+background:#fff;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 25px 70px rgba(0,0,0,.4);
+}
+
+.modal-header{
+background:linear-gradient(135deg,#0f172a,#1d4ed8);
+color:#fff;
+padding:22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.modal-header h2{
+font-size:22px;
+}
+
+.closeBtn{
+background:#ef4444;
+color:#fff;
+border:none;
+width:40px;
+height:40px;
+border-radius:50%;
+font-size:20px;
+cursor:pointer;
+}
+
+.pin-info{
+padding:20px;
+background:#eff6ff;
+border-bottom:1px solid #dbeafe;
+}
+
+.pin-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.pin-table th{
+background:#0f172a;
+}
+
+.pin-code{
+font-size:20px;
+font-weight:900;
+color:#7c3aed;
+letter-spacing:3px;
+}
+
+.resetBtn{
+background:#f59e0b;
+color:#fff;
+border:none;
+padding:7px 12px;
+border-radius:8px;
+cursor:pointer;
+font-weight:700;
+}
+
+.modal-body{
+padding:20px;
+overflow:auto;
+}
+
+.empty{
+padding:30px;
+text-align:center;
+color:#64748b;
+}
+
+@media(max-width:768px){
+
+body{
+padding:15px;
+}
+
+.header{
+flex-direction:column;
+gap:15px;
+text-align:center;
+}
+
+.header h1{
+font-size:24px;
+}
+
+.form-box{
+padding:20px;
+}
+
+.title{
+font-size:22px;
+}
+
+.modal-content{
+margin:10px auto;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<script>
+
+if(localStorage.getItem("adminLogin")!="true"){
+location.href="admin-login.html";
+}
+
+</script>
+
+
+<div class="container">
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>
+
+<i class="fa-solid fa-file-circle-plus"></i>
+
+Create CBT Test
+
+</h1>
+
+<a href="admin-dashboard.html">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Dashboard
+
+</a>
+
+</div>
+
+
+<!-- CREATE TEST -->
+
+<div class="form-box">
+
+
+<div class="input-group">
+
+<label>
+Test Name
+</label>
+
+<input
+type="text"
+id="testName"
+placeholder="English Weekly Test">
+
+</div>
+
+
+<div class="row">
+
+<div class="input-group">
+
+<label>
+Class
+</label>
+
+<select id="class">
+
+<option>Select Class</option>
+
+<option>Class 3</option>
+<option>Class 4</option>
+<option>Class 5</option>
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+<option>Class 9</option>
+<option>Class 10</option>
+
+</select>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Subject
+</label>
+
+<select id="subject">
+
+<option>Select Subject</option>
+
+<option>English</option>
+<option>Hindi</option>
+<option>Mathematics</option>
+<option>Science</option>
+<option>Social Science</option>
+<option>Computer</option>
+<option>GK</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="input-group">
+
+<label>
+Exam Code
+</label>
+
+<input
+type="text"
+id="examCode"
+placeholder="ENG-001">
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Duration (Minutes)
+</label>
+
+<input
+type="number"
+id="duration"
+placeholder="30">
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="input-group">
+
+<label>
+Total Questions
+</label>
+
+<input
+type="number"
+id="questions"
+placeholder="100">
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Total Marks
+</label>
+
+<input
+type="number"
+id="marks"
+placeholder="100">
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="input-group">
+
+<label>
+Start Date
+</label>
+
+<input
+type="datetime-local"
+id="start">
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+End Date
+</label>
+
+<input
+type="datetime-local"
+id="end">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Status
+</label>
+
+<select id="status">
+
+<option>OPEN</option>
+
+<option>CLOSED</option>
+
+</select>
+
+</div>
+
+
+<button
+class="saveBtn"
+id="saveBtn">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+CREATE TEST + GENERATE STUDENT PINS
+
+</button>
+
+
+<div
+id="statusBox"
+class="statusBox">
+</div>
+
+
+</div>
+
+
+<!-- CREATED TESTS -->
+
+<h2 class="title">
+
+<i class="fa-solid fa-list"></i>
+
+Created Tests
+
+</h2>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Test</th>
+
+<th>Class</th>
+
+<th>Subject</th>
+
+<th>Code</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="testList">
+
+<tr>
+
+<td colspan="6">
+Loading...
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================================
+     PIN MODAL
+========================================= -->
+
+<div
+id="pinModal"
+class="modal">
+
+<div class="modal-content">
+
+
+<div class="modal-header">
+
+<h2 id="pinModalTitle">
+
+<i class="fa-solid fa-key"></i>
+
+Exam PIN Management
+
+</h2>
+
+<button
+class="closeBtn"
+onclick="closePinModal()">
+
+×
+
+</button>
+
+</div>
+
+
+<div class="pin-info">
+
+<strong>
+🔐 प्रत्येक विद्यार्थी का अलग 4-Digit Exam PIN
+</strong>
+
+<br>
+
+<small>
+
+यह PIN केवल इसी परीक्षा के लिए मान्य है।
+
+</small>
+
+</div>
+
+
+<div class="modal-body">
+
+<table class="pin-table">
+
+<thead>
+
+<tr>
+
+<th>Roll No.</th>
+
+<th>Student Name</th>
+
+<th>Class</th>
+
+<th>Exam PIN</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="pinList">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import { db }
+from "./firebase.js";
+
+
+import {
+
+collection,
+addDoc,
+onSnapshot,
+deleteDoc,
+doc,
+serverTimestamp,
+getDocs,
+query,
+where,
+writeBatch,
+setDoc,
+getDoc
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const saveBtn =
+document.getElementById("saveBtn");
+
+const list =
+document.getElementById("testList");
+
+const statusBox =
+document.getElementById("statusBox");
+
+const pinModal =
+document.getElementById("pinModal");
+
+const pinList =
+document.getElementById("pinList");
+
+const pinModalTitle =
+document.getElementById("pinModalTitle");
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+function showStatus(message,type="success"){
+
+statusBox.textContent =
+message;
+
+statusBox.className =
+"statusBox " + type;
+
+statusBox.style.display =
+"block";
+
+setTimeout(()=>{
+
+statusBox.style.display =
+"none";
+
+},6000);
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function esc(value){
+
+return String(value ?? "")
+.replace(/[&<>"']/g,function(c){
+
+return {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[c];
+
+});
+
+}
+
+
+/* =====================================================
+   GENERATE 4 DIGIT PIN
+===================================================== */
+
+function generatePin(){
+
+return String(
+Math.floor(
+1000 +
+Math.random()*9000
+)
+);
+
+}
+
+
+/* =====================================================
+   GET ALL STUDENTS
+===================================================== */
+
+async function getAllStudents(){
+
+const studentsMap =
+new Map();
+
+
+/* ==========================================
+   OLD STUDENTS
+   students_v2
+========================================== */
+
+try{
+
+const oldSnap =
+await getDocs(
+collection(
+db,
+"students_v2"
+)
+);
+
+
+oldSnap.forEach(
+(d)=>{
+
+const x =
+d.data();
+
+
+const roll =
+String(
+x.Roll || ""
+).trim().toUpperCase();
+
+
+if(!roll){
+
+return;
+
+}
+
+
+/*
+   Old students are included
+*/
+
+studentsMap.set(
+roll,
+{
+
+roll:roll,
+
+name:
+x.Name || "",
+
+className:
+x.Class || "",
+
+source:
+"students_v2"
+
+}
+);
+
+});
+
+}
+catch(error){
+
+console.error(
+"Old Students Error:",
+error
+);
+
+}
+
+
+/* ==========================================
+   NEW STUDENTS
+   subscriptionStudents
+========================================== */
+
+try{
+
+const newSnap =
+await getDocs(
+collection(
+db,
+"subscriptionStudents"
+)
+);
+
+
+newSnap.forEach(
+(d)=>{
+
+const x =
+d.data();
+
+
+const roll =
+String(
+x.roll || ""
+).trim().toUpperCase();
+
+
+if(!roll){
+
+return;
+
+}
+
+
+/*
+   Only approved students
+*/
+
+const approved =
+
+x.status === "approved" ||
+
+x.status === "Approved" ||
+
+x.status === "APPROVED" ||
+
+x.enabled === true;
+
+
+if(!approved){
+
+return;
+
+}
+
+
+/*
+   New data takes priority
+*/
+
+studentsMap.set(
+roll,
+{
+
+roll:roll,
+
+name:
+x.name || "",
+
+className:
+x.className || "",
+
+source:
+"subscriptionStudents"
+
+}
+);
+
+});
+
+}
+catch(error){
+
+console.error(
+"New Students Error:",
+error
+);
+
+}
+
+
+/* ==========================================
+   SORT BY ROLL
+========================================== */
+
+const students =
+Array.from(
+studentsMap.values()
+);
+
+
+students.sort(
+(a,b)=>
+a.roll.localeCompare(
+b.roll,
+undefined,
+{
+numeric:true
+}
+)
+);
+
+
+return students;
+
+}
+
+
+/* =====================================================
+   CREATE EXAM PINS
+===================================================== */
+
+async function generateExamPins(
+examId,
+examCode
+){
+
+const students =
+await getAllStudents();
+
+
+if(
+students.length === 0
+){
+
+console.warn(
+"No students found for PIN generation."
+);
+
+return 0;
+
+}
+
+
+const usedPins =
+new Set();
+
+
+let count=0;
+
+
+/*
+=====================================================
+Firestore batch maximum = 500
+Use 400
+=====================================================
+*/
+
+const chunkSize =
+400;
+
+
+for(
+let start=0;
+start<students.length;
+start+=chunkSize
+){
+
+
+const chunk =
+students.slice(
+start,
+start+chunkSize
+);
+
+
+const batch =
+writeBatch(db);
+
+
+for(
+const student of chunk
+){
+
+
+/*
+   Generate unique PIN
+*/
+
+let pin;
+
+
+do{
+
+pin =
+generatePin();
+
+}
+while(
+usedPins.has(pin)
+);
+
+
+usedPins.add(pin);
+
+
+/*
+=====================================================
+DOCUMENT ID
+
+examId + "_" + roll
+
+Example:
+
+ABC123_TSP001
+=====================================================
+*/
+
+const pinRef =
+doc(
+db,
+"cbtExamPins",
+examId +
+"_" +
+student.roll
+);
+
+
+batch.set(
+pinRef,
+{
+
+examId:
+examId,
+
+examCode:
+examCode,
+
+studentRoll:
+student.roll,
+
+studentName:
+student.name,
+
+studentClass:
+student.className,
+
+pin:
+pin,
+
+createdAt:
+serverTimestamp(),
+
+updatedAt:
+serverTimestamp()
+
+}
+);
+
+
+count++;
+
+}
+
+
+await batch.commit();
+
+}
+
+
+return count;
+
+}
+
+
+/* =====================================================
+   CREATE TEST
+===================================================== */
+
+saveBtn.onclick =
+async()=>{
+
+
+const data={
+
+testName:
+document.getElementById(
+"testName"
+).value.trim(),
+
+className:
+document.getElementById(
+"class"
+).value,
+
+subject:
+document.getElementById(
+"subject"
+).value,
+
+examCode:
+document.getElementById(
+"examCode"
+).value.trim(),
+
+duration:
+document.getElementById(
+"duration"
+).value,
+
+questions:
+document.getElementById(
+"questions"
+).value,
+
+marks:
+document.getElementById(
+"marks"
+).value,
+
+start:
+document.getElementById(
+"start"
+).value,
+
+end:
+document.getElementById(
+"end"
+).value,
+
+status:
+document.getElementById(
+"status"
+).value,
+
+isLive:false,
+
+resultPublished:false,
+
+answerKeyPublished:false,
+
+pinSystem:true,
+
+createdAt:
+serverTimestamp()
+
+};
+
+
+/* ==========================================
+   VALIDATION
+========================================== */
+
+if(
+data.testName === ""
+){
+
+alert(
+"Enter Test Name"
+);
+
+return;
+
+}
+
+
+if(
+data.className ===
+"Select Class"
+){
+
+alert(
+"Select Class"
+);
+
+return;
+
+}
+
+
+if(
+data.subject ===
+"Select Subject"
+){
+
+alert(
+"Select Subject"
+);
+
+return;
+
+}
+
+
+if(
+data.examCode === ""
+){
+
+alert(
+"Enter Exam Code"
+);
+
+return;
+
+}
+
+
+if(
+data.duration === ""
+){
+
+alert(
+"Enter Duration"
+);
+
+return;
+
+}
+
+
+if(
+data.questions === ""
+){
+
+alert(
+"Enter Total Questions"
+);
+
+return;
+
+}
+
+
+if(
+data.marks === ""
+){
+
+alert(
+"Enter Total Marks"
+);
+
+return;
+
+}
+
+
+if(
+data.start === "" ||
+data.end === ""
+){
+
+alert(
+"Start और End Date दोनों भरें।"
+);
+
+return;
+
+}
+
+
+/* ==========================================
+   CREATE
+========================================== */
+
+try{
+
+
+saveBtn.disabled =
+true;
+
+saveBtn.innerHTML =
+
+'<i class="fa-solid fa-spinner fa-spin"></i> CREATING TEST...';
+
+
+/*
+=====================================================
+STEP 1
+CREATE TEST
+=====================================================
+*/
+
+const examRef =
+await addDoc(
+collection(
+db,
+"cbtTests"
+),
+data
+);
+
+
+/*
+=====================================================
+STEP 2
+GENERATE STUDENT PINS
+=====================================================
+*/
+
+saveBtn.innerHTML =
+
+'<i class="fa-solid fa-key"></i> GENERATING STUDENT PINS...';
+
+
+const pinCount =
+await generateExamPins(
+examRef.id,
+data.examCode
+);
+
+
+/*
+=====================================================
+STEP 3
+UPDATE TEST WITH PIN COUNT
+=====================================================
+*/
+
+await setDoc(
+
+doc(
+db,
+"cbtTests",
+examRef.id
+),
+
+{
+
+pinSystem:true,
+
+pinGenerated:true,
+
+pinStudentCount:
+pinCount,
+
+pinGeneratedAt:
+serverTimestamp()
+
+},
+
+{
+
+merge:true
+
+}
+
+);
+
+
+/*
+=====================================================
+SUCCESS
+=====================================================
+*/
+
+clearForm();
+
+
+showStatus(
+
+`Test Created Successfully. ${pinCount} student Exam PINs generated.`,
+
+"success"
+
+);
+
+
+}
+catch(error){
+
+console.error(
+"CREATE TEST ERROR:",
+error
+);
+
+
+showStatus(
+
+"Test create नहीं हुआ: " +
+error.message,
+
+"error"
+
+);
+
+}
+finally{
+
+saveBtn.disabled =
+false;
+
+saveBtn.innerHTML =
+
+'<i class="fa-solid fa-shield-halved"></i> CREATE TEST + GENERATE STUDENT PINS';
+
+}
+
+};
+
+
+/* =====================================================
+   LOAD TESTS
+===================================================== */
+
+onSnapshot(
+
+collection(
+db,
+"cbtTests"
+),
+
+(snapshot)=>{
+
+
+list.innerHTML =
+"";
+
+
+if(
+snapshot.empty
+){
+
+list.innerHTML = `
+
+<tr>
+
+<td colspan="6">
+
+No Tests Found
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+snapshot.forEach(
+(d)=>{
+
+
+const x =
+d.data();
+
+
+list.innerHTML += `
+
+<tr>
+
+<td>
+
+<b>
+${esc(x.testName)}
+</b>
+
+</td>
+
+
+<td>
+${esc(x.className)}
+</td>
+
+
+<td>
+${esc(x.subject)}
+</td>
+
+
+<td>
+
+<b>
+${esc(x.examCode || "-")}
+</b>
+
+</td>
+
+
+<td>
+
+${esc(x.status)}
+
+</td>
+
+
+<td>
+
+
+<button
+class="questionBtn"
+onclick="openQuestions('${d.id}')">
+
+<i class="fa-solid fa-list-check"></i>
+
+Questions
+
+</button>
+
+
+<button
+class="pinBtn"
+onclick="viewPins(
+'${d.id}',
+'${esc(x.examCode || "")}'
+)">
+
+<i class="fa-solid fa-key"></i>
+
+View PINs
+
+</button>
+
+
+<button
+class="deleteBtn"
+onclick="deleteTest(
+'${d.id}',
+'${esc(x.testName || "")}'
+)">
+
+<i class="fa-solid fa-trash"></i>
+
+Delete
+
+</button>
+
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+},
+
+(error)=>{
+
+console.error(error);
+
+showStatus(
+"Tests load नहीं हुए।",
+"error"
+);
+
+}
+
+);
+
+
+/* =====================================================
+   VIEW PINS
+===================================================== */
+
+window.viewPins =
+async function(
+examId,
+examCode
+){
+
+
+pinModal.style.display =
+"block";
+
+
+pinModalTitle.innerHTML =
+
+'<i class="fa-solid fa-key"></i> ' +
+
+'Exam PINs - ' +
+
+esc(examCode);
+
+
+pinList.innerHTML = `
+
+<tr>
+
+<td colspan="5">
+
+Loading PINs...
+
+</td>
+
+</tr>
+
+`;
+
+
+try{
+
+
+const snap =
+await getDocs(
+
+query(
+
+collection(
+db,
+"cbtExamPins"
+),
+
+where(
+"examId",
+"==",
+examId
+)
+
+)
+
+);
+
+
+pinList.innerHTML =
+"";
+
+
+if(
+snap.empty
+){
+
+pinList.innerHTML = `
+
+<tr>
+
+<td colspan="5">
+
+<div class="empty">
+
+No PINs Found
+
+<br><br>
+
+इस Exam के PIN अभी generate नहीं हुए हैं।
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+/*
+=====================================================
+SORT
+=====================================================
+*/
+
+const pins=[];
+
+
+snap.forEach(
+(d)=>{
+
+pins.push({
+
+id:d.id,
+
+...d.data()
+
+});
+
+});
+
+
+pins.sort(
+(a,b)=>
+String(a.studentRoll)
+.localeCompare(
+String(b.studentRoll),
+undefined,
+{
+numeric:true
+}
+)
+);
+
+
+pins.forEach(
+(x)=>{
+
+
+pinList.innerHTML += `
+
+<tr>
+
+<td>
+
+<b>
+${esc(x.studentRoll)}
+</b>
+
+</td>
+
+
+<td>
+
+${esc(x.studentName || "-")}
+
+</td>
+
+
+<td>
+
+${esc(x.studentClass || "-")}
+
+</td>
+
+
+<td>
+
+<span class="pin-code">
+
+${esc(x.pin)}
+
+</span>
+
+</td>
+
+
+<td>
+
+<button
+class="resetBtn"
+onclick="resetPin(
+'${esc(x.id)}',
+'${esc(x.studentRoll)}',
+'${esc(examId)}',
+'${esc(examCode)}'
+)">
+
+<i class="fa-solid fa-rotate"></i>
+
+Reset
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+catch(error){
+
+console.error(
+"VIEW PIN ERROR:",
+error
+);
+
+
+pinList.innerHTML = `
+
+<tr>
+
+<td colspan="5">
+
+Unable to load PINs.
+
+</td>
+
+</tr>
+
+`;
+
+}
+
+};
+
+
+/* =====================================================
+   RESET PIN
+===================================================== */
+
+window.resetPin =
+async function(
+docId,
+roll,
+examId,
+examCode
+){
+
+
+const ok =
+confirm(
+
+`क्या ${roll} का Exam PIN Reset करना चाहते हैं?\n\nपुराना PIN तुरंत काम करना बंद कर देगा।`
+
+);
+
+
+if(!ok){
+
+return;
+
+}
+
+
+try{
+
+
+const newPin =
+generatePin();
+
+
+await setDoc(
+
+doc(
+db,
+"cbtExamPins",
+docId
+),
+
+{
+
+pin:
+newPin,
+
+updatedAt:
+serverTimestamp()
+
+},
+
+{
+
+merge:true
+
+}
+
+);
+
+
+alert(
+
+`PIN Reset Successfully\n\nRoll: ${roll}\nNew PIN: ${newPin}`
+
+);
+
+
+/*
+   Reload PIN list
+*/
+
+viewPins(
+examId,
+examCode
+);
+
+
+}
+catch(error){
+
+console.error(
+"RESET PIN ERROR:",
+error
+);
+
+
+alert(
+"PIN reset नहीं हुआ।"
+);
+
+}
+
+};
+
+
+/* =====================================================
+   CLOSE PIN MODAL
+===================================================== */
+
+window.closePinModal =
+function(){
+
+pinModal.style.display =
+"none";
+
+};
+
+
+/* =====================================================
+   CLICK OUTSIDE MODAL
+===================================================== */
+
+pinModal.addEventListener(
+"click",
+function(event){
+
+if(
+event.target ===
+pinModal
+){
+
+closePinModal();
+
+}
+
+});
+
+
+/* =====================================================
+   OPEN QUESTIONS
+===================================================== */
+
+window.openQuestions =
+function(id){
+
+location.href =
+"add-questions.html?testId="+id;
+
+};
+
+
+/* =====================================================
+   DELETE TEST
+===================================================== */
+
+window.deleteTest =
+async function(
+id,
+testName
+){
+
+
+const confirmed =
+confirm(
+
+`⚠️ DELETE TEST
+
+Test:
+${testName || "Selected Test"}
+
+यह Test delete करने पर:
+
+✓ Test delete होगा
+✓ Questions delete होंगे
+✓ Student Responses delete होंगे
+✓ Results delete होंगे
+✓ इस Exam के Student PINs delete होंगे
+
+लेकिन:
+
+✓ Question Bank सुरक्षित रहेगा
+✓ दूसरे Tests सुरक्षित रहेंगे
+
+क्या आप सच में Delete करना चाहते हैं?`
+
+);
+
+
+if(!confirmed){
+
+return;
+
+}
+
+
+try{
+
+
+/*
+=====================================================
+QUESTIONS
+=====================================================
+*/
+
+const questionSnap =
+await getDocs(
+
+query(
+
+collection(
+db,
+"cbtQuestions"
+),
+
+where(
+"testId",
+"==",
+id
+)
+
+)
+
+);
+
+
+/*
+=====================================================
+RESPONSES
+=====================================================
+*/
+
+const responseSnap =
+await getDocs(
+
+query(
+
+collection(
+db,
+"cbtResponses"
+),
+
+where(
+"examId",
+"==",
+id
+)
+
+)
+
+);
+
+
+/*
+=====================================================
+RESULTS
+=====================================================
+*/
+
+const resultSnap =
+await getDocs(
+
+query(
+
+collection(
+db,
+"cbtResults"
+),
+
+where(
+"examId",
+"==",
+id
+)
+
+)
+
+);
+
+
+/*
+=====================================================
+EXAM PINS
+=====================================================
+*/
+
+const pinSnap =
+await getDocs(
+
+query(
+
+collection(
+db,
+"cbtExamPins"
+),
+
+where(
+"examId",
+"==",
+id
+)
+
+)
+
+);
+
+
+/*
+=====================================================
+DELETE REFERENCES
+=====================================================
+*/
+
+const deleteRefs=[];
+
+
+/* Questions */
+
+questionSnap.forEach(
+(d)=>{
+
+deleteRefs.push(
+doc(
+db,
+"cbtQuestions",
+d.id
+)
+);
+
+});
+
+
+/* Responses */
+
+responseSnap.forEach(
+(d)=>{
+
+deleteRefs.push(
+doc(
+db,
+"cbtResponses",
+d.id
+)
+);
+
+});
+
+
+/* Results */
+
+resultSnap.forEach(
+(d)=>{
+
+deleteRefs.push(
+doc(
+db,
+"cbtResults",
+d.id
+)
+);
+
+});
+
+
+/* PINs */
+
+pinSnap.forEach(
+(d)=>{
+
+deleteRefs.push(
+doc(
+db,
+"cbtExamPins",
+d.id
+)
+);
+
+});
+
+
+/*
+=====================================================
+BATCH DELETE
+=====================================================
+*/
+
+const chunkSize =
+400;
+
+
+for(
+let start=0;
+start<deleteRefs.length;
+start+=chunkSize
+){
+
+
+const chunk =
+deleteRefs.slice(
+start,
+start+chunkSize
+);
+
+
+const batch =
+writeBatch(db);
+
+
+chunk.forEach(
+(ref)=>{
+
+batch.delete(ref);
+
+});
+
+
+await batch.commit();
+
+}
+
+
+/*
+=====================================================
+DELETE TEST
+=====================================================
+*/
+
+await deleteDoc(
+
+doc(
+db,
+"cbtTests",
+id
+)
+
+);
+
+
+showStatus(
+
+`"${testName || "Test"}" और उसका पूरा Exam Data Delete हो गया।`
+
+);
+
+
+}
+catch(error){
+
+console.error(
+"DELETE ERROR:",
+error
+);
+
+
+showStatus(
+
+"Test Delete नहीं हुआ: " +
+error.message,
+
+"error"
+
+);
+
+}
+
+};
+
+
+/* =====================================================
+   AUTO EXAM CODE
+===================================================== */
+
+function generateCode(){
+
+
+const subject =
+document.getElementById(
+"subject"
+).value;
+
+
+const cls =
+document.getElementById(
+"class"
+).value;
+
+
+if(
+
+subject ===
+"Select Subject" ||
+
+cls ===
+"Select Class"
+
+){
+
+return;
+
+}
+
+
+const prefix =
+subject
+.substring(0,3)
+.toUpperCase();
+
+
+const classNo =
+cls.replace(
+"Class ",
+""
+);
+
+
+const random =
+Math.floor(
+100+
+Math.random()*900
+);
+
+
+document.getElementById(
+"examCode"
+).value =
+
+prefix+
+classNo+
+random;
+
+}
+
+
+document.getElementById(
+"subject"
+).addEventListener(
+"change",
+generateCode
+);
+
+
+document.getElementById(
+"class"
+).addEventListener(
+"change",
+generateCode
+);
+
+
+/* =====================================================
+   CLEAR FORM
+===================================================== */
+
+function clearForm(){
+
+
+document.getElementById(
+"testName"
+).value="";
+
+
+document.getElementById(
+"class"
+).selectedIndex=0;
+
+
+document.getElementById(
+"subject"
+).selectedIndex=0;
+
+
+document.getElementById(
+"examCode"
+).value="";
+
+
+document.getElementById(
+"duration"
+).value="";
+
+
+document.getElementById(
+"questions"
+).value="";
+
+
+document.getElementById(
+"marks"
+).value="";
+
+
+document.getElementById(
+"start"
+).value="";
+
+
+document.getElementById(
+"end"
+).value="";
+
+
+document.getElementById(
+"status"
+).selectedIndex=0;
+
+}
+
+</script>
+
+</body>
+
+  </html>
