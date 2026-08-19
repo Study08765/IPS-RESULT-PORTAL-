@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>CBT Exam | THE STUDY POINT</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef4ff;
+padding:15px;
+}
+
+.container{
+max-width:950px;
+margin:auto;
+}
+
+.header{
+
+background:
+linear-gradient(
+135deg,
+#0052D4,
+#3B82F6
+);
+
+color:#fff;
+
+padding:20px;
+
+border-radius:20px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+box-shadow:
+0 8px 25px
+rgba(0,82,212,.25);
+}
+
+.header h2{
+font-size:28px;
+font-weight:700;
+}
+
+.header p{
+font-size:14px;
+opacity:.9;
+}
+
+.timer{
+
+background:#fff;
+
+color:#0052D4;
+
+padding:12px 18px;
+
+border-radius:15px;
+
+text-align:center;
+
+min-width:120px;
+}
+
+.timer h2{
+font-size:28px;
+margin-top:5px;
+}
+
+.student-card,
+.progress-card,
+.question-card,
+.palette{
+
+background:#fff;
+
+margin-top:18px;
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:
+0 6px 20px
+rgba(0,0,0,.08);
+}
+
+.student-card{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:15px;
+}
+
+.student-card div{
+
+background:#f7faff;
+
+padding:15px;
+
+border-radius:15px;
+
+text-align:center;
+}
+
+.student-card small{
+color:#666;
+}
+
+.student-card h3{
+
+margin-top:6px;
+
+color:#0052D4;
+}
+
+.progress-text{
+
+font-weight:600;
+
+margin-bottom:12px;
+}
+
+.progress-bar{
+
+height:10px;
+
+background:#e4ebff;
+
+border-radius:20px;
+
+overflow:hidden;
+}
+
+#progressFill{
+
+width:0%;
+
+height:100%;
+
+background:#0052D4;
+
+transition:.3s;
+}
+
+.question-card h3{
+
+margin-bottom:20px;
+
+font-size:22px;
+
+line-height:1.6;
+}
+
+.options label{
+
+display:block;
+
+padding:16px;
+
+margin-bottom:12px;
+
+border:2px solid #dce6ff;
+
+border-radius:15px;
+
+cursor:pointer;
+
+transition:.2s;
+
+background:#fff;
+}
+
+.options label:hover{
+
+border-color:#0052D4;
+
+background:#f5f9ff;
+}
+
+.options input{
+margin-right:10px;
+}
+
+.buttons{
+
+display:flex;
+
+gap:15px;
+
+margin-top:18px;
+}
+
+.buttons button{
+
+flex:1;
+
+padding:16px;
+
+border:none;
+
+border-radius:15px;
+
+background:#0052D4;
+
+color:#fff;
+
+font-size:18px;
+
+font-weight:600;
+
+cursor:pointer;
+}
+
+.buttons button:disabled{
+
+opacity:.5;
+
+cursor:not-allowed;
+
+}
+
+.palette h3{
+margin-bottom:15px;
+}
+
+#paletteContainer{
+
+display:grid;
+
+grid-template-columns:
+repeat(
+auto-fill,
+minmax(45px,1fr)
+);
+
+gap:10px;
+}
+
+#paletteContainer button{
+
+height:45px;
+
+border:none;
+
+border-radius:12px;
+
+background:#edf3ff;
+
+font-weight:700;
+
+cursor:pointer;
+}
+
+#submitBtn{
+
+width:100%;
+
+margin-top:20px;
+
+padding:18px;
+
+border:none;
+
+border-radius:18px;
+
+background:#16a34a;
+
+color:#fff;
+
+font-size:22px;
+
+font-weight:700;
+
+cursor:pointer;
+
+box-shadow:
+0 8px 20px
+rgba(22,163,74,.25);
+}
+
+#submitBtn:disabled{
+
+opacity:.65;
+
+cursor:not-allowed;
+
+}
+
+.security{
+
+margin-top:15px;
+
+padding:10px 14px;
+
+border-radius:12px;
+
+background:
+#ecfdf5;
+
+border:
+1px solid #bbf7d0;
+
+color:#166534;
+
+font-size:12px;
+
+font-weight:700;
+
+text-align:center;
+}
+
+.loading{
+
+position:fixed;
+
+inset:0;
+
+background:
+rgba(15,23,42,.88);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+z-index:9999;
+
+color:#fff;
+
+font-weight:700;
+
+}
+
+.loading-box{
+
+padding:30px;
+
+border-radius:22px;
+
+background:
+rgba(255,255,255,.10);
+
+text-align:center;
+
+backdrop-filter:blur(15px);
+}
+
+.spinner{
+
+width:45px;
+
+height:45px;
+
+border:
+4px solid
+rgba(255,255,255,.25);
+
+border-top-color:#fff;
+
+border-radius:50%;
+
+animation:
+spin .8s linear infinite;
+
+margin:
+0 auto 15px;
+}
+
+@keyframes spin{
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+@media(max-width:768px){
+
+.header{
+
+flex-direction:column;
+
+gap:15px;
+
+text-align:center;
+}
+
+.student-card{
+
+grid-template-columns:1fr;
+}
+
+.buttons{
+
+flex-direction:column;
+}
+
+.header h2{
+font-size:23px;
+}
+
+.question-card h3{
+font-size:19px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ==========================================
+     SECURITY LOADING
+========================================== -->
+
+<div
+id="loading"
+class="loading">
+
+<div class="loading-box">
+
+<div class="spinner"></div>
+
+<div>
+Verifying Secure Exam Session...
+</div>
+
+</div>
+
+</div>
+
+
+<div
+class="container"
+id="examContainer"
+style="display:none;">
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<div class="header">
+
+<div>
+
+<h2>
+THE STUDY POINT
+</h2>
+
+<p>
+Computer Based Test (CBT)
+</p>
+
+</div>
+
+
+<div class="timer">
+
+<span>
+Time Left
+</span>
+
+<h2 id="timer">
+00:00
+</h2>
+
+</div>
+
+</div>
+
+
+<!-- ==========================================
+     STUDENT
+========================================== -->
+
+<div class="student-card">
+
+<div>
+
+<small>
+Name
+</small>
+
+<h3 id="studentName">
+-
+</h3>
+
+</div>
+
+
+<div>
+
+<small>
+Roll No
+</small>
+
+<h3 id="studentRoll">
+-
+</h3>
+
+</div>
+
+
+<div>
+
+<small>
+Class
+</small>
+
+<h3 id="studentClass">
+-
+</h3>
+
+</div>
+
+</div>
+
+
+<!-- ==========================================
+     SECURITY STATUS
+========================================== -->
+
+<div class="security">
+
+🔐 Secure Exam Session Verified
+
+</div>
+
+
+<!-- ==========================================
+     PROGRESS
+========================================== -->
+
+<div class="progress-card">
+
+<div class="progress-text">
+
+Question
+
+<span id="currentQuestion">
+1
+</span>
+
+/
+
+<span id="totalQuestions">
+0
+</span>
+
+</div>
+
+
+<div class="progress-bar">
+
+<div id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==========================================
+     QUESTION
+========================================== -->
+
+<div class="question-card">
+
+<h3 id="questionText">
+Loading Question...
+</h3>
+
+
+<div class="options">
+
+<label>
+
+<input
+type="radio"
+name="answer"
+value="A">
+
+<span id="optionA">
+</span>
+
+</label>
+
+
+<label>
+
+<input
+type="radio"
+name="answer"
+value="B">
+
+<span id="optionB">
+</span>
+
+</label>
+
+
+<label>
+
+<input
+type="radio"
+name="answer"
+value="C">
+
+<span id="optionC">
+</span>
+
+</label>
+
+
+<label>
+
+<input
+type="radio"
+name="answer"
+value="D">
+
+<span id="optionD">
+</span>
+
+</label>
+
+</div>
+
+</div>
+
+
+<!-- ==========================================
+     NAVIGATION
+========================================== -->
+
+<div class="buttons">
+
+<button id="prevBtn">
+◀ Previous
+</button>
+
+<button id="nextBtn">
+Next ▶
+</button>
+
+</div>
+
+
+<!-- ==========================================
+     PALETTE
+========================================== -->
+
+<div class="palette">
+
+<h3>
+Question Palette
+</h3>
+
+<div id="paletteContainer">
+</div>
+
+</div>
+
+
+<!-- ==========================================
+     SUBMIT
+========================================== -->
+
+<button id="submitBtn">
+Submit Exam
+</button>
+
+
+</div>
+
+
+<script type="module">
+
+
+import { db }
+from "./firebase.js";
+
+
+import {
+
+collection,
+query,
+where,
+getDocs,
+doc,
+getDoc,
+setDoc,
+serverTimestamp
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const loading =
+document.getElementById(
+"loading"
+);
+
+const examContainer =
+document.getElementById(
+"examContainer"
+);
+
+const studentName =
+document.getElementById(
+"studentName"
+);
+
+const studentRoll =
+document.getElementById(
+"studentRoll"
+);
+
+const studentClass =
+document.getElementById(
+"studentClass"
+);
+
+const questionText =
+document.getElementById(
+"questionText"
+);
+
+const optionA =
+document.getElementById(
+"optionA"
+);
+
+const optionB =
+document.getElementById(
+"optionB"
+);
+
+const optionC =
+document.getElementById(
+"optionC"
+);
+
+const optionD =
+document.getElementById(
+"optionD"
+);
+
+const totalQuestions =
+document.getElementById(
+"totalQuestions"
+);
+
+const currentQuestion =
+document.getElementById(
+"currentQuestion"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const timer =
+document.getElementById(
+"timer"
+);
+
+const submitBtn =
+document.getElementById(
+"submitBtn"
+);
+
+const prevBtn =
+document.getElementById(
+"prevBtn"
+);
+
+const nextBtn =
+document.getElementById(
+"nextBtn"
+);
+
+const paletteContainer =
+document.getElementById(
+"paletteContainer"
+);
+
+
+/* =====================================================
+   SESSION
+===================================================== */
+
+const examId =
+sessionStorage.getItem(
+"examId"
+);
+
+const studentRollValue =
+sessionStorage.getItem(
+"studentRoll"
+);
+
+const verified =
+sessionStorage.getItem(
+"examPinVerified"
+);
+
+const verifiedExamId =
+sessionStorage.getItem(
+"verifiedExamId"
+);
+
+const verifiedStudentRoll =
+sessionStorage.getItem(
+"verifiedStudentRoll"
+);
+
+const dashboardVerified =
+sessionStorage.getItem(
+"examDashboardVerified"
+);
+
+const startAllowed =
+sessionStorage.getItem(
+"examStartAllowed"
+);
+
+
+/* =====================================================
+   BASIC SECURITY
+===================================================== */
+
+if(
+
+verified !== "true" ||
+
+dashboardVerified !== "true" ||
+
+startAllowed !== "true" ||
+
+!examId ||
+
+!studentRollValue ||
+
+verifiedExamId !== examId ||
+
+verifiedStudentRoll !== studentRollValue
+
+){
+
+alert(
+"🔐 Exam Access Denied.\n\nPlease login using Roll Number and Exam PIN."
+);
+
+location.replace(
+"student-cbt.html"
+);
+
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let timeLeft = 0;
+
+let timerInterval = null;
+
+let questions = [];
+
+let currentIndex = 0;
+
+let answers = {};
+
+let examSubmitted = false;
+
+
+/* =====================================================
+   VERIFY STUDENT PIN RECORD
+===================================================== */
+
+async function verifyStudentPin(){
+
+const pinDocId =
+examId +
+"_" +
+studentRollValue;
+
+
+const pinSnap =
+await getDoc(
+
+doc(
+db,
+"cbtExamPins",
+pinDocId
+)
+
+);
+
+
+if(
+!pinSnap.exists()
+){
+
+throw new Error(
+"Student PIN record not found."
+);
+
+}
+
+
+const pinData =
+pinSnap.data();
+
+
+const pinExam =
+String(
+pinData.examId || ""
+).trim();
+
+
+const pinRoll =
+String(
+pinData.studentRoll || ""
+).trim().toUpperCase();
+
+
+const currentRoll =
+String(
+studentRollValue
+).trim().toUpperCase();
+
+
+if(
+pinExam !==
+String(examId)
+){
+
+throw new Error(
+"Exam PIN exam mismatch."
+);
+
+}
+
+
+if(
+pinRoll !==
+currentRoll
+){
+
+throw new Error(
+"Exam PIN student mismatch."
+);
+
+}
+
+
+if(
+!String(
+pinData.pin || ""
+).trim()
+){
+
+throw new Error(
+"PIN unavailable."
+);
+
+}
+
+
+return true;
+
+}
+
+
+/* =====================================================
+   LOAD EXAM + QUESTIONS
+===================================================== */
+
+async function loadQuestions(){
+
+try{
+
+
+/* ==============================================
+   VERIFY STUDENT PIN RECORD
+============================================== */
+
+await verifyStudentPin();
+
+
+/* ==============================================
+   GET EXAM
+============================================== */
+
+const examSnap =
+await getDoc(
+
+doc(
+db,
+"cbtTests",
+examId
+)
+
+);
+
+
+if(
+!examSnap.exists()
+){
+
+throw new Error(
+"Exam not found."
+);
+
+}
+
+
+const exam =
+examSnap.data();
+
+
+/* ==============================================
+   EXAM STATUS
+============================================== */
+
+if(
+exam.status !==
+"OPEN"
+){
+
+throw new Error(
+"Exam is not open."
+);
+
+}
+
+
+/* ==============================================
+   EXAM TIME
+============================================== */
+
+const now =
+new Date();
+
+
+const start =
+new Date(
+exam.start
+);
+
+const end =
+new Date(
+exam.end
+);
+
+
+if(
+isNaN(start.getTime()) ||
+isNaN(end.getTime())
+){
+
+throw new Error(
+"Invalid exam schedule."
+);
+
+}
+
+
+if(
+now < start
+){
+
+throw new Error(
+"Exam has not started."
+);
+
+}
+
+
+if(
+now > end
+){
+
+throw new Error(
+"Exam time expired."
+);
+
+}
+
+
+/* ==============================================
+   PREVIOUS SUBMISSION CHECK
+============================================== */
+
+const responseId =
+examId +
+"_" +
+studentRollValue;
+
+
+const responseSnap =
+await getDoc(
+
+doc(
+db,
+"cbtResponses",
+responseId
+)
+
+);
+
+
+if(
+responseSnap.exists()
+){
+
+const response =
+responseSnap.data();
+
+
+if(
+response.submitted === true &&
+response.allowRetest === false
+){
+
+throw new Error(
+"This exam has already been submitted."
+);
+
+}
+
+}
+
+
+/* ==============================================
+   STUDENT DISPLAY
+============================================== */
+
+studentName.textContent =
+sessionStorage.getItem(
+"studentName"
+) || "";
+
+studentRoll.textContent =
+studentRollValue || "";
+
+studentClass.textContent =
+sessionStorage.getItem(
+"studentClass"
+) || "";
+
+
+/* ==============================================
+   TIMER
+============================================== */
+
+timeLeft =
+Number(
+exam.duration
+) * 60;
+
+
+if(
+!Number.isFinite(timeLeft) ||
+timeLeft <= 0
+){
+
+throw new Error(
+"Invalid exam duration."
+);
+
+}
+
+
+startTimer();
+
+
+/* ==============================================
+   QUESTIONS
+============================================== */
+
+const q =
+query(
+
+collection(
+db,
+"cbtQuestions"
+),
+
+where(
+"testId",
+"==",
+examId
+)
+
+);
+
+
+const snap =
+await getDocs(q);
+
+
+questions = [];
+
+
+snap.forEach(
+docSnap=>{
+
+questions.push({
+
+id:
+docSnap.id,
+
+...docSnap.data()
+
+});
+
+});
+
+
+if(
+questions.length === 0
+){
+
+throw new Error(
+"No questions found."
+);
+
+}
+
+
+totalQuestions.textContent =
+questions.length;
+
+
+createPalette();
+
+showQuestion();
+
+
+/* ==============================================
+   SHOW EXAM
+============================================== */
+
+loading.style.display =
+"none";
+
+examContainer.style.display =
+"block";
+
+
+}
+catch(error){
+
+console.error(
+"EXAM SECURITY ERROR:",
+error
+);
+
+clearInterval(
+timerInterval
+);
+
+
+loading.style.display =
+"none";
+
+
+alert(
+"⚠️ " +
+(
+error.message ||
+"Exam verification failed."
+)
+);
+
+
+sessionStorage.removeItem(
+"examPinVerified"
+);
+
+sessionStorage.removeItem(
+"verifiedExamId"
+);
+
+sessionStorage.removeItem(
+"verifiedStudentRoll"
+);
+
+sessionStorage.removeItem(
+"examDashboardVerified"
+);
+
+sessionStorage.removeItem(
+"examStartAllowed"
+);
+
+sessionStorage.removeItem(
+"examId"
+);
+
+sessionStorage.removeItem(
+"examCode"
+);
+
+
+location.replace(
+"student-cbt.html"
+);
+
+}
+
+}
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+function startTimer(){
+
+clearInterval(
+timerInterval
+);
+
+
+updateTimer();
+
+
+timerInterval =
+setInterval(
+()=>{
+
+
+updateTimer();
+
+
+if(
+timeLeft <= 0
+){
+
+clearInterval(
+timerInterval
+);
+
+submitExam(true);
+
+return;
+
+}
+
+
+timeLeft--;
+
+
+},
+1000
+);
+
+}
+
+
+function updateTimer(){
+
+const minutes =
+Math.floor(
+timeLeft / 60
+);
+
+const seconds =
+timeLeft % 60;
+
+
+timer.textContent =
+String(minutes)
+.padStart(2,"0")
++
+":"+
+String(seconds)
+.padStart(2,"0");
+
+
+if(
+timeLeft <= 60
+){
+
+timer.style.color =
+"#dc2626";
+
+}
+
+}
+
+
+/* =====================================================
+   SHOW QUESTION
+===================================================== */
+
+function showQuestion(){
+
+const q =
+questions[
+currentIndex
+];
+
+
+if(!q){
+return;
+}
+
+
+questionText.textContent =
+q.question || "";
+
+
+optionA.textContent =
+q.optionA || "";
+
+optionB.textContent =
+q.optionB || "";
+
+optionC.textContent =
+q.optionC || "";
+
+optionD.textContent =
+q.optionD || "";
+
+
+document
+.querySelectorAll(
+"input[name='answer']"
+)
+.forEach(
+radio=>{
+
+radio.checked =
+answers[q.id] ===
+radio.value;
+
+});
+
+
+currentQuestion.textContent =
+currentIndex + 1;
+
+
+progressFill.style.width =
+(
+(currentIndex + 1) /
+questions.length
+) *
+100 +
+"%";
+
+
+highlightPalette();
+
+}
+
+
+/* =====================================================
+   SAVE ANSWER
+===================================================== */
+
+function saveCurrentAnswer(){
+
+const selected =
+document.querySelector(
+"input[name='answer']:checked"
+);
+
+
+if(
+selected
+){
+
+const q =
+questions[
+currentIndex
+];
+
+
+answers[q.id] =
+selected.value;
+
+}
+
+}
+
+
+/* =====================================================
+   PALETTE
+===================================================== */
+
+function createPalette(){
+
+paletteContainer.innerHTML =
+"";
+
+
+for(
+let i=0;
+i<questions.length;
+i++
+){
+
+const btn =
+document.createElement(
+"button"
+);
+
+
+btn.textContent =
+i + 1;
+
+
+btn.onclick =
+()=>{
+
+saveCurrentAnswer();
+
+currentIndex =
+i;
+
+showQuestion();
+
+};
+
+
+paletteContainer.appendChild(
+btn
+);
+
+}
+
+
+highlightPalette();
+
+}
+
+
+function highlightPalette(){
+
+const buttons =
+paletteContainer
+.querySelectorAll(
+"button"
+);
+
+
+buttons.forEach(
+(btn,index)=>{
+
+
+btn.style.background =
+"#edf3ff";
+
+btn.style.color =
+"#000";
+
+
+if(
+answers[
+questions[index]?.id
+]
+){
+
+btn.style.background =
+"#16a34a";
+
+btn.style.color =
+"#fff";
+
+}
+
+
+if(
+index ===
+currentIndex
+){
+
+btn.style.background =
+"#0052D4";
+
+btn.style.color =
+"#fff";
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+nextBtn.onclick =
+()=>{
+
+saveCurrentAnswer();
+
+
+if(
+currentIndex <
+questions.length - 1
+){
+
+currentIndex++;
+
+showQuestion();
+
+}
+
+};
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
+prevBtn.onclick =
+()=>{
+
+saveCurrentAnswer();
+
+
+if(
+currentIndex > 0
+){
+
+currentIndex--;
+
+showQuestion();
+
+}
+
+};
+
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+async function submitExam(
+autoSubmit = false
+){
+
+if(
+examSubmitted
+){
+
+return;
+
+}
+
+
+if(
+!autoSubmit
+){
+
+const ok =
+confirm(
+
+"क्या आप वाकई परीक्षा सबमिट करना चाहते हैं?\n\nसबमिट करने के बाद दोबारा परीक्षा नहीं दे पाएंगे।"
+
+);
+
+
+if(
+!ok
+){
+
+return;
+
+}
+
+}
+
+
+examSubmitted =
+true;
+
+
+clearInterval(
+timerInterval
+);
+
+
+saveCurrentAnswer();
+
+
+submitBtn.disabled =
+true;
+
+
+submitBtn.textContent =
+"Submitting...";
+
+
+/* ==============================================
+   FINAL SECURITY CHECK
+============================================== */
+
+if(
+
+sessionStorage.getItem(
+"examPinVerified"
+) !== "true" ||
+
+sessionStorage.getItem(
+"verifiedExamId"
+) !== examId ||
+
+sessionStorage.getItem(
+"verifiedStudentRoll"
+) !== studentRollValue
+
+){
+
+alert(
+"Exam security verification failed."
+);
+
+location.replace(
+"student-cbt.html"
+);
+
+return;
+
+}
+
+
+/* ==============================================
+   CALCULATE RESULT
+============================================== */
+
+let correct =
+0;
+
+
+questions.forEach(
+q=>{
+
+if(
+answers[q.id] ===
+q.answer
+){
+
+correct++;
+
+}
+
+});
+
+
+const total =
+questions.length;
+
+
+const wrong =
+total -
+correct;
+
+
+const percentage =
+total > 0
+?
+(
+(correct / total) *
+100
+).toFixed(2)
+:
+"0.00";
+
+
+const result =
+Number(percentage) >= 33
+?
+"PASS"
+:
+"FAIL";
+
+
+/* ==============================================
+   STUDENT DATA
+============================================== */
+
+const studentNameValue =
+sessionStorage.getItem(
+"studentName"
+) || "";
+
+const studentClassValue =
+sessionStorage.getItem(
+"studentClass"
+) || "";
+
+
+/* ==============================================
+   RESPONSE
+============================================== */
+
+await setDoc(
+
+doc(
+db,
+"cbtResponses",
+examId +
+"_" +
+studentRollValue
+),
+
+{
+
+studentRoll:
+studentRollValue,
+
+studentName:
+studentNameValue,
+
+studentClass:
+studentClassValue,
+
+examId:
+examId,
+
+submitted:
+true,
+
+allowRetest:
+false,
+
+answers:
+answers,
+
+submittedAt:
+serverTimestamp()
+
+}
+
+);
+
+
+/* ==============================================
+   RESULT
+============================================== */
+
+await setDoc(
+
+doc(
+db,
+"cbtResults",
+examId +
+"_" +
+studentRollValue
+),
+
+{
+
+studentRoll:
+studentRollValue,
+
+studentName:
+studentNameValue,
+
+studentClass:
+studentClassValue,
+
+examId:
+examId,
+
+correct:
+correct,
+
+wrong:
+wrong,
+
+totalQuestions:
+total,
+
+percentage:
+Number(percentage),
+
+result:
+result,
+
+answers:
+answers,
+
+submittedAt:
+serverTimestamp()
+
+}
+
+);
+
+
+/* ==============================================
+   DESTROY EXAM SESSION
+============================================== */
+
+sessionStorage.removeItem(
+"examPinVerified"
+);
+
+sessionStorage.removeItem(
+"verifiedExamId"
+);
+
+sessionStorage.removeItem(
+"verifiedStudentRoll"
+);
+
+sessionStorage.removeItem(
+"examDashboardVerified"
+);
+
+sessionStorage.removeItem(
+"examStartAllowed"
+);
+
+sessionStorage.removeItem(
+"examId"
+);
+
+sessionStorage.removeItem(
+"examCode"
+);
+
+
+/* ==============================================
+   SUCCESS
+============================================== */
+
+location.href =
+"submit-success.html";
+
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+submitBtn.onclick =
+()=>{
+
+submitExam(false);
+
+};
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+history.pushState(
+null,
+null,
+location.href
+);
+
+
+window.addEventListener(
+"popstate",
+function(){
+
+history.pushState(
+null,
+null,
+location.href
+);
+
+alert(
+"Exam के दौरान Back जाना अनुमति नहीं है।"
+);
+
+});
+
+
+/* =====================================================
+   REFRESH WARNING
+===================================================== */
+
+window.addEventListener(
+"beforeunload",
+function(e){
+
+if(
+examSubmitted
+){
+
+return;
+
+}
+
+e.preventDefault();
+
+e.returnValue = "";
+
+});
+
+
+/* =====================================================
+   COPY DISABLE
+===================================================== */
+
+document.addEventListener(
+"copy",
+e=>
+e.preventDefault()
+);
+
+
+/* =====================================================
+   CUT DISABLE
+===================================================== */
+
+document.addEventListener(
+"cut",
+e=>
+e.preventDefault()
+);
+
+
+/* =====================================================
+   PASTE DISABLE
+===================================================== */
+
+document.addEventListener(
+"paste",
+e=>
+e.preventDefault()
+);
+
+
+/* =====================================================
+   RIGHT CLICK
+===================================================== */
+
+document.addEventListener(
+"contextmenu",
+e=>
+e.preventDefault()
+);
+
+
+/* =====================================================
+   KEYBOARD SHORTCUTS
+===================================================== */
+
+document.addEventListener(
+"keydown",
+function(e){
+
+if(
+
+e.key === "F12" ||
+
+(
+e.ctrlKey &&
+e.shiftKey &&
+["I","J","C"]
+.includes(
+e.key.toUpperCase()
+)
+) ||
+
+(
+e.ctrlKey &&
+e.key.toUpperCase() === "U"
+) ||
+
+(
+e.ctrlKey &&
+e.key.toUpperCase() === "R"
+) ||
+
+e.key === "F5"
+
+){
+
+e.preventDefault();
+
+}
+
+});
+
+
+/* =====================================================
+   TAB CHANGE
+===================================================== */
+
+document.addEventListener(
+"visibilitychange",
+function(){
+
+if(
+document.hidden
+){
+
+/*
+   Tab change detected.
+   You can later add an attempt counter here.
+*/
+
+}
+
+});
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadQuestions();
+
+</script>
+
+</body>
+
+  </html>
