@@ -1,0 +1,2758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THE STUDY POINT | Coaching Management</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#07111f;
+    --navy2:#0c2036;
+    --blue:#1264d8;
+    --gold:#d6ad55;
+    --gold2:#f4d889;
+    --green:#0a9b63;
+    --orange:#c88716;
+    --red:#cf343f;
+    --text:#172033;
+    --muted:#718096;
+    --border:#e4eaf1;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:
+    radial-gradient(circle at top right,
+    rgba(30,136,255,.08),
+    transparent 32%),
+    linear-gradient(135deg,#f7faff,#edf3fa);
+    color:var(--text);
+    min-height:100vh;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+
+/* HEADER */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    min-height:76px;
+    padding:12px 26px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(7,17,31,.97);
+    border-bottom:1px solid rgba(214,173,85,.28);
+    box-shadow:0 10px 35px rgba(0,0,0,.18);
+    backdrop-filter:blur(15px);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-logo{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold2);
+    background:linear-gradient(145deg,#18324f,#07111f);
+    border:1px solid rgba(244,216,137,.45);
+    font-size:21px;
+}
+
+.brand h1{
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-size:20px;
+    font-weight:800;
+}
+
+.brand p{
+    color:#9caabd;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.back-btn{
+    border:1px solid rgba(244,216,137,.4);
+    background:rgba(214,173,85,.10);
+    color:var(--gold2);
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:10px;
+    font-weight:800;
+}
+
+.back-btn:hover{
+    background:var(--gold);
+    color:#07111f;
+}
+
+
+/* HERO */
+
+.hero-wrap{
+    padding:28px 25px 10px;
+}
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    padding:32px;
+    border-radius:26px;
+    background:
+    radial-gradient(circle at 90% 20%,
+    rgba(214,173,85,.22),
+    transparent 28%),
+    linear-gradient(135deg,#07111f,#0c2541,#103a63);
+    color:#fff;
+    border:1px solid rgba(214,173,85,.25);
+    box-shadow:0 25px 65px rgba(7,17,31,.23);
+}
+
+.hero-tag{
+    color:var(--gold2);
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.6px;
+    margin-bottom:10px;
+}
+
+.hero h2{
+    font-family:'Poppins',sans-serif;
+    font-size:30px;
+    margin-bottom:7px;
+}
+
+.hero p{
+    color:#b9c8da;
+    font-size:12px;
+    line-height:21px;
+}
+
+
+/* STATS */
+
+.stats{
+    padding:15px 25px 10px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+
+.stat{
+    background:rgba(255,255,255,.95);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px 15px;
+    box-shadow:0 15px 40px rgba(15,35,60,.08);
+}
+
+.stat-icon{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#edf4ff;
+    color:var(--blue);
+    margin-bottom:10px;
+}
+
+.stat.gold .stat-icon{
+    background:#fff7e5;
+    color:#b98418;
+}
+
+.stat.green .stat-icon{
+    background:#e7f8f0;
+    color:var(--green);
+}
+
+.stat.orange .stat-icon{
+    background:#fff5dc;
+    color:var(--orange);
+}
+
+.stat strong{
+    display:block;
+    color:#0d2744;
+    font-size:22px;
+    font-weight:800;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+
+/* MAIN */
+
+.container{
+    padding:15px 25px 40px;
+}
+
+.panel{
+    background:rgba(255,255,255,.96);
+    border:1px solid var(--border);
+    border-radius:22px;
+    box-shadow:0 18px 50px rgba(15,35,60,.09);
+    overflow:hidden;
+    margin-bottom:18px;
+}
+
+.panel-head{
+    padding:19px 21px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #edf1f6;
+}
+
+.title-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.title-icon{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff7e6;
+    color:#b6841d;
+}
+
+.panel h3{
+    font-family:'Poppins',sans-serif;
+    color:#102b49;
+    font-size:16px;
+}
+
+.panel-head p{
+    color:#8a98a9;
+    font-size:8px;
+    margin-top:2px;
+}
+
+.form{
+    padding:21px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.field label{
+    display:block;
+    color:#54677d;
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:.5px;
+    margin-bottom:6px;
+    text-transform:uppercase;
+}
+
+.field input,
+.field select{
+    width:100%;
+    height:44px;
+    border:1px solid #dce4ee;
+    border-radius:10px;
+    padding:0 11px;
+    outline:none;
+    background:#fbfdff;
+    color:#172033;
+    font-size:11px;
+}
+
+.field input:focus,
+.field select:focus{
+    border-color:#4d91e8;
+    box-shadow:0 0 0 3px rgba(30,136,255,.08);
+}
+
+.add-btn{
+    width:100%;
+    height:47px;
+    margin-top:18px;
+    border:0;
+    border-radius:11px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#b98422,#e2c36e);
+    color:#07111f;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.add-btn:disabled{
+    opacity:.6;
+}
+
+
+/* SEARCH */
+
+.search{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:13px 16px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+    box-shadow:0 8px 25px rgba(15,35,60,.06);
+}
+
+.search i{
+    color:#7890a7;
+}
+
+.search input{
+    width:100%;
+    border:0;
+    outline:0;
+    background:transparent;
+    font-size:11px;
+}
+
+
+/* STUDENT LIST */
+
+.list-panel{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:22px;
+    box-shadow:0 18px 50px rgba(15,35,60,.09);
+    overflow:hidden;
+}
+
+.list-head{
+    padding:19px 21px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #edf1f6;
+}
+
+.list-head h3{
+    font-family:'Poppins',sans-serif;
+    font-size:16px;
+    color:#102b49;
+}
+
+.count{
+    background:#edf5ff;
+    color:#075fb6;
+    border:1px solid #dbeafd;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:8px;
+    font-weight:900;
+}
+
+.list{
+    padding:17px;
+}
+
+
+/* STUDENT */
+
+.student{
+    border:1px solid #e4eaf1;
+    border-radius:17px;
+    padding:17px;
+    margin-bottom:11px;
+    background:linear-gradient(135deg,#fff,#fbfdff);
+}
+
+.student:last-child{
+    margin-bottom:0;
+}
+
+.student-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.student-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+}
+
+.avatar{
+    flex-shrink:0;
+    width:45px;
+    height:45px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#09203a,#176cc4);
+    color:#f4d889;
+    font-weight:900;
+}
+
+.student-info h4{
+    color:#12304f;
+    font-family:'Poppins',sans-serif;
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.student-info p{
+    color:#718196;
+    font-size:9px;
+    line-height:19px;
+}
+
+.student-actions{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+
+.btn{
+    border:0;
+    border-radius:8px;
+    padding:8px 10px;
+    cursor:pointer;
+    color:#fff;
+    font-size:8px;
+    font-weight:900;
+}
+
+.view-btn{
+    background:#1264d8;
+}
+
+.delete-btn{
+    background:#c92e3a;
+}
+
+.fee-area{
+    margin-top:14px;
+    padding-top:13px;
+    border-top:1px solid #edf1f6;
+}
+
+.fee-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:9px;
+}
+
+.fee-title strong{
+    color:#334a63;
+    font-size:10px;
+}
+
+.fee-title span{
+    color:#8997a8;
+    font-size:8px;
+}
+
+.fee-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:10px 11px;
+    border:1px solid #e7edf4;
+    border-radius:11px;
+    margin-bottom:7px;
+    background:#fcfdff;
+}
+
+.fee-month{
+    color:#183957;
+    font-size:9px;
+    font-weight:800;
+}
+
+.fee-amount{
+    color:#183957;
+    font-size:9px;
+    font-weight:900;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    padding:4px 8px;
+    border-radius:20px;
+    font-size:7px;
+    font-weight:900;
+}
+
+.badge-paid{
+    color:#087b4d;
+    background:#e5f8ef;
+}
+
+.badge-pending{
+    color:#a46c08;
+    background:#fff4d8;
+}
+
+.fee-actions{
+    display:flex;
+    gap:5px;
+}
+
+.paid-btn{
+    border:0;
+    background:#07905b;
+    color:#fff;
+    border-radius:7px;
+    padding:6px 8px;
+    font-size:7px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.pending-btn{
+    border:0;
+    background:#a66c08;
+    color:#fff;
+    border-radius:7px;
+    padding:6px 8px;
+    font-size:7px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:rgba(3,12,23,.72);
+    backdrop-filter:blur(8px);
+    padding:18px;
+    overflow:auto;
+}
+
+.modal.show{
+    display:block;
+}
+
+.modal-box{
+    max-width:620px;
+    margin:6vh auto;
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.modal-head{
+    padding:19px;
+    background:#07111f;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.modal-head h3{
+    font-family:'Poppins',sans-serif;
+    font-size:16px;
+}
+
+.close{
+    width:34px;
+    height:34px;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.1);
+    color:#fff;
+    cursor:pointer;
+}
+
+.modal-body{
+    padding:18px;
+}
+
+.modal-body .form-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.save-fee{
+    width:100%;
+    height:44px;
+    margin-top:15px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(135deg,#b98422,#e2c36e);
+    color:#07111f;
+    font-weight:900;
+    cursor:pointer;
+}
+
+
+/* EMPTY */
+
+.empty,
+.loading{
+    padding:50px 20px;
+    text-align:center;
+    color:#8b9aab;
+    font-size:10px;
+}
+
+.empty i,
+.loading i{
+    display:block;
+    font-size:29px;
+    margin-bottom:12px;
+    color:#b9c5d1;
+}
+
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:24px;
+    z-index:20000;
+    transform:translate(-50%,120px);
+    opacity:0;
+    padding:11px 18px;
+    border-radius:50px;
+    background:#07111f;
+    color:#fff;
+    border:1px solid rgba(214,173,85,.35);
+    font-size:9px;
+    font-weight:800;
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1050px){
+
+    .stats{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .form-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    .header{
+        min-height:67px;
+        padding:10px 14px;
+    }
+
+    .brand-logo{
+        width:42px;
+        height:42px;
+        font-size:17px;
+    }
+
+    .brand h1{
+        font-size:14px;
+    }
+
+    .brand p{
+        display:none;
+    }
+
+    .back-btn{
+        padding:9px;
+        font-size:8px;
+    }
+
+    .hero-wrap{
+        padding:17px 15px 8px;
+    }
+
+    .hero{
+        padding:24px 19px;
+        border-radius:20px;
+    }
+
+    .hero h2{
+        font-size:23px;
+    }
+
+    .hero p{
+        font-size:10px;
+    }
+
+    .stats{
+        padding:10px 15px;
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
+
+    .stat{
+        padding:14px 11px;
+        border-radius:14px;
+    }
+
+    .stat strong{
+        font-size:19px;
+    }
+
+    .container{
+        padding:10px 15px 30px;
+    }
+
+    .form-grid,
+    .modal-body .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .student-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .student-actions{
+        width:100%;
+        justify-content:flex-start;
+    }
+
+    .fee-row{
+        flex-wrap:wrap;
+    }
+
+    .fee-actions{
+        width:100%;
+    }
+
+    .paid-btn,
+    .pending-btn{
+        flex:1;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div>
+
+            <h1>
+                THE STUDY POINT
+            </h1>
+
+            <p>
+                PREMIUM COACHING MANAGEMENT
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="back-btn"
+        onclick="location.href='admin-dashboard.html'">
+
+        <i class="fa-solid fa-arrow-left"></i>
+        DASHBOARD
+
+    </button>
+
+</header>
+
+
+<!-- HERO -->
+
+<div class="hero-wrap">
+
+    <section class="hero">
+
+        <div class="hero-tag">
+            <i class="fa-solid fa-crown"></i>
+            COACHING • STUDENTS • FEES
+        </div>
+
+        <h2>
+            Coaching Student Management
+        </h2>
+
+        <p>
+            Manage student details, joining dates and
+            month-wise coaching fees from one premium dashboard.
+        </p>
+
+    </section>
+
+</div>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            <i class="fa-solid fa-users"></i>
+        </div>
+
+        <strong id="totalStudents">0</strong>
+
+        <span>TOTAL STUDENTS</span>
+
+    </div>
+
+
+    <div class="stat green">
+
+        <div class="stat-icon">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <strong id="paidCount">0</strong>
+
+        <span>PAID FEES</span>
+
+    </div>
+
+
+    <div class="stat orange">
+
+        <div class="stat-icon">
+            <i class="fa-solid fa-clock"></i>
+        </div>
+
+        <strong id="pendingCount">0</strong>
+
+        <span>PENDING FEES</span>
+
+    </div>
+
+
+    <div class="stat gold">
+
+        <div class="stat-icon">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+        </div>
+
+        <strong id="collection">₹0</strong>
+
+        <span>PAID COLLECTION</span>
+
+    </div>
+
+
+    <div class="stat orange">
+
+        <div class="stat-icon">
+            <i class="fa-solid fa-wallet"></i>
+        </div>
+
+        <strong id="pendingAmount">₹0</strong>
+
+        <span>PENDING AMOUNT</span>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- ADD STUDENT -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div class="title-box">
+
+            <div class="title-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Add New Coaching Student
+                </h3>
+
+                <p>
+                    Student details + first month fee
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="form">
+
+        <div class="form-grid">
+
+
+            <div class="field">
+
+                <label>Student Name</label>
+
+                <input
+                    id="studentName"
+                    type="text"
+                    placeholder="Student name">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Father Name</label>
+
+                <input
+                    id="fatherName"
+                    type="text"
+                    placeholder="Father name">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Class</label>
+
+                <select id="studentClass">
+
+                    <option value="">
+                        Select Class
+                    </option>
+
+                    <option>Class 1</option>
+                    <option>Class 2</option>
+                    <option>Class 3</option>
+                    <option>Class 4</option>
+                    <option>Class 5</option>
+                    <option>Class 6</option>
+                    <option>Class 7</option>
+                    <option>Class 8</option>
+                    <option>Class 9</option>
+                    <option>Class 10</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Mobile</label>
+
+                <input
+                    id="mobile"
+                    type="tel"
+                    maxlength="10"
+                    inputmode="numeric"
+                    placeholder="10 digit mobile">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Date Of Joining</label>
+
+                <input
+                    id="joiningDate"
+                    type="date">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Monthly Fees</label>
+
+                <input
+                    id="monthlyFee"
+                    type="number"
+                    min="0"
+                    placeholder="₹ Monthly fee">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Fee Month</label>
+
+                <input
+                    id="feeMonth"
+                    type="month">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Fee Status</label>
+
+                <select id="feeStatus">
+
+                    <option value="Paid">
+                        Paid
+                    </option>
+
+                    <option value="Pending">
+                        Pending
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="add-btn"
+            id="addStudentBtn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            ADD STUDENT
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="search">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input
+        id="search"
+        type="text"
+        placeholder="Search by name, father name, class or mobile...">
+
+</div>
+
+
+<!-- STUDENTS -->
+
+<section class="list-panel">
+
+    <div class="list-head">
+
+        <h3>
+            <i class="fa-solid fa-users"></i>
+            Student Directory
+        </h3>
+
+        <span
+            class="count"
+            id="studentCount">
+            0 STUDENTS
+        </span>
+
+    </div>
+
+
+    <div
+        class="list"
+        id="studentList">
+
+        <div class="loading">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Loading students...
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ADD FEE MODAL -->
+
+<div
+    class="modal"
+    id="feeModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+
+            <h3>
+                <i class="fa-solid fa-wallet"></i>
+                Add Monthly Fee
+            </h3>
+
+            <button
+                class="close"
+                id="closeModal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <input
+                type="hidden"
+                id="feeStudentId">
+
+
+            <div class="form-grid">
+
+
+                <div class="field">
+
+                    <label>Fee Month</label>
+
+                    <input
+                        id="modalFeeMonth"
+                        type="month">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Monthly Fee</label>
+
+                    <input
+                        id="modalFeeAmount"
+                        type="number"
+                        min="0"
+                        placeholder="₹ Fee">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Status</label>
+
+                    <select id="modalFeeStatus">
+
+                        <option value="Paid">
+                            Paid
+                        </option>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="save-fee"
+                id="saveFeeBtn">
+
+                <i class="fa-solid fa-save"></i>
+
+                SAVE MONTHLY FEE
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+
+    collection,
+    addDoc,
+    getDocs,
+    updateDoc,
+    deleteDoc,
+    doc,
+    query,
+    where,
+    serverTimestamp
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* COLLECTIONS */
+
+const studentsRef =
+collection(
+    db,
+    "coachingStudents"
+);
+
+const feesRef =
+collection(
+    db,
+    "coachingFees"
+);
+
+
+/* ELEMENTS */
+
+const studentList =
+document.getElementById(
+    "studentList"
+);
+
+const search =
+document.getElementById(
+    "search"
+);
+
+const toast =
+document.getElementById(
+    "toast"
+);
+
+const feeModal =
+document.getElementById(
+    "feeModal"
+);
+
+
+/* DATA */
+
+let students = [];
+
+let fees = [];
+
+
+/* TOAST */
+
+function showToast(message){
+
+    toast.textContent =
+    message;
+
+    toast.classList.add("show");
+
+    setTimeout(
+    () => {
+
+        toast.classList.remove("show");
+
+    },
+    2500
+    );
+
+}
+
+
+/* ESCAPE */
+
+function esc(value){
+
+    return String(
+        value ?? ""
+    ).replace(
+        /[&<>"']/g,
+        function(m){
+
+            return {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[m];
+
+        }
+    );
+
+}
+
+
+/* DATE */
+
+function formatDate(value){
+
+    if(!value)
+        return "-";
+
+    const parts =
+    String(value).split("-");
+
+    if(parts.length !== 3)
+        return value;
+
+    return (
+        parts[2] +
+        "/" +
+        parts[1] +
+        "/" +
+        parts[0]
+    );
+
+}
+
+
+/* MONTH */
+
+function formatMonth(value){
+
+    if(!value)
+        return "-";
+
+    const parts =
+    String(value).split("-");
+
+    if(parts.length !== 2)
+        return value;
+
+    const date =
+    new Date(
+        Number(parts[0]),
+        Number(parts[1])-1,
+        1
+    );
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+/* LOAD ALL */
+
+async function loadData(){
+
+    studentList.innerHTML = `
+
+        <div class="loading">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Loading data...
+
+        </div>
+
+    `;
+
+
+    try{
+
+        const [
+            studentSnap,
+            feeSnap
+        ] = await Promise.all([
+
+            getDocs(
+                studentsRef
+            ),
+
+            getDocs(
+                feesRef
+            )
+
+        ]);
+
+
+        students = [];
+
+        fees = [];
+
+
+        studentSnap.forEach(
+        item => {
+
+            students.push({
+
+                id:item.id,
+
+                ...item.data()
+
+            });
+
+        });
+
+
+        feeSnap.forEach(
+        item => {
+
+            fees.push({
+
+                id:item.id,
+
+                ...item.data()
+
+            });
+
+        });
+
+
+        students.sort(
+        (a,b) =>
+
+            String(
+                a.name || ""
+            ).localeCompare(
+                String(
+                    b.name || ""
+                )
+            )
+        );
+
+
+        renderStudents();
+
+        updateStats();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        studentList.innerHTML = `
+
+            <div class="empty">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                Firebase Error
+
+                <br><br>
+
+                ${esc(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* ADD STUDENT */
+
+document
+.getElementById("addStudentBtn")
+.addEventListener(
+"click",
+async function(){
+
+    const name =
+    document
+    .getElementById("studentName")
+    .value.trim();
+
+    const father =
+    document
+    .getElementById("fatherName")
+    .value.trim();
+
+    const className =
+    document
+    .getElementById("studentClass")
+    .value;
+
+    const phone =
+    document
+    .getElementById("mobile")
+    .value.trim();
+
+    const joiningDate =
+    document
+    .getElementById("joiningDate")
+    .value;
+
+    const monthlyFee =
+    document
+    .getElementById("monthlyFee")
+    .value;
+
+    const feeMonth =
+    document
+    .getElementById("feeMonth")
+    .value;
+
+    const status =
+    document
+    .getElementById("feeStatus")
+    .value;
+
+
+    if(!name){
+
+        alert(
+            "Student Name भरें।"
+        );
+
+        return;
+
+    }
+
+
+    if(!father){
+
+        alert(
+            "Father Name भरें।"
+        );
+
+        return;
+
+    }
+
+
+    if(!className){
+
+        alert(
+            "Class select करें।"
+        );
+
+        return;
+
+    }
+
+
+    if(!/^[0-9]{10}$/.test(phone)){
+
+        alert(
+            "सही 10 digit Mobile Number डालें।"
+        );
+
+        return;
+
+    }
+
+
+    if(!joiningDate){
+
+        alert(
+            "Date of Joining select करें।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        monthlyFee === "" ||
+        Number(monthlyFee) < 0
+    ){
+
+        alert(
+            "Monthly Fees भरें।"
+        );
+
+        return;
+
+    }
+
+
+    if(!feeMonth){
+
+        alert(
+            "Fee Month select करें।"
+        );
+
+        return;
+
+    }
+
+
+    const button =
+    this;
+
+
+    button.disabled =
+    true;
+
+    button.innerHTML = `
+
+        <i class="fa-solid fa-spinner fa-spin"></i>
+
+        SAVING...
+
+    `;
+
+
+    try{
+
+        const studentDoc =
+        await addDoc(
+
+            studentsRef,
+
+            {
+
+                name:name,
+
+                fatherName:father,
+
+                className:className,
+
+                mobile:phone,
+
+                joiningDate:joiningDate,
+
+                createdAt:
+                serverTimestamp(),
+
+                updatedAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        await addDoc(
+
+            feesRef,
+
+            {
+
+                studentId:
+                studentDoc.id,
+
+                month:
+                feeMonth,
+
+                amount:
+                Number(monthlyFee),
+
+                status:
+                status,
+
+                createdAt:
+                serverTimestamp(),
+
+                updatedAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        document
+        .getElementById("studentName")
+        .value = "";
+
+        document
+        .getElementById("fatherName")
+        .value = "";
+
+        document
+        .getElementById("studentClass")
+        .value = "";
+
+        document
+        .getElementById("mobile")
+        .value = "";
+
+        document
+        .getElementById("joiningDate")
+        .value = "";
+
+        document
+        .getElementById("monthlyFee")
+        .value = "";
+
+        document
+        .getElementById("feeMonth")
+        .value = "";
+
+        document
+        .getElementById("feeStatus")
+        .value = "Paid";
+
+
+        showToast(
+            "Student + first month fee saved."
+        );
+
+
+        await loadData();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Save failed:\n\n" +
+            error.message
+        );
+
+    }
+    finally{
+
+        button.disabled =
+        false;
+
+        button.innerHTML = `
+
+            <i class="fa-solid fa-plus"></i>
+
+            ADD STUDENT
+
+        `;
+
+    }
+
+});
+
+
+/* DELETE STUDENT */
+
+window.deleteStudent =
+async function(id){
+
+    const student =
+    students.find(
+        s => s.id === id
+    );
+
+
+    if(!student)
+        return;
+
+
+    const ok =
+    confirm(
+
+        "DELETE STUDENT?\n\n" +
+
+        "Name: " +
+        student.name +
+
+        "\nClass: " +
+        student.className +
+
+        "\n\nStudent और उसकी fee history delete होगी."
+
+    );
+
+
+    if(!ok)
+        return;
+
+
+    try{
+
+        const studentFees =
+        fees.filter(
+            f =>
+            f.studentId === id
+        );
+
+
+        await deleteDoc(
+            doc(
+                db,
+                "coachingStudents",
+                id
+            )
+        );
+
+
+        await Promise.all(
+
+            studentFees.map(
+            f =>
+
+                deleteDoc(
+                    doc(
+                        db,
+                        "coachingFees",
+                        f.id
+                    )
+                )
+
+            )
+
+        );
+
+
+        showToast(
+            "Student deleted."
+        );
+
+
+        await loadData();
+
+    }
+    catch(error){
+
+        alert(
+            "Delete failed:\n\n" +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* ADD FEE MODAL */
+
+window.openFeeModal =
+function(id){
+
+    const student =
+    students.find(
+        s => s.id === id
+    );
+
+
+    if(!student)
+        return;
+
+
+    document
+    .getElementById("feeStudentId")
+    .value = id;
+
+
+    const now =
+    new Date();
+
+
+    const month =
+    now.getFullYear() +
+    "-" +
+    String(
+        now.getMonth()+1
+    ).padStart(2,"0");
+
+
+    document
+    .getElementById("modalFeeMonth")
+    .value = month;
+
+
+    document
+    .getElementById("modalFeeAmount")
+    .value = "";
+
+
+    document
+    .getElementById("modalFeeStatus")
+    .value = "Pending";
+
+
+    feeModal.classList.add(
+        "show"
+    );
+
+};
+
+
+/* CLOSE MODAL */
+
+document
+.getElementById("closeModal")
+.addEventListener(
+"click",
+function(){
+
+    feeModal.classList.remove(
+        "show"
+    );
+
+});
+
+
+feeModal.addEventListener(
+"click",
+function(e){
+
+    if(e.target === feeModal){
+
+        feeModal.classList.remove(
+            "show"
+        );
+
+    }
+
+});
+
+
+/* SAVE MONTHLY FEE */
+
+document
+.getElementById("saveFeeBtn")
+.addEventListener(
+"click",
+async function(){
+
+    const studentId =
+    document
+    .getElementById("feeStudentId")
+    .value;
+
+    const month =
+    document
+    .getElementById("modalFeeMonth")
+    .value;
+
+    const amount =
+    document
+    .getElementById("modalFeeAmount")
+    .value;
+
+    const status =
+    document
+    .getElementById("modalFeeStatus")
+    .value;
+
+
+    if(!month){
+
+        alert(
+            "Fee Month select करें।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        amount === "" ||
+        Number(amount) < 0
+    ){
+
+        alert(
+            "Fee amount भरें।"
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        /* CHECK DUPLICATE MONTH */
+
+        const duplicate =
+        fees.find(
+        f =>
+
+            f.studentId === studentId &&
+
+            f.month === month
+
+        );
+
+
+        if(duplicate){
+
+            /* UPDATE EXISTING MONTH */
+
+            await updateDoc(
+
+                doc(
+                    db,
+                    "coachingFees",
+                    duplicate.id
+                ),
+
+                {
+
+                    amount:
+                    Number(amount),
+
+                    status:
+                    status,
+
+                    updatedAt:
+                    serverTimestamp()
+
+                }
+
+            );
+
+
+            showToast(
+                "Monthly fee updated."
+            );
+
+        }
+        else{
+
+            /* ADD NEW MONTH */
+
+            await addDoc(
+
+                feesRef,
+
+                {
+
+                    studentId:
+                    studentId,
+
+                    month:
+                    month,
+
+                    amount:
+                    Number(amount),
+
+                    status:
+                    status,
+
+                    createdAt:
+                    serverTimestamp(),
+
+                    updatedAt:
+                    serverTimestamp()
+
+                }
+
+            );
+
+
+            showToast(
+                "Monthly fee added."
+            );
+
+        }
+
+
+        feeModal.classList.remove(
+            "show"
+        );
+
+
+        await loadData();
+
+    }
+    catch(error){
+
+        alert(
+            "Fee save failed:\n\n" +
+            error.message
+        );
+
+    }
+
+});
+
+
+/* MARK PAID */
+
+window.markPaid =
+async function(id){
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "coachingFees",
+                id
+            ),
+
+            {
+
+                status:
+                "Paid",
+
+                paidAt:
+                serverTimestamp(),
+
+                updatedAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        showToast(
+            "Fee marked PAID."
+        );
+
+
+        await loadData();
+
+    }
+    catch(error){
+
+        alert(
+            "Update failed:\n\n" +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* MARK PENDING */
+
+window.markPending =
+async function(id){
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "coachingFees",
+                id
+            ),
+
+            {
+
+                status:
+                "Pending",
+
+                updatedAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        showToast(
+            "Fee marked PENDING."
+        );
+
+
+        await loadData();
+
+    }
+    catch(error){
+
+        alert(
+            "Update failed:\n\n" +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* RENDER */
+
+function renderStudents(){
+
+    const searchText =
+    search.value
+    .toLowerCase()
+    .trim();
+
+
+    const filtered =
+    students.filter(
+    s => {
+
+        const text =
+
+            String(
+                s.name || ""
+            ) +
+
+            " " +
+
+            String(
+                s.fatherName || ""
+            ) +
+
+            " " +
+
+            String(
+                s.className || ""
+            ) +
+
+            " " +
+
+            String(
+                s.mobile || ""
+            );
+
+
+        return text
+        .toLowerCase()
+        .includes(
+            searchText
+        );
+
+    });
+
+
+    if(!filtered.length){
+
+        studentList.innerHTML = `
+
+            <div class="empty">
+
+                <i class="fa-solid fa-user-slash"></i>
+
+                ${
+                    students.length
+                    ?
+                    "No matching student found."
+                    :
+                    "No coaching students added yet."
+                }
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    studentList.innerHTML =
+
+    filtered.map(
+    function(s){
+
+        const studentFees =
+        fees
+        .filter(
+            f =>
+            f.studentId === s.id
+        )
+        .sort(
+        (a,b) =>
+
+            String(
+                b.month || ""
+            ).localeCompare(
+                String(
+                    a.month || ""
+                )
+            )
+        );
+
+
+        const first =
+        String(
+            s.name || "S"
+        )
+        .trim()
+        .charAt(0)
+        .toUpperCase();
+
+
+        let feeHTML =
+        "";
+
+
+        if(!studentFees.length){
+
+            feeHTML = `
+
+                <div class="empty"
+                     style="padding:15px;">
+
+                    No fee record.
+
+                </div>
+
+            `;
+
+        }
+        else{
+
+            feeHTML =
+
+            studentFees
+            .map(
+            function(f){
+
+                const paid =
+                f.status === "Paid";
+
+
+                return `
+
+                <div class="fee-row">
+
+                    <div>
+
+                        <div class="fee-month">
+
+                            ${esc(
+                                formatMonth(
+                                    f.month
+                                )
+                            )}
+
+                        </div>
+
+                        <div class="fee-amount">
+
+                            ₹${Number(
+                                f.amount || 0
+                            ).toLocaleString(
+                                "en-IN"
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        ${
+                            paid
+
+                            ?
+
+                            `
+
+                            <span
+                            class="badge badge-paid">
+
+                                <i class="fa-solid fa-check"></i>
+
+                                PAID
+
+                            </span>
+
+                            `
+
+                            :
+
+                            `
+
+                            <span
+                            class="badge badge-pending">
+
+                                <i class="fa-solid fa-clock"></i>
+
+                                PENDING
+
+                            </span>
+
+                            `
+                        }
+
+                    </div>
+
+
+                    <div class="fee-actions">
+
+                        ${
+                            paid
+
+                            ?
+
+                            `
+
+                            <button
+                            class="pending-btn"
+                            onclick="markPending('${f.id}')">
+
+                                MARK PENDING
+
+                            </button>
+
+                            `
+
+                            :
+
+                            `
+
+                            <button
+                            class="paid-btn"
+                            onclick="markPaid('${f.id}')">
+
+                                MARK PAID
+
+                            </button>
+
+                            `
+                        }
+
+                    </div>
+
+                </div>
+
+                `;
+
+            })
+            .join("");
+
+        }
+
+
+        return `
+
+        <div class="student">
+
+
+            <div class="student-top">
+
+
+                <div class="student-info">
+
+
+                    <div class="avatar">
+
+                        ${esc(first)}
+
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+
+                            ${esc(
+                                s.name ||
+                                "Student"
+                            )}
+
+                        </h4>
+
+
+                        <p>
+
+                            <b>Father:</b>
+
+                            ${esc(
+                                s.fatherName
+                            )}
+
+                            &nbsp; • &nbsp;
+
+                            <b>Class:</b>
+
+                            ${esc(
+                                s.className
+                            )}
+
+                            <br>
+
+                            <b>Mobile:</b>
+
+                            ${esc(
+                                s.mobile
+                            )}
+
+                            &nbsp; • &nbsp;
+
+                            <b>Joining:</b>
+
+                            ${esc(
+                                formatDate(
+                                    s.joiningDate
+                                )
+                            )}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="student-actions">
+
+
+                    <button
+                    class="btn view-btn"
+                    onclick="openFeeModal('${s.id}')">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        ADD FEE
+
+                    </button>
+
+
+                    <button
+                    class="btn delete-btn"
+                    onclick="deleteStudent('${s.id}')">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        DELETE
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="fee-area">
+
+
+                <div class="fee-title">
+
+                    <strong>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Fee History
+                    </strong>
+
+                    <span>
+                        ${studentFees.length} Records
+                    </span>
+
+                </div>
+
+
+                ${feeHTML}
+
+
+            </div>
+
+
+        </div>
+
+        `;
+
+    })
+    .join("");
+
+}
+
+
+/* SEARCH */
+
+search.addEventListener(
+"input",
+renderStudents
+);
+
+
+/* STATS */
+
+function updateStats(){
+
+    const paid =
+    fees.filter(
+        f =>
+        f.status === "Paid"
+    );
+
+
+    const pending =
+    fees.filter(
+        f =>
+        f.status !== "Paid"
+    );
+
+
+    const paidAmount =
+    paid.reduce(
+        (sum,f) =>
+        sum +
+        Number(
+            f.amount || 0
+        ),
+        0
+    );
+
+
+    const pendingAmount =
+    pending.reduce(
+        (sum,f) =>
+        sum +
+        Number(
+            f.amount || 0
+        ),
+        0
+    );
+
+
+    document.getElementById(
+        "totalStudents"
+    ).textContent =
+    students.length;
+
+
+    document.getElementById(
+        "paidCount"
+    ).textContent =
+    paid.length;
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent =
+    pending.length;
+
+
+    document.getElementById(
+        "collection"
+    ).textContent =
+
+    "₹" +
+
+    paidAmount.toLocaleString(
+        "en-IN"
+    );
+
+
+    document.getElementById(
+        "pendingAmount"
+    ).textContent =
+
+    "₹" +
+
+    pendingAmount.toLocaleString(
+        "en-IN"
+    );
+
+
+    document.getElementById(
+        "studentCount"
+    ).textContent =
+
+    students.length +
+
+    (
+        students.length === 1
+        ? " STUDENT"
+        : " STUDENTS"
+    );
+
+}
+
+
+/* INITIAL */
+
+loadData();
+
+</script>
+
+</body>
+  </html>
