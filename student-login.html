@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Student Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px;
+
+    overflow-x:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,25,65,.78),
+        rgba(0,8,25,.92)
+    ),
+    url("hero-bg.jpg") center/cover fixed;
+
+}
+
+
+/* =========================================================
+   MAIN BOX
+========================================================= */
+
+.login-wrapper{
+
+    width:100%;
+
+    max-width:430px;
+
+    position:relative;
+
+}
+
+
+/* =========================================================
+   LUXURY CARD
+========================================================= */
+
+.login-card{
+
+    position:relative;
+
+    width:100%;
+
+    padding:30px 25px 27px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.07)
+    );
+
+    border:
+    1px solid
+    rgba(255,215,0,.45);
+
+    backdrop-filter:blur(24px);
+
+    -webkit-backdrop-filter:blur(24px);
+
+    box-shadow:
+
+    0 25px 70px
+    rgba(0,0,0,.55),
+
+    inset 0 1px 0
+    rgba(255,255,255,.30),
+
+    inset 0 -1px 0
+    rgba(255,215,0,.12);
+
+}
+
+
+/* GOLD TOP LINE */
+
+.login-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:12%;
+
+    right:12%;
+
+    top:0;
+
+    height:3px;
+
+    border-radius:0 0 20px 20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #FFD700,
+        #fff3a0,
+        #FFD700,
+        transparent
+    );
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-area{
+
+    text-align:center;
+
+    margin-bottom:23px;
+
+}
+
+.logo{
+
+    width:88px;
+
+    height:88px;
+
+    margin:0 auto;
+
+    padding:5px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    border:
+    3px solid
+    #FFD700;
+
+    box-shadow:
+
+    0 0 0 5px
+    rgba(255,215,0,.10),
+
+    0 0 30px
+    rgba(255,215,0,.42),
+
+    0 12px 25px
+    rgba(0,0,0,.35);
+
+}
+
+.logo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+}
+
+.logo-title{
+
+    margin-top:11px;
+
+    color:#FFD700;
+
+    font-size:25px;
+
+    font-weight:900;
+
+    letter-spacing:.4px;
+
+    text-shadow:
+    0 2px 5px
+    rgba(0,0,0,.45);
+
+}
+
+.logo-subtitle{
+
+    margin-top:3px;
+
+    color:#eaf5ff;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:1.2px;
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.title{
+
+    text-align:center;
+
+    color:#fff;
+
+    font-size:21px;
+
+    font-weight:900;
+
+    letter-spacing:.4px;
+
+    margin-bottom:4px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#bcd4ed;
+
+    font-size:10px;
+
+    font-weight:500;
+
+    margin-bottom:21px;
+
+}
+
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.field{
+
+    margin-bottom:15px;
+
+}
+
+.field label{
+
+    display:block;
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    margin-bottom:6px;
+
+    letter-spacing:.3px;
+
+}
+
+.input-box{
+
+    position:relative;
+
+}
+
+.input-box i.left{
+
+    position:absolute;
+
+    left:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#0752a5;
+
+    font-size:16px;
+
+    z-index:2;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    height:53px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    padding:
+    0 45px;
+
+    background:
+    rgba(255,255,255,.97);
+
+    color:#123;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+    box-shadow:
+
+    0 5px 15px
+    rgba(0,0,0,.16),
+
+    inset 0 1px 0
+    rgba(255,255,255,.9);
+
+}
+
+.input-box input::placeholder{
+
+    color:#8a9bad;
+
+    font-weight:500;
+
+}
+
+.input-box input:focus{
+
+    box-shadow:
+
+    0 0 0 3px
+    rgba(255,215,0,.30),
+
+    0 7px 18px
+    rgba(0,0,0,.18);
+
+}
+
+
+/* PASSWORD EYE */
+
+.eye{
+
+    position:absolute;
+
+    right:14px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#536b86;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    z-index:3;
+
+    width:30px;
+
+    height:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-btn{
+
+    width:100%;
+
+    height:56px;
+
+    margin-top:4px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    color:#12345a;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    letter-spacing:.4px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff2a8 0%,
+        #FFD700 35%,
+        #ffb000 100%
+    );
+
+    box-shadow:
+
+    0 6px 0
+    #b77d00,
+
+    0 12px 25px
+    rgba(255,183,0,.25),
+
+    inset 0 3px 5px
+    rgba(255,255,255,.85);
+
+    transition:.18s ease;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+    0 8px 0
+    #b77d00,
+
+    0 17px 30px
+    rgba(255,183,0,.30),
+
+    inset 0 3px 5px
+    rgba(255,255,255,.85);
+
+}
+
+.login-btn:active{
+
+    transform:translateY(5px);
+
+    box-shadow:
+
+    0 2px 0
+    #b77d00,
+
+    0 6px 12px
+    rgba(0,0,0,.25);
+
+}
+
+.login-btn:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+
+/* =========================================================
+   ERROR / INFO
+========================================================= */
+
+.message{
+
+    display:none;
+
+    margin-top:14px;
+
+    padding:11px 13px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    line-height:1.6;
+
+}
+
+.message.error{
+
+    display:block;
+
+    background:
+    rgba(255,225,225,.97);
+
+    color:#9a0000;
+
+}
+
+.message.info{
+
+    display:block;
+
+    background:
+    rgba(225,243,255,.97);
+
+    color:#0752a5;
+
+}
+
+
+/* =========================================================
+   SECURITY NOTE
+========================================================= */
+
+.security-note{
+
+    margin-top:17px;
+
+    padding:10px 12px;
+
+    border-radius:12px;
+
+    border:
+    1px solid
+    rgba(255,215,0,.18);
+
+    background:
+    rgba(0,20,55,.30);
+
+    text-align:center;
+
+    color:#c9d9e9;
+
+    font-size:8.5px;
+
+    line-height:1.6;
+
+}
+
+.security-note i{
+
+    color:#FFD700;
+
+    margin-right:4px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:16px;
+
+    color:#FFD700;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:.8px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:500px){
+
+    body{
+
+        padding:12px;
+
+    }
+
+    .login-card{
+
+        padding:
+        25px 17px 22px;
+
+        border-radius:25px;
+
+    }
+
+    .logo{
+
+        width:78px;
+
+        height:78px;
+
+    }
+
+    .logo-title{
+
+        font-size:22px;
+
+    }
+
+    .title{
+
+        font-size:19px;
+
+    }
+
+    .subtitle{
+
+        font-size:9px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media(max-width:360px){
+
+    .login-card{
+
+        padding:
+        21px 14px 19px;
+
+    }
+
+    .logo{
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+    .logo-title{
+
+        font-size:20px;
+
+    }
+
+    .input-box input{
+
+        height:50px;
+
+        font-size:13px;
+
+    }
+
+    .login-btn{
+
+        height:53px;
+
+        font-size:15px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-wrapper">
+
+
+    <div class="login-card">
+
+
+        <!-- =================================================
+             LOGO
+        ================================================== -->
+
+        <div class="logo-area">
+
+            <div class="logo">
+
+                <img
+                    src="icon-512.png"
+                    alt="THE STUDY POINT">
+
+            </div>
+
+            <div class="logo-title">
+                THE STUDY POINT
+            </div>
+
+            <div class="logo-subtitle">
+                CBT PORTAL &amp; STUDENT SERVICES
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TITLE
+        ================================================== -->
+
+        <div class="title">
+            🎓 STUDENT LOGIN
+        </div>
+
+        <div class="subtitle">
+            Login to access your Student Dashboard
+        </div>
+
+
+        <!-- =================================================
+             ROLL NUMBER
+        ================================================== -->
+
+        <div class="field">
+
+            <label>
+                STUDENT ROLL NUMBER
+            </label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-id-card left"></i>
+
+                <input
+                    id="roll"
+                    type="text"
+                    placeholder="Enter Roll Number"
+                    maxlength="20"
+                    autocomplete="username"
+                    autocapitalize="characters">
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PASSWORD
+        ================================================== -->
+
+        <div class="field">
+
+            <label>
+                4-DIGIT LOGIN PASSWORD
+            </label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock left"></i>
+
+                <input
+                    id="password"
+                    type="password"
+                    inputmode="numeric"
+                    maxlength="4"
+                    placeholder="Enter 4 Digit Password"
+                    autocomplete="current-password">
+
+                <span
+                    id="eye"
+                    class="eye">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LOGIN BUTTON
+        ================================================== -->
+
+        <button
+            id="loginBtn"
+            class="login-btn"
+            type="button">
+
+            <i class="fa-solid fa-right-to-bracket"></i>
+            &nbsp; LOGIN TO DASHBOARD
+
+        </button>
+
+
+        <!-- =================================================
+             MESSAGE
+        ================================================== -->
+
+        <div
+            id="message"
+            class="message">
+
+        </div>
+
+
+        <!-- =================================================
+             SECURITY
+        ================================================== -->
+
+        <div class="security-note">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            अपना Roll Number और Password सुरक्षित रखें।
+            केवल registered student ही login कर सकता है।
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer">
+
+        THE STUDY POINT • STUDENT PORTAL
+
+    </div>
+
+
+</div>
+
+
+<script type="module">
+
+
+/* =========================================================
+   FIREBASE
+========================================================= */
+
+import { db } from "./firebase.js";
+
+import {
+
+    collection,
+    query,
+    where,
+    getDocs
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const rollBox =
+document.getElementById("roll");
+
+const passwordBox =
+document.getElementById("password");
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const message =
+document.getElementById("message");
+
+const eye =
+document.getElementById("eye");
+
+
+/* =========================================================
+   SHOW MESSAGE
+========================================================= */
+
+function showMessage(
+    text,
+    type
+){
+
+    message.className =
+    "message " + type;
+
+    message.textContent =
+    text;
+
+}
+
+
+/* =========================================================
+   PASSWORD ONLY 4 DIGITS
+========================================================= */
+
+passwordBox.addEventListener(
+"input",
+function(){
+
+    this.value =
+    this.value
+    .replace(
+        /[^0-9]/g,
+        ""
+    )
+    .slice(
+        0,
+        4
+    );
+
+});
+
+
+/* =========================================================
+   ROLL NUMBER FORMAT
+========================================================= */
+
+rollBox.addEventListener(
+"input",
+function(){
+
+    this.value =
+    this.value
+    .replace(
+        /[^a-zA-Z0-9]/g,
+        ""
+    )
+    .toUpperCase()
+    .slice(
+        0,
+        20
+    );
+
+});
+
+
+/* =========================================================
+   SHOW / HIDE PASSWORD
+========================================================= */
+
+eye.addEventListener(
+"click",
+function(){
+
+    if(
+        passwordBox.type ===
+        "password"
+    ){
+
+        passwordBox.type =
+        "text";
+
+        this.innerHTML =
+        '<i class="fa-solid fa-eye-slash"></i>';
+
+    }
+    else{
+
+        passwordBox.type =
+        "password";
+
+        this.innerHTML =
+        '<i class="fa-solid fa-eye"></i>';
+
+    }
+
+});
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+async function studentLogin(){
+
+    const roll =
+    rollBox.value
+    .trim()
+    .toUpperCase();
+
+
+    const password =
+    passwordBox.value
+    .trim();
+
+
+    /* =========================================
+       VALIDATION
+    ========================================= */
+
+    if(!roll){
+
+        showMessage(
+            "अपना Student Roll Number डालें।",
+            "error"
+        );
+
+        rollBox.focus();
+
+        return;
+
+    }
+
+
+    if(
+        !/^TSP\d{3,}$/.test(roll)
+    ){
+
+        showMessage(
+            "सही Roll Number डालें। उदाहरण: TSP001",
+            "error"
+        );
+
+        rollBox.focus();
+
+        return;
+
+    }
+
+
+    if(
+        !/^\d{4}$/.test(password)
+    ){
+
+        showMessage(
+            "4 digit Password डालें।",
+            "error"
+        );
+
+        passwordBox.focus();
+
+        return;
+
+    }
+
+
+    /* =========================================
+       BUTTON LOCK
+    ========================================= */
+
+    loginBtn.disabled =
+    true;
+
+    loginBtn.innerHTML =
+    '<i class="fa-solid fa-spinner fa-spin"></i> CHECKING...';
+
+
+    try{
+
+
+        /* ======================================
+           SEARCH STUDENT
+        ====================================== */
+
+        const studentQuery =
+        query(
+
+            collection(
+                db,
+                "subscriptionStudents"
+            ),
+
+            where(
+                "roll",
+                "==",
+                roll
+            )
+
+        );
+
+
+        const snap =
+        await getDocs(
+            studentQuery
+        );
+
+
+        /* ======================================
+           STUDENT NOT FOUND
+        ====================================== */
+
+        if(snap.empty){
+
+            showMessage(
+                "Roll Number या Password गलत है।",
+                "error"
+            );
+
+            loginBtn.disabled =
+            false;
+
+            loginBtn.innerHTML =
+            '<i class="fa-solid fa-right-to-bracket"></i> &nbsp; LOGIN TO DASHBOARD';
+
+            return;
+
+        }
+
+
+        /* ======================================
+           GET STUDENT
+        ====================================== */
+
+        let studentDoc =
+        null;
+
+
+        snap.forEach(
+        function(docSnap){
+
+            if(!studentDoc){
+
+                studentDoc =
+                docSnap;
+
+            }
+
+        });
+
+
+        const student =
+        studentDoc.data();
+
+
+        /* ======================================
+           PASSWORD CHECK
+        ====================================== */
+
+        if(
+            String(
+                student.password || ""
+            ) !== password
+        ){
+
+            showMessage(
+                "Roll Number या Password गलत है।",
+                "error"
+            );
+
+            passwordBox.value =
+            "";
+
+            passwordBox.focus();
+
+            loginBtn.disabled =
+            false;
+
+            loginBtn.innerHTML =
+            '<i class="fa-solid fa-right-to-bracket"></i> &nbsp; LOGIN TO DASHBOARD';
+
+            return;
+
+        }
+
+
+        /* ======================================
+           APPROVAL CHECK
+        ====================================== */
+
+        const status =
+        String(
+            student.status || ""
+        ).toLowerCase();
+
+
+        const enabled =
+        student.enabled === true;
+
+
+        if(
+            status !== "approved" &&
+            !enabled
+        ){
+
+            showMessage(
+                "आपका Student Account अभी Admin Approval के लिए Pending है।",
+                "error"
+            );
+
+            loginBtn.disabled =
+            false;
+
+            loginBtn.innerHTML =
+            '<i class="fa-solid fa-right-to-bracket"></i> &nbsp; LOGIN TO DASHBOARD';
+
+            return;
+
+        }
+
+
+        /* ======================================
+           SAVE LOGIN SESSION
+        ====================================== */
+
+        const studentSession = {
+
+            docId:
+            studentDoc.id,
+
+            roll:
+            student.roll || roll,
+
+            name:
+            student.name || "",
+
+            className:
+            student.className || "",
+
+            mobile:
+            student.mobile || "",
+
+            fatherName:
+            student.fatherName || "",
+
+            status:
+            student.status || "",
+
+            accessType:
+            student.accessType || "",
+
+            subscriptionPlan:
+            student.subscriptionPlan || "",
+
+            subscriptionExpiry:
+            student.subscriptionExpiry || null,
+
+            loginAt:
+            new Date().toISOString()
+
+        };
+
+
+        localStorage.setItem(
+            "tspStudentSession",
+            JSON.stringify(
+                studentSession
+            )
+        );
+
+
+        /* ======================================
+           GO DASHBOARD
+        ====================================== */
+
+        loginBtn.innerHTML =
+        '<i class="fa-solid fa-check"></i> LOGIN SUCCESSFUL';
+
+
+        showMessage(
+            "Login successful! Opening Student Dashboard...",
+            "info"
+        );
+
+
+        setTimeout(
+        function(){
+
+            window.location.href =
+            "student-dashboard.html";
+
+        },
+        600
+        );
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Student Login Error:",
+            error
+        );
+
+
+        showMessage(
+            "Login failed. Please try again.",
+            "error"
+        );
+
+
+        loginBtn.disabled =
+        false;
+
+        loginBtn.innerHTML =
+        '<i class="fa-solid fa-right-to-bracket"></i> &nbsp; LOGIN TO DASHBOARD';
+
+    }
+
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+loginBtn.addEventListener(
+"click",
+studentLogin
+);
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    if(
+        event.key === "Enter" &&
+        !loginBtn.disabled
+    ){
+
+        studentLogin();
+
+    }
+
+});
+
+
+</script>
+
+
+</body>
+
+  </html>
