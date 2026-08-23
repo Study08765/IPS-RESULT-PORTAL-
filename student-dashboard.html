@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Student Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<meta name="theme-color" content="#003b78">
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+
+    background:
+    linear-gradient(
+        180deg,
+        #e7f2ff 0%,
+        #f7fbff 100%
+    );
+
+    color:#123b6c;
+
+    overflow-x:hidden;
+
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.header{
+
+    width:100%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #032d5d,
+        #0756a4,
+        #032d5d
+    );
+
+    padding:
+    15px 16px;
+
+    color:#fff;
+
+    box-shadow:
+    0 8px 25px
+    rgba(0,35,85,.28);
+
+    border-bottom:
+    2px solid
+    rgba(255,215,0,.55);
+
+}
+
+.header-inner{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    min-width:0;
+
+}
+
+.brand-logo{
+
+    width:50px;
+
+    height:50px;
+
+    flex:0 0 50px;
+
+    padding:3px;
+
+    background:#fff;
+
+    border:
+    2px solid
+    #FFD700;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 18px
+    rgba(255,215,0,.35);
+
+}
+
+.brand-logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+}
+
+.brand-text{
+
+    min-width:0;
+
+}
+
+.brand-title{
+
+    color:#FFD700;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    line-height:1.1;
+
+}
+
+.brand-subtitle{
+
+    color:#d9eaff;
+
+    font-size:8px;
+
+    margin-top:3px;
+
+    font-weight:600;
+
+    letter-spacing:.7px;
+
+}
+
+.logout-btn{
+
+    flex:0 0 auto;
+
+    border:none;
+
+    padding:10px 14px;
+
+    border-radius:11px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff0a0,
+        #FFD700,
+        #ffad00
+    );
+
+    color:#123b6c;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 4px 0 #ad7600,
+    0 7px 14px rgba(0,0,0,.18);
+
+}
+
+.logout-btn:active{
+
+    transform:translateY(3px);
+
+    box-shadow:
+    0 1px 0 #ad7600;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:
+    15px 10px 25px;
+
+}
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.welcome{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:19px;
+
+    border-radius:23px;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #05366c,
+        #0872ca
+    );
+
+    box-shadow:
+    0 12px 28px
+    rgba(0,60,120,.25);
+
+    border:
+    1px solid
+    rgba(255,255,255,.30);
+
+}
+
+.welcome::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    right:-80px;
+
+    top:-90px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,215,0,.12);
+
+}
+
+.welcome-small{
+
+    font-size:9px;
+
+    font-weight:700;
+
+    color:#cde8ff;
+
+    letter-spacing:.7px;
+
+}
+
+.welcome-name{
+
+    margin-top:3px;
+
+    font-size:25px;
+
+    font-weight:900;
+
+    color:#FFD700;
+
+    line-height:1.2;
+
+}
+
+.welcome-info{
+
+    margin-top:7px;
+
+    font-size:10px;
+
+    color:#e8f4ff;
+
+    font-weight:600;
+
+}
+
+.status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    margin-top:11px;
+
+    padding:6px 11px;
+
+    border-radius:20px;
+
+    background:
+    rgba(0,0,0,.18);
+
+    border:
+    1px solid
+    rgba(255,255,255,.22);
+
+    color:#fff;
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   LCD
+========================================================= */
+
+.section-title{
+
+    margin:
+    17px 2px 8px;
+
+    color:#073d76;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+}
+
+.section-title i{
+
+    color:#e3a900;
+
+}
+
+
+.lcd{
+
+    position:relative;
+
+    overflow:hidden;
+
+    width:100%;
+
+    min-height:245px;
+
+    padding:12px;
+
+    border-radius:23px;
+
+    border:
+    3px solid
+    #536d7d;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #123c55 0%,
+        #061724 55%,
+        #020a10 100%
+    );
+
+    box-shadow:
+
+    0 13px 30px
+    rgba(0,0,0,.40),
+
+    inset 0 0 30px
+    rgba(0,190,255,.12);
+
+}
+
+.lcd::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,.018) 0px,
+        rgba(255,255,255,.018) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+
+}
+
+.lcd-header{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:
+    2px 5px 8px;
+
+    border-bottom:
+    1px solid
+    rgba(255,215,0,.30);
+
+    color:#FFD700;
+
+    font-size:9px;
+
+    font-weight:900;
+
+}
+
+.lcd-live{
+
+    color:#63ff9b;
+
+}
+
+.lcd-content{
+
+    position:relative;
+
+    z-index:2;
+
+    min-height:205px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:9px;
+
+    color:#fff;
+
+}
+
+.lcd-type{
+
+    color:#55eaff;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+}
+
+.lcd-heading{
+
+    margin-top:5px;
+
+    width:100%;
+
+    color:#FFD700;
+
+    font-size:30px;
+
+    line-height:1.08;
+
+    font-weight:900;
+
+    overflow-wrap:anywhere;
+
+    text-shadow:
+    0 2px 3px #000;
+
+}
+
+.lcd-message{
+
+    margin-top:6px;
+
+    color:#d9f8ff;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+.lcd-info{
+
+    margin-top:10px;
+
+    padding:7px 14px;
+
+    border-radius:25px;
+
+    background:
+    rgba(0,150,210,.15);
+
+    border:
+    1px solid
+    rgba(80,220,255,.28);
+
+    color:#e9fbff;
+
+    font-size:9px;
+
+    font-weight:700;
+
+}
+
+.lcd-pin{
+
+    margin-top:9px;
+
+    padding:8px 20px;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff1a0,
+        #FFD700,
+        #f5a900
+    );
+
+    color:#082e57;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    box-shadow:
+    0 4px 0 #9c6d00,
+    0 7px 14px rgba(0,0,0,.25);
+
+}
+
+.lcd-start{
+
+    display:inline-flex;
+
+    margin-top:10px;
+
+    padding:7px 17px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0799ee,
+        #064da0
+    );
+
+    color:#fff;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    box-shadow:
+    0 4px 0 #033a78;
+
+}
+
+
+/* =========================================================
+   DASHBOARD GRID
+========================================================= */
+
+.dashboard-grid{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:14px;
+
+    margin-top:15px;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card{
+
+    position:relative;
+
+    min-height:145px;
+
+    padding:17px;
+
+    border-radius:22px;
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff 0%,
+        #f2f8ff 48%,
+        #d4e4f2 100%
+    );
+
+    border:
+    2px solid
+    #fff;
+
+    box-shadow:
+
+    0 8px 0 #9eb6ca,
+
+    0 14px 23px
+    rgba(20,60,100,.23),
+
+    inset 0 3px 5px
+    rgba(255,255,255,.98),
+
+    inset 0 -5px 8px
+    rgba(70,110,150,.15);
+
+    transition:.16s ease;
+
+    cursor:pointer;
+
+    color:#123b6c;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 12px 0 #91abc1,
+
+    0 20px 29px
+    rgba(20,60,100,.30),
+
+    inset 0 3px 5px
+    rgba(255,255,255,.98),
+
+    inset 0 -5px 8px
+    rgba(70,110,150,.15);
+
+}
+
+.card:active{
+
+    transform:translateY(5px);
+
+}
+
+.card-icon{
+
+    width:55px;
+
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:17px;
+
+    color:#fff;
+
+    font-size:25px;
+
+    box-shadow:
+
+    0 5px 0
+    rgba(30,70,110,.25),
+
+    0 9px 14px
+    rgba(0,0,0,.18),
+
+    inset 0 4px 5px
+    rgba(255,255,255,.50);
+
+}
+
+.details-icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #39c4ff,
+        #0669e9
+    );
+
+}
+
+.course-icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #3ae0bd,
+        #008f88
+    );
+
+}
+
+.mock-icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffc03d,
+        #ee6800
+    );
+
+}
+
+.notes-icon{
+
+    background:
+    linear-gradient(
+        135deg,
+        #df54e8,
+        #b913a8
+    );
+
+}
+
+.card-title{
+
+    margin-top:12px;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    color:#123b6c;
+
+}
+
+.card-text{
+
+    margin-top:4px;
+
+    color:#61758b;
+
+    font-size:8px;
+
+    line-height:1.5;
+
+    font-weight:600;
+
+}
+
+
+/* =========================================================
+   STUDENT DETAILS PANEL
+========================================================= */
+
+.details-panel{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:17px;
+
+    border-radius:21px;
+
+    background:#fff;
+
+    border:
+    1px solid
+    #d6e4f1;
+
+    box-shadow:
+    0 10px 24px
+    rgba(30,70,110,.12);
+
+}
+
+.details-panel.show{
+
+    display:block;
+
+}
+
+.panel-title{
+
+    color:#073d76;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    margin-bottom:11px;
+
+}
+
+.details-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:9px;
+
+}
+
+.detail-item{
+
+    padding:10px;
+
+    border-radius:11px;
+
+    background:#f2f7fc;
+
+}
+
+.detail-label{
+
+    color:#7890a6;
+
+    font-size:7px;
+
+    font-weight:800;
+
+}
+
+.detail-value{
+
+    margin-top:2px;
+
+    color:#123b6c;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    overflow-wrap:anywhere;
+
+}
+
+
+/* =========================================================
+   COURSE PANEL
+========================================================= */
+
+.course-panel{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:17px;
+
+    border-radius:21px;
+
+    background:#fff;
+
+    border:
+    1px solid
+    #d6e4f1;
+
+    box-shadow:
+    0 10px 24px
+    rgba(30,70,110,.12);
+
+}
+
+.course-panel.show{
+
+    display:block;
+
+}
+
+.course-empty{
+
+    padding:14px;
+
+    text-align:center;
+
+    color:#7a8ea3;
+
+    background:#f5f9fd;
+
+    border-radius:13px;
+
+    font-size:9px;
+
+    font-weight:600;
+
+}
+
+
+/* =========================================================
+   NOTES PANEL
+========================================================= */
+
+.notes-panel{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:17px;
+
+    border-radius:21px;
+
+    background:#fff;
+
+    border:
+    1px solid
+    #d6e4f1;
+
+    box-shadow:
+    0 10px 24px
+    rgba(30,70,110,.12);
+
+}
+
+.notes-panel.show{
+
+    display:block;
+
+}
+
+.subject-list{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:9px;
+
+}
+
+.subject{
+
+    padding:12px;
+
+    border-radius:12px;
+
+    background:#f2f7fc;
+
+    border:
+    1px solid
+    #d9e6f2;
+
+    color:#123b6c;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    text-align:center;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    width:100%;
+
+    padding:12px 8px;
+
+    margin-top:20px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        #042c59,
+        #0757a5,
+        #042c59
+    );
+
+    color:#FFD700;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:.7px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .main{
+
+        padding:
+        11px 8px 20px;
+
+    }
+
+    .welcome{
+
+        padding:16px;
+
+        border-radius:20px;
+
+    }
+
+    .welcome-name{
+
+        font-size:21px;
+
+    }
+
+    .lcd{
+
+        min-height:225px;
+
+        border-radius:20px;
+
+    }
+
+    .lcd-content{
+
+        min-height:185px;
+
+    }
+
+    .lcd-heading{
+
+        font-size:25px;
+
+    }
+
+    .lcd-message{
+
+        font-size:12px;
+
+    }
+
+    .dashboard-grid{
+
+        gap:11px;
+
+    }
+
+    .card{
+
+        min-height:125px;
+
+        padding:12px;
+
+        border-radius:19px;
+
+    }
+
+    .card-icon{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:22px;
+
+    }
+
+    .card-title{
+
+        font-size:12px;
+
+        margin-top:9px;
+
+    }
+
+    .card-text{
+
+        font-size:7px;
+
+    }
+
+    .brand-title{
+
+        font-size:15px;
+
+    }
+
+    .brand-subtitle{
+
+        font-size:6px;
+
+    }
+
+    .brand-logo{
+
+        width:43px;
+
+        height:43px;
+
+        flex-basis:43px;
+
+    }
+
+    .logout-btn{
+
+        padding:8px 10px;
+
+        font-size:8px;
+
+    }
+
+}
+
+@media(max-width:380px){
+
+    .header{
+
+        padding:
+        12px 9px;
+
+    }
+
+    .brand-title{
+
+        font-size:13px;
+
+    }
+
+    .brand-subtitle{
+
+        font-size:5px;
+
+    }
+
+    .logout-btn{
+
+        padding:7px 8px;
+
+        font-size:7px;
+
+    }
+
+    .welcome-name{
+
+        font-size:18px;
+
+    }
+
+    .lcd-heading{
+
+        font-size:21px;
+
+    }
+
+    .dashboard-grid{
+
+        gap:9px;
+
+    }
+
+    .card{
+
+        min-height:115px;
+
+        padding:10px;
+
+    }
+
+    .card-icon{
+
+        width:45px;
+
+        height:45px;
+
+        font-size:20px;
+
+    }
+
+    .card-title{
+
+        font-size:10px;
+
+    }
+
+    .card-text{
+
+        font-size:6px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+
+        <div class="brand">
+
+            <div class="brand-logo">
+
+                <img
+                    src="icon-512.png"
+                    alt="THE STUDY POINT">
+
+            </div>
+
+            <div class="brand-text">
+
+                <div class="brand-title">
+                    THE STUDY POINT
+                </div>
+
+                <div class="brand-subtitle">
+                    STUDENT DASHBOARD • CBT PORTAL
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+            type="button">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+            LOGOUT
+
+        </button>
+
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="main">
+
+
+    <!-- =====================================================
+         WELCOME
+    ====================================================== -->
+
+    <section class="welcome">
+
+        <div class="welcome-small">
+            WELCOME BACK
+        </div>
+
+        <div
+            id="welcomeName"
+            class="welcome-name">
+
+            STUDENT
+
+        </div>
+
+        <div
+            id="welcomeInfo"
+            class="welcome-info">
+
+            Student Dashboard
+
+        </div>
+
+        <div class="status-badge">
+
+            <i class="fa-solid fa-circle"></i>
+
+            <span id="accountStatus">
+                STUDENT ACCOUNT
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CBT LCD
+    ====================================================== -->
+
+    <div class="section-title">
+
+        <i class="fa-solid fa-tv"></i>
+
+        CBT EXAM DISPLAY
+
+    </div>
+
+
+    <section class="lcd">
+
+
+        <div class="lcd-header">
+
+            <span>
+                THE STUDY POINT DIGITAL DISPLAY
+            </span>
+
+            <span class="lcd-live">
+                ● LIVE
+            </span>
+
+        </div>
+
+
+        <div
+            id="lcdContent"
+            class="lcd-content">
+
+
+            <div class="lcd-type">
+                🔔 UPCOMING TEST
+            </div>
+
+            <div class="lcd-heading">
+                CHECKING...
+            </div>
+
+            <div class="lcd-message">
+                Please wait
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         DASHBOARD OPTIONS
+    ====================================================== -->
+
+    <div class="dashboard-grid">
+
+
+        <!-- STUDENT DETAILS -->
+
+        <button
+            id="detailsCard"
+            class="card"
+            type="button">
+
+            <div class="card-icon details-icon">
+
+                <i class="fa-solid fa-user-graduate"></i>
+
+            </div>
+
+            <div class="card-title">
+                STUDENT DETAILS
+            </div>
+
+            <div class="card-text">
+                View your registered student information
+            </div>
+
+        </button>
+
+
+        <!-- COURSE DETAILS -->
+
+        <button
+            id="courseCard"
+            class="card"
+            type="button">
+
+            <div class="card-icon course-icon">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+            <div class="card-title">
+                COURSE DETAILS
+            </div>
+
+            <div class="card-text">
+                View your course and study information
+            </div>
+
+        </button>
+
+
+        <!-- MOCK TEST -->
+
+        <a
+            href="mock-test.html"
+            class="card">
+
+            <div class="card-icon mock-icon">
+
+                <i class="fa-solid fa-clipboard-question"></i>
+
+            </div>
+
+            <div class="card-title">
+                MOCK TEST
+            </div>
+
+            <div class="card-text">
+                Practice with subject-wise mock tests
+            </div>
+
+        </a>
+
+
+        <!-- NOTES -->
+
+        <button
+            id="notesCard"
+            class="card"
+            type="button">
+
+            <div class="card-icon notes-icon">
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </div>
+
+            <div class="card-title">
+                NOTES
+            </div>
+
+            <div class="card-text">
+                Subject-wise free and paid study notes
+            </div>
+
+        </button>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         STUDENT DETAILS PANEL
+    ====================================================== -->
+
+    <section
+        id="detailsPanel"
+        class="details-panel">
+
+
+        <div class="panel-title">
+
+            👤 STUDENT DETAILS
+
+        </div>
+
+
+        <div class="details-grid">
+
+
+            <div class="detail-item">
+
+                <div class="detail-label">
+                    STUDENT NAME
+                </div>
+
+                <div
+                    id="detailName"
+                    class="detail-value">
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <div class="detail-label">
+                    ROLL NUMBER
+                </div>
+
+                <div
+                    id="detailRoll"
+                    class="detail-value">
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <div class="detail-label">
+                    CLASS
+                </div>
+
+                <div
+                    id="detailClass"
+                    class="detail-value">
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <div class="detail-label">
+                    MOBILE
+                </div>
+
+                <div
+                    id="detailMobile"
+                    class="detail-value">
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <div class="detail-label">
+                    FATHER / GUARDIAN
+                </div>
+
+                <div
+                    id="detailFather"
+                    class="detail-value">
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <div class="detail-label">
+                    ACCOUNT STATUS
+                </div>
+
+                <div
+                    id="detailStatus"
+                    class="detail-value">
+                    -
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COURSE PANEL
+    ====================================================== -->
+
+    <section
+        id="coursePanel"
+        class="course-panel">
+
+
+        <div class="panel-title">
+
+            📚 COURSE DETAILS
+
+        </div>
+
+
+        <div
+            id="courseContent"
+            class="course-empty">
+
+            Course details will be available here.
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         NOTES PANEL
+    ====================================================== -->
+
+    <section
+        id="notesPanel"
+        class="notes-panel">
+
+
+        <div class="panel-title">
+
+            📖 SUBJECT-WISE NOTES
+
+        </div>
+
+
+        <div
+            id="subjectList"
+            class="subject-list">
+
+
+            <div class="subject">
+                Loading...
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    THE STUDY POINT CBT EXAM PORTAL
+
+</footer>
+
+
+<script type="module">
+
+
+/* =========================================================
+   FIREBASE
+========================================================= */
+
+import { db } from "./firebase.js";
+
+import {
+
+    doc,
+    getDoc,
+    onSnapshot
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================================================
+   SESSION
+========================================================= */
+
+const sessionText =
+localStorage.getItem(
+    "tspStudentSession"
+);
+
+
+if(!sessionText){
+
+    window.location.href =
+    "student-login.html";
+
+}
+
+
+let session = null;
+
+
+try{
+
+    session =
+    JSON.parse(
+        sessionText
+    );
+
+}
+catch(error){
+
+    localStorage.removeItem(
+        "tspStudentSession"
+    );
+
+    window.location.href =
+    "student-login.html";
+
+}
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const welcomeName =
+document.getElementById(
+    "welcomeName"
+);
+
+const welcomeInfo =
+document.getElementById(
+    "welcomeInfo"
+);
+
+const accountStatus =
+document.getElementById(
+    "accountStatus"
+);
+
+
+/* =========================================================
+   SHOW SESSION DATA
+========================================================= */
+
+welcomeName.textContent =
+session.name ||
+"STUDENT";
+
+
+welcomeInfo.textContent =
+(
+    session.roll || ""
+)
++
+"  •  "
++
+(
+    session.className || ""
+);
+
+
+accountStatus.textContent =
+(
+    session.status || "APPROVED"
+)
+.toUpperCase();
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+document.getElementById(
+    "detailName"
+).textContent =
+session.name || "-";
+
+
+document.getElementById(
+    "detailRoll"
+).textContent =
+session.roll || "-";
+
+
+document.getElementById(
+    "detailClass"
+).textContent =
+session.className || "-";
+
+
+document.getElementById(
+    "detailMobile"
+).textContent =
+session.mobile || "-";
+
+
+document.getElementById(
+    "detailFather"
+).textContent =
+session.fatherName || "-";
+
+
+document.getElementById(
+    "detailStatus"
+).textContent =
+(
+    session.status || "APPROVED"
+)
+.toUpperCase();
+
+
+/* =========================================================
+   PANEL HELPER
+========================================================= */
+
+function togglePanel(
+    panel
+){
+
+    const panels = [
+
+        document.getElementById(
+            "detailsPanel"
+        ),
+
+        document.getElementById(
+            "coursePanel"
+        ),
+
+        document.getElementById(
+            "notesPanel"
+        )
+
+    ];
+
+
+    panels.forEach(
+    function(item){
+
+        if(item !== panel){
+
+            item.classList.remove(
+                "show"
+            );
+
+        }
+
+    });
+
+
+    panel.classList.toggle(
+        "show"
+    );
+
+
+    if(panel.classList.contains("show")){
+
+        setTimeout(
+        function(){
+
+            panel.scrollIntoView({
+
+                behavior:
+                "smooth",
+
+                block:
+                "center"
+
+            });
+
+        },
+        80
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DETAILS BUTTON
+========================================================= */
+
+document.getElementById(
+    "detailsCard"
+)
+.addEventListener(
+"click",
+function(){
+
+    togglePanel(
+        document.getElementById(
+            "detailsPanel"
+        )
+    );
+
+});
+
+
+/* =========================================================
+   COURSE BUTTON
+========================================================= */
+
+document.getElementById(
+    "courseCard"
+)
+.addEventListener(
+"click",
+function(){
+
+    togglePanel(
+        document.getElementById(
+            "coursePanel"
+        )
+    );
+
+});
+
+
+/* =========================================================
+   NOTES BUTTON
+========================================================= */
+
+document.getElementById(
+    "notesCard"
+)
+.addEventListener(
+"click",
+function(){
+
+    togglePanel(
+        document.getElementById(
+            "notesPanel"
+        )
+    );
+
+    loadSubjects();
+
+});
+
+
+/* =========================================================
+   COURSE DETAILS
+========================================================= */
+
+async function loadCourse(){
+
+    const courseContent =
+    document.getElementById(
+        "courseContent"
+    );
+
+
+    try{
+
+        const ref =
+        doc(
+            db,
+            "portalSettings",
+            "courseDetails"
+        );
+
+
+        const snap =
+        await getDoc(
+            ref
+        );
+
+
+        if(!snap.exists()){
+
+            courseContent.innerHTML = `
+                Course details will be available soon.
+            `;
+
+            return;
+
+        }
+
+
+        const data =
+        snap.data();
+
+
+        const title =
+        escapeHTML(
+            data.title ||
+            "THE STUDY POINT COURSE"
+        );
+
+
+        const description =
+        escapeHTML(
+            data.description ||
+            "Course information will be updated by Admin."
+        );
+
+
+        courseContent.innerHTML = `
+
+            <strong
+                style="
+                display:block;
+                color:#0752a5;
+                font-size:13px;
+                margin-bottom:5px;
+                "
+            >
+                ${title}
+            </strong>
+
+            <span>
+                ${description}
+            </span>
+
+        `;
+
+    }
+    catch(error){
+
+        console.error(
+            "Course Error:",
+            error
+        );
+
+        courseContent.innerHTML =
+        "Course details could not be loaded.";
+
+    }
+
+}
+
+
+/* =========================================================
+   SUBJECT NOTES
+========================================================= */
+
+async function loadSubjects(){
+
+    const list =
+    document.getElementById(
+        "subjectList"
+    );
+
+
+    list.innerHTML = `
+
+        <div class="subject">
+            Loading...
+        </div>
+
+    `;
+
+
+    try{
+
+        const ref =
+        doc(
+            db,
+            "portalSettings",
+            "notesSubjects"
+        );
+
+
+        const snap =
+        await getDoc(
+            ref
+        );
+
+
+        if(!snap.exists()){
+
+            list.innerHTML = `
+
+                <div class="subject">
+                    Notes will be available soon.
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        const data =
+        snap.data();
+
+
+        let subjects =
+        Array.isArray(
+            data.subjects
+        )
+        ?
+        data.subjects
+        :
+        [];
+
+
+        subjects =
+        subjects.filter(
+        function(subject){
+
+            return String(
+                subject
+            ).trim() !== "";
+
+        });
+
+
+        if(subjects.length === 0){
+
+            list.innerHTML = `
+
+                <div class="subject">
+                    No subjects available.
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        list.innerHTML =
+        subjects.map(
+        function(subject){
+
+            return `
+
+                <div
+                    class="subject"
+                    title="Open ${escapeHTML(subject)} Notes"
+                >
+
+                    <i
+                        class="fa-solid fa-book"
+                        style="
+                        color:#b913a8;
+                        margin-right:5px;
+                        "
+                    ></i>
+
+                    ${escapeHTML(subject)}
+
+                </div>
+
+            `;
+
+        }
+        )
+        .join("");
+
+    }
+    catch(error){
+
+        console.error(
+            "Notes Error:",
+            error
+        );
+
+        list.innerHTML = `
+
+            <div class="subject">
+                Notes could not be loaded.
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   LIVE CBT LCD
+========================================================= */
+
+const lcdContent =
+document.getElementById(
+    "lcdContent"
+);
+
+
+const lcdRef =
+doc(
+    db,
+    "portalSettings",
+    "lcdDisplay"
+);
+
+
+onSnapshot(
+lcdRef,
+
+function(snapshot){
+
+    if(!snapshot.exists()){
+
+        showLCDDefault();
+
+        return;
+
+    }
+
+
+    const data =
+    snapshot.data();
+
+
+    if(data.visible === false){
+
+        lcdContent.innerHTML = `
+
+            <div class="lcd-type">
+                📺 DISPLAY
+            </div>
+
+            <div class="lcd-heading">
+                DISPLAY OFF
+            </div>
+
+            <div class="lcd-message">
+                Please check back later
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const type =
+    data.type ||
+    "🔔 UPCOMING TEST";
+
+
+    const heading =
+    data.heading ||
+    "CBT EXAM";
+
+
+    const examMessage =
+    data.message ||
+    "Upcoming Online Examination";
+
+
+    const date =
+    data.date ||
+    "";
+
+
+    const time =
+    data.time ||
+    "";
+
+
+    const pin =
+    data.pin ||
+    "";
+
+
+    const badge =
+    data.badge ||
+    "CBT EXAM";
+
+
+    let info = "";
+
+
+    if(date){
+
+        info +=
+        "📅 " +
+        escapeHTML(date);
+
+    }
+
+
+    if(time){
+
+        if(info){
+
+            info +=
+            " &nbsp; | &nbsp; ";
+
+        }
+
+        info +=
+        "⏰ " +
+        escapeHTML(time);
+
+    }
+
+
+    let pinHTML = "";
+
+
+    if(pin){
+
+        pinHTML = `
+
+            <div class="lcd-pin">
+
+                EXAM PIN :
+                ${escapeHTML(pin)}
+
+            </div>
+
+        `;
+
+    }
+
+
+    lcdContent.innerHTML = `
+
+        <div class="lcd-type">
+            ${escapeHTML(type)}
+        </div>
+
+        <div class="lcd-heading">
+            ${escapeHTML(heading)}
+        </div>
+
+        <div class="lcd-message">
+            ${escapeHTML(examMessage)}
+        </div>
+
+        ${
+            info
+            ?
+            `
+            <div class="lcd-info">
+                ${info}
+            </div>
+            `
+            :
+            ""
+        }
+
+        ${pinHTML}
+
+        <div class="lcd-start">
+            ${escapeHTML(badge)}
+        </div>
+
+    `;
+
+},
+
+function(error){
+
+    console.error(
+        "LCD Error:",
+        error
+    );
+
+    showLCDDefault();
+
+});
+
+
+/* =========================================================
+   DEFAULT LCD
+========================================================= */
+
+function showLCDDefault(){
+
+    lcdContent.innerHTML = `
+
+        <div class="lcd-type">
+            🔔 CBT EXAM
+        </div>
+
+        <div class="lcd-heading">
+            NO LIVE EXAM
+        </div>
+
+        <div class="lcd-message">
+            Upcoming exam details will appear here
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+document.getElementById(
+    "logoutBtn"
+)
+.addEventListener(
+"click",
+function(){
+
+    localStorage.removeItem(
+        "tspStudentSession"
+    );
+
+    window.location.href =
+    "student-login.html";
+
+});
+
+
+/* =========================================================
+   SECURITY / ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+loadCourse();
+
+
+</script>
+
+
+</body>
+
+  </html>
