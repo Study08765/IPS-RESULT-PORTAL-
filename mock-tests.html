@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Subject Wise Mock Tests</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Poppins,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    color:#173b62;
+
+    background:
+
+    radial-gradient(
+        circle at 10% 5%,
+        rgba(0,100,180,.08),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 90% 25%,
+        rgba(255,215,0,.07),
+        transparent 30%
+    ),
+
+    linear-gradient(
+        135deg,
+        #edf7ff,
+        #ffffff,
+        #edf5ff
+    );
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    min-height:62px;
+
+    padding:9px 13px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#fff;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #022653,
+        #0759a8,
+        #00396f
+    );
+
+    border-bottom:
+    1px solid rgba(255,215,0,.35);
+
+    box-shadow:
+    0 8px 25px rgba(0,35,75,.25);
+}
+
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    min-width:0;
+}
+
+
+.brand img{
+
+    width:37px;
+
+    height:37px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    padding:2px;
+
+    background:#fff;
+
+    border:
+    1px solid #ffd700;
+}
+
+
+.brand-title{
+
+    color:#ffd700;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    line-height:1.2;
+
+    white-space:nowrap;
+}
+
+
+.brand-sub{
+
+    color:#d9efff;
+
+    font-size:6px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    margin-top:2px;
+}
+
+
+.dashboard-btn{
+
+    border:
+    1px solid rgba(255,215,0,.6);
+
+    background:
+    rgba(255,255,255,.10);
+
+    color:#ffd700;
+
+    border-radius:20px;
+
+    padding:
+    7px 10px;
+
+    font-size:7px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container{
+
+    width:100%;
+
+    max-width:1050px;
+
+    margin:auto;
+
+    padding:
+    14px 12px 35px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+    20px 18px;
+
+    border-radius:22px;
+
+    margin-bottom:13px;
+
+    color:#fff;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #064078,
+        #087cc9,
+        #07569a
+    );
+
+    box-shadow:
+    0 14px 32px rgba(0,70,140,.20);
+
+    border:
+    1px solid rgba(255,255,255,.12);
+}
+
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    right:-65px;
+
+    top:-90px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,215,0,.20),
+        transparent 68%
+    );
+}
+
+
+.hero h2{
+
+    position:relative;
+
+    z-index:2;
+
+    color:#ffd700;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    line-height:1.3;
+}
+
+
+.hero p{
+
+    position:relative;
+
+    z-index:2;
+
+    color:#e7f6ff;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    margin-top:5px;
+}
+
+
+.hero-badge{
+
+    position:relative;
+
+    z-index:2;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    margin-top:11px;
+
+    padding:
+    5px 10px;
+
+    border-radius:20px;
+
+    color:#fff;
+
+    background:
+    rgba(0,0,0,.14);
+
+    border:
+    1px solid rgba(255,215,0,.28);
+
+    font-size:7px;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+    10px 12px;
+
+    margin-bottom:14px;
+
+    background:#fff;
+
+    border:
+    1px solid #dce8f3;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 6px 18px rgba(30,70,110,.07);
+}
+
+
+.search-card i{
+
+    color:#0759a8;
+
+    font-size:13px;
+}
+
+
+.search-card input{
+
+    width:100%;
+
+    border:0;
+
+    outline:none;
+
+    background:transparent;
+
+    color:#173b62;
+
+    font-size:9px;
+
+    font-weight:600;
+}
+
+
+.search-card input::placeholder{
+
+    color:#91a4b6;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-head{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:
+    4px 2px 10px;
+}
+
+
+.section-head h3{
+
+    color:#07549c;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:.3px;
+}
+
+
+.total-badge{
+
+    padding:
+    5px 9px;
+
+    border-radius:20px;
+
+    color:#8a6710;
+
+    background:
+    #fffdf0;
+
+    border:
+    1px solid #d8b337;
+
+    font-size:7px;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   SUBJECT CARD
+========================================================= */
+
+.subject-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f5faff
+    );
+
+    border:
+    1px solid #d8e5ef;
+
+    border-radius:20px;
+
+    margin-bottom:11px;
+
+    box-shadow:
+    0 8px 22px rgba(30,70,110,.08);
+
+    transition:.25s;
+}
+
+
+.subject-card:hover{
+
+    box-shadow:
+    0 12px 28px rgba(30,70,110,.12);
+}
+
+
+.subject-card.open{
+
+    border-color:
+    #d3ad35;
+
+    box-shadow:
+    0 10px 28px rgba(140,105,15,.13);
+}
+
+
+/* GOLD TOP LINE */
+
+.subject-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:8%;
+
+    right:8%;
+
+    top:0;
+
+    height:3px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        transparent,
+        #ffd700,
+        #a67c10,
+        #ffd700,
+        transparent
+    );
+}
+
+
+/* =========================================================
+   SUBJECT HEADER
+========================================================= */
+
+.subject-header{
+
+    width:100%;
+
+    border:0;
+
+    outline:none;
+
+    background:transparent;
+
+    padding:
+    13px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-align:left;
+
+    cursor:pointer;
+}
+
+
+.subject-icon{
+
+    flex-shrink:0;
+
+    width:47px;
+
+    height:47px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    color:#fff;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #0759a8,
+        #003b78
+    );
+
+    border:
+    2px solid #d8b337;
+
+    box-shadow:
+    0 4px 0 #164a7c;
+
+    font-size:19px;
+}
+
+
+.subject-info{
+
+    flex:1;
+
+    min-width:0;
+}
+
+
+.subject-name{
+
+    color:#07549c;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    line-height:1.3;
+}
+
+
+.subject-count{
+
+    color:#71869a;
+
+    font-size:7px;
+
+    font-weight:700;
+
+    margin-top:3px;
+}
+
+
+.subject-arrow{
+
+    flex-shrink:0;
+
+    width:30px;
+
+    height:30px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#07549c;
+
+    background:#eef6fc;
+
+    border:
+    1px solid #d5e4ef;
+
+    transition:.3s;
+}
+
+
+.subject-card.open
+.subject-arrow{
+
+    transform:
+    rotate(180deg);
+
+    background:
+    #fff8d9;
+
+    color:#96720c;
+
+    border-color:#d8b337;
+}
+
+
+/* =========================================================
+   TEST LIST
+========================================================= */
+
+.test-list{
+
+    display:none;
+
+    padding:
+    0 11px 12px;
+}
+
+
+.subject-card.open
+.test-list{
+
+    display:block;
+
+    animation:
+    openTests .25s ease;
+}
+
+
+@keyframes openTests{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(-5px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   TEST ITEM
+========================================================= */
+
+.test-item{
+
+    position:relative;
+
+    padding:
+    12px;
+
+    margin-top:8px;
+
+    border:
+    1px solid #dce8f3;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f8fbfe
+    );
+
+    box-shadow:
+    0 4px 12px rgba(30,70,110,.05);
+}
+
+
+.test-top{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:8px;
+}
+
+
+.test-number{
+
+    flex-shrink:0;
+
+    width:31px;
+
+    height:31px;
+
+    border-radius:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#ffd700;
+
+    background:
+    linear-gradient(
+        145deg,
+        #0759a8,
+        #003b78
+    );
+
+    border:
+    1px solid #d8b337;
+
+    font-size:8px;
+
+    font-weight:900;
+}
+
+
+.test-content{
+
+    flex:1;
+
+    min-width:0;
+}
+
+
+.test-name{
+
+    color:#174d7f;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    line-height:1.5;
+}
+
+
+.test-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:5px;
+
+    margin-top:5px;
+}
+
+
+.meta-pill{
+
+    padding:
+    4px 6px;
+
+    border-radius:8px;
+
+    color:#71869a;
+
+    background:#f0f6fa;
+
+    border:
+    1px solid #dfeaf2;
+
+    font-size:6px;
+
+    font-weight:700;
+}
+
+
+/* START BUTTON */
+
+.test-start{
+
+    width:100%;
+
+    margin-top:9px;
+
+    border:0;
+
+    padding:
+    9px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #087a3b,
+        #0ca85a
+    );
+
+    font-size:8px;
+
+    font-weight:900;
+
+    box-shadow:
+    0 4px 10px rgba(0,120,60,.14);
+
+    transition:.2s;
+}
+
+
+.test-start:hover{
+
+    transform:
+    translateY(-1px);
+
+    box-shadow:
+    0 6px 14px rgba(0,120,60,.20);
+}
+
+
+/* =========================================================
+   SUBJECT COLORS
+========================================================= */
+
+.subject-card[data-subject="hindi"]
+.subject-icon{
+
+    background:
+    linear-gradient(
+        145deg,
+        #087cc9,
+        #064078
+    );
+}
+
+
+.subject-card[data-subject="english"]
+.subject-icon{
+
+    background:
+    linear-gradient(
+        145deg,
+        #6b4acb,
+        #38226f
+    );
+}
+
+
+.subject-card[data-subject="mathematics"]
+.subject-icon{
+
+    background:
+    linear-gradient(
+        145deg,
+        #07875a,
+        #035337
+    );
+}
+
+
+.subject-card[data-subject="math"]
+.subject-icon{
+
+    background:
+    linear-gradient(
+        145deg,
+        #07875a,
+        #035337
+    );
+}
+
+
+.subject-card[data-subject="science"]
+.subject-icon{
+
+    background:
+    linear-gradient(
+        145deg,
+        #0c9b91,
+        #075d58
+    );
+}
+
+
+.subject-card[data-subject="gk"]
+.subject-icon{
+
+    background:
+    linear-gradient(
+        145deg,
+        #d58a12,
+        #805000
+    );
+}
+
+
+.subject-card[data-subject="general knowledge"]
+.subject-icon{
+
+    background:
+    linear-gradient(
+        145deg,
+        #d58a12,
+        #805000
+    );
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty{
+
+    text-align:center;
+
+    background:#fff;
+
+    border:
+    1px solid #dce8f3;
+
+    border-radius:18px;
+
+    padding:
+    35px 15px;
+
+    color:#7890a5;
+
+    font-size:9px;
+
+    box-shadow:
+    0 7px 18px rgba(30,70,110,.07);
+}
+
+
+.empty i{
+
+    display:block;
+
+    color:#9ab0c1;
+
+    font-size:28px;
+
+    margin-bottom:9px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .container{
+
+        padding:
+        11px 9px 28px;
+    }
+
+
+    .header{
+
+        min-height:57px;
+
+        padding:
+        8px 10px;
+    }
+
+
+    .brand img{
+
+        width:32px;
+
+        height:32px;
+    }
+
+
+    .brand-title{
+
+        font-size:11px;
+    }
+
+
+    .brand-sub{
+
+        font-size:5px;
+    }
+
+
+    .dashboard-btn{
+
+        padding:
+        6px 8px;
+
+        font-size:6px;
+    }
+
+
+    .hero{
+
+        padding:
+        18px 15px;
+
+        border-radius:19px;
+    }
+
+
+    .hero h2{
+
+        font-size:18px;
+    }
+
+
+    .hero p{
+
+        font-size:7px;
+    }
+
+
+    .subject-header{
+
+        padding:
+        11px;
+    }
+
+
+    .subject-icon{
+
+        width:43px;
+
+        height:43px;
+
+        font-size:17px;
+    }
+
+
+    .subject-name{
+
+        font-size:13px;
+    }
+
+
+    .subject-count{
+
+        font-size:6px;
+    }
+
+
+    .test-list{
+
+        padding:
+        0 9px 10px;
+    }
+
+
+    .test-item{
+
+        padding:
+        10px;
+    }
+
+
+    .test-name{
+
+        font-size:10px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media(max-width:350px){
+
+    .brand-title{
+
+        font-size:10px;
+    }
+
+
+    .dashboard-btn{
+
+        font-size:5px;
+    }
+
+
+    .subject-name{
+
+        font-size:12px;
+    }
+
+
+    .test-name{
+
+        font-size:9px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+
+    <div class="brand">
+
+        <img
+        src="icon-512.png"
+        onerror="this.style.display='none'">
+
+        <div>
+
+            <div class="brand-title">
+                THE STUDY POINT
+            </div>
+
+            <div class="brand-sub">
+                SUBJECT-WISE MOCK TEST PORTAL
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button
+    class="dashboard-btn"
+    onclick="location.href='student-dashboard.html'">
+
+        <i class="fa-solid fa-house"></i>
+
+        &nbsp; DASHBOARD
+
+    </button>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="container">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h2>
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            SUBJECT-WISE MOCK TEST
+
+        </h2>
+
+
+        <p>
+
+            Practice subject-wise • Improve your preparation
+            • Check your performance
+
+        </p>
+
+
+        <div class="hero-badge">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            PREMIUM CBT PRACTICE
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SEARCH -->
+
+    <div class="search-card">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+        id="searchInput"
+        type="search"
+        placeholder="Search subject or mock test...">
+
+    </div>
+
+
+
+    <!-- SECTION HEAD -->
+
+    <div class="section-head">
+
+        <h3>
+
+            <i class="fa-solid fa-layer-group"></i>
+
+            &nbsp; AVAILABLE SUBJECTS
+
+        </h3>
+
+
+        <span
+        id="totalBadge"
+        class="total-badge">
+
+            Loading...
+
+        </span>
+
+    </div>
+
+
+
+    <!-- SUBJECTS -->
+
+    <div id="subjectGrid">
+
+        <div class="empty">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Loading Mock Tests...
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import { db } from "./firebase.js";
+
+import {
+
+    collection,
+    getDocs
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const subjectGrid=
+document.getElementById(
+    "subjectGrid"
+);
+
+
+const searchInput=
+document.getElementById(
+    "searchInput"
+);
+
+
+const totalBadge=
+document.getElementById(
+    "totalBadge"
+);
+
+
+
+let allTests=[];
+
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function esc(value){
+
+    return String(value ?? "")
+
+    .replace(
+        /[&<>"']/g,
+        m=>({
+
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+
+        }[m])
+    );
+
+}
+
+
+
+/* =====================================================
+   SUBJECT NORMALIZE
+===================================================== */
+
+function normalizeSubject(subject){
+
+    const s=
+    String(subject || "")
+    .trim()
+    .toLowerCase();
+
+
+    if(
+        s==="math" ||
+        s==="maths" ||
+        s==="mathematics" ||
+        s.includes("गणित")
+    ){
+
+        return "Mathematics";
+
+    }
+
+
+    if(
+        s==="hindi" ||
+        s.includes("हिंदी")
+    ){
+
+        return "Hindi";
+
+    }
+
+
+    if(
+        s==="english" ||
+        s.includes("अंग्रेज")
+    ){
+
+        return "English";
+
+    }
+
+
+    if(
+        s==="science" ||
+        s.includes("विज्ञान")
+    ){
+
+        return "Science";
+
+    }
+
+
+    if(
+        s==="gk" ||
+        s==="general knowledge" ||
+        s.includes("सामान्य ज्ञान")
+    ){
+
+        return "General Knowledge";
+
+    }
+
+
+    if(
+        s==="computer" ||
+        s.includes("कंप्यूटर")
+    ){
+
+        return "Computer";
+
+    }
+
+
+    return String(subject || "Other").trim();
+
+}
+
+
+
+/* =====================================================
+   SUBJECT ICON
+===================================================== */
+
+function subjectIcon(subject){
+
+    const s=
+    subject.toLowerCase();
+
+
+    if(s==="hindi")
+        return "fa-language";
+
+
+    if(s==="english")
+        return "fa-a";
+
+
+    if(
+        s==="mathematics"
+    )
+        return "fa-calculator";
+
+
+    if(s==="science")
+        return "fa-flask";
+
+
+    if(
+        s==="general knowledge"
+    )
+        return "fa-earth-asia";
+
+
+    if(s==="computer")
+        return "fa-computer";
+
+
+    return "fa-book-open";
+
+}
+
+
+
+/* =====================================================
+   SUBJECT KEY
+===================================================== */
+
+function subjectKey(subject){
+
+    return String(subject || "")
+    .trim()
+    .toLowerCase();
+
+}
+
+
+
+/* =====================================================
+   LOAD TESTS
+===================================================== */
+
+async function loadTests(){
+
+    try{
+
+        const snap=
+        await getDocs(
+
+            collection(
+                db,
+                "mockTests"
+            )
+
+        );
+
+
+        allTests=[];
+
+
+        snap.forEach(docSnap=>{
+
+            const data=
+            docSnap.data();
+
+
+            if(
+                data.published===true
+            ){
+
+                allTests.push({
+
+                    id:docSnap.id,
+
+                    ...data
+
+                });
+
+            }
+
+        });
+
+
+        totalBadge.textContent=
+
+            allTests.length+
+
+            (
+                allTests.length===1
+                ? " TEST"
+                : " TESTS"
+            );
+
+
+        renderSubjects();
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+
+        totalBadge.textContent=
+        "ERROR";
+
+
+        subjectGrid.innerHTML=`
+
+            <div class="empty">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                Mock Tests load नहीं हो सके।
+
+                <br><br>
+
+                ${esc(error.message)}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   RENDER SUBJECTS
+===================================================== */
+
+function renderSubjects(){
+
+    const search=
+    searchInput.value
+    .trim()
+    .toLowerCase();
+
+
+    let filtered=
+    allTests.filter(test=>{
+
+        const subject=
+        normalizeSubject(
+            test.subject
+        );
+
+
+        const name=
+        String(
+            test.testName || ""
+        )
+        .toLowerCase();
+
+
+        return (
+
+            !search
+
+            ||
+
+            subject
+            .toLowerCase()
+            .includes(search)
+
+            ||
+
+            name.includes(search)
+
+        );
+
+    });
+
+
+    if(!filtered.length){
+
+        subjectGrid.innerHTML=`
+
+            <div class="empty">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                कोई Mock Test नहीं मिला।
+
+                <br>
+
+                Search बदलकर देखें।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    /* GROUP BY SUBJECT */
+
+    const groups={};
+
+
+    filtered.forEach(test=>{
+
+        const subject=
+        normalizeSubject(
+            test.subject
+        );
+
+
+        if(!groups[subject]){
+
+            groups[subject]=[];
+
+        }
+
+
+        groups[subject].push(test);
+
+    });
+
+
+
+    /* SORT SUBJECTS */
+
+    const preferredOrder=[
+
+        "Hindi",
+
+        "English",
+
+        "Mathematics",
+
+        "Science",
+
+        "General Knowledge",
+
+        "Computer"
+
+    ];
+
+
+    const subjects=
+    Object.keys(groups)
+    .sort((a,b)=>{
+
+        const ai=
+        preferredOrder.indexOf(a);
+
+        const bi=
+        preferredOrder.indexOf(b);
+
+
+        if(ai===-1 && bi===-1){
+
+            return a.localeCompare(b);
+
+        }
+
+
+        if(ai===-1)
+            return 1;
+
+
+        if(bi===-1)
+            return -1;
+
+
+        return ai-bi;
+
+    });
+
+
+
+    subjectGrid.innerHTML=
+
+    subjects.map((subject,index)=>{
+
+        const tests=
+        groups[subject];
+
+
+        const key=
+        subjectKey(subject);
+
+
+        const slug=
+        key
+        .replace(/[^a-z0-9]+/g," ");
+
+
+        return `
+
+            <div
+            class="subject-card"
+            data-subject="${esc(slug)}">
+
+
+                <!-- SUBJECT HEADER -->
+
+                <button
+                class="subject-header"
+                onclick="toggleSubject(this)">
+
+
+                    <div class="subject-icon">
+
+                        <i class="fa-solid ${subjectIcon(subject)}"></i>
+
+                    </div>
+
+
+                    <div class="subject-info">
+
+                        <div class="subject-name">
+
+                            ${esc(subject)}
+
+                        </div>
+
+
+                        <div class="subject-count">
+
+                            ${tests.length}
+
+                            ${
+                                tests.length===1
+                                ? " Mock Test"
+                                : " Mock Tests"
+                            }
+
+                            &nbsp; • &nbsp;
+
+                            Tap to ${
+                                index===0
+                                ? "view"
+                                : "open"
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="subject-arrow">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </button>
+
+
+
+                <!-- TEST LIST -->
+
+                <div class="test-list">
+
+
+                    ${
+                        tests
+                        .map((test,i)=>`
+
+                            <div class="test-item">
+
+
+                                <div class="test-top">
+
+
+                                    <div class="test-number">
+
+                                        ${
+                                            String(i+1)
+                                            .padStart(2,"0")
+                                        }
+
+                                    </div>
+
+
+                                    <div class="test-content">
+
+                                        <div class="test-name">
+
+                                            ${esc(
+                                                test.testName
+                                            )}
+
+                                        </div>
+
+
+                                        <div class="test-meta">
+
+
+                                            <span
+                                            class="meta-pill">
+
+                                                <i class="fa-solid fa-list-ol"></i>
+
+                                                ${
+                                                    Number(
+                                                        test.questions?.length ??
+                                                        test.totalQuestions ??
+                                                        0
+                                                    )
+                                                }
+                                                Questions
+
+                                            </span>
+
+
+                                            <span
+                                            class="meta-pill">
+
+                                                <i class="fa-solid fa-clock"></i>
+
+                                                ${
+                                                    Number(
+                                                        test.timeLimit || 0
+                                                    )
+                                                }
+                                                Min
+
+                                            </span>
+
+
+                                            ${
+                                                test.className
+                                                ? `
+
+                                                    <span
+                                                    class="meta-pill">
+
+                                                        <i class="fa-solid fa-graduation-cap"></i>
+
+                                                        ${esc(
+                                                            test.className
+                                                        )}
+
+                                                    </span>
+
+                                                `
+                                                : ""
+                                            }
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <button
+                                class="test-start"
+                                onclick="startTest('${esc(test.id)}')">
+
+                                    <i class="fa-solid fa-play"></i>
+
+                                    &nbsp;
+
+                                    START MOCK TEST
+
+                                </button>
+
+
+                            </div>
+
+                        `)
+                        .join("")
+                    }
+
+
+                </div>
+
+
+            </div>
+
+        `;
+
+    })
+    .join("");
+
+
+}
+
+
+
+/* =====================================================
+   TOGGLE SUBJECT
+===================================================== */
+
+window.toggleSubject=function(button){
+
+    const card=
+    button.closest(
+        ".subject-card"
+    );
+
+
+    const wasOpen=
+    card.classList.contains(
+        "open"
+    );
+
+
+    /* Close all */
+
+    document
+    .querySelectorAll(
+        ".subject-card.open"
+    )
+    .forEach(other=>{
+
+        if(other!==card){
+
+            other.classList.remove(
+                "open"
+            );
+
+        }
+
+    });
+
+
+    /* Toggle current */
+
+    if(wasOpen){
+
+        card.classList.remove(
+            "open"
+        );
+
+    }
+    else{
+
+        card.classList.add(
+            "open"
+        );
+
+        setTimeout(()=>{
+
+            card.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"nearest"
+
+            });
+
+        },100);
+
+    }
+
+};
+
+
+
+/* =====================================================
+   START TEST
+===================================================== */
+
+window.startTest=function(id){
+
+    if(!id)
+        return;
+
+
+    localStorage.setItem(
+        "selectedMockTest",
+        id
+    );
+
+
+    location.href=
+    "mock-test-attempt.html";
+
+};
+
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+searchInput.addEventListener(
+    "input",
+    ()=>{
+
+        renderSubjects();
+
+    }
+);
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadTests();
+
+</script>
+
+</body>
+  </html>
