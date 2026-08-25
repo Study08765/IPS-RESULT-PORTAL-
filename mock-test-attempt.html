@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Mock Test</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:
+    linear-gradient(135deg,#edf6ff,#fff,#edf5ff);
+    color:#173b62;
+}
+
+.header{
+    background:
+    linear-gradient(135deg,#032b5a,#0759a8,#003b78);
+    color:#fff;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:10;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+.header h1{
+    color:#ffd700;
+    font-size:19px;
+    font-weight:900;
+}
+
+.timer{
+    background:#071d32;
+    border:1px solid #ffd700;
+    color:#ffd700;
+    padding:8px 14px;
+    border-radius:25px;
+    font-weight:900;
+    font-size:12px;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:20px;
+}
+
+.info{
+    background:#fff;
+    border-radius:20px;
+    padding:18px;
+    border:2px solid #d5af34;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    margin-bottom:15px;
+}
+
+.info h2{
+    color:#07549c;
+    font-size:20px;
+}
+
+.info p{
+    color:#71869a;
+    font-size:10px;
+    margin-top:5px;
+}
+
+.question{
+    background:#fff;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:13px;
+    border:1px solid #dce8f3;
+    box-shadow:0 7px 18px rgba(30,70,110,.09);
+}
+
+.q{
+    color:#153b62;
+    font-size:13px;
+    font-weight:800;
+    line-height:1.65;
+}
+
+.option{
+    margin-top:8px;
+    padding:10px;
+    border:1px solid #dce7f1;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:11px;
+    background:#fbfdff;
+}
+
+.option:hover{
+    border-color:#0878c9;
+    background:#eef8ff;
+}
+
+.option input{
+    margin-right:7px;
+}
+
+.submit{
+    width:100%;
+    border:0;
+    padding:15px;
+    border-radius:14px;
+    background:
+    linear-gradient(135deg,#087a3b,#0ca85a);
+    color:#fff;
+    font-weight:900;
+    font-size:14px;
+    margin:10px 0 30px;
+    cursor:pointer;
+}
+
+.result{
+    display:none;
+    background:
+    linear-gradient(135deg,#06386f,#087cc9);
+    color:#fff;
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    margin-bottom:30px;
+    box-shadow:0 15px 35px rgba(0,70,140,.25);
+}
+
+.result.show{
+    display:block;
+}
+
+.result h2{
+    color:#ffd700;
+    font-size:27px;
+}
+
+.score{
+    font-size:45px;
+    font-weight:900;
+    margin:8px 0;
+}
+
+.result p{
+    font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <h1>THE STUDY POINT • MOCK TEST</h1>
+
+    <div id="timer" class="timer">
+        00:00
+    </div>
+
+</header>
+
+<div class="container">
+
+    <div id="testInfo" class="info">
+        Loading...
+    </div>
+
+    <div id="questions">
+    </div>
+
+    <button
+    id="submitBtn"
+    class="submit">
+
+        SUBMIT MOCK TEST
+
+    </button>
+
+    <div
+    id="result"
+    class="result">
+
+        <h2>
+            🎉 MOCK TEST COMPLETED
+        </h2>
+
+        <div
+        id="score"
+        class="score">
+            0/0
+        </div>
+
+        <p id="resultText">
+            Your score has been saved.
+        </p>
+
+    </div>
+
+</div>
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    getDoc,
+    addDoc,
+    collection,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+let test=null;
+let seconds=0;
+let timer=null;
+let submitted=false;
+
+
+function esc(value){
+
+    return String(value??"")
+    .replace(/[&<>"']/g,m=>({
+
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+
+    }[m]));
+
+}
+
+
+function getSession(){
+
+    const raw=
+    localStorage.getItem(
+        "tspStudentSession"
+    );
+
+    if(raw){
+
+        try{
+
+            const s=JSON.parse(raw);
+
+            if(s && s.roll)
+                return s;
+
+        }
+        catch(e){}
+
+    }
+
+    return {
+
+        roll:
+        localStorage.getItem(
+            "studentRoll"
+        ) || "",
+
+        name:""
+
+    };
+
+}
+
+
+async function loadTest(){
+
+    const id=
+    localStorage.getItem(
+        "selectedMockTest"
+    );
+
+
+    if(!id){
+
+        alert("Mock Test select नहीं हुआ।");
+
+        location.href=
+        "mock-tests.html";
+
+        return;
+
+    }
+
+
+    const snap=
+    await getDoc(
+        doc(
+            db,
+            "mockTests",
+            id
+        )
+    );
+
+
+    if(!snap.exists()){
+
+        alert("Mock Test नहीं मिला.");
+
+        location.href=
+        "mock-tests.html";
+
+        return;
+
+    }
+
+
+    test={
+        id:snap.id,
+        ...snap.data()
+    };
+
+
+    if(test.published!==true){
+
+        alert("यह Mock Test अभी available नहीं है.");
+
+        location.href=
+        "mock-tests.html";
+
+        return;
+
+    }
+
+
+    seconds=
+    Number(test.timeLimit||20)*60;
+
+
+    document.getElementById(
+        "testInfo"
+    ).innerHTML=`
+
+        <h2>
+            ${esc(test.testName)}
+        </h2>
+
+        <p>
+
+            📚 ${esc(test.subject)}
+            &nbsp; • &nbsp;
+            🎓 ${esc(test.className)}
+            &nbsp; • &nbsp;
+            ❓ ${test.totalQuestions||0} Questions
+
+        </p>
+
+    `;
+
+
+    renderQuestions();
+
+    startTimer();
+
+}
+
+
+function renderQuestions(){
+
+    const box=
+    document.getElementById(
+        "questions"
+    );
+
+
+    box.innerHTML=
+    (test.questions||[])
+    .map((q,i)=>`
+
+        <div class="question">
+
+            <div class="q">
+                Q${i+1}. ${esc(q.question)}
+            </div>
+
+            ${["A","B","C","D"]
+            .map(key=>`
+
+                <label class="option">
+
+                    <input
+                    type="radio"
+                    name="q${i}"
+                    value="${key}">
+
+                    <b>${key})</b>
+                    ${esc(q.options[key])}
+
+                </label>
+
+            `).join("")}
+
+        </div>
+
+    `).join("");
+
+}
+
+
+function startTimer(){
+
+    updateTimer();
+
+    timer=
+    setInterval(()=>{
+
+        seconds--;
+
+        updateTimer();
+
+
+        if(seconds<=0){
+
+            clearInterval(timer);
+
+            submitTest(true);
+
+        }
+
+    },1000);
+
+}
+
+
+function updateTimer(){
+
+    const m=
+    Math.floor(seconds/60)
+    .toString()
+    .padStart(2,"0");
+
+    const s=
+    (seconds%60)
+    .toString()
+    .padStart(2,"0");
+
+
+    document.getElementById(
+        "timer"
+    ).textContent=
+    m+":"+s;
+
+}
+
+
+async function submitTest(auto=false){
+
+    if(submitted)
+        return;
+
+
+    if(
+        !auto &&
+        !confirm(
+            "क्या आप Mock Test submit करना चाहते हैं?"
+        )
+    )
+        return;
+
+
+    submitted=true;
+
+    clearInterval(timer);
+
+
+    let correct=0;
+    let attempted=0;
+
+
+    test.questions.forEach(
+    (q,i)=>{
+
+        const selected=
+        document.querySelector(
+            `input[name="q${i}"]:checked`
+        );
+
+
+        if(selected){
+
+            attempted++;
+
+            if(
+                selected.value===
+                String(q.answer)
+                .toUpperCase()
+            ){
+
+                correct++;
+
+            }
+
+        }
+
+    });
+
+
+    const total=
+    test.questions.length;
+
+    const marks=
+    Number(test.marksPerQuestion||1);
+
+    const score=
+    correct*marks;
+
+    const maxMarks=
+    total*marks;
+
+    const percentage=
+    total
+    ? ((correct/total)*100).toFixed(2)
+    : "0.00";
+
+
+    const session=
+    getSession();
+
+
+    try{
+
+        await addDoc(
+            collection(
+                db,
+                "mockTestAttempts"
+            ),
+            {
+
+                mockTestId:test.id,
+
+                testName:
+                test.testName,
+
+                subject:
+                test.subject,
+
+                className:
+                test.className,
+
+                studentRoll:
+                String(
+                    session.roll||""
+                ).toUpperCase(),
+
+                studentName:
+                session.name||"",
+
+                correct,
+                attempted,
+                total,
+
+                score,
+                maxMarks,
+
+                percentage:
+
+                Number(
+                    percentage
+                ),
+
+                submittedAt:
+                serverTimestamp()
+
+            }
+        );
+
+
+        document.getElementById(
+            "score"
+        ).textContent=
+        score+
+        "/"+
+        maxMarks;
+
+
+        document.getElementById(
+            "resultText"
+        ).textContent=
+        "Correct: "+
+        correct+
+        " • Attempted: "+
+        attempted+
+        " • Percentage: "+
+        percentage+
+        "%";
+
+
+        document.getElementById(
+            "result"
+        ).classList.add("show");
+
+
+        document.getElementById(
+            "submitBtn"
+        ).style.display="none";
+
+
+        window.scrollTo({
+            top:document.body.scrollHeight,
+            behavior:"smooth"
+        });
+
+    }
+    catch(error){
+
+        submitted=false;
+
+        alert(
+            "Score save नहीं हो सका: "+
+            error.message
+        );
+
+    }
+
+}
+
+
+document.getElementById(
+    "submitBtn"
+)
+.addEventListener(
+    "click",
+    ()=>submitTest(false)
+);
+
+
+loadTest();
+
+</script>
+
+</body>
+</html>
