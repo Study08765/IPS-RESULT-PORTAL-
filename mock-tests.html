@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Subject Wise Mock Tests</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    linear-gradient(135deg,#eef7ff,#fff,#edf5ff);
+    color:#123b63;
+}
+
+.header{
+    background:
+    linear-gradient(135deg,#032b5a,#0759a8,#003b78);
+    padding:14px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#fff;
+    box-shadow:0 8px 25px rgba(0,0,0,.22);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#fff;
+    padding:3px;
+    border:2px solid #ffd700;
+}
+
+.brand h1{
+    color:#ffd700;
+    font-size:20px;
+    font-weight:900;
+}
+
+.brand p{
+    color:#e4f2ff;
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.7px;
+}
+
+.back{
+    border:1px solid rgba(255,215,0,.5);
+    background:rgba(255,255,255,.12);
+    color:#ffd700;
+    border-radius:25px;
+    padding:9px 13px;
+    font-size:9px;
+    font-weight:900;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.title{
+    background:
+    linear-gradient(135deg,#064078,#087cc9);
+    border-radius:23px;
+    padding:23px;
+    color:#fff;
+    box-shadow:0 15px 35px rgba(0,70,140,.22);
+    margin-bottom:20px;
+}
+
+.title h2{
+    color:#ffd700;
+    font-size:25px;
+    font-weight:900;
+}
+
+.title p{
+    margin-top:5px;
+    font-size:10px;
+    color:#e8f7ff;
+}
+
+.subject-title{
+    text-align:center;
+    margin:20px 0;
+}
+
+.subject-title span{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:30px;
+    background:#fff;
+    border:2px solid #d3aa2c;
+    color:#07549c;
+    font-size:13px;
+    font-weight:900;
+    box-shadow:0 5px 15px rgba(0,60,110,.12);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.test-card{
+    position:relative;
+    overflow:hidden;
+    background:
+    linear-gradient(145deg,#fff,#f3f9ff);
+    border:2px solid #d4ad32;
+    border-radius:21px;
+    padding:20px;
+    box-shadow:
+    0 8px 20px rgba(30,75,115,.14),
+    0 4px 0 #aa8420;
+}
+
+.test-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:10%;
+    right:10%;
+    height:3px;
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #ffd700,
+        #a77d12,
+        #ffd700,
+        transparent
+    );
+}
+
+.icon{
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+    linear-gradient(145deg,#49a9f5,#0759ad);
+    color:#fff;
+    border:2px solid #d6b238;
+    box-shadow:0 4px 0 #164a7c;
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.test-card h3{
+    color:#064b99;
+    font-size:16px;
+    font-weight:900;
+}
+
+.meta{
+    margin-top:8px;
+    color:#71869b;
+    font-size:9px;
+    line-height:19px;
+}
+
+.start{
+    width:100%;
+    border:0;
+    margin-top:15px;
+    padding:11px;
+    border-radius:12px;
+    background:
+    linear-gradient(135deg,#087a3b,#0ca85a);
+    color:#fff;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.score{
+    margin-top:9px;
+    padding:7px;
+    border-radius:10px;
+    background:#e6f8ed;
+    color:#087a3b;
+    font-size:9px;
+    font-weight:900;
+    text-align:center;
+}
+
+.empty{
+    background:#fff;
+    border-radius:18px;
+    padding:40px;
+    text-align:center;
+    color:#7890a5;
+    font-size:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="brand">
+
+        <img src="icon-512.png">
+
+        <div>
+            <h1>THE STUDY POINT</h1>
+            <p>SUBJECT-WISE MOCK TEST PORTAL</p>
+        </div>
+
+    </div>
+
+    <button class="back"
+    onclick="location.href='student-dashboard.html'">
+
+        <i class="fa-solid fa-house"></i>
+        DASHBOARD
+
+    </button>
+
+</header>
+
+<div class="container">
+
+    <section class="title">
+
+        <h2>
+            <i class="fa-solid fa-medal"></i>
+            SUBJECT-WISE MOCK TEST
+        </h2>
+
+        <p>
+            Practice • Improve • Check Your Score
+        </p>
+
+    </section>
+
+    <div class="subject-title">
+
+        <span>
+            <i class="fa-solid fa-book-open"></i>
+            AVAILABLE PRACTICE TESTS
+        </span>
+
+    </div>
+
+    <div
+    id="testGrid"
+    class="grid">
+
+        <div class="empty">
+            Loading Mock Tests...
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    getDocs
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const grid=
+document.getElementById("testGrid");
+
+
+function esc(value){
+
+    return String(value??"")
+    .replace(/[&<>"']/g,m=>({
+
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+
+    }[m]));
+
+}
+
+
+function getRoll(){
+
+    const raw=
+    localStorage.getItem(
+        "tspStudentSession"
+    );
+
+    if(raw){
+
+        try{
+
+            const s=
+            JSON.parse(raw);
+
+            if(s && s.roll)
+                return String(s.roll)
+                .trim()
+                .toUpperCase();
+
+        }
+        catch(e){}
+
+    }
+
+
+    return String(
+        localStorage.getItem(
+            "studentRoll"
+        ) || ""
+    )
+    .trim()
+    .toUpperCase();
+
+}
+
+
+async function loadTests(){
+
+    try{
+
+        const snap=
+        await getDocs(
+            collection(
+                db,
+                "mockTests"
+            )
+        );
+
+
+        const tests=[];
+
+
+        snap.forEach(d=>{
+
+            const x=d.data();
+
+            if(x.published===true){
+
+                tests.push({
+                    id:d.id,
+                    ...x
+                });
+
+            }
+
+        });
+
+
+        if(!tests.length){
+
+            grid.innerHTML=`
+            <div class="empty">
+                <i class="fa-solid fa-book-open"
+                style="font-size:35px"></i>
+
+                <br><br>
+
+                अभी कोई Mock Test उपलब्ध नहीं है।
+            </div>`;
+
+            return;
+
+        }
+
+
+        grid.innerHTML=
+        tests.map(t=>`
+
+            <div class="test-card">
+
+                <div class="icon">
+
+                    <i class="fa-solid fa-pen-to-square"></i>
+
+                </div>
+
+                <h3>
+                    ${esc(t.testName)}
+                </h3>
+
+                <div class="meta">
+
+                    📚 Subject:
+                    <b>${esc(t.subject)}</b>
+
+                    <br>
+
+                    🎓 Class:
+                    <b>${esc(t.className)}</b>
+
+                    <br>
+
+                    ❓ Questions:
+                    <b>${t.totalQuestions||0}</b>
+
+                    <br>
+
+                    ⏱️ Time:
+                    <b>${t.timeLimit||0} Minutes</b>
+
+                </div>
+
+                <button
+                class="start"
+                onclick="startTest('${t.id}')">
+
+                    <i class="fa-solid fa-play"></i>
+                    START MOCK TEST
+
+                </button>
+
+            </div>
+
+        `).join("");
+
+    }
+    catch(error){
+
+        grid.innerHTML=`
+        <div class="empty">
+            Mock Tests load नहीं हो सके।
+            <br><br>
+            ${esc(error.message)}
+        </div>`;
+
+    }
+
+}
+
+
+window.startTest=function(id){
+
+    localStorage.setItem(
+        "selectedMockTest",
+        id
+    );
+
+    location.href=
+    "mock-test-attempt.html";
+
+};
+
+
+loadTests();
+
+</script>
+
+</body>
+              </html>
