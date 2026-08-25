@@ -1,0 +1,3113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Mock Test</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Poppins,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+    radial-gradient(
+        circle at 10% 10%,
+        rgba(0,111,190,.08),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 90% 30%,
+        rgba(255,215,0,.07),
+        transparent 30%
+    ),
+    linear-gradient(
+        135deg,
+        #eef7ff,
+        #ffffff,
+        #edf5ff
+    );
+
+    color:#173b62;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:
+    linear-gradient(
+        135deg,
+        #022653,
+        #0759a8,
+        #00396f
+    );
+
+    min-height:64px;
+
+    padding:
+    9px 14px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:
+    0 8px 25px rgba(0,35,75,.25);
+
+    border-bottom:
+    1px solid rgba(255,215,0,.35);
+}
+
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    min-width:0;
+}
+
+
+.header-logo{
+
+    width:36px;
+    height:36px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    padding:2px;
+
+    border:
+    1px solid #ffd700;
+
+    object-fit:cover;
+}
+
+
+.brand-area{
+    min-width:0;
+}
+
+
+.brand-title{
+
+    color:#ffd700;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    line-height:1.2;
+
+    white-space:nowrap;
+}
+
+
+.brand-sub{
+
+    color:#dcefff;
+
+    font-size:6px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    margin-top:2px;
+}
+
+
+/* TIMER */
+
+.timer-box{
+
+    text-align:center;
+
+    flex-shrink:0;
+}
+
+
+.timer-label{
+
+    color:#c8e5ff;
+
+    font-size:6px;
+
+    font-weight:800;
+
+    margin-bottom:2px;
+}
+
+
+.timer{
+
+    min-width:72px;
+
+    padding:
+    6px 10px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #07192b,
+        #102b43
+    );
+
+    color:#ffd700;
+
+    border:
+    1px solid #ffd700;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    box-shadow:
+    inset 0 0 10px rgba(255,215,0,.08);
+}
+
+
+.timer.warning{
+
+    color:#ffd23f;
+
+    border-color:#ffd23f;
+}
+
+
+.timer.danger{
+
+    color:#ff6666;
+
+    border-color:#ff6666;
+
+    animation:
+    timerPulse 1s infinite;
+}
+
+
+@keyframes timerPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.06);
+    }
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container{
+
+    width:100%;
+
+    max-width:850px;
+
+    margin:0 auto;
+
+    padding:
+    15px 14px 35px;
+}
+
+
+/* =====================================================
+   TEST INFORMATION
+===================================================== */
+
+.info{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f4faff
+    );
+
+    border:
+    2px solid #d5af34;
+
+    border-radius:20px;
+
+    padding:
+    17px 16px;
+
+    margin-bottom:12px;
+
+    box-shadow:
+    0 10px 25px rgba(30,70,110,.10),
+    0 3px 0 rgba(174,133,27,.35);
+}
+
+
+.info::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:12%;
+
+    right:12%;
+
+    height:3px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #ffd700,
+        #a67c10,
+        #ffd700,
+        transparent
+    );
+}
+
+
+.info h2{
+
+    color:#07549c;
+
+    font-size:19px;
+
+    line-height:1.45;
+
+    font-weight:900;
+
+    padding-right:5px;
+}
+
+
+.info p{
+
+    color:#6e8398;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    margin-top:6px;
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-card{
+
+    background:#fff;
+
+    border:
+    1px solid #dce8f3;
+
+    border-radius:15px;
+
+    padding:
+    11px 13px;
+
+    margin-bottom:14px;
+
+    box-shadow:
+    0 5px 16px rgba(30,70,110,.07);
+}
+
+
+.progress-head{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:7px;
+}
+
+
+.progress-title{
+
+    color:#55718b;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:.3px;
+}
+
+
+.progress-count{
+
+    color:#0759a8;
+
+    font-size:8px;
+
+    font-weight:900;
+}
+
+
+.progress-track{
+
+    height:7px;
+
+    width:100%;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#e8f0f7;
+}
+
+
+.progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #0759a8,
+        #078bd0,
+        #0ca85a
+    );
+
+    transition:
+    width .3s ease;
+}
+
+
+/* =====================================================
+   QUESTION CARD - LUXURY
+===================================================== */
+
+.question{
+
+    position:relative;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #fafdff
+    );
+
+    border:
+    1px solid #dce8f3;
+
+    border-radius:20px;
+
+    padding:
+    15px;
+
+    margin-bottom:12px;
+
+    box-shadow:
+    0 8px 22px rgba(30,70,110,.08);
+
+    transition:
+    .25s ease;
+
+    overflow:hidden;
+}
+
+
+.question::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    bottom:0;
+
+    width:4px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #0759a8,
+        #0a9b55
+    );
+
+    opacity:.75;
+}
+
+
+.question:hover{
+
+    transform:
+    translateY(-1px);
+
+    box-shadow:
+    0 12px 28px rgba(30,70,110,.12);
+}
+
+
+.question.answered{
+
+    border-color:
+    rgba(7,154,82,.35);
+
+    box-shadow:
+    0 8px 22px rgba(7,154,82,.09);
+}
+
+
+/* =====================================================
+   QUESTION TOP
+===================================================== */
+
+.question-top{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    margin-bottom:11px;
+}
+
+
+.question-number{
+
+    flex-shrink:0;
+
+    width:36px;
+    height:36px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #0759a8,
+        #003b78
+    );
+
+    color:#ffd700;
+
+    border:
+    1px solid rgba(255,215,0,.65);
+
+    box-shadow:
+    0 4px 10px rgba(0,55,110,.20);
+
+    font-size:12px;
+
+    font-weight:900;
+}
+
+
+.question-label{
+
+    color:#07549c;
+
+    font-size:7px;
+
+    font-weight:900;
+
+    letter-spacing:.6px;
+
+    margin-bottom:2px;
+
+    text-transform:uppercase;
+}
+
+
+.q{
+
+    color:#173b62;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   OPTIONS
+===================================================== */
+
+.options{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:8px;
+}
+
+
+.option{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    min-height:45px;
+
+    padding:
+    8px 9px;
+
+    border:
+    1px solid #dbe7f1;
+
+    border-radius:13px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f8fbfe
+    );
+
+    cursor:pointer;
+
+    transition:
+    .22s ease;
+
+    box-shadow:
+    0 3px 9px rgba(30,70,110,.04);
+}
+
+
+.option:hover{
+
+    border-color:#4a9ad2;
+
+    background:
+    linear-gradient(
+        145deg,
+        #f4fbff,
+        #ffffff
+    );
+
+    transform:
+    translateY(-1px);
+
+    box-shadow:
+    0 5px 12px rgba(0,90,150,.10);
+}
+
+
+.option input{
+
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+
+.option-letter{
+
+    flex-shrink:0;
+
+    width:27px;
+    height:27px;
+
+    border-radius:9px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#eef5fa;
+
+    border:
+    1px solid #d4e1eb;
+
+    color:#52718d;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    transition:.2s;
+}
+
+
+.option-text{
+
+    color:#36546f;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    line-height:1.45;
+}
+
+
+/* SELECTED */
+
+.option.selected{
+
+    border:
+    2px solid #0b7d49;
+
+    background:
+    linear-gradient(
+        145deg,
+        #edfff5,
+        #f7fffb
+    );
+
+    box-shadow:
+    0 5px 14px rgba(8,122,59,.13);
+}
+
+
+.option.selected .option-letter{
+
+    background:
+    linear-gradient(
+        145deg,
+        #0759a8,
+        #003b78
+    );
+
+    border-color:#ffd700;
+
+    color:#ffd700;
+}
+
+
+.option.selected .option-text{
+
+    color:#075a39;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.submit{
+
+    width:100%;
+
+    border:0;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    margin:
+    8px 0 28px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    background:
+    linear-gradient(
+        135deg,
+        #076f37,
+        #0ca85a,
+        #08783d
+    );
+
+    box-shadow:
+    0 8px 20px rgba(0,120,60,.22),
+    inset 0 1px 0 rgba(255,255,255,.20);
+
+    transition:.2s;
+}
+
+
+.submit:hover{
+
+    transform:
+    translateY(-1px);
+
+    box-shadow:
+    0 11px 25px rgba(0,120,60,.27);
+}
+
+
+.submit:active{
+
+    transform:scale(.98);
+}
+
+
+/* =====================================================
+   RESULT CARD
+===================================================== */
+
+.result{
+
+    display:none;
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    color:#fff;
+
+    padding:
+    22px 15px 25px;
+
+    border-radius:27px;
+
+    border:
+    1px solid rgba(255,215,0,.55);
+
+    background:
+    linear-gradient(
+        145deg,
+        #032b5a,
+        #0759a8,
+        #04386e
+    );
+
+    box-shadow:
+    0 20px 45px rgba(0,50,110,.28);
+}
+
+
+.result::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    top:-130px;
+
+    left:50%;
+
+    transform:
+    translateX(-50%);
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,215,0,.20),
+        transparent 68%
+    );
+}
+
+
+.result.show{
+
+    display:block;
+
+    animation:
+    resultAppear .5s ease;
+}
+
+
+@keyframes resultAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(25px)
+        scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+
+/* TROPHY */
+
+.result-icon{
+
+    position:relative;
+
+    width:60px;
+    height:60px;
+
+    margin:
+    0 auto 8px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#123b63;
+
+    font-size:25px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffe66b,
+        #c18c0b
+    );
+
+    border:
+    3px solid rgba(255,255,255,.85);
+
+    box-shadow:
+    0 7px 20px rgba(0,0,0,.22);
+}
+
+
+.result h2{
+
+    position:relative;
+
+    color:#ffd700;
+
+    font-size:21px;
+
+    font-weight:900;
+}
+
+
+.result-sub{
+
+    position:relative;
+
+    margin-top:3px;
+
+    color:#d7ebff;
+
+    font-size:7px;
+
+    font-weight:700;
+
+    letter-spacing:.6px;
+}
+
+
+/* =====================================================
+   STUDENT RESULT INFO
+===================================================== */
+
+.student-card{
+
+    position:relative;
+
+    text-align:left;
+
+    margin-top:16px;
+
+    padding:13px;
+
+    border-radius:17px;
+
+    background:
+    rgba(255,255,255,.10);
+
+    border:
+    1px solid rgba(255,255,255,.20);
+
+    backdrop-filter:
+    blur(8px);
+}
+
+
+.student-name{
+
+    color:#ffd700;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    line-height:1.4;
+
+    margin-bottom:8px;
+}
+
+
+.student-meta{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:7px;
+
+    font-size:7px;
+
+    color:#cfe6fa;
+}
+
+
+.student-meta div{
+
+    line-height:1.5;
+}
+
+
+.student-meta b{
+
+    color:#fff;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   SCORE
+===================================================== */
+
+.score-title{
+
+    position:relative;
+
+    margin-top:17px;
+
+    color:#c8e5ff;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    letter-spacing:.7px;
+}
+
+
+.score{
+
+    position:relative;
+
+    color:#fff;
+
+    font-size:43px;
+
+    line-height:1.1;
+
+    font-weight:900;
+
+    margin:
+    2px 0 4px;
+}
+
+
+.percentage{
+
+    position:relative;
+
+    display:inline-block;
+
+    padding:
+    5px 15px;
+
+    border-radius:20px;
+
+    color:#ffd700;
+
+    background:
+    rgba(255,215,0,.13);
+
+    border:
+    1px solid rgba(255,215,0,.50);
+
+    font-size:12px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   RESULT STATS
+===================================================== */
+
+.stats{
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:7px;
+
+    margin-top:17px;
+}
+
+
+.stat{
+
+    min-width:0;
+
+    padding:
+    10px 4px;
+
+    border-radius:13px;
+
+    background:
+    rgba(255,255,255,.09);
+
+    border:
+    1px solid rgba(255,255,255,.17);
+}
+
+
+.stat i{
+
+    display:block;
+
+    font-size:13px;
+
+    margin-bottom:4px;
+}
+
+
+.stat-value{
+
+    font-size:14px;
+
+    font-weight:900;
+
+    line-height:1.2;
+}
+
+
+.stat-label{
+
+    color:#c9e2f6;
+
+    font-size:6px;
+
+    font-weight:800;
+
+    margin-top:3px;
+}
+
+
+.correct i,
+.correct .stat-value{
+
+    color:#55e99a;
+}
+
+
+.wrong i,
+.wrong .stat-value{
+
+    color:#ff7d7d;
+}
+
+
+.unattempted i,
+.unattempted .stat-value{
+
+    color:#ffd966;
+}
+
+
+.time i,
+.time .stat-value{
+
+    color:#78d8ff;
+}
+
+
+/* =====================================================
+   PERFORMANCE
+===================================================== */
+
+.performance{
+
+    position:relative;
+
+    margin-top:16px;
+
+    padding:12px;
+
+    border-radius:15px;
+
+    background:
+    rgba(255,255,255,.09);
+
+    border:
+    1px solid rgba(255,215,0,.25);
+
+    color:#e5f3ff;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    line-height:1.6;
+}
+
+
+.performance strong{
+
+    display:block;
+
+    color:#ffd700;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    margin-bottom:2px;
+}
+
+
+/* =====================================================
+   RESULT BUTTONS
+===================================================== */
+
+.result-buttons{
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:8px;
+
+    margin-top:17px;
+}
+
+
+.result-btn{
+
+    border:0;
+
+    border-radius:12px;
+
+    padding:
+    11px 6px;
+
+    cursor:pointer;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    transition:.2s;
+}
+
+
+.result-btn:active{
+
+    transform:scale(.97);
+}
+
+
+.retry{
+
+    color:#173b62;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffe36b,
+        #c69510
+    );
+}
+
+
+.back-btn{
+
+    color:#07549c;
+
+    background:#fff;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px 15px;
+
+    text-align:center;
+
+    color:#7890a5;
+
+    font-size:10px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .container{
+
+        padding:
+        12px 10px 28px;
+    }
+
+
+    .header{
+
+        min-height:58px;
+
+        padding:
+        8px 10px;
+    }
+
+
+    .header-logo{
+
+        width:32px;
+        height:32px;
+    }
+
+
+    .brand-title{
+
+        font-size:12px;
+    }
+
+
+    .brand-sub{
+
+        font-size:5px;
+    }
+
+
+    .timer{
+
+        min-width:65px;
+
+        padding:
+        5px 8px;
+
+        font-size:10px;
+    }
+
+
+    .info{
+
+        padding:
+        15px 13px;
+    }
+
+
+    .info h2{
+
+        font-size:16px;
+    }
+
+
+    .question{
+
+        padding:
+        13px 12px;
+    }
+
+
+    .question-top{
+
+        gap:8px;
+    }
+
+
+    .question-number{
+
+        width:32px;
+        height:32px;
+
+        border-radius:10px;
+
+        font-size:10px;
+    }
+
+
+    .question-label{
+
+        font-size:6px;
+    }
+
+
+    .q{
+
+        font-size:11px;
+
+        line-height:1.65;
+    }
+
+
+    .options{
+
+        grid-template-columns:
+        1fr;
+    }
+
+
+    .option{
+
+        min-height:43px;
+
+        padding:
+        8px;
+    }
+
+
+    .option-text{
+
+        font-size:9px;
+    }
+
+
+    .student-meta{
+
+        font-size:7px;
+    }
+
+
+    .stats{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media(max-width:350px){
+
+    .brand-title{
+
+        font-size:11px;
+    }
+
+
+    .timer{
+
+        min-width:60px;
+
+        font-size:9px;
+    }
+
+
+    .q{
+
+        font-size:10px;
+    }
+
+
+    .option-text{
+
+        font-size:8px;
+    }
+
+}
+
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+@media print{
+
+    .header,
+    #progressArea,
+    #questions,
+    #submitBtn{
+
+        display:none!important;
+    }
+
+
+    .result{
+
+        display:block!important;
+
+        box-shadow:none;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-left">
+
+        <img
+        src="icon-512.png"
+        class="header-logo"
+        onerror="this.style.display='none'">
+
+        <div class="brand-area">
+
+            <div class="brand-title">
+                THE STUDY POINT
+            </div>
+
+            <div class="brand-sub">
+                SUBJECT-WISE MOCK TEST
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="timer-box">
+
+        <div class="timer-label">
+            TIME LEFT
+        </div>
+
+        <div
+        id="timer"
+        class="timer">
+            00:00
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="container">
+
+
+    <!-- TEST INFO -->
+
+    <div
+    id="testInfo"
+    class="info">
+
+        Loading Mock Test...
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div
+    id="progressArea"
+    class="progress-card">
+
+        <div class="progress-head">
+
+            <span class="progress-title">
+                <i class="fa-solid fa-chart-simple"></i>
+                TEST PROGRESS
+            </span>
+
+            <span
+            id="progressCount"
+            class="progress-count">
+
+                0 / 0 ANSWERED
+
+            </span>
+
+        </div>
+
+
+        <div class="progress-track">
+
+            <div
+            id="progressFill"
+            class="progress-fill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTIONS -->
+
+    <div id="questions"></div>
+
+
+    <!-- SUBMIT -->
+
+    <button
+    id="submitBtn"
+    class="submit">
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+        &nbsp; SUBMIT MOCK TEST
+
+    </button>
+
+
+    <!-- =================================================
+         RESULT CARD
+    ================================================== -->
+
+    <div
+    id="result"
+    class="result">
+
+
+        <div class="result-icon">
+
+            <i class="fa-solid fa-trophy"></i>
+
+        </div>
+
+
+        <h2>
+            MOCK TEST COMPLETED
+        </h2>
+
+
+        <div class="result-sub">
+            THE STUDY POINT • PERFORMANCE REPORT
+        </div>
+
+
+        <!-- STUDENT -->
+
+        <div class="student-card">
+
+            <div
+            id="studentName"
+            class="student-name">
+
+                Student
+
+            </div>
+
+
+            <div class="student-meta">
+
+                <div>
+                    🆔 Roll No:
+                    <b id="studentRoll">—</b>
+                </div>
+
+
+                <div>
+                    🎓 Class:
+                    <b id="studentClass">—</b>
+                </div>
+
+
+                <div>
+                    📚 Subject:
+                    <b id="studentSubject">—</b>
+                </div>
+
+
+                <div>
+                    📝 Test:
+                    <b id="studentTest">—</b>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SCORE -->
+
+        <div class="score-title">
+            YOUR SCORE
+        </div>
+
+
+        <div
+        id="score"
+        class="score">
+
+            0/0
+
+        </div>
+
+
+        <div
+        id="percentage"
+        class="percentage">
+
+            0%
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+
+            <div class="stat correct">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <div
+                id="correctStat"
+                class="stat-value">
+
+                    0
+
+                </div>
+
+                <div class="stat-label">
+                    CORRECT
+                </div>
+
+            </div>
+
+
+            <div class="stat wrong">
+
+                <i class="fa-solid fa-circle-xmark"></i>
+
+                <div
+                id="wrongStat"
+                class="stat-value">
+
+                    0
+
+                </div>
+
+                <div class="stat-label">
+                    WRONG
+                </div>
+
+            </div>
+
+
+            <div class="stat unattempted">
+
+                <i class="fa-solid fa-circle-question"></i>
+
+                <div
+                id="unattemptedStat"
+                class="stat-value">
+
+                    0
+
+                </div>
+
+                <div class="stat-label">
+                    NOT ATTEMPTED
+                </div>
+
+            </div>
+
+
+            <div class="stat time">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <div
+                id="timeStat"
+                class="stat-value">
+
+                    00:00
+
+                </div>
+
+                <div class="stat-label">
+                    TIME TAKEN
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERFORMANCE -->
+
+        <div
+        id="performance"
+        class="performance">
+
+            <strong>
+                KEEP PRACTICING!
+            </strong>
+
+            Your performance report is ready.
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="result-buttons">
+
+            <button
+            class="result-btn retry"
+            onclick="retryTest()">
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                &nbsp; RETRY TEST
+
+            </button>
+
+
+            <button
+            class="result-btn back-btn"
+            onclick="backToTests()">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                &nbsp; MOCK TESTS
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="module">
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    getDoc,
+    addDoc,
+    collection,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let test=null;
+
+let seconds=0;
+
+let initialSeconds=0;
+
+let timer=null;
+
+let submitted=false;
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function esc(value){
+
+    return String(value ?? "")
+    .replace(/[&<>"']/g,m=>({
+
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+
+    }[m]));
+
+}
+
+
+/* =====================================================
+   GET STUDENT SESSION
+===================================================== */
+
+function getSession(){
+
+    const raw=
+    localStorage.getItem(
+        "tspStudentSession"
+    );
+
+
+    if(raw){
+
+        try{
+
+            const s=
+            JSON.parse(raw);
+
+
+            if(s){
+
+                const name=
+                    s.name ||
+                    s.studentName ||
+                    s.fullName ||
+                    s.displayName ||
+                    "";
+
+
+                const roll=
+                    s.roll ||
+                    s.studentRoll ||
+                    s.rollNumber ||
+                    "";
+
+
+                return {
+
+                    ...s,
+
+                    name:
+                    String(name).trim(),
+
+                    roll:
+                    String(roll).trim()
+
+                };
+
+            }
+
+        }
+        catch(e){
+
+            console.log(
+                "Session parse error",
+                e
+            );
+
+        }
+
+    }
+
+
+    return {
+
+        roll:
+        localStorage.getItem(
+            "studentRoll"
+        ) || "",
+
+        name:
+        localStorage.getItem(
+            "studentName"
+        ) || ""
+
+    };
+
+}
+
+
+/* =====================================================
+   LOAD TEST
+===================================================== */
+
+async function loadTest(){
+
+    try{
+
+        const id=
+        localStorage.getItem(
+            "selectedMockTest"
+        );
+
+
+        if(!id){
+
+            alert(
+                "Mock Test select नहीं हुआ।"
+            );
+
+            location.href=
+            "mock-tests.html";
+
+            return;
+
+        }
+
+
+        const snap=
+        await getDoc(
+            doc(
+                db,
+                "mockTests",
+                id
+            )
+        );
+
+
+        if(!snap.exists()){
+
+            alert(
+                "Mock Test नहीं मिला।"
+            );
+
+            location.href=
+            "mock-tests.html";
+
+            return;
+
+        }
+
+
+        test={
+
+            id:snap.id,
+
+            ...snap.data()
+
+        };
+
+
+        if(test.published!==true){
+
+            alert(
+                "यह Mock Test अभी available नहीं है।"
+            );
+
+            location.href=
+            "mock-tests.html";
+
+            return;
+
+        }
+
+
+        initialSeconds=
+        Number(
+            test.timeLimit || 20
+        ) * 60;
+
+
+        seconds=
+        initialSeconds;
+
+
+        const total=
+        test.questions?.length || 0;
+
+
+        document.getElementById(
+            "testInfo"
+        ).innerHTML=`
+
+            <h2>
+                ${esc(test.testName)}
+            </h2>
+
+            <p>
+
+                📚 <b>
+                    ${esc(test.subject)}
+                </b>
+
+                &nbsp; • &nbsp;
+
+                🎓 <b>
+                    ${esc(test.className)}
+                </b>
+
+                &nbsp; • &nbsp;
+
+                ❓ <b>
+                    ${total}
+                </b>
+
+                Questions
+
+            </p>
+
+        `;
+
+
+        renderQuestions();
+
+        startTimer();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        document.getElementById(
+            "testInfo"
+        ).innerHTML=`
+
+            <h2>
+                Mock Test Load Error
+            </h2>
+
+            <p>
+                ${esc(error.message)}
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER QUESTIONS
+===================================================== */
+
+function renderQuestions(){
+
+    const box=
+    document.getElementById(
+        "questions"
+    );
+
+
+    const questions=
+    test.questions || [];
+
+
+    if(!questions.length){
+
+        box.innerHTML=`
+
+            <div class="question">
+
+                <div class="q">
+
+                    इस Mock Test में अभी कोई
+                    question उपलब्ध नहीं है।
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    box.innerHTML=
+
+    questions.map((q,i)=>{
+
+
+        const number=
+        String(i+1)
+        .padStart(2,"0");
+
+
+        return `
+
+        <div
+        class="question"
+        id="question-${i}">
+
+
+            <div class="question-top">
+
+
+                <div class="question-number">
+
+                    ${number}
+
+                </div>
+
+
+                <div>
+
+                    <div class="question-label">
+
+                        QUESTION ${i+1}
+
+                    </div>
+
+
+                    <div class="q">
+
+                        ${esc(q.question)}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="options">
+
+
+                ${["A","B","C","D"]
+                .map(key=>`
+
+                    <label
+                    class="option"
+                    data-question="${i}">
+
+
+                        <input
+                        type="radio"
+                        name="q${i}"
+                        value="${key}">
+
+
+                        <span class="option-letter">
+
+                            ${key}
+
+                        </span>
+
+
+                        <span class="option-text">
+
+                            ${esc(
+                                q.options?.[key] ?? ""
+                            )}
+
+                        </span>
+
+
+                    </label>
+
+                `)
+                .join("")}
+
+
+            </div>
+
+
+        </div>
+
+        `;
+
+    })
+    .join("");
+
+
+    document
+    .querySelectorAll(
+        ".option input"
+    )
+    .forEach(input=>{
+
+        input.addEventListener(
+            "change",
+            ()=>{
+
+                const index=
+                input.name
+                .replace("q","");
+
+
+                const question=
+                document.getElementById(
+                    "question-"+index
+                );
+
+
+                question.classList.add(
+                    "answered"
+                );
+
+
+                document
+                .querySelectorAll(
+                    `.option[data-question="${index}"]`
+                )
+                .forEach(label=>{
+
+                    label.classList.remove(
+                        "selected"
+                    );
+
+                });
+
+
+                input
+                .closest(".option")
+                .classList.add(
+                    "selected"
+                );
+
+
+                updateProgress();
+
+            }
+        );
+
+    });
+
+
+    updateProgress();
+
+}
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress(){
+
+    if(!test)
+        return;
+
+
+    const total=
+    test.questions?.length || 0;
+
+
+    let answered=0;
+
+
+    for(
+        let i=0;
+        i<total;
+        i++
+    ){
+
+        if(
+            document.querySelector(
+                `input[name="q${i}"]:checked`
+            )
+        ){
+
+            answered++;
+
+        }
+
+    }
+
+
+    const percentage=
+    total
+    ? (answered/total)*100
+    : 0;
+
+
+    document.getElementById(
+        "progressCount"
+    ).textContent=
+
+    answered+
+    " / "+
+    total+
+    " ANSWERED";
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width=
+
+    percentage+
+    "%";
+
+}
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+function startTimer(){
+
+    updateTimer();
+
+
+    timer=
+    setInterval(()=>{
+
+        seconds--;
+
+        updateTimer();
+
+
+        if(seconds<=0){
+
+            clearInterval(timer);
+
+            submitTest(true);
+
+        }
+
+    },1000);
+
+}
+
+
+/* =====================================================
+   UPDATE TIMER
+===================================================== */
+
+function updateTimer(){
+
+    const safe=
+    Math.max(
+        0,
+        seconds
+    );
+
+
+    const minutes=
+    Math.floor(
+        safe/60
+    )
+    .toString()
+    .padStart(2,"0");
+
+
+    const sec=
+    (safe%60)
+    .toString()
+    .padStart(2,"0");
+
+
+    const element=
+    document.getElementById(
+        "timer"
+    );
+
+
+    element.textContent=
+    minutes+
+    ":"+
+    sec;
+
+
+    element.classList.remove(
+        "warning",
+        "danger"
+    );
+
+
+    if(safe<=60){
+
+        element.classList.add(
+            "danger"
+        );
+
+    }
+    else if(safe<=300){
+
+        element.classList.add(
+            "warning"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FORMAT TIME
+===================================================== */
+
+function formatTime(totalSeconds){
+
+    const sec=
+    Math.max(
+        0,
+        Number(totalSeconds || 0)
+    );
+
+
+    const hours=
+    Math.floor(
+        sec/3600
+    );
+
+
+    const minutes=
+    Math.floor(
+        (sec%3600)/60
+    );
+
+
+    const secondsPart=
+    sec%60;
+
+
+    if(hours>0){
+
+        return (
+
+            String(hours)
+            .padStart(2,"0")
+
+            +":"+
+
+            String(minutes)
+            .padStart(2,"0")
+
+            +":"+
+
+            String(secondsPart)
+            .padStart(2,"0")
+
+        );
+
+    }
+
+
+    return (
+
+        String(minutes)
+        .padStart(2,"0")
+
+        +":"+
+
+        String(secondsPart)
+        .padStart(2,"0")
+
+    );
+
+}
+
+
+/* =====================================================
+   PERFORMANCE MESSAGE
+===================================================== */
+
+function getPerformance(percentage){
+
+    const p=
+    Number(percentage || 0);
+
+
+    if(p>=90){
+
+        return {
+
+            title:
+            "EXCELLENT PERFORMANCE! 🏆",
+
+            text:
+            "Outstanding work! Keep maintaining this excellent performance."
+
+        };
+
+    }
+
+
+    if(p>=75){
+
+        return {
+
+            title:
+            "VERY GOOD PERFORMANCE! 🌟",
+
+            text:
+            "Great job! थोड़ा और practice करके आप और बेहतर कर सकते हैं।"
+
+        };
+
+    }
+
+
+    if(p>=60){
+
+        return {
+
+            title:
+            "GOOD PERFORMANCE! 👍",
+
+            text:
+            "Good attempt! Regular practice से आपका score और बढ़ेगा।"
+
+        };
+
+    }
+
+
+    if(p>=40){
+
+        return {
+
+            title:
+            "KEEP IMPROVING! 📚",
+
+            text:
+            "अच्छा प्रयास। गलत questions को दोबारा जरूर पढ़ें।"
+
+        };
+
+    }
+
+
+    return {
+
+        title:
+        "MORE PRACTICE NEEDED! 💪",
+
+        text:
+        "Practice करते रहें। अगली बार बेहतर score जरूर आएगा।"
+
+    };
+
+}
+
+
+/* =====================================================
+   SUBMIT TEST
+===================================================== */
+
+async function submitTest(auto=false){
+
+    if(submitted)
+        return;
+
+
+    if(
+        !auto &&
+        !confirm(
+            "क्या आप Mock Test submit करना चाहते हैं?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    submitted=true;
+
+
+    clearInterval(timer);
+
+
+    let correct=0;
+
+    let attempted=0;
+
+
+    const questions=
+    test.questions || [];
+
+
+    questions.forEach(
+    (q,i)=>{
+
+
+        const selected=
+        document.querySelector(
+            `input[name="q${i}"]:checked`
+        );
+
+
+        if(selected){
+
+            attempted++;
+
+
+            if(
+
+                selected.value
+                .toUpperCase()
+
+                ===
+
+                String(q.answer)
+                .toUpperCase()
+
+            ){
+
+                correct++;
+
+            }
+
+        }
+
+    });
+
+
+    const total=
+    questions.length;
+
+
+    const wrong=
+    attempted-correct;
+
+
+    const notAttempted=
+    total-attempted;
+
+
+    const marks=
+    Number(
+        test.marksPerQuestion || 1
+    );
+
+
+    const score=
+    correct*marks;
+
+
+    const maxMarks=
+    total*marks;
+
+
+    const percentage=
+    total
+
+    ?
+
+    Number(
+        (
+            (correct/total)*100
+        ).toFixed(2)
+    )
+
+    :
+
+    0;
+
+
+    const timeTaken=
+    Math.max(
+        0,
+        initialSeconds-seconds
+    );
+
+
+    const session=
+    getSession();
+
+
+    const studentName=
+
+        session.name
+
+        ||
+
+        localStorage.getItem(
+            "studentName"
+        )
+
+        ||
+
+        "Student";
+
+
+    const studentRoll=
+
+        String(
+
+            session.roll
+
+            ||
+
+            localStorage.getItem(
+                "studentRoll"
+            )
+
+            ||
+
+            "—"
+
+        )
+        .trim()
+        .toUpperCase();
+
+
+    try{
+
+
+        /* =========================================
+           SAVE TO FIRESTORE
+        ========================================= */
+
+        await addDoc(
+
+            collection(
+                db,
+                "mockTestAttempts"
+            ),
+
+            {
+
+                mockTestId:
+                test.id,
+
+                testName:
+                test.testName,
+
+                subject:
+                test.subject,
+
+                className:
+                test.className,
+
+                studentRoll:
+                studentRoll,
+
+                studentName:
+                studentName,
+
+                correct:
+                correct,
+
+                wrong:
+                wrong,
+
+                attempted:
+                attempted,
+
+                notAttempted:
+                notAttempted,
+
+                total:
+                total,
+
+                score:
+                score,
+
+                maxMarks:
+                maxMarks,
+
+                percentage:
+                percentage,
+
+                timeTaken:
+                timeTaken,
+
+                submittedAt:
+                serverTimestamp()
+
+            }
+
+        );
+
+
+        /* =========================================
+           RESULT CARD
+        ========================================= */
+
+
+        document.getElementById(
+            "studentName"
+        ).textContent=
+        studentName;
+
+
+        document.getElementById(
+            "studentRoll"
+        ).textContent=
+        studentRoll;
+
+
+        document.getElementById(
+            "studentClass"
+        ).textContent=
+        test.className || "—";
+
+
+        document.getElementById(
+            "studentSubject"
+        ).textContent=
+        test.subject || "—";
+
+
+        document.getElementById(
+            "studentTest"
+        ).textContent=
+        test.testName || "—";
+
+
+        document.getElementById(
+            "score"
+        ).textContent=
+
+        score+
+        "/"+
+        maxMarks;
+
+
+        document.getElementById(
+            "percentage"
+        ).textContent=
+
+        percentage+
+        "%";
+
+
+        document.getElementById(
+            "correctStat"
+        ).textContent=
+        correct;
+
+
+        document.getElementById(
+            "wrongStat"
+        ).textContent=
+        wrong;
+
+
+        document.getElementById(
+            "unattemptedStat"
+        ).textContent=
+        notAttempted;
+
+
+        document.getElementById(
+            "timeStat"
+        ).textContent=
+
+        formatTime(
+            timeTaken
+        );
+
+
+        const performance=
+        getPerformance(
+            percentage
+        );
+
+
+        document.getElementById(
+            "performance"
+        ).innerHTML=
+
+        `
+
+            <strong>
+                ${performance.title}
+            </strong>
+
+            ${performance.text}
+
+        `;
+
+
+        /* =========================================
+           HIDE TEST
+        ========================================= */
+
+        document.getElementById(
+            "questions"
+        ).style.display=
+        "none";
+
+
+        document.getElementById(
+            "submitBtn"
+        ).style.display=
+        "none";
+
+
+        document.getElementById(
+            "progressArea"
+        ).style.display=
+        "none";
+
+
+        /* =========================================
+           SHOW RESULT
+        ========================================= */
+
+        document.getElementById(
+            "result"
+        ).classList.add(
+            "show"
+        );
+
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+    catch(error){
+
+        console.error(error);
+
+
+        submitted=false;
+
+
+        alert(
+
+            "Score save नहीं हो सका:\n"+
+            error.message
+
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   RETRY
+===================================================== */
+
+window.retryTest=function(){
+
+    location.reload();
+
+};
+
+
+/* =====================================================
+   BACK TO MOCK TESTS
+===================================================== */
+
+window.backToTests=function(){
+
+    location.href=
+    "mock-tests.html";
+
+};
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+document.getElementById(
+    "submitBtn"
+)
+.addEventListener(
+    "click",
+    ()=>submitTest(false)
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadTest();
+
+</script>
+
+</body>
+  </html>
