@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Mock Test Creator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:
+    linear-gradient(135deg,#eef6ff,#ffffff,#eaf3ff);
+    color:#173b62;
+    min-height:100vh;
+}
+
+.header{
+    background:
+    linear-gradient(135deg,#032b5a,#0759a8,#003b78);
+    padding:15px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:#fff;
+    box-shadow:0 8px 25px rgba(0,0,0,.20);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.brand img{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#fff;
+    padding:4px;
+    border:2px solid #ffd700;
+}
+
+.brand h1{
+    color:#ffd700;
+    font-size:24px;
+    font-weight:900;
+}
+
+.brand p{
+    color:#dceeff;
+    font-size:10px;
+    font-weight:600;
+}
+
+.back{
+    border:1px solid rgba(255,215,0,.5);
+    background:rgba(255,255,255,.12);
+    color:#ffd700;
+    padding:10px 16px;
+    border-radius:25px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.container{
+    max-width:1450px;
+    margin:25px auto;
+    padding:0 18px;
+}
+
+.hero{
+    background:
+    linear-gradient(135deg,#06356d,#0878c9);
+    color:#fff;
+    border-radius:25px;
+    padding:25px 30px;
+    margin-bottom:22px;
+    box-shadow:0 18px 40px rgba(0,65,130,.25);
+}
+
+.hero h2{
+    color:#ffd700;
+    font-size:30px;
+    font-weight:900;
+}
+
+.hero p{
+    margin-top:6px;
+    font-size:12px;
+    color:#e5f4ff;
+}
+
+.workspace{
+    display:grid;
+    grid-template-columns:390px 1fr;
+    gap:20px;
+}
+
+.panel{
+    background:#fff;
+    border-radius:23px;
+    padding:22px;
+    box-shadow:0 12px 35px rgba(20,65,105,.12);
+    border:1px solid #dceaf6;
+}
+
+.panel-title{
+    color:#064b99;
+    font-size:19px;
+    font-weight:900;
+    padding-bottom:14px;
+    margin-bottom:15px;
+    border-bottom:1px solid #e2edf7;
+}
+
+.field{
+    margin-bottom:13px;
+}
+
+.field label{
+    display:block;
+    font-size:10px;
+    color:#506b84;
+    font-weight:800;
+    margin-bottom:5px;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    border:1px solid #cfdfed;
+    border-radius:11px;
+    outline:none;
+    padding:11px 12px;
+    background:#fbfdff;
+    color:#183d62;
+    font-size:12px;
+}
+
+.field textarea{
+    height:330px;
+    resize:vertical;
+    line-height:1.6;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:#0878c9;
+    box-shadow:0 0 0 3px rgba(8,120,201,.10);
+}
+
+.parse-row{
+    display:flex;
+    gap:8px;
+}
+
+.btn{
+    border:0;
+    border-radius:11px;
+    padding:11px 15px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.parse{
+    background:linear-gradient(135deg,#087dcc,#0756a7);
+    color:#fff;
+}
+
+.clear{
+    background:#edf2f6;
+    color:#40586e;
+}
+
+.save{
+    width:100%;
+    margin-top:12px;
+    background:linear-gradient(135deg,#087a3b,#0ca85a);
+    color:#fff;
+    padding:14px;
+}
+
+.preview{
+    min-height:520px;
+}
+
+.preview-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.preview-top h3{
+    color:#064b99;
+    font-size:19px;
+    font-weight:900;
+}
+
+.count{
+    background:#eaf4ff;
+    color:#075fb6;
+    border-radius:20px;
+    padding:6px 12px;
+    font-size:10px;
+    font-weight:900;
+}
+
+.question{
+    background:
+    linear-gradient(145deg,#fff,#f5faff);
+    border:1px solid #dce9f4;
+    border-left:4px solid #0878c9;
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:12px;
+}
+
+.qtext{
+    font-size:13px;
+    font-weight:800;
+    color:#173b62;
+    line-height:1.6;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+    margin-top:10px;
+}
+
+.option{
+    background:#fff;
+    border:1px solid #dbe7f1;
+    padding:8px;
+    border-radius:9px;
+    font-size:11px;
+}
+
+.answer{
+    margin-top:9px;
+    color:#087a3b;
+    font-size:10px;
+    font-weight:900;
+}
+
+.saved{
+    margin-top:20px;
+}
+
+.saved-card{
+    background:#fff;
+    border-radius:18px;
+    border:1px solid #dce8f3;
+    padding:15px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+}
+
+.saved-info h4{
+    color:#064b99;
+    font-size:14px;
+}
+
+.saved-info p{
+    color:#71849a;
+    font-size:10px;
+    margin-top:4px;
+}
+
+.actions{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.small-btn{
+    border:0;
+    border-radius:8px;
+    padding:8px 10px;
+    color:#fff;
+    font-size:9px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.publish{
+    background:#087a3b;
+}
+
+.hide{
+    background:#607d8b;
+}
+
+.delete{
+    background:#c62828;
+}
+
+.empty{
+    text-align:center;
+    padding:40px 10px;
+    color:#8298ac;
+    font-size:12px;
+}
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,120px);
+    opacity:0;
+    background:#123b63;
+    color:#fff;
+    padding:13px 20px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:800;
+    z-index:99999;
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+@media(max-width:900px){
+
+    .workspace{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .header{
+        padding:12px;
+    }
+
+    .brand h1{
+        font-size:17px;
+    }
+
+    .brand p{
+        font-size:7px;
+    }
+
+    .brand img{
+        width:45px;
+        height:45px;
+    }
+
+    .back{
+        font-size:9px;
+        padding:8px 10px;
+    }
+
+    .container{
+        padding:0 10px;
+        margin:15px auto;
+    }
+
+    .hero{
+        padding:20px;
+    }
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    .panel{
+        padding:15px;
+    }
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .saved-card{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .actions{
+        width:100%;
+    }
+
+    .small-btn{
+        flex:1;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="brand">
+
+        <img src="icon-512.png">
+
+        <div>
+            <h1>THE STUDY POINT</h1>
+            <p>PREMIUM MOCK TEST CREATOR</p>
+        </div>
+
+    </div>
+
+    <button class="back"
+    onclick="location.href='admin-dashboard.html'">
+
+        <i class="fa-solid fa-arrow-left"></i>
+        ADMIN DASHBOARD
+
+    </button>
+
+</header>
+
+<div class="container">
+
+<section class="hero">
+
+    <h2>
+        <i class="fa-solid fa-pen-ruler"></i>
+        MOCK TEST CREATOR
+    </h2>
+
+    <p>
+        Subject-wise practice tests • Bulk MCQ Import • Instant Student Score
+    </p>
+
+</section>
+
+<div class="workspace">
+
+<!-- LEFT -->
+
+<div class="panel">
+
+    <div class="panel-title">
+        <i class="fa-solid fa-sliders"></i>
+        Test Information
+    </div>
+
+    <div class="field">
+
+        <label>TEST NAME</label>
+
+        <input
+        id="testName"
+        placeholder="Hindi Practice Set 1">
+
+    </div>
+
+    <div class="field">
+
+        <label>SUBJECT</label>
+
+        <select id="subject">
+
+            <option value="">Select Subject</option>
+            <option>Hindi</option>
+            <option>English</option>
+            <option>Mathematics</option>
+            <option>Science</option>
+            <option>Social Science</option>
+            <option>General Knowledge</option>
+            <option>Computer</option>
+
+        </select>
+
+    </div>
+
+    <div class="field">
+
+        <label>CLASS</label>
+
+        <select id="className">
+
+            <option value="">Select Class</option>
+
+            <option>Class 1</option>
+            <option>Class 2</option>
+            <option>Class 3</option>
+            <option>Class 4</option>
+            <option>Class 5</option>
+            <option>Class 6</option>
+            <option>Class 7</option>
+            <option>Class 8</option>
+            <option>Class 9</option>
+            <option>Class 10</option>
+
+        </select>
+
+    </div>
+
+    <div class="field">
+
+        <label>TIME LIMIT (MINUTES)</label>
+
+        <input
+        id="timeLimit"
+        type="number"
+        value="20"
+        min="1">
+
+    </div>
+
+    <div class="field">
+
+        <label>MARKS PER QUESTION</label>
+
+        <input
+        id="marks"
+        type="number"
+        value="1"
+        min="1">
+
+    </div>
+
+    <div class="field">
+
+        <label>BULK PASTE QUESTIONS</label>
+
+        <textarea
+        id="bulk"
+        placeholder="Paste MCQs here...
+
+Example:
+
+1. मित्रता पाठ के लेखक कौन हैं?
+(A) रामचंद्र शुक्ल
+(B) प्रेमचंद
+(C) महादेवी वर्मा
+(D) हजारी प्रसाद द्विवेदी
+उत्तर: (A)
+
+2. सच्ची मित्रता का आधार क्या है?
+(A) स्वार्थ
+(B) विश्वास
+(C) धन
+(D) प्रसिद्धि
+उत्तर: (B)"></textarea>
+
+    </div>
+
+    <div class="parse-row">
+
+        <button
+        class="btn parse"
+        onclick="parseQuestions()">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            PARSE QUESTIONS
+
+        </button>
+
+        <button
+        class="btn clear"
+        onclick="clearAll()">
+
+            CLEAR
+
+        </button>
+
+    </div>
+
+    <button
+    class="btn save"
+    onclick="saveMockTest()">
+
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        SAVE MOCK TEST
+
+    </button>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="panel preview">
+
+    <div class="preview-top">
+
+        <h3>
+            <i class="fa-solid fa-list-check"></i>
+            Question Preview
+        </h3>
+
+        <span
+        class="count"
+        id="count">
+
+            0 QUESTIONS
+
+        </span>
+
+    </div>
+
+    <div id="preview">
+
+        <div class="empty">
+            <i class="fa-solid fa-file-circle-question"
+            style="font-size:35px"></i>
+
+            <br><br>
+
+            Paste MCQs and click
+            <b>PARSE QUESTIONS</b>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- SAVED -->
+
+<div class="panel saved">
+
+    <div class="panel-title">
+
+        <i class="fa-solid fa-folder-open"></i>
+        Saved Mock Tests
+
+    </div>
+
+    <div id="savedList">
+
+        <div class="empty">
+            Loading...
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    updateDoc,
+    deleteDoc,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+let parsedQuestions=[];
+
+
+const toast=
+document.getElementById("toast");
+
+
+function showToast(text){
+
+    toast.textContent=text;
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },2500);
+
+}
+
+
+function cleanAnswer(value){
+
+    return String(value||"")
+    .trim()
+    .toUpperCase()
+    .replace(/[^A-D]/g,"")
+    .charAt(0);
+
+}
+
+
+function parseQuestions(){
+
+    const text=
+    document.getElementById("bulk").value
+    .replace(/\r/g,"")
+    .trim();
+
+    if(!text){
+
+        showToast("पहले questions paste करें।");
+        return;
+
+    }
+
+    const lines=
+    text.split("\n")
+    .map(x=>x.trim())
+    .filter(x=>x!=="");
+
+
+    const blocks=[];
+    let current=[];
+
+
+    for(const line of lines){
+
+        if(
+            /^\s*\d+\s*[\.\)]\s*/.test(line)
+            &&
+            current.length
+        ){
+
+            blocks.push(current);
+            current=[];
+
+        }
+
+        current.push(line);
+
+    }
+
+    if(current.length)
+        blocks.push(current);
+
+
+    const result=[];
+
+
+    for(const block of blocks){
+
+        let qText="";
+        const options={
+            A:"",
+            B:"",
+            C:"",
+            D:""
+        };
+
+        let answer="";
+
+
+        for(let i=0;i<block.length;i++){
+
+            let line=block[i];
+
+
+            if(
+                /^\d+\s*[\.\)]\s*/.test(line)
+            ){
+
+                line=
+                line.replace(
+                    /^\d+\s*[\.\)]\s*/,
+                    ""
+                ).trim();
+
+            }
+
+
+            const optionMatch=
+            line.match(
+                /^\(?([ABCD])\)?\s*[\.\:\-]\s*(.+)$/i
+            );
+
+
+            if(optionMatch){
+
+                const key=
+                optionMatch[1].toUpperCase();
+
+                options[key]=
+                optionMatch[2].trim();
+
+                continue;
+
+            }
+
+
+            const answerMatch=
+            line.match(
+                /^(उत्तर|सही\s*उत्तर|answer|ans)\s*[:\-]?\s*\(?([ABCD])\)?/i
+            );
+
+
+            if(answerMatch){
+
+                answer=
+                cleanAnswer(
+                    answerMatch[2]
+                );
+
+                continue;
+
+            }
+
+
+            if(!qText){
+
+                qText=line;
+
+            }
+            else{
+
+                qText+=" "+line;
+
+            }
+
+        }
+
+
+        const validOptions=
+        options.A &&
+        options.B &&
+        options.C &&
+        options.D;
+
+
+        if(
+            qText &&
+            validOptions &&
+            answer
+        ){
+
+            result.push({
+
+                question:qText,
+
+                options:options,
+
+                answer:answer
+
+            });
+
+        }
+
+    }
+
+
+    parsedQuestions=result;
+
+    renderPreview();
+
+
+    if(!result.length){
+
+        showToast(
+            "No valid question मिला। Format check करें।"
+        );
+
+        return;
+
+    }
+
+
+    showToast(
+        result.length+
+        " questions successfully parsed."
+    );
+
+}
+
+
+function renderPreview(){
+
+    const preview=
+    document.getElementById("preview");
+
+
+    document.getElementById("count")
+    .textContent=
+    parsedQuestions.length+
+    " QUESTIONS";
+
+
+    if(!parsedQuestions.length){
+
+        preview.innerHTML=`
+        <div class="empty">
+        No valid questions.
+        </div>`;
+
+        return;
+
+    }
+
+
+    preview.innerHTML=
+    parsedQuestions.map((q,i)=>`
+
+        <div class="question">
+
+            <div class="qtext">
+                Q${i+1}. ${escapeHTML(q.question)}
+            </div>
+
+            <div class="options">
+
+                <div class="option">
+                    <b>A)</b> ${escapeHTML(q.options.A)}
+                </div>
+
+                <div class="option">
+                    <b>B)</b> ${escapeHTML(q.options.B)}
+                </div>
+
+                <div class="option">
+                    <b>C)</b> ${escapeHTML(q.options.C)}
+                </div>
+
+                <div class="option">
+                    <b>D)</b> ${escapeHTML(q.options.D)}
+                </div>
+
+            </div>
+
+            <div class="answer">
+                CORRECT ANSWER: ${q.answer}
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+function escapeHTML(value){
+
+    return String(value||"")
+    .replace(/[&<>"']/g,m=>({
+
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+
+    }[m]));
+
+}
+
+
+window.parseQuestions=parseQuestions;
+
+
+window.clearAll=function(){
+
+    document.getElementById("bulk").value="";
+    parsedQuestions=[];
+    renderPreview();
+
+};
+
+
+window.saveMockTest=async function(){
+
+    const testName=
+    document.getElementById("testName")
+    .value.trim();
+
+    const subject=
+    document.getElementById("subject")
+    .value;
+
+    const className=
+    document.getElementById("className")
+    .value;
+
+    const timeLimit=
+    Number(
+        document.getElementById("timeLimit").value
+    );
+
+    const marks=
+    Number(
+        document.getElementById("marks").value
+    );
+
+
+    if(!testName){
+
+        alert("Test Name भरें।");
+        return;
+
+    }
+
+    if(!subject){
+
+        alert("Subject select करें।");
+        return;
+
+    }
+
+    if(!className){
+
+        alert("Class select करें।");
+        return;
+
+    }
+
+    if(!parsedQuestions.length){
+
+        alert("पहले questions parse करें।");
+        return;
+
+    }
+
+
+    try{
+
+        await addDoc(
+            collection(
+                db,
+                "mockTests"
+            ),
+            {
+
+                testName,
+                subject,
+                className,
+
+                timeLimit,
+                marksPerQuestion:marks,
+
+                questions:
+                parsedQuestions,
+
+                totalQuestions:
+                parsedQuestions.length,
+
+                published:true,
+
+                createdAt:
+                serverTimestamp()
+
+            }
+        );
+
+
+        showToast(
+            "Mock Test saved successfully."
+        );
+
+
+        document.getElementById("testName")
+        .value="";
+
+        document.getElementById("bulk")
+        .value="";
+
+        parsedQuestions=[];
+
+        renderPreview();
+
+        loadSavedTests();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Save failed: "+
+            error.message
+        );
+
+    }
+
+};
+
+
+async function loadSavedTests(){
+
+    const box=
+    document.getElementById("savedList");
+
+
+    try{
+
+        const snap=
+        await getDocs(
+            collection(
+                db,
+                "mockTests"
+            )
+        );
+
+
+        if(snap.empty){
+
+            box.innerHTML=`
+            <div class="empty">
+                अभी कोई Mock Test नहीं बनाया गया।
+            </div>`;
+
+            return;
+
+        }
+
+
+        const data=[];
+
+
+        snap.forEach(d=>{
+
+            data.push({
+                id:d.id,
+                ...d.data()
+            });
+
+        });
+
+
+        box.innerHTML=
+        data.reverse().map(t=>`
+
+            <div class="saved-card">
+
+                <div class="saved-info">
+
+                    <h4>
+                        ${escapeHTML(t.testName)}
+                    </h4>
+
+                    <p>
+                        ${escapeHTML(t.subject)}
+                        •
+                        ${escapeHTML(t.className)}
+                        •
+                        ${t.totalQuestions||0}
+                        Questions
+                    </p>
+
+                </div>
+
+                <div class="actions">
+
+                    <button
+                    class="small-btn ${
+                        t.published
+                        ? "hide"
+                        : "publish"
+                    }"
+                    onclick="togglePublish('${t.id}',${!!t.published})">
+
+                        ${
+                            t.published
+                            ? "HIDE"
+                            : "PUBLISH"
+                        }
+
+                    </button>
+
+                    <button
+                    class="small-btn delete"
+                    onclick="deleteTest('${t.id}')">
+
+                        DELETE
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+    }
+    catch(error){
+
+        box.innerHTML=`
+        <div class="empty">
+            ${escapeHTML(error.message)}
+        </div>`;
+
+    }
+
+}
+
+
+window.togglePublish=
+async function(id,current){
+
+    try{
+
+        await updateDoc(
+            doc(
+                db,
+                "mockTests",
+                id
+            ),
+            {
+                published:!current
+            }
+        );
+
+        showToast(
+            !current
+            ? "Mock Test published."
+            : "Mock Test hidden."
+        );
+
+        loadSavedTests();
+
+    }
+    catch(error){
+
+        alert(error.message);
+
+    }
+
+};
+
+
+window.deleteTest=
+async function(id){
+
+    if(
+        !confirm(
+            "यह Mock Test delete करना है?"
+        )
+    )
+    return;
+
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "mockTests",
+                id
+            )
+        );
+
+        showToast("Mock Test deleted.");
+
+        loadSavedTests();
+
+    }
+    catch(error){
+
+        alert(error.message);
+
+    }
+
+};
+
+
+loadSavedTests();
+
+</script>
+
+</body>
+  </html>
