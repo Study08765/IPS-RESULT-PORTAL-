@@ -1030,7 +1030,116 @@ a{
     object-fit:cover;
 }
 
+/* =========================================================
+   PREPARE TODAY • PERFORM TOMORROW
+========================================================= */
 
+.success-line{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:14px 4px;
+
+    display:block;
+
+    text-align:center;
+
+    color:#FFD700;
+
+    font-size:clamp(18px,3vw,32px);
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+    background:
+    linear-gradient(
+        90deg,
+        #000000,
+        #111111,
+        #000000
+    );
+
+    border-top:
+    2px solid #D4AF37;
+
+    border-bottom:
+    2px solid #D4AF37;
+
+    box-shadow:
+
+    0 5px 0 #806515,
+
+    0 9px 20px
+    rgba(0,0,0,.35),
+
+    inset 0 0 15px
+    rgba(212,175,55,.10);
+
+    animation:
+    luxuryBlink 1.7s ease-in-out infinite;
+}
+
+
+@keyframes luxuryBlink{
+
+    0%,100%{
+
+        opacity:1;
+
+        text-shadow:
+
+        0 0 4px
+        rgba(255,215,0,.35),
+
+        0 0 10px
+        rgba(255,215,0,.15);
+    }
+
+    50%{
+
+        opacity:.65;
+
+        text-shadow:
+
+        0 0 8px #FFD700,
+
+        0 0 18px #FFD700,
+
+        0 0 30px
+        rgba(255,215,0,.65);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .success-line{
+
+        margin-top:13px;
+
+        padding:11px 2px;
+
+        font-size:
+        clamp(14px,4.7vw,22px);
+
+        font-weight:900;
+
+        letter-spacing:.5px;
+
+        white-space:nowrap;
+    }
+
+   }
 /* =========================================================
    RED & GOLD LUXURY FOOTER
 ========================================================= */
@@ -2337,7 +2446,13 @@ src="village-study.png"
 alt="Students Learning and Digital Education">
 
 </section>
+<!-- =====================================================
+     PREPARE TODAY • PERFORM TOMORROW
+===================================================== -->
 
+<div class="success-line">
+    PREPARE TODAY • PERFORM TOMORROW
+</div>
 
 </main>
 
