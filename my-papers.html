@@ -1,0 +1,4174 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Notes Creator Pro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#061321;
+    --navy2:#0d2946;
+    --blue:#1264d8;
+    --gold:#c99a32;
+    --gold2:#f3d98b;
+    --green:#07895a;
+    --purple:#7354d5;
+    --red:#c92f3c;
+    --text:#172235;
+    --muted:#718095;
+    --border:#dce5ee;
+    --bg:#f3f7fc;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    'Noto Sans Devanagari',
+    'Inter',
+    sans-serif;
+
+    color:var(--text);
+
+    background:
+    radial-gradient(
+        circle at 10% 0%,
+        rgba(18,100,216,.08),
+        transparent 28%
+    ),
+    radial-gradient(
+        circle at 100% 10%,
+        rgba(201,154,50,.08),
+        transparent 25%
+    ),
+    linear-gradient(
+        135deg,
+        #f8fbff,
+        #edf3f9
+    );
+
+    min-height:100vh;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:9999;
+
+    min-height:76px;
+
+    padding:
+    10px
+    clamp(13px,3vw,30px);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:
+    linear-gradient(
+        135deg,
+        #040e1b,
+        #0a2947
+    );
+
+    border-bottom:
+    1px solid
+    rgba(243,217,139,.35);
+
+    box-shadow:
+    0 12px 35px
+    rgba(0,0,0,.20);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-logo{
+    width:48px;
+    height:48px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    color:var(--gold2);
+
+    background:
+    linear-gradient(
+        145deg,
+        #183958,
+        #07111f
+    );
+
+    border:
+    1px solid
+    rgba(243,217,139,.45);
+
+    font-size:21px;
+}
+
+.brand-name{
+    color:#fff;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:
+    clamp(18px,3vw,25px);
+
+    font-weight:900;
+}
+
+.brand-sub{
+    color:#aebdd0;
+
+    font-size:7px;
+
+    font-weight:900;
+
+    letter-spacing:1.6px;
+}
+
+.dashboard-btn{
+    border:
+    1px solid
+    rgba(243,217,139,.40);
+
+    color:var(--gold2);
+
+    background:
+    rgba(201,154,50,.10);
+
+    padding:9px 13px;
+
+    border-radius:10px;
+
+    font-size:8px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-wrap{
+    padding:
+    22px
+    clamp(13px,3vw,30px)
+    10px;
+}
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    padding:
+    clamp(24px,4vw,38px);
+
+    border-radius:24px;
+
+    color:#fff;
+
+    background:
+    radial-gradient(
+        circle at 85% 15%,
+        rgba(243,217,139,.22),
+        transparent 25%
+    ),
+    linear-gradient(
+        135deg,
+        #061321,
+        #0b2948,
+        #10466f
+    );
+
+    border:
+    1px solid
+    rgba(243,217,139,.25);
+
+    box-shadow:
+    0 22px 60px
+    rgba(6,19,33,.20);
+}
+
+.hero-tag{
+    color:var(--gold2);
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:8px;
+}
+
+.hero h1{
+    font-family:'Poppins','Noto Sans Devanagari',sans-serif;
+
+    font-size:
+    clamp(25px,5vw,39px);
+
+    line-height:1.25;
+
+    margin-bottom:8px;
+}
+
+.hero p{
+    max-width:800px;
+
+    color:#c1cede;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main{
+    display:grid;
+
+    grid-template-columns:
+    minmax(350px,450px)
+    minmax(0,1fr);
+
+    gap:16px;
+
+    padding:
+    13px
+    clamp(13px,3vw,30px)
+    40px;
+
+    align-items:start;
+}
+
+.left,
+.right{
+    min-width:0;
+}
+
+
+/* =====================================================
+   PANEL
+===================================================== */
+
+.panel{
+    background:rgba(255,255,255,.97);
+
+    border:
+    1px solid
+    var(--border);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 14px 40px
+    rgba(15,35,60,.07);
+
+    margin-bottom:14px;
+}
+
+.panel-head{
+    padding:14px 16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    border-bottom:
+    1px solid
+    #edf1f6;
+}
+
+.panel-head h3{
+    color:#102b49;
+
+    font-family:
+    'Poppins',
+    'Noto Sans Devanagari',
+    sans-serif;
+
+    font-size:13px;
+}
+
+.panel-head p{
+    color:#8795a7;
+
+    font-size:7px;
+
+    margin-top:3px;
+}
+
+.panel-body{
+    padding:15px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-grid{
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:9px;
+}
+
+.field{
+    margin-bottom:9px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    display:block;
+
+    color:#50647a;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    margin-bottom:4px;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+
+    border:
+    1px solid
+    #dce5ee;
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:#fbfdff;
+
+    color:#182335;
+
+    font-size:10px;
+
+    padding:
+    9px 10px;
+}
+
+.field input,
+.field select{
+    height:40px;
+}
+
+.field textarea{
+    min-height:120px;
+
+    resize:vertical;
+
+    line-height:1.8;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:#4b91e8;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(18,100,216,.08);
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn{
+    border:0;
+
+    border-radius:9px;
+
+    padding:9px 11px;
+
+    font-size:8px;
+
+    font-weight:900;
+}
+
+.btn i{
+    margin-right:4px;
+}
+
+.gold{
+    background:
+    linear-gradient(
+        135deg,
+        #b98422,
+        #e6ca77
+    );
+
+    color:#07111f;
+}
+
+.blue{
+    background:#1264d8;
+    color:#fff;
+}
+
+.green{
+    background:#07895a;
+    color:#fff;
+}
+
+.purple{
+    background:#7354d5;
+    color:#fff;
+}
+
+.red{
+    background:#c92f3c;
+    color:#fff;
+}
+
+.dark{
+    background:#07111f;
+    color:#fff;
+}
+
+.light{
+    background:#edf4ff;
+    color:#155aa9;
+}
+
+.full-btn{
+    width:100%;
+    min-height:44px;
+}
+
+
+/* =====================================================
+   UPLOAD
+===================================================== */
+
+.upload{
+    border:
+    1.5px dashed
+    #b9c9da;
+
+    border-radius:13px;
+
+    padding:18px;
+
+    text-align:center;
+
+    background:#f8fbff;
+}
+
+.upload i{
+    display:block;
+
+    color:#1264d8;
+
+    font-size:28px;
+
+    margin-bottom:7px;
+}
+
+.upload strong{
+    display:block;
+
+    color:#183957;
+
+    font-size:10px;
+
+    margin-bottom:3px;
+}
+
+.upload span{
+    display:block;
+
+    color:#8997a8;
+
+    font-size:7px;
+
+    margin-bottom:10px;
+}
+
+.upload input{
+    max-width:100%;
+    font-size:8px;
+}
+
+.status{
+    margin-top:8px;
+
+    padding:8px;
+
+    border-radius:8px;
+
+    background:#f4f8fc;
+
+    color:#687b90;
+
+    font-size:8px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   SIMPLE CONTENT
+===================================================== */
+
+.editor{
+    width:100%;
+
+    min-height:270px;
+
+    border:
+    1px solid
+    #cfdbe8;
+
+    border-radius:12px;
+
+    padding:13px;
+
+    resize:vertical;
+
+    outline:none;
+
+    background:#fbfdff;
+
+    font-size:10px;
+
+    line-height:1.9;
+}
+
+.editor:focus{
+    border-color:#1264d8;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(18,100,216,.08);
+}
+
+.action-row{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:7px;
+
+    margin-top:8px;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section-list{
+    display:grid;
+    gap:6px;
+}
+
+.section-chip{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:7px;
+
+    padding:8px 9px;
+
+    border:
+    1px solid
+    #e0e7ef;
+
+    border-radius:9px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff,
+        #f8fbff
+    );
+}
+
+.section-chip strong{
+    color:#173957;
+
+    font-size:8px;
+}
+
+.section-chip small{
+    color:#8b98a7;
+
+    font-size:6.5px;
+}
+
+.chip-remove{
+    border:0;
+
+    width:24px;
+    height:24px;
+
+    border-radius:6px;
+
+    color:#c92f3c;
+
+    background:#ffecef;
+}
+
+
+/* =====================================================
+   PREVIEW
+===================================================== */
+
+.preview-sticky{
+    position:sticky;
+    top:91px;
+}
+
+.preview-toolbar{
+    display:flex;
+
+    gap:5px;
+
+    align-items:center;
+}
+
+.paper-wrap{
+    padding:10px;
+
+    background:#e9eef5;
+
+    border-radius:14px;
+
+    overflow:auto;
+
+    max-height:
+    calc(100vh - 115px);
+}
+
+.paper{
+    width:794px;
+
+    min-height:1123px;
+
+    margin:auto;
+
+    padding:
+    38px 45px 45px;
+
+    background:#fff;
+
+    color:#172235;
+
+    box-shadow:
+    0 15px 50px
+    rgba(15,35,60,.14);
+}
+
+
+/* =====================================================
+   NOTE HEADER
+===================================================== */
+
+.note-head{
+    text-align:center;
+
+    padding-bottom:12px;
+
+    margin-bottom:12px;
+
+    border-bottom:
+    2px solid
+    var(--gold);
+}
+
+.note-brand{
+    color:#07111f;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:27px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+}
+
+.note-details{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:6px;
+
+    margin-top:10px;
+
+    margin-bottom:10px;
+}
+
+.detail{
+    border:
+    1px solid
+    #d8e1ea;
+
+    border-radius:6px;
+
+    padding:6px 8px;
+
+    text-align:left;
+
+    font-size:10px;
+
+    background:#fbfdff;
+}
+
+.detail b{
+    color:#173957;
+}
+
+.note-title{
+    color:#102b49;
+
+    font-family:
+    'Poppins',
+    'Noto Sans Devanagari',
+    sans-serif;
+
+    font-size:23px;
+
+    font-weight:800;
+
+    line-height:1.35;
+
+    margin-top:5px;
+}
+
+.note-label{
+    display:inline-block;
+
+    margin-top:6px;
+
+    color:#a47716;
+
+    background:#fff8e8;
+
+    border:
+    1px solid
+    #ead49a;
+
+    padding:4px 9px;
+
+    border-radius:30px;
+
+    font-size:7px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.note-section{
+    margin:
+    10px 0;
+}
+
+.note-section h3{
+    color:#102b49;
+
+    font-family:
+    'Poppins',
+    'Noto Sans Devanagari',
+    sans-serif;
+
+    font-size:13px;
+
+    line-height:1.45;
+
+    padding:
+    6px 9px;
+
+    border-left:
+    4px solid
+    var(--gold);
+
+    background:
+    linear-gradient(
+        90deg,
+        #f5f8fc,
+        #fff
+    );
+
+    border-radius:
+    0 6px 6px 0;
+
+    margin-bottom:6px;
+}
+
+.note-text{
+    color:#29394d;
+
+    font-size:10.5px;
+
+    line-height:1.75;
+
+    white-space:pre-wrap;
+
+    text-align:justify;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.note-table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    font-size:9.5px;
+
+    margin:4px 0;
+}
+
+.note-table th,
+.note-table td{
+    border:
+    1px solid
+    #cfd9e3;
+
+    padding:
+    6px 7px;
+
+    vertical-align:top;
+
+    line-height:1.55;
+}
+
+.note-table th{
+    color:#173957;
+
+    background:#edf4fb;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   BOXES
+===================================================== */
+
+.note-box{
+    padding:9px 11px;
+
+    border-radius:8px;
+
+    background:#f8fbff;
+
+    border:
+    1px solid
+    #dce6ef;
+}
+
+.important-box{
+    padding:10px;
+
+    border-left:
+    4px solid
+    var(--green);
+
+    border-radius:6px;
+
+    background:#eefaf5;
+
+    color:#234b3c;
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+}
+
+.trick-box{
+    padding:10px;
+
+    border-left:
+    4px solid
+    var(--purple);
+
+    border-radius:6px;
+
+    background:#f5f1ff;
+
+    color:#40376b;
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+}
+
+
+/* =====================================================
+   QUESTIONS
+===================================================== */
+
+.question-card{
+    border:
+    1px solid
+    #dce5ef;
+
+    border-radius:7px;
+
+    padding:8px 10px;
+
+    margin-bottom:5px;
+
+    background:#fff;
+}
+
+.question{
+    color:#143b5f;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    line-height:1.7;
+}
+
+.answer{
+    color:#4a5b6e;
+
+    font-size:9.5px;
+
+    line-height:1.75;
+
+    margin-top:3px;
+
+    white-space:pre-wrap;
+}
+
+
+/* =====================================================
+   MCQ
+===================================================== */
+
+.mcq-card{
+    border:
+    1px solid
+    #dce5ef;
+
+    border-radius:7px;
+
+    padding:8px 10px;
+
+    margin-bottom:5px;
+}
+
+.mcq-question{
+    color:#12385b;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    line-height:1.7;
+}
+
+.mcq-options{
+    color:#526478;
+
+    font-size:9px;
+
+    line-height:1.75;
+
+    white-space:pre-wrap;
+
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   DIAGRAM
+===================================================== */
+
+.diagram-wrap{
+    text-align:center;
+
+    padding:5px 0;
+}
+
+.diagram{
+    display:block;
+
+    max-width:100%;
+
+    max-height:360px;
+
+    margin:
+    0 auto 4px;
+
+    object-fit:contain;
+
+    border:
+    1px solid
+    #dce5ef;
+
+    border-radius:5px;
+}
+
+.caption{
+    color:#78889b;
+
+    font-size:8px;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+    padding:28px 10px;
+
+    text-align:center;
+
+    color:#8a98a9;
+
+    font-size:9px;
+
+    line-height:1.8;
+}
+
+.empty i{
+    display:block;
+
+    font-size:25px;
+
+    margin-bottom:7px;
+
+    color:#b8c4d0;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+    bottom:20px;
+
+    z-index:50000;
+
+    transform:
+    translate(-50%,120px);
+
+    opacity:0;
+
+    background:#07111f;
+
+    color:#fff;
+
+    padding:
+    9px 16px;
+
+    border-radius:50px;
+
+    border:
+    1px solid
+    rgba(243,217,139,.35);
+
+    font-size:8px;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+    translate(-50%,0);
+}
+
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+@media print{
+
+    @page{
+        size:A4;
+        margin:10mm;
+    }
+
+    body{
+        background:#fff !important;
+    }
+
+    body *{
+        visibility:hidden !important;
+    }
+
+    #printArea,
+    #printArea *{
+        visibility:visible !important;
+    }
+
+    #printArea{
+        position:absolute;
+
+        left:0;
+        top:0;
+
+        width:100%;
+    }
+
+    .paper{
+        width:auto;
+
+        min-height:0;
+
+        padding:0 !important;
+
+        border:0;
+
+        box-shadow:none;
+    }
+
+    .note-section,
+    .question-card,
+    .mcq-card,
+    .note-box,
+    .important-box,
+    .trick-box,
+    .diagram-wrap{
+        break-inside:avoid;
+        page-break-inside:avoid;
+    }
+
+    .diagram{
+        max-height:150mm;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1050px){
+
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .preview-sticky{
+        position:static;
+    }
+
+    .paper-wrap{
+        max-height:none;
+    }
+}
+
+@media(max-width:650px){
+
+    .topbar{
+        min-height:68px;
+        padding:8px 11px;
+    }
+
+    .brand-logo{
+        width:40px;
+        height:40px;
+        font-size:17px;
+    }
+
+    .brand-name{
+        font-size:15px;
+    }
+
+    .brand-sub{
+        display:none;
+    }
+
+    .dashboard-btn{
+        padding:7px;
+        font-size:7px;
+    }
+
+    .hero-wrap{
+        padding:
+        13px 11px 7px;
+    }
+
+    .hero{
+        padding:22px 17px;
+        border-radius:19px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+    .main{
+        padding:
+        9px 11px 30px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+
+    .action-row{
+        grid-template-columns:1fr;
+    }
+
+    .paper-wrap{
+        padding:6px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            <i class="fa-solid fa-book-open-reader"></i>
+        </div>
+
+        <div>
+
+            <div class="brand-name">
+                THE STUDY POINT
+            </div>
+
+            <div class="brand-sub">
+                UNIVERSAL NOTES CREATOR PRO
+            </div>
+
+        </div>
+
+    </div>
+
+    <button
+    class="dashboard-btn"
+    onclick="location.href='admin-dashboard.html'">
+
+        <i class="fa-solid fa-arrow-left"></i>
+        DASHBOARD
+
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+HERO
+===================================================== -->
+
+<section class="hero-wrap">
+
+    <div class="hero">
+
+        <div class="hero-tag">
+            <i class="fa-solid fa-crown"></i>
+            PDF / IMAGE → CLEAN NOTES
+        </div>
+
+        <h1>
+            Smart Notes Studio
+        </h1>
+
+        <p>
+            PDF या Notes की image upload करें।
+            Text, table और diagram को अलग-अलग साफ format में
+            Notes में तैयार करें। Original page का पूरा background
+            copy नहीं किया जाएगा।
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+MAIN
+===================================================== -->
+
+<main class="main">
+
+
+<!-- =====================================================
+LEFT
+===================================================== -->
+
+<div class="left">
+
+
+<!-- DETAILS -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                <i class="fa-solid fa-circle-info"></i>
+                Notes Details
+            </h3>
+
+            <p>
+                ऊपर केवल THE STUDY POINT रहेगा
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="panel-body">
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>
+                    Class
+                </label>
+
+                <select id="noteClass">
+
+                    <option value="">
+                        Select Class
+                    </option>
+
+                    <option>Class 1</option>
+                    <option>Class 2</option>
+                    <option>Class 3</option>
+                    <option>Class 4</option>
+                    <option>Class 5</option>
+                    <option>Class 6</option>
+                    <option>Class 7</option>
+                    <option>Class 8</option>
+                    <option>Class 9</option>
+                    <option>Class 10</option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Subject
+                </label>
+
+                <input
+                id="noteSubject"
+                placeholder="Hindi / English / Maths / Science">
+
+            </div>
+
+            <div class="field full">
+
+                <label>
+                    Chapter / Notes Title
+                </label>
+
+                <input
+                id="noteTitle"
+                placeholder="Chapter / Topic">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+PDF / IMAGE IMPORT
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                <i class="fa-solid fa-file-import"></i>
+                PDF / Image Import
+            </h3>
+
+            <p>
+                Page background नहीं लगाया जाएगा
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="panel-body">
+
+        <div class="upload">
+
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+            <strong>
+                PDF या Image चुनें
+            </strong>
+
+            <span>
+                PDF • JPG • PNG • WEBP
+            </span>
+
+            <input
+            type="file"
+            id="sourceFile"
+            accept=".pdf,image/*">
+
+        </div>
+
+
+        <button
+        class="btn blue full-btn"
+        id="processBtn"
+        style="margin-top:8px;">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            READ & CREATE NOTES
+
+        </button>
+
+
+        <div
+        class="status"
+        id="importStatus">
+
+            कोई file select नहीं की गई।
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+MANUAL CONTENT
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                <i class="fa-solid fa-pen"></i>
+                Content Editor
+            </h3>
+
+            <p>
+                चाहें तो text को manually edit करें
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="panel-body">
+
+        <textarea
+        class="editor"
+        id="contentEditor"
+        placeholder="यहाँ extracted text दिखाई देगा...
+
+आप इसे edit करके फिर CREATE / UPDATE PREVIEW कर सकते हैं।"></textarea>
+
+
+        <div class="action-row">
+
+            <button
+            class="btn purple full-btn"
+            id="designBtn">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                CREATE PREVIEW
+
+            </button>
+
+
+            <button
+            class="btn dark full-btn"
+            id="clearBtn">
+
+                <i class="fa-solid fa-eraser"></i>
+                CLEAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+EXTRA IMAGE
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                <i class="fa-solid fa-image"></i>
+                Diagram / Image
+            </h3>
+
+            <p>
+                केवल diagram crop करके लगाएँ
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="panel-body">
+
+        <input
+        type="file"
+        id="diagramFile"
+        accept="image/*"
+        style="width:100%;font-size:8px;">
+
+
+        <input
+        id="diagramCaption"
+        placeholder="Diagram / Image Caption"
+        style="
+        width:100%;
+        height:38px;
+        margin-top:7px;
+        border:1px solid #dce5ee;
+        border-radius:8px;
+        padding:0 9px;
+        font-size:9px;
+        outline:none;
+        ">
+
+
+        <button
+        class="btn green full-btn"
+        id="addDiagramBtn"
+        style="margin-top:7px;">
+
+            <i class="fa-solid fa-plus"></i>
+            ADD DIAGRAM
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+SECTIONS
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                <i class="fa-solid fa-layer-group"></i>
+                Notes Sections
+            </h3>
+
+            <p>
+                Admin section edit/delete कर सकता है
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="panel-body">
+
+        <div
+        class="section-list"
+        id="sectionList">
+
+            <div class="empty">
+                अभी कोई section नहीं है।
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+SAVE
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-body">
+
+        <button
+        class="btn gold full-btn"
+        id="saveBtn">
+
+            <i class="fa-solid fa-floppy-disk"></i>
+            SAVE NOTES
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+SAVED NOTES
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                <i class="fa-solid fa-folder-open"></i>
+                Saved Notes
+            </h3>
+
+            <p>
+                Open / Edit / Delete
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="panel-body">
+
+        <div
+        id="savedNotes"
+        class="section-list">
+
+            <div class="empty">
+                Loading...
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+<!-- =====================================================
+RIGHT
+===================================================== -->
+
+<div class="right">
+
+    <div class="preview-sticky">
+
+        <section class="panel">
+
+            <div class="panel-head">
+
+                <div>
+
+                    <h3>
+                        <i class="fa-solid fa-eye"></i>
+                        Live Notes Preview
+                    </h3>
+
+                    <p>
+                        यही Print / PDF में जाएगा
+                    </p>
+
+                </div>
+
+                <div class="preview-toolbar">
+
+                    <button
+                    class="btn green"
+                    id="printBtn">
+
+                        <i class="fa-solid fa-print"></i>
+                        PDF
+
+                    </button>
+
+                    <button
+                    class="btn blue"
+                    id="refreshBtn">
+
+                        <i class="fa-solid fa-rotate"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div
+        id="printArea">
+
+            <article
+            class="paper"
+            id="preview">
+
+                <header class="note-head">
+
+                    <div class="note-brand">
+                        THE STUDY POINT
+                    </div>
+
+
+                    <div class="note-details">
+
+                        <div class="detail">
+
+                            <b>Class:</b>
+
+                            <span id="previewClass">
+                                —
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <b>Subject:</b>
+
+                            <span id="previewSubject">
+                                —
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                    class="note-title"
+                    id="previewTitle">
+
+                        आपके Notes का Title
+
+                    </div>
+
+
+                    <div class="note-label">
+
+                        PREMIUM NOTES
+
+                    </div>
+
+                </header>
+
+
+                <div
+                id="previewContent">
+
+                    <div class="empty">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                        यहाँ आपके notes दिखाई देंगे।
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+
+<div
+class="toast"
+id="toast">
+</div>
+
+
+<script type="module">
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    addDoc,
+    getDocs,
+    updateDoc,
+    deleteDoc,
+    doc,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE COLLECTION
+===================================================== */
+
+const notesRef =
+collection(
+    db,
+    "notes"
+);
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let sections = [];
+
+let editingId = null;
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const sourceFile =
+document.getElementById(
+    "sourceFile"
+);
+
+const contentEditor =
+document.getElementById(
+    "contentEditor"
+);
+
+const previewContent =
+document.getElementById(
+    "previewContent"
+);
+
+const sectionList =
+document.getElementById(
+    "sectionList"
+);
+
+const savedNotes =
+document.getElementById(
+    "savedNotes"
+);
+
+const importStatus =
+document.getElementById(
+    "importStatus"
+);
+
+const toast =
+document.getElementById(
+    "toast"
+);
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function uid(){
+
+    return "s_" +
+    Date.now() +
+    "_" +
+    Math.random()
+    .toString(36)
+    .slice(2,8);
+
+}
+
+
+function esc(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /[&<>"']/g,
+        function(m){
+
+            return {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[m];
+
+        }
+    );
+
+}
+
+
+function showToast(message){
+
+    toast.textContent =
+    message;
+
+    toast.classList.add(
+        "show"
+    );
+
+    setTimeout(
+        ()=>{
+            toast.classList.remove(
+                "show"
+            );
+        },
+        2200
+    );
+
+}
+
+
+function getBasic(){
+
+    return {
+
+        className:
+        document
+        .getElementById(
+            "noteClass"
+        )
+        .value,
+
+        subject:
+        document
+        .getElementById(
+            "noteSubject"
+        )
+        .value
+        .trim(),
+
+        title:
+        document
+        .getElementById(
+            "noteTitle"
+        )
+        .value
+        .trim()
+
+    };
+
+}
+
+
+/* =====================================================
+   CLEAN TEXT
+===================================================== */
+
+function cleanText(text){
+
+    return String(
+        text || ""
+    )
+    .replace(/\r/g,"")
+    .replace(/[ \t]+/g," ")
+    .replace(/\n[ \t]+/g,"\n")
+    .replace(/\n{3,}/g,"\n\n")
+    .trim();
+
+}
+
+
+/* =====================================================
+   TABLE DETECTION
+===================================================== */
+
+/*
+   यह common PDF/table text को table में बदलता है।
+   "|" या tab वाली lines को table माना जाता है।
+*/
+
+function parseTableBlock(lines){
+
+    const rows =
+    lines
+    .map(
+        line =>
+        line
+        .split(
+            /\s*\|\s*|\t+/
+        )
+        .map(
+            x=>x.trim()
+        )
+        .filter(Boolean)
+    )
+    .filter(
+        row=>row.length>=2
+    );
+
+    if(rows.length<2){
+        return null;
+    }
+
+    const columns =
+    Math.max(
+        ...rows.map(
+            r=>r.length
+        )
+    );
+
+    if(columns<2){
+        return null;
+    }
+
+    return rows.map(row=>{
+
+        while(
+            row.length<columns
+        ){
+            row.push("");
+        }
+
+        return row;
+
+    });
+
+}
+
+
+/* =====================================================
+   TEXT → BLOCKS
+===================================================== */
+
+function makeBlocks(text){
+
+    const lines =
+    cleanText(text)
+    .split("\n");
+
+    const blocks=[];
+
+    let current=[];
+
+    function pushCurrent(){
+
+        if(!current.length)
+            return;
+
+        const value =
+        current.join("\n")
+        .trim();
+
+        if(value)
+            blocks.push({
+                type:"text",
+                content:value
+            });
+
+        current=[];
+
+    }
+
+
+    for(let i=0;i<lines.length;i++){
+
+        const line =
+        lines[i].trim();
+
+        if(!line){
+            pushCurrent();
+            continue;
+        }
+
+
+        /* TABLE */
+
+        if(
+            line.includes("|") ||
+            line.includes("\t")
+        ){
+
+            pushCurrent();
+
+            const tableLines=[];
+
+            let j=i;
+
+            while(
+                j<lines.length &&
+                (
+                    lines[j].includes("|") ||
+                    lines[j].includes("\t")
+                )
+            ){
+
+                tableLines.push(
+                    lines[j]
+                );
+
+                j++;
+
+            }
+
+            const table =
+            parseTableBlock(
+                tableLines
+            );
+
+            if(table){
+
+                blocks.push({
+                    type:"table",
+                    rows:table
+                });
+
+            }
+            else{
+
+                blocks.push({
+                    type:"text",
+                    content:
+                    tableLines.join("\n")
+                });
+
+            }
+
+            i=j-1;
+
+            continue;
+        }
+
+
+        /* HEADING */
+
+        const heading =
+        line.match(
+            /^(#{1,4})\s+(.+)$/
+        );
+
+        if(heading){
+
+            pushCurrent();
+
+            blocks.push({
+
+                type:"heading",
+
+                content:
+                heading[2].trim()
+
+            });
+
+            continue;
+
+        }
+
+
+        /* QUESTION */
+
+        const question =
+        line.match(
+            /^(प्रश्न|Question)\s*[:：]?\s*(.*)$/i
+        );
+
+        if(question){
+
+            pushCurrent();
+
+            blocks.push({
+
+                type:"question",
+
+                question:
+                question[2].trim(),
+
+                answer:""
+
+            });
+
+            continue;
+
+        }
+
+
+        /* ANSWER */
+
+        const answer =
+        line.match(
+            /^(उत्तर|Answer)\s*[:：]?\s*(.*)$/i
+        );
+
+        if(answer && blocks.length){
+
+            const last =
+            blocks[blocks.length-1];
+
+            if(
+                last.type ===
+                "question"
+            ){
+
+                last.answer =
+                answer[2].trim();
+
+                continue;
+
+            }
+
+        }
+
+
+        current.push(line);
+
+    }
+
+    pushCurrent();
+
+    return blocks;
+
+}
+
+
+/* =====================================================
+   RENDER TEXT BLOCK
+===================================================== */
+
+function renderTextBlock(text){
+
+    const clean =
+    cleanText(text);
+
+    if(!clean)
+        return "";
+
+    return `
+
+        <section
+        class="note-section">
+
+            <div
+            class="note-box">
+
+                <div
+                class="note-text">
+
+                    ${esc(clean)}
+
+                </div>
+
+            </div>
+
+        </section>
+
+    `;
+
+}
+
+
+/* =====================================================
+   RENDER TABLE
+===================================================== */
+
+function renderTable(rows){
+
+    if(!rows || !rows.length)
+        return "";
+
+    const header =
+    rows[0];
+
+    const body =
+    rows.slice(1);
+
+    return `
+
+    <section
+    class="note-section">
+
+        <table
+        class="note-table">
+
+            <thead>
+
+                <tr>
+
+                    ${
+                        header
+                        .map(
+                            cell=>`
+
+                                <th>
+                                    ${esc(cell)}
+                                </th>
+
+                            `
+                        )
+                        .join("")
+                    }
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                ${
+                    body
+                    .map(
+                        row=>`
+
+                            <tr>
+
+                                ${
+                                    row
+                                    .map(
+                                        cell=>`
+
+                                            <td>
+                                                ${esc(cell)}
+                                            </td>
+
+                                        `
+                                    )
+                                    .join("")
+                                }
+
+                            </tr>
+
+                        `
+                    )
+                    .join("")
+                }
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    `;
+
+}
+
+
+/* =====================================================
+   RENDER BLOCKS
+===================================================== */
+
+function renderBlocks(blocks){
+
+    return blocks
+    .map(
+        block=>{
+
+            if(
+                block.type ===
+                "heading"
+            ){
+
+                return `
+
+                    <section
+                    class="note-section">
+
+                        <h3>
+                            ✦ ${esc(
+                                block.content
+                            )}
+                        </h3>
+
+                    </section>
+
+                `;
+
+            }
+
+
+            if(
+                block.type ===
+                "table"
+            ){
+
+                return renderTable(
+                    block.rows
+                );
+
+            }
+
+
+            if(
+                block.type ===
+                "question"
+            ){
+
+                return `
+
+                    <div
+                    class="question-card">
+
+                        <div
+                        class="question">
+
+                            प्रश्न:
+                            ${esc(
+                                block.question
+                            )}
+
+                        </div>
+
+                        ${
+                            block.answer
+                            ?
+                            `
+
+                            <div
+                            class="answer">
+
+                                <b>उत्तर:</b>
+                                ${esc(
+                                    block.answer
+                                )}
+
+                            </div>
+
+                            `
+                            :
+                            ""
+                        }
+
+                    </div>
+
+                `;
+
+            }
+
+
+            return renderTextBlock(
+                block.content
+            );
+
+        }
+    )
+    .join("");
+
+}
+
+
+/* =====================================================
+   CREATE SECTION
+===================================================== */
+
+function addContentSection(){
+
+    const text =
+    cleanText(
+        contentEditor.value
+    );
+
+    if(!text)
+        return;
+
+    sections=[];
+
+    const blocks =
+    makeBlocks(text);
+
+    /*
+       Content को compact sections में रखा जाता है।
+    */
+
+    blocks.forEach(
+        block=>{
+
+            if(
+                block.type ===
+                "heading"
+            ){
+
+                sections.push({
+
+                    id:uid(),
+
+                    type:"heading",
+
+                    title:
+                    block.content,
+
+                    content:"",
+
+                    rows:[],
+
+                    images:[]
+
+                });
+
+            }
+            else if(
+                block.type ===
+                "table"
+            ){
+
+                sections.push({
+
+                    id:uid(),
+
+                    type:"table",
+
+                    title:"तालिका",
+
+                    content:"",
+
+                    rows:
+                    block.rows,
+
+                    images:[]
+
+                });
+
+            }
+            else if(
+                block.type ===
+                "question"
+            ){
+
+                sections.push({
+
+                    id:uid(),
+
+                    type:"question",
+
+                    title:
+                    "प्रश्न-उत्तर",
+
+                    content:
+                    (
+                        "प्रश्न: " +
+                        block.question +
+                        (
+                            block.answer
+                            ?
+                            "\nउत्तर: " +
+                            block.answer
+                            :
+                            ""
+                        )
+                    ),
+
+                    rows:[],
+
+                    images:[]
+
+                });
+
+            }
+            else{
+
+                sections.push({
+
+                    id:uid(),
+
+                    type:"text",
+
+                    title:"",
+
+                    content:
+                    block.content,
+
+                    rows:[],
+
+                    images:[]
+
+                });
+
+            }
+
+        }
+    );
+
+    renderAll();
+
+}
+
+
+/* =====================================================
+   RENDER SECTION LIST
+===================================================== */
+
+function renderSectionList(){
+
+    if(!sections.length){
+
+        sectionList.innerHTML=`
+
+            <div class="empty">
+
+                अभी कोई section नहीं है।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    sectionList.innerHTML =
+    sections
+    .map(
+        (s,index)=>`
+
+            <div
+            class="section-chip">
+
+                <div>
+
+                    <strong>
+                        ${index+1}.
+                        ${
+                            esc(
+                                s.title ||
+                                sectionType(s.type)
+                            )
+                        }
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        ${sectionType(s.type)}
+                    </small>
+
+                </div>
+
+                <button
+                class="chip-remove"
+                data-remove="${s.id}">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+        `
+    )
+    .join("");
+
+
+    document
+    .querySelectorAll(
+        "[data-remove]"
+    )
+    .forEach(
+        btn=>{
+
+            btn.onclick=()=>{
+
+                sections =
+                sections.filter(
+                    s =>
+                    s.id !==
+                    btn.dataset.remove
+                );
+
+                renderAll();
+
+            };
+
+        }
+    );
+
+}
+
+
+function sectionType(type){
+
+    const map={
+
+        heading:"Heading",
+
+        table:"Table",
+
+        question:"Question",
+
+        text:"Content",
+
+        diagram:"Diagram"
+
+    };
+
+    return map[type] || "Notes";
+
+}
+
+
+/* =====================================================
+   PREVIEW
+===================================================== */
+
+function renderPreview(){
+
+    const basic =
+    getBasic();
+
+
+    document
+    .getElementById(
+        "previewClass"
+    )
+    .textContent =
+    basic.className || "—";
+
+
+    document
+    .getElementById(
+        "previewSubject"
+    )
+    .textContent =
+    basic.subject || "—";
+
+
+    document
+    .getElementById(
+        "previewTitle"
+    )
+    .textContent =
+    basic.title ||
+    "आपके Notes का Title";
+
+
+    if(!sections.length){
+
+        previewContent.innerHTML=`
+
+            <div class="empty">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                यहाँ आपके notes दिखाई देंगे।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    previewContent.innerHTML =
+    sections
+    .map(
+        renderSection
+    )
+    .join("");
+
+}
+
+
+/* =====================================================
+   RENDER SECTION
+===================================================== */
+
+function renderSection(s){
+
+    if(
+        s.type ===
+        "heading"
+    ){
+
+        return `
+
+            <section
+            class="note-section">
+
+                <h3>
+                    ✦ ${esc(
+                        s.title
+                    )}
+                </h3>
+
+            </section>
+
+        `;
+
+    }
+
+
+    if(
+        s.type ===
+        "table"
+    ){
+
+        return renderTable(
+            s.rows || []
+        );
+
+    }
+
+
+    if(
+        s.type ===
+        "question"
+    ){
+
+        return `
+
+            <section
+            class="note-section">
+
+                <div
+                class="question-card">
+
+                    <div
+                    class="question">
+
+                        ${esc(
+                            s.content
+                        )}
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        `;
+
+    }
+
+
+    if(
+        s.type ===
+        "diagram"
+    ){
+
+        return `
+
+            <section
+            class="note-section">
+
+                <h3>
+                    🖼️ ${
+                        esc(
+                            s.title ||
+                            "Diagram"
+                        )
+                    }
+                </h3>
+
+                <div
+                class="diagram-wrap">
+
+                    <img
+                    class="diagram"
+                    src="${s.src}">
+
+                    ${
+                        s.caption
+                        ?
+                        `<div class="caption">
+                            ${esc(
+                                s.caption
+                            )}
+                        </div>`
+                        :
+                        ""
+                    }
+
+                </div>
+
+            </section>
+
+        `;
+
+    }
+
+
+    return renderTextBlock(
+        s.content
+    );
+
+}
+
+
+/* =====================================================
+   RENDER ALL
+===================================================== */
+
+function renderAll(){
+
+    renderSectionList();
+
+    renderPreview();
+
+}
+
+
+/* =====================================================
+   PDF PROCESSOR
+===================================================== */
+
+async function processPDF(file){
+
+    importStatus.textContent =
+    "PDF library load हो रही है...";
+
+
+    const pdfjs =
+    await import(
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs"
+    );
+
+
+    pdfjs
+    .GlobalWorkerOptions
+    .workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs";
+
+
+    const buffer =
+    await file.arrayBuffer();
+
+
+    const pdf =
+    await pdfjs
+    .getDocument({
+        data:buffer
+    })
+    .promise;
+
+
+    let fullText="";
+
+    let diagramImages=[];
+
+
+    for(
+        let pageNo=1;
+        pageNo<=pdf.numPages;
+        pageNo++
+    ){
+
+        importStatus.textContent =
+        `Page ${pageNo} / ${pdf.numPages} पढ़ी जा रही है...`;
+
+
+        const page =
+        await pdf.getPage(
+            pageNo
+        );
+
+
+        /* TEXT */
+
+        const textContent =
+        await page.getTextContent();
+
+
+        const items =
+        textContent.items || [];
+
+
+        const pageText =
+        items
+        .map(
+            item =>
+            item.str || ""
+        )
+        .join(" ")
+        .replace(
+            /\s+/g,
+            " "
+        )
+        .trim();
+
+
+        if(pageText){
+
+            fullText +=
+            pageText +
+            "\n\n";
+
+        }
+
+
+        /*
+           PDF में embedded image हो तो उसे
+           अलग canvas image में निकाला जाता है।
+           पूरा page screenshot नहीं लगाया जाता।
+        */
+
+        try{
+
+            const ops =
+            await page.getOperatorList();
+
+            const images=[];
+
+            for(
+                let i=0;
+                i<ops.fnArray.length;
+                i++
+            ){
+
+                const fn =
+                ops.fnArray[i];
+
+                const args =
+                ops.argsArray[i];
+
+
+                if(
+                    fn ===
+                    pdfjs
+                    .OPS
+                    .paintImageXObject
+                ){
+
+                    const name =
+                    args[0];
+
+                    if(
+                        !images
+                        .includes(name)
+                    ){
+
+                        images.push(name);
+
+                    }
+
+                }
+
+            }
+
+
+            /*
+               PDF.js image extraction API
+               हर PDF में उपलब्ध नहीं होती।
+               इसलिए failure को ignore किया जाता है।
+            */
+
+        }
+        catch(error){
+
+            console.warn(
+                "Image scan skipped",
+                error
+            );
+
+        }
+
+    }
+
+
+    if(
+        !fullText.trim()
+    ){
+
+        throw new Error(
+            "इस PDF में selectable text नहीं मिला। यह scanned PDF हो सकती है।"
+        );
+
+    }
+
+
+    contentEditor.value =
+    fullText.trim();
+
+
+    importStatus.textContent =
+    `✓ ${pdf.numPages} pages पढ़े गए। Text तैयार है।`;
+
+
+    addContentSection();
+
+
+    showToast(
+        "PDF text successfully imported."
+    );
+
+}
+
+
+/* =====================================================
+   IMAGE PROCESSOR
+===================================================== */
+
+async function processImage(file){
+
+    importStatus.textContent =
+    "Image पढ़ी जा रही है...";
+
+
+    /*
+       Browser OCR के लिए Tesseract.js
+    */
+
+    const Tesseract =
+    await import(
+        "https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.esm.min.js"
+    );
+
+
+    importStatus.textContent =
+    "Hindi / English OCR चल रहा है...";
+
+
+    const result =
+    await Tesseract.recognize(
+        file,
+        "hin+eng",
+        {
+
+            logger:
+            data=>{
+
+                if(
+                    data.status
+                ){
+
+                    importStatus.textContent =
+                    data.status +
+                    (
+                        data.progress
+                        ?
+                        " " +
+                        Math.round(
+                            data.progress*100
+                        ) +
+                        "%"
+                        :
+                        ""
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+
+    const text =
+    result
+    .data
+    .text
+    .trim();
+
+
+    if(!text){
+
+        throw new Error(
+            "Image से text नहीं मिला।"
+        );
+
+    }
+
+
+    contentEditor.value =
+    text;
+
+
+    importStatus.textContent =
+    "✓ Image OCR complete.";
+
+
+    addContentSection();
+
+
+    showToast(
+        "Image text तैयार हो गया."
+    );
+
+}
+
+
+/* =====================================================
+   FILE PROCESS
+===================================================== */
+
+document
+.getElementById(
+    "processBtn"
+)
+.addEventListener(
+    "click",
+    async()=>{
+
+        const file =
+        sourceFile.files[0];
+
+
+        if(!file){
+
+            alert(
+                "पहले PDF या Image select करें।"
+            );
+
+            return;
+
+        }
+
+
+        const button =
+        document.getElementById(
+            "processBtn"
+        );
+
+
+        button.disabled=true;
+
+
+        button.innerHTML=`
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            READING...
+
+        `;
+
+
+        try{
+
+            if(
+                file.type ===
+                "application/pdf" ||
+                file.name
+                .toLowerCase()
+                .endsWith(".pdf")
+            ){
+
+                await processPDF(
+                    file
+                );
+
+            }
+            else if(
+                file.type
+                .startsWith("image/")
+            ){
+
+                await processImage(
+                    file
+                );
+
+            }
+            else{
+
+                throw new Error(
+                    "यह file supported नहीं है।"
+                );
+
+            }
+
+        }
+        catch(error){
+
+            console.error(
+                error
+            );
+
+            importStatus.textContent =
+            "Import failed.";
+
+            alert(
+                "File पढ़ने में समस्या:\n\n" +
+                error.message
+            );
+
+        }
+        finally{
+
+            button.disabled=false;
+
+            button.innerHTML=`
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                READ & CREATE NOTES
+
+            `;
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CREATE PREVIEW
+===================================================== */
+
+document
+.getElementById(
+    "designBtn"
+)
+.addEventListener(
+    "click",
+    ()=>{
+
+        if(
+            !contentEditor.value.trim()
+        ){
+
+            alert(
+                "पहले content डालें।"
+            );
+
+            return;
+
+        }
+
+        addContentSection();
+
+        showToast(
+            "Preview updated."
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+document
+.getElementById(
+    "clearBtn"
+)
+.addEventListener(
+    "click",
+    ()=>{
+
+        if(
+            !confirm(
+                "Current notes clear करें?"
+            )
+        )
+            return;
+
+
+        sections=[];
+
+        contentEditor.value="";
+
+        editingId=null;
+
+        renderAll();
+
+        showToast(
+            "Notes cleared."
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ADD DIAGRAM
+===================================================== */
+
+document
+.getElementById(
+    "addDiagramBtn"
+)
+.addEventListener(
+    "click",
+    ()=>{
+
+        const file =
+        document
+        .getElementById(
+            "diagramFile"
+        )
+        .files[0];
+
+
+        if(!file){
+
+            alert(
+                "पहले image select करें।"
+            );
+
+            return;
+
+        }
+
+
+        const reader =
+        new FileReader();
+
+
+        reader.onload=()=>{
+
+            sections.push({
+
+                id:uid(),
+
+                type:"diagram",
+
+                title:"Diagram / चित्र",
+
+                content:"",
+
+                rows:[],
+
+                src:
+                reader.result,
+
+                caption:
+                document
+                .getElementById(
+                    "diagramCaption"
+                )
+                .value
+                .trim()
+
+            });
+
+
+            document
+            .getElementById(
+                "diagramFile"
+            )
+            .value="";
+
+
+            document
+            .getElementById(
+                "diagramCaption"
+            )
+            .value="";
+
+
+            renderAll();
+
+            showToast(
+                "Diagram added."
+            );
+
+        };
+
+
+        reader.readAsDataURL(
+            file
+        );
+
+    }
+);
+
+
+/* =====================================================
+   LIVE DETAILS
+===================================================== */
+
+[
+    "noteClass",
+    "noteSubject",
+    "noteTitle"
+]
+.forEach(
+    id=>{
+
+        document
+        .getElementById(id)
+        .addEventListener(
+            "input",
+            renderPreview
+        );
+
+        document
+        .getElementById(id)
+        .addEventListener(
+            "change",
+            renderPreview
+        );
+
+    }
+);
+
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+document
+.getElementById(
+    "printBtn"
+)
+.addEventListener(
+    "click",
+    ()=>{
+
+        if(!sections.length){
+
+            alert(
+                "पहले notes तैयार करें।"
+            );
+
+            return;
+
+        }
+
+        window.print();
+
+    }
+);
+
+
+/* =====================================================
+   REFRESH
+===================================================== */
+
+document
+.getElementById(
+    "refreshBtn"
+)
+.addEventListener(
+    "click",
+    renderAll
+);
+
+
+/* =====================================================
+   SAVE
+===================================================== */
+
+document
+.getElementById(
+    "saveBtn"
+)
+.addEventListener(
+    "click",
+    async()=>{
+
+        const basic =
+        getBasic();
+
+
+        if(!basic.className){
+
+            alert(
+                "Class select करें।"
+            );
+
+            return;
+
+        }
+
+
+        if(!basic.subject){
+
+            alert(
+                "Subject लिखें।"
+            );
+
+            return;
+
+        }
+
+
+        if(!basic.title){
+
+            alert(
+                "Chapter / Notes Title लिखें।"
+            );
+
+            return;
+
+        }
+
+
+        if(!sections.length){
+
+            alert(
+                "पहले notes तैयार करें।"
+            );
+
+            return;
+
+        }
+
+
+        const data={
+
+            className:
+            basic.className,
+
+            subject:
+            basic.subject,
+
+            title:
+            basic.title,
+
+            sections:
+            sections,
+
+            updatedAt:
+            serverTimestamp()
+
+        };
+
+
+        try{
+
+            if(editingId){
+
+                await updateDoc(
+
+                    doc(
+                        db,
+                        "notes",
+                        editingId
+                    ),
+
+                    data
+
+                );
+
+                showToast(
+                    "Notes updated successfully."
+                );
+
+            }
+            else{
+
+                await addDoc(
+
+                    notesRef,
+
+                    {
+
+                        ...data,
+
+                        createdAt:
+                        serverTimestamp()
+
+                    }
+
+                );
+
+                showToast(
+                    "Notes saved successfully."
+                );
+
+            }
+
+
+            editingId=null;
+
+            loadSavedNotes();
+
+        }
+        catch(error){
+
+            console.error(
+                error
+            );
+
+            alert(
+                "Save failed:\n\n" +
+                error.message
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOAD SAVED
+===================================================== */
+
+async function loadSavedNotes(){
+
+    try{
+
+        const snap =
+        await getDocs(
+            notesRef
+        );
+
+
+        const notes=[];
+
+
+        snap.forEach(
+            item=>{
+
+                notes.push({
+
+                    id:item.id,
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        if(!notes.length){
+
+            savedNotes.innerHTML=`
+
+                <div class="empty">
+
+                    अभी कोई saved notes नहीं हैं।
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        savedNotes.innerHTML =
+        notes
+        .map(
+            n=>`
+
+                <div
+                class="section-chip">
+
+                    <div>
+
+                        <strong>
+                            ${esc(
+                                n.title
+                            )}
+                        </strong>
+
+                        <br>
+
+                        <small>
+
+                            ${esc(
+                                n.className
+                            )}
+                            •
+                            ${esc(
+                                n.subject
+                            )}
+
+                        </small>
+
+                    </div>
+
+
+                    <div
+                    style="
+                    display:flex;
+                    gap:4px;
+                    ">
+
+                        <button
+                        class="btn blue"
+                        data-open="${n.id}">
+
+                            OPEN
+
+                        </button>
+
+                        <button
+                        class="btn purple"
+                        data-edit="${n.id}">
+
+                            EDIT
+
+                        </button>
+
+                        <button
+                        class="btn red"
+                        data-delete="${n.id}">
+
+                            DELETE
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `
+        )
+        .join("");
+
+
+        bindSaved(
+            notes
+        );
+
+    }
+    catch(error){
+
+        savedNotes.innerHTML=`
+
+            <div class="empty">
+
+                Notes load नहीं हो सके।
+
+                <br>
+
+                ${esc(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   SAVED EVENTS
+===================================================== */
+
+function bindSaved(notes){
+
+    document
+    .querySelectorAll(
+        "[data-open]"
+    )
+    .forEach(
+        btn=>{
+
+            btn.onclick=()=>{
+
+                const note =
+                notes.find(
+                    n =>
+                    n.id ===
+                    btn.dataset.open
+                );
+
+                if(!note)
+                    return;
+
+                loadNote(
+                    note
+                );
+
+                document
+                .getElementById(
+                    "preview"
+                )
+                .scrollIntoView({
+                    behavior:"smooth"
+                });
+
+            };
+
+        }
+    );
+
+
+    document
+    .querySelectorAll(
+        "[data-edit]"
+    )
+    .forEach(
+        btn=>{
+
+            btn.onclick=()=>{
+
+                const note =
+                notes.find(
+                    n =>
+                    n.id ===
+                    btn.dataset.edit
+                );
+
+                if(!note)
+                    return;
+
+                loadNote(
+                    note
+                );
+
+                document
+                .getElementById(
+                    "contentEditor"
+                )
+                .scrollIntoView({
+                    behavior:"smooth"
+                });
+
+            };
+
+        }
+    );
+
+
+    document
+    .querySelectorAll(
+        "[data-delete]"
+    )
+    .forEach(
+        btn=>{
+
+            btn.onclick=async()=>{
+
+                if(
+                    !confirm(
+                        "यह Notes delete करें?"
+                    )
+                )
+                    return;
+
+
+                try{
+
+                    await deleteDoc(
+
+                        doc(
+                            db,
+                            "notes",
+                            btn.dataset.delete
+                        )
+
+                    );
+
+
+                    showToast(
+                        "Notes deleted."
+                    );
+
+
+                    loadSavedNotes();
+
+                }
+                catch(error){
+
+                    alert(
+                        "Delete failed:\n\n" +
+                        error.message
+                    );
+
+                }
+
+            };
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   LOAD NOTE
+===================================================== */
+
+function loadNote(note){
+
+    editingId =
+    note.id;
+
+
+    document
+    .getElementById(
+        "noteClass"
+    )
+    .value =
+    note.className || "";
+
+
+    document
+    .getElementById(
+        "noteSubject"
+    )
+    .value =
+    note.subject || "";
+
+
+    document
+    .getElementById(
+        "noteTitle"
+    )
+    .value =
+    note.title || "";
+
+
+    sections =
+    JSON.parse(
+        JSON.stringify(
+            note.sections || []
+        )
+    );
+
+
+    contentEditor.value =
+    sections
+    .filter(
+        s =>
+        s.type ===
+        "text"
+    )
+    .map(
+        s =>
+        s.content
+    )
+    .join("\n\n");
+
+
+    renderAll();
+
+    showToast(
+        "Notes loaded."
+    );
+
+}
+
+
+/* =====================================================
+   INITIAL
+===================================================== */
+
+loadSavedNotes();
+
+renderAll();
+
+</script>
+
+</body>
+  </html>
