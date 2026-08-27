@@ -1,0 +1,4608 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Notes Creator Pro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#061321;
+    --navy2:#0c2845;
+    --blue:#1264d8;
+    --blue2:#eaf3ff;
+
+    --gold:#c99a32;
+    --gold2:#f3d98b;
+
+    --green:#07895a;
+    --green2:#eaf9f2;
+
+    --purple:#7354d5;
+    --red:#c92f3c;
+
+    --text:#172235;
+    --muted:#748398;
+
+    --border:#dce5ef;
+    --bg:#f3f7fc;
+    --white:#fff;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        'Noto Sans Devanagari',
+        'Inter',
+        sans-serif;
+
+    color:var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(18,100,216,.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 100% 20%,
+            rgba(201,154,50,.10),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #edf3f9
+        );
+
+    min-height:100vh;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:9999;
+
+    min-height:80px;
+
+    padding:
+        10px
+        clamp(12px,3vw,30px);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(4,14,27,.99),
+            rgba(8,30,53,.99)
+        );
+
+    border-bottom:
+        1px solid
+        rgba(243,217,139,.30);
+
+    box-shadow:
+        0 12px 40px
+        rgba(0,0,0,.22);
+
+    backdrop-filter:blur(16px);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+}
+
+.brand-logo{
+    width:50px;
+    height:50px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    color:var(--gold2);
+
+    background:
+        linear-gradient(
+            145deg,
+            #183958,
+            #07111f
+        );
+
+    border:
+        1px solid
+        rgba(243,217,139,.50);
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 8px 25px rgba(0,0,0,.25);
+
+    font-size:22px;
+
+    flex-shrink:0;
+}
+
+.brand-name{
+    font-family:'Poppins',sans-serif;
+
+    color:#fff;
+
+    font-size:
+        clamp(18px,3vw,25px);
+
+    font-weight:800;
+
+    letter-spacing:.3px;
+}
+
+.brand-sub{
+    color:#aebdd0;
+
+    font-size:7px;
+
+    font-weight:900;
+
+    letter-spacing:1.8px;
+
+    margin-top:2px;
+}
+
+.dashboard-btn{
+    border:
+        1px solid
+        rgba(243,217,139,.42);
+
+    color:var(--gold2);
+
+    background:
+        rgba(201,154,50,.10);
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+.dashboard-btn:hover{
+    background:var(--gold);
+    color:var(--navy);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-wrap{
+    padding:
+        22px
+        clamp(12px,3vw,30px)
+        10px;
+}
+
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        clamp(25px,5vw,40px);
+
+    border-radius:27px;
+
+    color:#fff;
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(243,217,139,.25),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 10% 100%,
+            rgba(18,100,216,.25),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #061321,
+            #0b2948,
+            #10466f
+        );
+
+    border:
+        1px solid
+        rgba(243,217,139,.28);
+
+    box-shadow:
+        0 25px 70px
+        rgba(6,19,33,.20);
+}
+
+.hero:after{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    right:-90px;
+    bottom:-120px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(243,217,139,.14);
+}
+
+.hero-tag{
+    position:relative;
+    z-index:1;
+
+    color:var(--gold2);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:1.6px;
+
+    margin-bottom:9px;
+}
+
+.hero h1{
+    position:relative;
+    z-index:1;
+
+    font-family:
+        'Poppins',
+        'Noto Sans Devanagari',
+        sans-serif;
+
+    font-size:
+        clamp(26px,5vw,40px);
+
+    line-height:1.25;
+
+    margin-bottom:8px;
+}
+
+.hero p{
+    position:relative;
+    z-index:1;
+
+    max-width:850px;
+
+    color:#c5d0dd;
+
+    font-size:10px;
+
+    line-height:1.9;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+    display:grid;
+
+    grid-template-columns:
+        minmax(380px,470px)
+        minmax(0,1fr);
+
+    gap:17px;
+
+    padding:
+        14px
+        clamp(12px,3vw,30px)
+        45px;
+
+    align-items:start;
+}
+
+.left,
+.right{
+    min-width:0;
+}
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.panel{
+    background:
+        rgba(255,255,255,.97);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 16px 48px
+        rgba(15,35,60,.075);
+
+    margin-bottom:14px;
+}
+
+.panel-head{
+    padding:15px 17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    border-bottom:
+        1px solid
+        #edf1f6;
+}
+
+.panel-head h2,
+.panel-head h3{
+    font-family:
+        'Poppins',
+        'Noto Sans Devanagari',
+        sans-serif;
+
+    color:#102b49;
+
+    font-size:13px;
+}
+
+.panel-head p{
+    color:#8795a7;
+
+    font-size:7.5px;
+
+    margin-top:3px;
+}
+
+.panel-body{
+    padding:16px;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:10px;
+}
+
+.field{
+    margin-bottom:10px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    display:block;
+
+    color:#50647a;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    margin-bottom:5px;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+
+    border:
+        1px solid
+        #dce5ee;
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:#fbfdff;
+
+    color:#182335;
+
+    font-size:10px;
+
+    padding:
+        9px
+        10px;
+}
+
+.field input,
+.field select{
+    height:41px;
+}
+
+.field textarea{
+    min-height:130px;
+
+    resize:vertical;
+
+    line-height:1.9;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:#4b91e8;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(18,100,216,.08);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+    border:0;
+
+    border-radius:9px;
+
+    padding:
+        9px
+        12px;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    transition:.18s;
+}
+
+.btn:hover{
+    transform:translateY(-1px);
+}
+
+.btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.btn i{
+    margin-right:4px;
+}
+
+.gold{
+    background:
+        linear-gradient(
+            135deg,
+            #b98422,
+            #e6ca77
+        );
+
+    color:#07111f;
+}
+
+.blue{
+    background:#1264d8;
+    color:#fff;
+}
+
+.green{
+    background:#07895a;
+    color:#fff;
+}
+
+.purple{
+    background:#7354d5;
+    color:#fff;
+}
+
+.red{
+    background:#c92f3c;
+    color:#fff;
+}
+
+.dark{
+    background:#07111f;
+    color:#fff;
+}
+
+.light{
+    background:#edf4ff;
+    color:#155aa9;
+}
+
+.full-btn{
+    width:100%;
+    min-height:45px;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+/* =========================================================
+   EDITOR TOOLBAR
+========================================================= */
+
+.editor-tools{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:5px;
+
+    margin-bottom:8px;
+}
+
+.tool{
+    border:
+        1px solid
+        #d6e1eb;
+
+    background:#f7faff;
+
+    color:#244768;
+
+    border-radius:7px;
+
+    padding:
+        6px
+        8px;
+
+    font-size:8px;
+
+    font-weight:900;
+}
+
+.tool:hover{
+    background:#eaf3ff;
+}
+
+.editor{
+    min-height:340px;
+
+    border:
+        1px solid
+        #cfdbe8;
+
+    border-radius:13px;
+
+    padding:14px;
+
+    outline:none;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fbfdff
+        );
+
+    color:#26384b;
+
+    font-size:10.5px;
+
+    line-height:1.9;
+
+    overflow:auto;
+}
+
+.editor:focus{
+    border-color:#1264d8;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(18,100,216,.08);
+}
+
+.editor:empty:before{
+    content:
+        attr(data-placeholder);
+
+    color:#9aa7b5;
+}
+
+.editor h1{
+    font-size:23px;
+    line-height:1.4;
+    color:#102b49;
+    margin:6px 0;
+}
+
+.editor h2{
+    font-size:18px;
+    line-height:1.45;
+    color:#173957;
+    margin:5px 0;
+}
+
+.editor h3{
+    font-size:14px;
+    line-height:1.5;
+    color:#244c72;
+    margin:5px 0;
+}
+
+.editor p{
+    margin:3px 0;
+}
+
+.editor ul,
+.editor ol{
+    margin-left:22px;
+}
+
+.editor table{
+    width:100%;
+    border-collapse:collapse;
+    margin:8px 0;
+    font-size:9px;
+}
+
+.editor th,
+.editor td{
+    border:
+        1px solid
+        #ccd7e2;
+
+    padding:7px;
+
+    min-width:60px;
+
+    vertical-align:top;
+}
+
+.editor th{
+    background:#edf4fb;
+    color:#173957;
+    font-weight:900;
+}
+
+.editor .important-box{
+    padding:10px;
+
+    border-left:
+        4px solid
+        var(--green);
+
+    border-radius:7px;
+
+    background:#eefaf5;
+
+    margin:7px 0;
+}
+
+/* =========================================================
+   SOURCE UPLOAD
+========================================================= */
+
+.source-tabs{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:9px;
+}
+
+.source-box{
+    border:
+        1.5px dashed
+        #b9c9da;
+
+    border-radius:13px;
+
+    padding:16px;
+
+    text-align:center;
+
+    background:#f8fbff;
+}
+
+.source-box strong{
+    display:block;
+
+    color:#183957;
+
+    font-size:10px;
+
+    margin-bottom:4px;
+}
+
+.source-box small{
+    display:block;
+
+    color:#8997a8;
+
+    font-size:7px;
+
+    margin-bottom:10px;
+}
+
+.source-box input[type=file]{
+    width:100%;
+    font-size:7px;
+}
+
+.file-name{
+    color:#087f59;
+
+    font-size:7.5px;
+
+    margin-top:7px;
+
+    word-break:break-word;
+}
+
+/* =========================================================
+   ASSET LIST
+========================================================= */
+
+.asset-list{
+    display:grid;
+    gap:10px;
+}
+
+.asset{
+    border:
+        1px solid
+        #dbe4ed;
+
+    background:#fff;
+
+    border-radius:12px;
+
+    padding:10px;
+}
+
+.asset-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:7px;
+
+    margin-bottom:7px;
+}
+
+.asset-title strong{
+    color:#173957;
+    font-size:8.5px;
+}
+
+.asset img{
+    display:block;
+
+    max-width:100%;
+
+    max-height:600px;
+
+    margin:auto;
+
+    object-fit:contain;
+}
+
+.asset iframe{
+    width:100%;
+
+    height:600px;
+
+    border:
+        1px solid
+        #dce5ef;
+
+    border-radius:8px;
+
+    background:#fff;
+}
+
+.asset-toolbar{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:5px;
+
+    margin-top:8px;
+}
+
+.asset-toolbar button{
+    border:0;
+
+    border-radius:6px;
+
+    padding:6px 8px;
+
+    font-size:7px;
+
+    font-weight:900;
+}
+
+.asset-remove{
+    color:#c92f3c;
+    background:#ffecef;
+}
+
+.asset-edit{
+    color:#155aa9;
+    background:#edf4ff;
+}
+
+.asset-up{
+    color:#08784c;
+    background:#eaf9f2;
+}
+
+.asset-down{
+    color:#7354d5;
+    background:#f2edff;
+}
+
+/* =========================================================
+   IMAGE EDITOR
+========================================================= */
+
+.image-editor{
+    display:none;
+
+    margin-top:9px;
+
+    padding:10px;
+
+    border:
+        1px solid
+        #dce5ef;
+
+    border-radius:10px;
+
+    background:#f6f9fc;
+}
+
+.image-editor.show{
+    display:block;
+}
+
+.crop-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:7px;
+}
+
+.crop-grid label{
+    margin-bottom:3px;
+}
+
+.crop-grid input{
+    height:34px;
+
+    padding:6px;
+
+    font-size:8px;
+}
+
+.editor-note{
+    color:#73849a;
+
+    font-size:7px;
+
+    line-height:1.6;
+
+    margin-bottom:7px;
+}
+
+/*
+  Manual cover area.
+  This does not magically detect watermark.
+  User can place a white/generic cover over
+  an unwanted area.
+*/
+
+.cover-row{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:5px;
+
+    margin-top:8px;
+}
+
+.cover-row input{
+    height:32px;
+    font-size:7px;
+}
+
+.cover-preview{
+    position:relative;
+
+    overflow:hidden;
+
+    margin-top:9px;
+
+    background:#eee;
+
+    border:
+        1px solid
+        #d6e0e9;
+}
+
+.cover-preview img{
+    width:100%;
+    max-height:none;
+    display:block;
+}
+
+.cover-mask{
+    position:absolute;
+
+    background:#fff;
+
+    border:
+        1px dashed
+        #c92f3c;
+
+    display:none;
+
+    pointer-events:none;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section-list{
+    display:grid;
+    gap:7px;
+}
+
+.section-chip{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        auto;
+
+    gap:7px;
+
+    align-items:center;
+
+    padding:
+        8px
+        9px;
+
+    border:
+        1px solid
+        #dfe7ef;
+
+    border-left:
+        4px solid
+        var(--gold);
+
+    border-radius:
+        0
+        8px
+        8px
+        0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f8fafc,
+            #fff
+        );
+}
+
+.section-chip strong{
+    display:block;
+
+    color:#173957;
+
+    font-size:8.5px;
+}
+
+.section-chip small{
+    color:#8b98a7;
+
+    font-size:7px;
+}
+
+.section-actions{
+    display:flex;
+    gap:4px;
+}
+
+.section-actions button{
+    border:0;
+
+    border-radius:5px;
+
+    padding:
+        5px
+        7px;
+
+    font-size:6.5px;
+
+    font-weight:900;
+}
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+.preview-sticky{
+    position:sticky;
+    top:96px;
+}
+
+.preview-toolbar{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:5px;
+
+    flex-wrap:wrap;
+}
+
+.paper{
+    background:#fff;
+
+    border:
+        1px solid
+        #dfe6ee;
+
+    border-radius:13px;
+
+    box-shadow:
+        0 20px 65px
+        rgba(15,35,60,.12);
+
+    padding:
+        clamp(20px,4vw,40px);
+
+    min-height:900px;
+}
+
+/* =========================================================
+   NOTE HEADER
+========================================================= */
+
+.note-head{
+    text-align:center;
+
+    padding-bottom:13px;
+
+    margin-bottom:13px;
+
+    border-bottom:
+        2px solid
+        var(--gold);
+}
+
+.note-brand{
+    color:#07111f;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size:
+        clamp(24px,4vw,31px);
+
+    font-weight:900;
+
+    letter-spacing:.4px;
+}
+
+.note-meta{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    max-width:700px;
+
+    margin:
+        10px
+        auto
+        0;
+
+    border:
+        1px solid
+        #d5dee8;
+
+    border-radius:10px;
+
+    overflow:hidden;
+}
+
+.meta-box{
+    padding:9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #fff
+        );
+
+    border-right:
+        1px solid
+        #d5dee8;
+}
+
+.meta-box:last-child{
+    border-right:0;
+}
+
+.meta-label{
+    display:block;
+
+    color:#8a98a8;
+
+    font-size:7px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+}
+
+.meta-value{
+    display:block;
+
+    color:#173957;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    margin-top:2px;
+
+    word-break:break-word;
+}
+
+.chapter{
+    color:#102b49;
+
+    font-family:
+        'Poppins',
+        'Noto Sans Devanagari',
+        sans-serif;
+
+    font-size:
+        clamp(16px,3vw,19px);
+
+    font-weight:800;
+
+    margin-top:9px;
+
+    line-height:1.5;
+}
+
+/* =========================================================
+   PREVIEW SECTIONS
+========================================================= */
+
+.preview-section{
+    margin:
+        12px
+        0;
+}
+
+.preview-section-head{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:7px;
+
+    padding:
+        6px
+        9px;
+
+    border-left:
+        4px solid
+        var(--gold);
+
+    border-radius:
+        0
+        7px
+        7px
+        0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f6f9fc,
+            #fff
+        );
+
+    margin-bottom:6px;
+}
+
+.preview-section-head strong{
+    color:#173957;
+
+    font-size:11px;
+
+    line-height:1.5;
+}
+
+.preview-section-head button{
+    border:0;
+
+    border-radius:5px;
+
+    padding:4px 6px;
+
+    background:#edf4ff;
+
+    color:#155aa9;
+
+    font-size:6.5px;
+
+    font-weight:900;
+}
+
+.preview-text{
+    color:#33475d;
+
+    font-size:10px;
+
+    line-height:1.9;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+}
+
+.preview-html{
+    color:#33475d;
+
+    font-size:10px;
+
+    line-height:1.9;
+
+    word-break:break-word;
+}
+
+.preview-html h1{
+    color:#102b49;
+
+    font-size:22px;
+
+    line-height:1.4;
+
+    margin:5px 0;
+}
+
+.preview-html h2{
+    color:#173957;
+
+    font-size:17px;
+
+    line-height:1.5;
+
+    margin:5px 0;
+}
+
+.preview-html h3{
+    color:#244c72;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    margin:4px 0;
+}
+
+.preview-html p{
+    margin:3px 0;
+}
+
+.preview-html table{
+    width:100%;
+    border-collapse:collapse;
+    margin:7px 0;
+}
+
+.preview-html th,
+.preview-html td{
+    border:
+        1px solid
+        #ccd7e2;
+
+    padding:7px;
+
+    vertical-align:top;
+}
+
+.preview-html th{
+    background:#edf4fb;
+    color:#173957;
+}
+
+.preview-html .important-box{
+    padding:10px;
+
+    border-left:
+        4px solid
+        var(--green);
+
+    background:#eefaf5;
+
+    border-radius:7px;
+}
+
+.preview-image{
+    display:block;
+
+    width:100%;
+
+    max-height:1000px;
+
+    object-fit:contain;
+
+    margin:7px auto;
+
+    background:#fff;
+}
+
+.preview-pdf{
+    width:100%;
+
+    height:800px;
+
+    border:
+        1px solid
+        #dce5ef;
+
+    border-radius:8px;
+}
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty{
+    padding:35px 15px;
+
+    text-align:center;
+
+    color:#8a98a9;
+
+    font-size:9px;
+
+    line-height:1.8;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:50000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px;
+
+    background:
+        rgba(3,12,22,.65);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-card{
+    width:
+        min(720px,100%);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:#fff;
+
+    border-radius:17px;
+
+    padding:18px;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.3);
+}
+
+.modal-head{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+}
+
+.modal-head strong{
+    color:#102b49;
+
+    font-size:14px;
+}
+
+.close-btn{
+    border:0;
+
+    background:#ffecef;
+
+    color:#c92f3c;
+
+    border-radius:7px;
+
+    padding:7px 10px;
+
+    font-weight:900;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+
+    bottom:20px;
+
+    z-index:60000;
+
+    transform:
+        translate(-50%,130px);
+
+    opacity:0;
+
+    background:#07111f;
+
+    color:#fff;
+
+    padding:
+        10px
+        17px;
+
+    border-radius:50px;
+
+    border:
+        1px solid
+        rgba(243,217,139,.35);
+
+    font-size:8.5px;
+
+    font-weight:900;
+
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+
+    @page{
+        size:A4;
+        margin:10mm;
+    }
+
+    body{
+        background:#fff !important;
+    }
+
+    body *{
+        visibility:hidden !important;
+    }
+
+    #printArea,
+    #printArea *{
+        visibility:visible !important;
+    }
+
+    #printArea{
+        position:absolute;
+
+        left:0;
+        top:0;
+
+        width:100%;
+    }
+
+    .paper{
+        padding:0 !important;
+
+        border:0 !important;
+
+        box-shadow:none !important;
+
+        border-radius:0 !important;
+
+        min-height:0 !important;
+    }
+
+    .preview-section{
+        break-inside:avoid;
+    }
+
+    .preview-image{
+        max-height:245mm;
+    }
+
+    .preview-pdf{
+        border:0;
+        height:260mm;
+    }
+
+    .preview-section-head button{
+        display:none !important;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .preview-sticky{
+        position:static;
+    }
+}
+
+@media(max-width:700px){
+
+    .topbar{
+        min-height:70px;
+        padding:9px 12px;
+    }
+
+    .brand-logo{
+        width:42px;
+        height:42px;
+        font-size:18px;
+    }
+
+    .brand-name{
+        font-size:16px;
+    }
+
+    .brand-sub{
+        display:none;
+    }
+
+    .dashboard-btn{
+        padding:8px;
+        font-size:7px;
+    }
+
+    .hero-wrap{
+        padding:
+            12px
+            12px
+            7px;
+    }
+
+    .hero{
+        padding:
+            23px
+            18px;
+
+        border-radius:20px;
+    }
+
+    .hero h1{
+        font-size:25px;
+    }
+
+    .main{
+        padding:
+            10px
+            12px
+            30px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+
+    .source-tabs{
+        grid-template-columns:1fr;
+    }
+
+    .paper{
+        padding:18px;
+    }
+
+    .note-brand{
+        font-size:24px;
+    }
+}
+
+@media(max-width:420px){
+
+    .row{
+        grid-template-columns:1fr;
+    }
+
+    .note-meta{
+        grid-template-columns:1fr;
+    }
+
+    .meta-box{
+        border-right:0;
+
+        border-bottom:
+            1px solid
+            #d5dee8;
+    }
+
+    .meta-box:last-child{
+        border-bottom:0;
+    }
+
+    .cover-row{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+ TOP
+========================================================= -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            📖
+        </div>
+
+        <div>
+
+            <div class="brand-name">
+                THE STUDY POINT
+            </div>
+
+            <div class="brand-sub">
+                UNIVERSAL NOTES CREATOR PRO
+            </div>
+
+        </div>
+
+    </div>
+
+    <button
+        class="dashboard-btn"
+        onclick="history.back()">
+
+        ← DASHBOARD
+
+    </button>
+
+</header>
+
+
+<!-- =========================================================
+ HERO
+========================================================= -->
+
+<section class="hero-wrap">
+
+    <div class="hero">
+
+        <div class="hero-tag">
+            PREMIUM NOTES STUDIO • COPY PASTE • IMAGE • PDF
+        </div>
+
+        <h1>
+            Smart Notes Creator
+        </h1>
+
+        <p>
+            पूरा content paste करें, heading और table अपनी जगह बनाइए,
+            या Image/PDF upload करके visual notes तैयार करें।
+            OCR नहीं किया जाता, इसलिए original visual content खराब नहीं होगा।
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+ MAIN
+========================================================= -->
+
+<main class="main">
+
+
+<!-- =========================================================
+ LEFT
+========================================================= -->
+
+<div class="left">
+
+
+<!-- DETAILS -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                ⚙ Notes Details
+            </h3>
+
+            <p>
+                ऊपर की जानकारी editable है
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel-body">
+
+
+        <div class="field">
+
+            <label>
+                BRAND / HEADING
+            </label>
+
+            <input
+                id="brandInput"
+                value="THE STUDY POINT">
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div class="field">
+
+                <label>
+                    CLASS
+                </label>
+
+                <input
+                    id="classInput"
+                    placeholder="Class 8">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    SUBJECT
+                </label>
+
+                <input
+                    id="subjectInput"
+                    placeholder="Science">
+
+            </div>
+
+
+            <div class="field full">
+
+                <label>
+                    CHAPTER
+                </label>
+
+                <input
+                    id="chapterInput"
+                    placeholder="Chapter / Notes Title">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+ COPY PASTE
+========================================================= -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                ✍️ Copy-Paste Notes Editor
+            </h3>
+
+            <p>
+                जहाँ चाहें heading, text और table लगाएँ
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel-body">
+
+
+        <div class="editor-tools">
+
+            <button
+                class="tool"
+                onclick="editorCommand('formatBlock','<h1>')">
+
+                H1
+
+            </button>
+
+
+            <button
+                class="tool"
+                onclick="editorCommand('formatBlock','<h2>')">
+
+                H2
+
+            </button>
+
+
+            <button
+                class="tool"
+                onclick="editorCommand('formatBlock','<h3>')">
+
+                H3
+
+            </button>
+
+
+            <button
+                class="tool"
+                onclick="editorCommand('bold')">
+
+                <b>B</b>
+
+            </button>
+
+
+            <button
+                class="tool"
+                onclick="editorCommand('italic')">
+
+                <i>I</i>
+
+            </button>
+
+
+            <button
+                class="tool"
+                onclick="editorCommand('insertUnorderedList')">
+
+                • LIST
+
+            </button>
+
+
+            <button
+                class="tool"
+                onclick="insertTable()">
+
+                ＋ TABLE
+
+            </button>
+
+
+            <button
+                class="tool"
+                onclick="insertImportant()">
+
+                ⭐ BOX
+
+            </button>
+
+
+            <button
+                class="tool"
+                onclick="clearEditor()">
+
+                CLEAR
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="editor"
+            class="editor"
+            contenteditable="true"
+            spellcheck="false"
+            data-placeholder="यहाँ अपना पूरा content paste करें...">
+
+        </div>
+
+
+        <div
+            class="row"
+            style="margin-top:9px">
+
+
+            <button
+                class="btn purple full-btn"
+                onclick="addEditorSection()">
+
+                ＋ ADD CONTENT TO NOTES
+
+            </button>
+
+
+            <button
+                class="btn gold full-btn"
+                onclick="sampleContent()">
+
+                SAMPLE
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+ IMAGE / PDF
+========================================================= -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                🖼️ Image / PDF Import
+            </h3>
+
+            <p>
+                OCR नहीं — visual content 그대로
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel-body">
+
+
+        <div class="source-tabs">
+
+
+            <!-- IMAGE -->
+
+            <div class="source-box">
+
+                <strong>
+                    IMAGE
+                </strong>
+
+                <small>
+                    JPG / PNG / WEBP
+                </small>
+
+
+                <input
+                    type="file"
+                    id="imageFile"
+                    accept="image/*">
+
+
+                <div
+                    class="file-name"
+                    id="imageName">
+                </div>
+
+
+                <button
+                    class="btn green full-btn"
+                    style="margin-top:8px"
+                    onclick="addImage()">
+
+                    ＋ ADD IMAGE
+
+                </button>
+
+            </div>
+
+
+            <!-- PDF -->
+
+            <div class="source-box">
+
+                <strong>
+                    PDF
+                </strong>
+
+                <small>
+                    PDF pages as visual notes
+                </small>
+
+
+                <input
+                    type="file"
+                    id="pdfFile"
+                    accept="application/pdf">
+
+
+                <div
+                    class="file-name"
+                    id="pdfName">
+                </div>
+
+
+                <button
+                    class="btn blue full-btn"
+                    style="margin-top:8px"
+                    onclick="addPDF()">
+
+                    ＋ ADD PDF
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            class="asset-list"
+            id="assetList"
+            style="margin-top:12px">
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+ SECTIONS
+========================================================= -->
+
+<section class="panel">
+
+    <div class="panel-head">
+
+        <div>
+
+            <h3>
+                📑 Notes Sections
+            </h3>
+
+            <p>
+                Compact luxury • Edit / Delete
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel-body">
+
+
+        <div
+            class="row">
+
+            <input
+                id="sectionName"
+                placeholder="Section Name">
+
+
+            <button
+                class="btn gold"
+                onclick="addManualSection()">
+
+                ＋ SECTION
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="sectionList"
+            class="section-list"
+            style="margin-top:10px">
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+ SAVE
+========================================================= -->
+
+<section class="panel">
+
+    <div class="panel-body">
+
+        <div class="row">
+
+
+            <button
+                class="btn gold full-btn"
+                onclick="saveNotes()">
+
+                💾 SAVE NOTES
+
+            </button>
+
+
+            <button
+                class="btn dark full-btn"
+                onclick="clearAll()">
+
+                🗑 CLEAR ALL
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+<!-- =========================================================
+ RIGHT PREVIEW
+========================================================= -->
+
+<div class="right">
+
+    <div class="preview-sticky">
+
+
+        <section class="panel">
+
+            <div class="panel-head">
+
+                <div>
+
+                    <h3>
+                        👁 Live Premium Preview
+                    </h3>
+
+                    <p>
+                        यही Print / PDF में जाएगा
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="preview-toolbar">
+
+
+                    <button
+                        class="btn green"
+                        onclick="printNotes()">
+
+                        PDF
+
+                    </button>
+
+
+                    <button
+                        class="btn blue"
+                        onclick="renderAll()">
+
+                        ↻
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div id="printArea">
+
+
+            <article
+                class="paper">
+
+
+                <!-- NOTE HEADER -->
+
+                <header
+                    class="note-head">
+
+
+                    <div
+                        class="note-brand"
+                        id="previewBrand">
+
+                        THE STUDY POINT
+
+                    </div>
+
+
+                    <div
+                        class="note-meta">
+
+
+                        <div
+                            class="meta-box">
+
+
+                            <span
+                                class="meta-label">
+
+                                CLASS
+
+                            </span>
+
+
+                            <span
+                                class="meta-value"
+                                id="previewClass">
+
+                                —
+
+                            </span>
+
+
+                        </div>
+
+
+                        <div
+                            class="meta-box">
+
+
+                            <span
+                                class="meta-label">
+
+                                SUBJECT
+
+                            </span>
+
+
+                            <span
+                                class="meta-value"
+                                id="previewSubject">
+
+                                —
+
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div
+                        class="chapter"
+                        id="previewChapter">
+
+                        Chapter / Notes Title
+
+                    </div>
+
+
+                </header>
+
+
+                <div
+                    id="previewContent">
+
+                    <div
+                        class="empty">
+
+                        अभी कोई notes नहीं हैं।
+
+                    </div>
+
+                </div>
+
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<!-- =========================================================
+ SECTION EDIT MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="sectionModal">
+
+
+    <div
+        class="modal-card">
+
+
+        <div
+            class="modal-head">
+
+
+            <strong>
+                Edit Section
+            </strong>
+
+
+            <button
+                class="close-btn"
+                onclick="closeSectionModal()">
+
+                ✕
+
+            </button>
+
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                SECTION NAME
+            </label>
+
+            <input
+                id="editSectionName">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                SECTION CONTENT
+            </label>
+
+            <textarea
+                id="editSectionContent"
+                style="min-height:260px">
+            </textarea>
+
+        </div>
+
+
+        <div
+            class="row">
+
+
+            <button
+                class="btn blue"
+                onclick="updateSection()">
+
+                UPDATE
+
+            </button>
+
+
+            <button
+                class="btn red"
+                onclick="deleteEditingSection()">
+
+                DELETE
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+ IMAGE EDIT MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="imageModal">
+
+
+    <div
+        class="modal-card">
+
+
+        <div
+            class="modal-head">
+
+
+            <strong>
+                Image Crop / Watermark Area
+            </strong>
+
+
+            <button
+                class="close-btn"
+                onclick="closeImageModal()">
+
+                ✕
+
+            </button>
+
+
+        </div>
+
+
+        <div
+            class="editor-note">
+
+            जिस तरफ unwanted background या watermark है,
+            वहाँ crop percentage बढ़ाएँ। यदि watermark image के
+            बीच में है तो cover area का उपयोग करें।
+            यह OCR या automatic watermark remover नहीं है।
+
+        </div>
+
+
+        <div
+            class="cover-preview"
+            id="modalImagePreview">
+
+
+            <img
+                id="modalImage"
+                src="">
+
+
+            <div
+                class="cover-mask"
+                id="coverMask">
+            </div>
+
+
+        </div>
+
+
+        <div
+            class="crop-grid"
+            style="margin-top:10px">
+
+
+            <div>
+
+                <label>
+                    TOP %
+                </label>
+
+                <input
+                    id="cropTop"
+                    type="number"
+                    min="0"
+                    max="45"
+                    value="0">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    RIGHT %
+                </label>
+
+                <input
+                    id="cropRight"
+                    type="number"
+                    min="0"
+                    max="45"
+                    value="0">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    BOTTOM %
+                </label>
+
+                <input
+                    id="cropBottom"
+                    type="number"
+                    min="0"
+                    max="45"
+                    value="0">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    LEFT %
+                </label>
+
+                <input
+                    id="cropLeft"
+                    type="number"
+                    min="0"
+                    max="45"
+                    value="0">
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            style="
+            margin-top:12px;
+            font-size:8px;
+            font-weight:900;
+            color:#173957;">
+
+            OPTIONAL WHITE COVER
+
+        </div>
+
+
+        <div
+            class="cover-row">
+
+
+            <input
+                id="coverX"
+                type="number"
+                min="0"
+                max="100"
+                value="0"
+                placeholder="X %">
+
+
+            <input
+                id="coverY"
+                type="number"
+                min="0"
+                max="100"
+                value="0"
+                placeholder="Y %">
+
+
+            <input
+                id="coverW"
+                type="number"
+                min="0"
+                max="100"
+                value="0"
+                placeholder="Width %">
+
+
+            <input
+                id="coverH"
+                type="number"
+                min="0"
+                max="100"
+                value="0"
+                placeholder="Height %">
+
+
+        </div>
+
+
+        <button
+            class="btn light"
+            style="width:100%;margin-top:7px"
+            onclick="previewCover()">
+
+            PREVIEW COVER
+
+        </button>
+
+
+        <button
+            class="btn green"
+            style="width:100%;margin-top:7px"
+            onclick="applyImageEdit()">
+
+            APPLY CHANGES
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<script>
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let sections = [];
+
+let assets = [];
+
+let editingSection = -1;
+
+let editingImage = -1;
+
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+const $ = id =>
+    document.getElementById(id);
+
+
+function uid(){
+
+    return Date.now() +
+        "_" +
+        Math.random()
+        .toString(36)
+        .slice(2,9);
+
+}
+
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function showToast(message){
+
+    const t = $("toast");
+
+    t.textContent = message;
+
+    t.classList.add("show");
+
+    setTimeout(
+        ()=>{
+            t.classList.remove("show");
+        },
+        2200
+    );
+
+}
+
+
+/* =========================================================
+   EDITOR
+========================================================= */
+
+function editorCommand(command,value=null){
+
+    $("editor").focus();
+
+    document.execCommand(
+        command,
+        false,
+        value
+    );
+
+}
+
+
+function insertTable(){
+
+    $("editor").focus();
+
+    const html = `
+
+        <table>
+
+            <tr>
+                <th>विषय</th>
+                <th>विवरण</th>
+            </tr>
+
+            <tr>
+                <td>यहाँ लिखें</td>
+                <td>यहाँ लिखें</td>
+            </tr>
+
+            <tr>
+                <td>यहाँ लिखें</td>
+                <td>यहाँ लिखें</td>
+            </tr>
+
+        </table>
+
+        <p><br></p>
+
+    `;
+
+    document.execCommand(
+        "insertHTML",
+        false,
+        html
+    );
+
+}
+
+
+function insertImportant(){
+
+    $("editor").focus();
+
+    const html = `
+
+        <div class="important-box">
+
+            महत्वपूर्ण बिंदु यहाँ लिखें...
+
+        </div>
+
+        <p><br></p>
+
+    `;
+
+    document.execCommand(
+        "insertHTML",
+        false,
+        html
+    );
+
+}
+
+
+function clearEditor(){
+
+    if(
+        confirm(
+            "Editor का content clear करें?"
+        )
+    ){
+
+        $("editor").innerHTML = "";
+
+    }
+
+}
+
+
+function sampleContent(){
+
+    $("editor").innerHTML = `
+
+        <h1>अध्याय का मुख्य शीर्षक</h1>
+
+        <p>
+            यहाँ अपना मुख्य notes content लिखें।
+            आप Hindi और English दोनों में content paste कर सकते हैं।
+        </p>
+
+        <h2>संक्षिप्त परिचय</h2>
+
+        <table>
+
+            <tr>
+                <th>बिंदु</th>
+                <th>विवरण</th>
+            </tr>
+
+            <tr>
+                <td>जन्म</td>
+                <td>1884 ई.</td>
+            </tr>
+
+            <tr>
+                <td>जन्म स्थान</td>
+                <td>अगोना, बस्ती</td>
+            </tr>
+
+            <tr>
+                <td>मृत्यु</td>
+                <td>1941 ई.</td>
+            </tr>
+
+        </table>
+
+        <h2>महत्वपूर्ण बिंदु</h2>
+
+        <div class="important-box">
+            परीक्षा के लिए यह जानकारी महत्वपूर्ण है।
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ADD EDITOR CONTENT
+========================================================= */
+
+function addEditorSection(){
+
+    const html =
+        $("editor")
+        .innerHTML
+        .trim();
+
+    if(!html){
+
+        alert(
+            "पहले content paste/type करें।"
+        );
+
+        return;
+
+    }
+
+
+    sections.push({
+
+        id:uid(),
+
+        type:"html",
+
+        title:
+            "Notes Content",
+
+        content:html
+
+    });
+
+
+    $("editor").innerHTML = "";
+
+    renderAll();
+
+    showToast(
+        "Content added to notes"
+    );
+
+}
+
+
+/* =========================================================
+   BASIC DETAILS
+========================================================= */
+
+[
+    "brandInput",
+    "classInput",
+    "subjectInput",
+    "chapterInput"
+]
+.forEach(id=>{
+
+    $(id).addEventListener(
+        "input",
+        renderHeader
+    );
+
+});
+
+
+function renderHeader(){
+
+    $("previewBrand").textContent =
+        $("brandInput").value.trim()
+        ||
+        "THE STUDY POINT";
+
+
+    $("previewClass").textContent =
+        $("classInput").value.trim()
+        ||
+        "—";
+
+
+    $("previewSubject").textContent =
+        $("subjectInput").value.trim()
+        ||
+        "—";
+
+
+    $("previewChapter").textContent =
+        $("chapterInput").value.trim()
+        ||
+        "Chapter / Notes Title";
+
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+$("imageFile").addEventListener(
+    "change",
+    function(){
+
+        const file =
+            this.files[0];
+
+        $("imageName").textContent =
+            file
+            ?
+            file.name
+            :
+            "";
+
+    }
+);
+
+
+function addImage(){
+
+    const file =
+        $("imageFile").files[0];
+
+
+    if(!file){
+
+        alert(
+            "पहले image select करें।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !file.type.startsWith("image/")
+    ){
+
+        alert(
+            "Valid image select करें।"
+        );
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function(){
+
+        assets.push({
+
+            id:uid(),
+
+            type:"image",
+
+            name:file.name,
+
+            src:reader.result,
+
+            crop:{
+
+                top:0,
+
+                right:0,
+
+                bottom:0,
+
+                left:0
+
+            },
+
+            cover:{
+
+                x:0,
+
+                y:0,
+
+                w:0,
+
+                h:0
+
+            }
+
+        });
+
+
+        $("imageFile").value = "";
+
+        $("imageName").textContent = "";
+
+        renderAll();
+
+        showToast(
+            "Image added"
+        );
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* =========================================================
+   PDF
+========================================================= */
+
+$("pdfFile").addEventListener(
+    "change",
+    function(){
+
+        const file =
+            this.files[0];
+
+        $("pdfName").textContent =
+            file
+            ?
+            file.name
+            :
+            "";
+
+    }
+);
+
+
+function addPDF(){
+
+    const file =
+        $("pdfFile").files[0];
+
+
+    if(!file){
+
+        alert(
+            "पहले PDF select करें।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        file.type !==
+        "application/pdf"
+    ){
+
+        alert(
+            "Valid PDF select करें।"
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Object URL is used.
+       It is valid for the current browser session.
+    */
+
+    const url =
+        URL.createObjectURL(file);
+
+
+    assets.push({
+
+        id:uid(),
+
+        type:"pdf",
+
+        name:file.name,
+
+        src:url
+
+    });
+
+
+    $("pdfFile").value = "";
+
+    $("pdfName").textContent = "";
+
+    renderAll();
+
+    showToast(
+        "PDF added"
+    );
+
+}
+
+
+/* =========================================================
+   IMAGE EDIT
+========================================================= */
+
+function openImageEditor(index){
+
+    editingImage = index;
+
+    const a =
+        assets[index];
+
+
+    if(!a ||
+       a.type !== "image")
+        return;
+
+
+    $("modalImage").src =
+        a.src;
+
+
+    $("cropTop").value =
+        a.crop?.top || 0;
+
+    $("cropRight").value =
+        a.crop?.right || 0;
+
+    $("cropBottom").value =
+        a.crop?.bottom || 0;
+
+    $("cropLeft").value =
+        a.crop?.left || 0;
+
+
+    $("coverX").value =
+        a.cover?.x || 0;
+
+    $("coverY").value =
+        a.cover?.y || 0;
+
+    $("coverW").value =
+        a.cover?.w || 0;
+
+    $("coverH").value =
+        a.cover?.h || 0;
+
+
+    $("imageModal")
+        .classList
+        .add("show");
+
+
+    setTimeout(
+        previewCover,
+        50
+    );
+
+}
+
+
+function closeImageModal(){
+
+    $("imageModal")
+        .classList
+        .remove("show");
+
+    editingImage = -1;
+
+}
+
+
+function previewCover(){
+
+    const mask =
+        $("coverMask");
+
+
+    const x =
+        Number(
+            $("coverX").value || 0
+        );
+
+    const y =
+        Number(
+            $("coverY").value || 0
+        );
+
+    const w =
+        Number(
+            $("coverW").value || 0
+        );
+
+    const h =
+        Number(
+            $("coverH").value || 0
+        );
+
+
+    if(
+        w <= 0 ||
+        h <= 0
+    ){
+
+        mask.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    mask.style.display =
+        "block";
+
+    mask.style.left =
+        x + "%";
+
+    mask.style.top =
+        y + "%";
+
+    mask.style.width =
+        w + "%";
+
+    mask.style.height =
+        h + "%";
+
+}
+
+
+function applyImageEdit(){
+
+    if(editingImage < 0)
+        return;
+
+
+    const a =
+        assets[editingImage];
+
+
+    a.crop = {
+
+        top:
+            Number(
+                $("cropTop").value || 0
+            ),
+
+        right:
+            Number(
+                $("cropRight").value || 0
+            ),
+
+        bottom:
+            Number(
+                $("cropBottom").value || 0
+            ),
+
+        left:
+            Number(
+                $("cropLeft").value || 0
+            )
+
+    };
+
+
+    a.cover = {
+
+        x:
+            Number(
+                $("coverX").value || 0
+            ),
+
+        y:
+            Number(
+                $("coverY").value || 0
+            ),
+
+        w:
+            Number(
+                $("coverW").value || 0
+            ),
+
+        h:
+            Number(
+                $("coverH").value || 0
+            )
+
+    };
+
+
+    closeImageModal();
+
+    renderAll();
+
+    showToast(
+        "Image changes applied"
+    );
+
+}
+
+
+/* =========================================================
+   ASSET ORDER
+========================================================= */
+
+function removeAsset(index){
+
+    if(
+        !confirm(
+            "यह image/PDF हटाएँ?"
+        )
+    )
+        return;
+
+
+    const a =
+        assets[index];
+
+
+    if(
+        a &&
+        a.type === "pdf"
+    ){
+
+        try{
+            URL.revokeObjectURL(
+                a.src
+            );
+        }
+        catch(e){}
+
+    }
+
+
+    assets.splice(
+        index,
+        1
+    );
+
+
+    renderAll();
+
+}
+
+
+function moveAsset(index,direction){
+
+    const target =
+        index + direction;
+
+
+    if(
+        target < 0 ||
+        target >= assets.length
+    )
+        return;
+
+
+    [
+        assets[index],
+        assets[target]
+    ] =
+    [
+        assets[target],
+        assets[index]
+    ];
+
+
+    renderAll();
+
+}
+
+
+/* =========================================================
+   RENDER ASSETS
+========================================================= */
+
+function renderAssets(){
+
+    const box =
+        $("assetList");
+
+
+    if(!assets.length){
+
+        box.innerHTML = "";
+
+        return;
+
+    }
+
+
+    box.innerHTML =
+        assets
+        .map(
+            (a,index)=>{
+
+
+                if(
+                    a.type === "pdf"
+                ){
+
+                    return `
+
+                    <div class="asset">
+
+                        <div class="asset-title">
+
+                            <strong>
+                                📄
+                                ${escapeHTML(a.name)}
+                            </strong>
+
+                        </div>
+
+                        <iframe
+                            src="${a.src}">
+                        </iframe>
+
+                        <div
+                            class="asset-toolbar">
+
+                            <button
+                                class="asset-up"
+                                onclick="moveAsset(${index},-1)">
+
+                                ↑
+
+                            </button>
+
+                            <button
+                                class="asset-down"
+                                onclick="moveAsset(${index},1)">
+
+                                ↓
+
+                            </button>
+
+                            <button
+                                class="asset-remove"
+                                onclick="removeAsset(${index})">
+
+                                REMOVE
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    `;
+
+                }
+
+
+                const crop =
+                    a.crop || {};
+
+
+                const cover =
+                    a.cover || {};
+
+
+                return `
+
+                <div class="asset">
+
+                    <div class="asset-title">
+
+                        <strong>
+                            🖼️
+                            ${escapeHTML(a.name)}
+                        </strong>
+
+                    </div>
+
+
+                    <img
+                        src="${a.src}"
+                        style="
+                        clip-path:inset(
+                            ${Number(crop.top)||0}%
+                            ${Number(crop.right)||0}%
+                            ${Number(crop.bottom)||0}%
+                            ${Number(crop.left)||0}%
+                        );
+                        ">
+
+
+                    ${
+                        cover.w > 0 &&
+                        cover.h > 0
+                        ?
+                        `
+                        <div
+                            style="
+                            margin-top:6px;
+                            padding:6px;
+                            border-radius:6px;
+                            background:#fff8e8;
+                            color:#876a22;
+                            font-size:7px;
+                            font-weight:800;">
+                            White cover applied
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    <div
+                        class="asset-toolbar">
+
+
+                        <button
+                            class="asset-edit"
+                            onclick="openImageEditor(${index})">
+
+                            CROP / WATERMARK
+
+                        </button>
+
+
+                        <button
+                            class="asset-up"
+                            onclick="moveAsset(${index},-1)">
+
+                            ↑
+
+                        </button>
+
+
+                        <button
+                            class="asset-down"
+                            onclick="moveAsset(${index},1)">
+
+                            ↓
+
+                        </button>
+
+
+                        <button
+                            class="asset-remove"
+                            onclick="removeAsset(${index})">
+
+                            REMOVE
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+                `;
+
+            }
+        )
+        .join("");
+
+}
+
+
+/* =========================================================
+   MANUAL SECTION
+========================================================= */
+
+function addManualSection(){
+
+    const name =
+        $("sectionName")
+        .value
+        .trim();
+
+
+    if(!name){
+
+        alert(
+            "Section Name लिखें।"
+        );
+
+        return;
+
+    }
+
+
+    sections.push({
+
+        id:uid(),
+
+        type:"text",
+
+        title:name,
+
+        content:
+            "Section content यहाँ लिखें..."
+
+    });
+
+
+    $("sectionName").value = "";
+
+    renderAll();
+
+    showToast(
+        "Section added"
+    );
+
+}
+
+
+/* =========================================================
+   SECTION EDIT
+========================================================= */
+
+function editSection(index){
+
+    const s =
+        sections[index];
+
+
+    if(!s)
+        return;
+
+
+    editingSection =
+        index;
+
+
+    $("editSectionName").value =
+        s.title || "";
+
+
+    /*
+      For HTML section, plain text editor is used
+      in modal so it remains simple.
+    */
+
+    $("editSectionContent").value =
+        stripHTML(
+            s.content || ""
+        );
+
+
+    $("sectionModal")
+        .classList
+        .add("show");
+
+}
+
+
+function stripHTML(html){
+
+    const temp =
+        document
+        .createElement("div");
+
+    temp.innerHTML =
+        html;
+
+    return temp.textContent ||
+        temp.innerText ||
+        "";
+
+}
+
+
+function closeSectionModal(){
+
+    $("sectionModal")
+        .classList
+        .remove("show");
+
+    editingSection = -1;
+
+}
+
+
+function updateSection(){
+
+    if(
+        editingSection < 0
+    )
+        return;
+
+
+    const name =
+        $("editSectionName")
+        .value
+        .trim();
+
+
+    const content =
+        $("editSectionContent")
+        .value
+        .trim();
+
+
+    sections[
+        editingSection
+    ].title =
+        name ||
+        "Section";
+
+
+    sections[
+        editingSection
+    ].content =
+        content;
+
+
+    sections[
+        editingSection
+    ].type =
+        "text";
+
+
+    closeSectionModal();
+
+    renderAll();
+
+    showToast(
+        "Section updated"
+    );
+
+}
+
+
+function deleteEditingSection(){
+
+    if(
+        editingSection < 0
+    )
+        return;
+
+
+    if(
+        !confirm(
+            "यह section delete करें?"
+        )
+    )
+        return;
+
+
+    sections.splice(
+        editingSection,
+        1
+    );
+
+
+    closeSectionModal();
+
+    renderAll();
+
+    showToast(
+        "Section deleted"
+    );
+
+}
+
+
+/* =========================================================
+   SECTION LIST
+========================================================= */
+
+function renderSectionList(){
+
+    const box =
+        $("sectionList");
+
+
+    if(!sections.length){
+
+        box.innerHTML = `
+
+            <div
+                style="
+                padding:8px;
+                color:#8a98a8;
+                font-size:8px;">
+
+                अभी कोई section नहीं है।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    box.innerHTML =
+        sections
+        .map(
+            (s,index)=>`
+
+                <div
+                    class="section-chip">
+
+
+                    <div>
+
+                        <strong>
+
+                            ${index+1}.
+                            ${escapeHTML(
+                                s.title
+                            )}
+
+                        </strong>
+
+
+                        <small>
+
+                            ${
+                                s.type === "html"
+                                ?
+                                "Formatted Content"
+                                :
+                                "Editable Section"
+                            }
+
+                        </small>
+
+                    </div>
+
+
+                    <div
+                        class="section-actions">
+
+
+                        <button
+                            style="
+                            color:#155aa9;
+                            background:#edf4ff"
+                            onclick="editSection(${index})">
+
+                            EDIT
+
+                        </button>
+
+
+                        <button
+                            style="
+                            color:#c92f3c;
+                            background:#ffecef"
+                            onclick="deleteSection(${index})">
+
+                            ×
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+            `
+        )
+        .join("");
+
+}
+
+
+function deleteSection(index){
+
+    if(
+        !confirm(
+            "यह section delete करें?"
+        )
+    )
+        return;
+
+
+    sections.splice(
+        index,
+        1
+    );
+
+
+    renderAll();
+
+}
+
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+function renderPreview(){
+
+    renderHeader();
+
+
+    const box =
+        $("previewContent");
+
+
+    let html = "";
+
+
+    sections.forEach(
+        (s,index)=>{
+
+
+            if(
+                s.type === "html"
+            ){
+
+                html += `
+
+                    <section
+                        class="preview-section">
+
+
+                        <div
+                            class="preview-section-head">
+
+
+                            <strong>
+
+                                ${escapeHTML(
+                                    s.title
+                                )}
+
+                            </strong>
+
+
+                            <button
+                                onclick="editSection(${index})">
+
+                                EDIT
+
+                            </button>
+
+
+                        </div>
+
+
+                        <div
+                            class="preview-html">
+
+                            ${s.content}
+
+                        </div>
+
+
+                    </section>
+
+                `;
+
+            }
+            else{
+
+                html += `
+
+                    <section
+                        class="preview-section">
+
+
+                        <div
+                            class="preview-section-head">
+
+
+                            <strong>
+
+                                ${escapeHTML(
+                                    s.title
+                                )}
+
+                            </strong>
+
+
+                            <button
+                                onclick="editSection(${index})">
+
+                                EDIT
+
+                            </button>
+
+
+                        </div>
+
+
+                        <div
+                            class="preview-text">
+
+                            ${escapeHTML(
+                                s.content
+                            )}
+
+                        </div>
+
+
+                    </section>
+
+                `;
+
+            }
+
+        }
+    );
+
+
+    assets.forEach(
+        (a,index)=>{
+
+
+            if(
+                a.type === "image"
+            ){
+
+                const crop =
+                    a.crop || {};
+
+
+                const cover =
+                    a.cover || {};
+
+
+                let imageStyle = `
+
+                    clip-path:inset(
+                        ${Number(crop.top)||0}%
+                        ${Number(crop.right)||0}%
+                        ${Number(crop.bottom)||0}%
+                        ${Number(crop.left)||0}%
+                    );
+
+                `;
+
+
+                html += `
+
+                    <section
+                        class="preview-section">
+
+
+                        <div
+                            class="preview-section-head">
+
+
+                            <strong>
+
+                                🖼️
+                                ${escapeHTML(
+                                    a.name
+                                )}
+
+                            </strong>
+
+
+                            <button
+                                onclick="openImageEditor(${index})">
+
+                                EDIT
+
+                            </button>
+
+
+                        </div>
+
+
+                        <div
+                            style="
+                            position:relative;
+                            overflow:hidden;">
+
+
+                            <img
+                                class="preview-image"
+                                src="${a.src}"
+                                style="${imageStyle}">
+
+
+                            ${
+                                cover.w > 0 &&
+                                cover.h > 0
+                                ?
+                                `
+                                <div
+                                    style="
+                                    position:absolute;
+                                    left:${cover.x}%;
+                                    top:${cover.y}%;
+                                    width:${cover.w}%;
+                                    height:${cover.h}%;
+                                    background:#fff;
+                                    pointer-events:none;">
+                                </div>
+                                `
+                                :
+                                ""
+                            }
+
+
+                        </div>
+
+
+                    </section>
+
+                `;
+
+            }
+
+
+            if(
+                a.type === "pdf"
+            ){
+
+                html += `
+
+                    <section
+                        class="preview-section">
+
+
+                        <div
+                            class="preview-section-head">
+
+
+                            <strong>
+
+                                📄
+                                ${escapeHTML(
+                                    a.name
+                                )}
+
+                            </strong>
+
+
+                            <button
+                                onclick="removeAsset(${index})">
+
+                                REMOVE
+
+                            </button>
+
+
+                        </div>
+
+
+                        <iframe
+                            class="preview-pdf"
+                            src="${a.src}">
+
+                        </iframe>
+
+
+                    </section>
+
+                `;
+
+            }
+
+        }
+    );
+
+
+    box.innerHTML =
+        html ||
+        `
+
+            <div class="empty">
+
+                अभी कोई notes नहीं हैं।
+
+            </div>
+
+        `;
+
+}
+
+
+/* =========================================================
+   RENDER ALL
+========================================================= */
+
+function renderAll(){
+
+    renderHeader();
+
+    renderSectionList();
+
+    renderAssets();
+
+    renderPreview();
+
+}
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+function saveNotes(){
+
+    /*
+      Blob PDF URLs cannot survive browser refresh.
+      Therefore only editable content + images are saved.
+      Images are data URLs and can be restored.
+    */
+
+    const data = {
+
+        details:{
+
+            brand:
+                $("brandInput").value,
+
+            className:
+                $("classInput").value,
+
+            subject:
+                $("subjectInput").value,
+
+            chapter:
+                $("chapterInput").value
+
+        },
+
+        sections:
+            sections,
+
+        images:
+            assets.filter(
+                x =>
+                x.type === "image"
+            )
+
+    };
+
+
+    try{
+
+        localStorage.setItem(
+            "TSP_NOTES_CREATOR_FINAL",
+            JSON.stringify(data)
+        );
+
+
+        showToast(
+            "Notes saved successfully"
+        );
+
+    }
+    catch(error){
+
+        alert(
+            "Save failed. Image बहुत बड़ी हो सकती है।\n\n" +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD
+========================================================= */
+
+function loadSaved(){
+
+    const raw =
+        localStorage.getItem(
+            "TSP_NOTES_CREATOR_FINAL"
+        );
+
+
+    if(!raw)
+        return;
+
+
+    try{
+
+        const data =
+            JSON.parse(raw);
+
+
+        $("brandInput").value =
+            data.details?.brand ||
+            "THE STUDY POINT";
+
+
+        $("classInput").value =
+            data.details?.className ||
+            "";
+
+
+        $("subjectInput").value =
+            data.details?.subject ||
+            "";
+
+
+        $("chapterInput").value =
+            data.details?.chapter ||
+            "";
+
+
+        sections =
+            data.sections ||
+            [];
+
+
+        assets =
+            data.images ||
+            [];
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Load error",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CLEAR ALL
+========================================================= */
+
+function clearAll(){
+
+    if(
+        !confirm(
+            "सभी current notes clear करें?"
+        )
+    )
+        return;
+
+
+    sections = [];
+
+    assets = [];
+
+
+    $("editor").innerHTML =
+        "";
+
+
+    renderAll();
+
+    showToast(
+        "All cleared"
+    );
+
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+function printNotes(){
+
+    if(
+        !sections.length &&
+        !assets.length
+    ){
+
+        alert(
+            "पहले notes तैयार करें।"
+        );
+
+        return;
+
+    }
+
+
+    window.print();
+
+}
+
+
+/* =========================================================
+   CLOSE MODALS OUTSIDE
+========================================================= */
+
+$("sectionModal")
+.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            e.target === this
+        ){
+
+            closeSectionModal();
+
+        }
+
+    }
+);
+
+
+$("imageModal")
+.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            e.target === this
+        ){
+
+            closeImageModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL
+========================================================= */
+
+loadSaved();
+
+renderAll();
+
+</script>
+
+</body>
+</html>
