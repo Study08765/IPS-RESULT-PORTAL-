@@ -2533,7 +2533,7 @@ function parseOption(line){
 const t=String(line||"").trim();
 
 let match=t.match(
-/^\(?([A-Da-d])\)?\s*[\.\):\-–—]\s*(.*)$/
+/^\(?([A-Da-d])\)?\s*(?:[\.\):\-–—]\s*)?(.*)$/
 );
 
 if(match){
@@ -3330,7 +3330,7 @@ showToast(
 lines.length+
 " Questions Added"
 );
-
+};
 /* =========================================================
 QUESTION HTML
 ========================================================= */
