@@ -785,6 +785,14 @@ body{
 .opt{
     white-space:pre-wrap;
     word-break:break-word;
+    display:flex;
+    align-items:flex-start;
+    gap:5px;
+}
+
+.opt b{
+    display:inline-block;
+    flex-shrink:0;
 }
 
 /* OR */
@@ -2923,13 +2931,54 @@ currentQuestion
 
 currentQuestion.type="mcq";
 
+/*
+अगर Main Question के अंदर
+1,2,3,4 sub-questions हैं,
+तो option को आखिरी sub-question
+के अंदर save करें।
+*/
+
+if(
+Array.isArray(currentQuestion.subQuestions) &&
+currentQuestion.subQuestions.length
+){
+
+const lastSubQuestion=
+currentQuestion.subQuestions[
+currentQuestion.subQuestions.length-1
+];
+
+if(!lastSubQuestion.options){
+
+lastSubQuestion.options={
+A:"",
+B:"",
+C:"",
+D:""
+};
+
+}
+
+lastSubQuestion.options[
+option.letter
+]=option.text;
+
+}else{
+
+/*
+Normal MCQ के लिए पुराने तरीके से
+options save होंगे।
+*/
+
 currentQuestion.options[
 option.letter
 ]=option.text;
 
+}
+
 continue;
 
-}
+    }
 
 /* OR */
 
@@ -2960,148 +3009,123 @@ const numbered=parseNumberedQuestion(line);
 
 if(numbered){
 
-/*
-No Q headers:
-1. 2. 3. directly become questions.
-*/
+    /*
+    अगर Q1 / Q2 जैसे Main Question Headers मौजूद हैं,
+    तो 1,2,3,4 को उसी Main Question के
+    Sub Questions माना जाएगा।
+    */
 
-if(!hasMainQHeaders){
+    if(hasMainQHeaders){
 
-pushCurrent();
+        if(currentQuestion){
 
-const type=detectType(pendingInstruction);
+            /*
+            Sub Questions array तैयार करें
+            */
 
-currentQuestion=createImportedQuestion({
+            if(!currentQuestion.subQuestions){
+                currentQuestion.subQuestions=[];
+            }
 
-text:numbered.text,
+            const subQuestion={
+                number:numbered.number,
+                text:numbered.text,
+                options:{
+                    A:"",
+                    B:"",
+                    C:"",
+                    D:""
+                }
+            };
 
-type:type,
+            currentQuestion.subQuestions.push(
+                subQuestion
+            );
 
-marks:0,
+            /*
+            बाद में आने वाले
+            (A) (B) (C) (D) options
+            इसी आखिरी sub-question में जाएंगे।
+            */
 
-section:currentSectionId,
+            currentQuestion.activeSubQuestion=
+                currentQuestion.subQuestions.length-1;
 
-instruction:
-pendingInstruction||
-instructionText[$("lang").value]?.[type]||
-"",
+            continue;
 
-options:null
+        }
 
-});
+    }
 
-pendingInstruction="";
+    /*
+    अगर Q1/Q2 Header नहीं है,
+    तो पुराने तरीके से normal questions बनेंगे।
+    */
 
-continue;
+    if(!hasMainQHeaders){
 
-}
+        pushCurrent();
 
-/*
-Current question has MCQ options:
-new numbered question.
-*/
+        const type=detectType(
+            pendingInstruction
+        );
 
-if(
-currentQuestion &&
-Object.values(currentQuestion.options||{})
-.some(Boolean)
-){
+        currentQuestion=createImportedQuestion({
 
-pushCurrent();
+            text:numbered.text,
 
-currentQuestion=createImportedQuestion({
+            type:type,
 
-text:numbered.text,
+            marks:0,
 
-type:"normal",
+            section:currentSectionId,
 
-marks:0,
+            instruction:
+                pendingInstruction||
+                instructionText[
+                    $("lang").value
+                ]?.[type]||
+                "",
 
-section:currentSectionId,
+            options:null
 
-instruction:
-instructionText[$("lang").value]?.normal||
-"",
+        });
 
-options:null
+        pendingInstruction="";
 
-});
+        continue;
 
-continue;
+    }
 
-}
+    /*
+    Fallback
+    */
 
-/*
-Instruction-only Q header:
-numbered items become separate questions.
-*/
+    currentQuestion=createImportedQuestion({
 
-if(
-currentQuestion &&
-isInstructionOnly(currentQuestion.instruction)
-){
+        text:numbered.number+
+        ". "+
+        numbered.text,
 
-const inheritedInstruction=
-currentQuestion.instruction;
+        type:"normal",
 
-const inheritedType=
-detectType(inheritedInstruction);
+        marks:0,
 
-pushCurrent();
+        section:currentSectionId,
 
-currentQuestion=createImportedQuestion({
+        instruction:
+            instructionText[
+                $("lang").value
+            ]?.normal||
+            "",
 
-text:numbered.text,
+        options:null
 
-type:inheritedType,
+    });
 
-marks:0,
+    continue;
 
-section:currentSectionId,
-
-instruction:inheritedInstruction,
-
-options:null
-
-});
-
-continue;
-
-}
-
-/*
-Otherwise numbered line becomes part
-of current question.
-*/
-
-if(currentQuestion){
-
-currentQuestion.text+=
-(
-currentQuestion.text
-?"\n"
-:""
-)+
-numbered.number+
-". "+
-numbered.text;
-
-continue;
-
-}
-
-currentQuestion=createImportedQuestion({
-
-text:numbered.text,
-type:"normal",
-marks:0,
-section:currentSectionId
-
-});
-
-continue;
-
-}
+    }
 
 /* SUB QUESTION */
 
@@ -3350,12 +3374,18 @@ div.className="q";
 div.style.marginBottom=
 questionGap+"px";
 
+
+/* MAIN QUESTION MARKS */
+
 const marks=
 q.showMarks==="yes" &&
 Number(q.marks)>0
 ?
 `<span class="marks">(${escapeHTML(q.marks)})</span>`
 :"";
+
+
+/* MAIN QUESTION INSTRUCTION */
 
 const instruction=
 q.instruction
@@ -3366,6 +3396,9 @@ ${escapeHTML(q.instruction)}
 </div>
 `
 :"";
+
+
+/* MAIN QUESTION HEADER */
 
 const header=`
 
@@ -3385,27 +3418,180 @@ ${marks}
 </div>
 `;
 
-let text=escapeHTML(cleanText(q.text));
 
-/*
-OR formatting
-*/
+/* MAIN QUESTION TEXT */
+
+let text=
+escapeHTML(
+cleanText(q.text||"")
+);
+
+
+/* OR */
 
 text=text.replace(
-/(?:^|\n)(OR|O\.R\.|अथवा)(?:\n|$)/gi,
+/(?:^|\n)(OR|O\.R\.|अथवा|या)(?:\n|$)/gi,
 `
 <div class="or-block">$1</div>
 `
 );
+
+
+/* LINE BREAK */
 
 text=text.replace(
 /\n/g,
 "<br>"
 );
 
+
+/* =====================================================
+SUB QUESTIONS
+===================================================== */
+
+let subHTML="";
+
+if(
+Array.isArray(q.subQuestions) &&
+q.subQuestions.length
+){
+
+subHTML=`
+
+<div
+class="sub-question-list"
+style="
+margin-top:5px;
+font-size:${fontSize}px;
+"
+>
+`;
+
+q.subQuestions.forEach((sub)=>{
+
+let subText=
+escapeHTML(
+cleanText(sub.text||"")
+);
+
+subText=subText.replace(
+/\n/g,
+"<br>"
+);
+
+subHTML+=`
+
+<div
+class="sub-question"
+style="
+margin-bottom:${questionGap}px;
+break-inside:avoid;
+page-break-inside:avoid;
+"
+>
+
+<div
+style="
+display:flex;
+align-items:flex-start;
+gap:5px;
+line-height:1.3;
+"
+>
+
+<div
+style="
+min-width:22px;
+font-weight:900;
+color:var(--paperAccent2);
+"
+>
+${escapeHTML(sub.number)}.
+</div>
+
+<div
+style="
+flex:1;
+"
+>
+${subText}
+</div>
+
+</div>
+`;
+
+
+/* SUB QUESTION OPTIONS */
+
+if(
+sub.options &&
+Object.values(sub.options).some(Boolean)
+){
+
+subHTML+=`
+
+<div
+class="opts"
+style="
+font-size:${Math.max(fontSize-1,10)}px;
+margin-left:27px;
+margin-top:4px;
+"
+>
+
+<div class="opt">
+<b>(A)</b>
+${escapeHTML(sub.options.A||"")}
+</div>
+
+<div class="opt">
+<b>(B)</b>
+${escapeHTML(sub.options.B||"")}
+</div>
+
+<div class="opt">
+<b>(C)</b>
+${escapeHTML(sub.options.C||"")}
+</div>
+
+<div class="opt">
+<b>(D)</b>
+${escapeHTML(sub.options.D||"")}
+</div>
+
+</div>
+`;
+
+}
+
+subHTML+=`
+
+</div>
+`;
+
+});
+
+subHTML+=`
+
+</div>
+`;
+
+}
+
+
+/* =====================================================
+NORMAL MCQ OPTIONS
+===================================================== */
+
 let options="";
 
-if(q.type==="mcq"){
+if(
+q.type==="mcq" &&
+!(
+Array.isArray(q.subQuestions) &&
+q.subQuestions.length
+)
+){
 
 const opts=q.options||{};
 
@@ -3413,7 +3599,9 @@ options=`
 
 <div
 class="opts"
-style="font-size:${Math.max(fontSize-1,10)}px;"
+style="
+font-size:${Math.max(fontSize-1,10)}px;
+"
 >
 
 <div class="opt">
@@ -3441,26 +3629,13 @@ ${escapeHTML(opts.D||"")}
 
 }
 
-div.innerHTML=
 
-header+
+/* =====================================================
+EDIT TOOLS
+===================================================== */
 
-`
-<div
-class="qtext"
-style="font-size:${fontSize}px"
->
-${text}
-</div>
-`
+const editTools=`
 
-+
-
-options
-
-+
-
-`
 <div class="edit-tools">
 
 <button
@@ -3496,9 +3671,40 @@ onclick="deleteQuestion(${index})">
 </div>
 `;
 
+
+/* =====================================================
+FINAL HTML
+===================================================== */
+
+div.innerHTML=
+
+header+
+
+`
+<div
+class="qtext"
+style="font-size:${fontSize}px"
+>
+${text}
+</div>
+`
+
++
+
+subHTML
+
++
+
+options
+
++
+
+editTools;
+
+
 return div;
 
-}
+    }
 
 /* =========================================================
 GROUP QUESTIONS
