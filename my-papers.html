@@ -1060,11 +1060,11 @@ CHAPTER
 }
 
 .meta-box{
-    min-height:54px;
+    min-height:38px;
 
     padding:
-        8px
-        12px;
+        5px
+        10px;
 
     background:
         linear-gradient(
@@ -1080,9 +1080,18 @@ CHAPTER
 
 .meta-box.class-subject-box{
     grid-column:1;
-    border-right:
-        1px solid
-        #d3dce7;
+    grid-row:1;
+
+    border-right:1px solid #d3dce7;
+
+    min-height:38px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+
+    padding:5px 10px;
 }
 
 .meta-box.chapter-box{
@@ -1092,12 +1101,14 @@ CHAPTER
     border-right:0;
     border-bottom:0;
 
-    min-height:108px;
+    min-height:38px;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     text-align:center;
+
+    padding:5px 10px;
 }
 
 .class-subject-value{
@@ -1121,17 +1132,17 @@ CHAPTER
 
     color:#173957;
 
-    font-size:12px;
+    font-size:10px;
 
     font-weight:900;
 
-    margin-top:2px;
+    margin-top:1px;
 
     word-break:break-word;
 }
 
 .chapter-value{
-    font-size:15px;
+    font-size:11px;
 
     color:#102b49;
 
