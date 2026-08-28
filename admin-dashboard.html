@@ -7710,24 +7710,7 @@ courseNotesCard.addEventListener(
     "click",
     function(){
 
-        studentPanel.classList.remove(
-            "show"
-        );
-
-        mockPanel.classList.remove(
-            "show"
-        );
-
-        notesPanel.classList.add(
-            "show"
-        );
-
-        notesPanel.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-
-        loadNotes();
+        window.location.href = "course-notes.html";
 
     }
 );
