@@ -1007,14 +1007,28 @@ body{
     }
 
     .paper{
-        width:210mm !important;
-        min-height:297mm !important;
-        margin:0 !important;
-        padding:12mm 12mm 15mm !important;
-        box-shadow:none !important;
-        overflow:visible !important;
-        -webkit-print-color-adjust:exact !important;
-        print-color-adjust:exact !important;
+    width:210mm !important;
+    height:297mm !important;
+    min-height:297mm !important;
+    margin:0 !important;
+    padding:12mm 12mm 15mm !important;
+    box-shadow:none !important;
+    overflow:hidden !important;
+    position:relative !important;
+    display:block !important;
+    break-after:page;
+    page-break-after:always;
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+}
+
+.paper:last-child{
+    break-after:auto !important;
+    page-break-after:auto !important;
+}
+
+.preview-card{
+    position:static !important;
     }
 
     .content,
@@ -3166,6 +3180,23 @@ continue;
 /* NORMAL TEXT */
 
 if(currentQuestion){
+
+/* Duplicate heading/instruction को दोबारा question text में न जोड़ें */
+
+const currentInstruction =
+cleanText(currentQuestion.instruction || "");
+
+const currentText =
+cleanText(currentQuestion.text || "");
+
+if(
+currentInstruction &&
+cleanText(line).toLowerCase() ===
+currentInstruction.toLowerCase() &&
+!currentText
+){
+    continue;
+}
 
 currentQuestion.text+=
 (
