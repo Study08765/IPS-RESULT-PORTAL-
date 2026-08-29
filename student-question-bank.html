@@ -1323,7 +1323,383 @@ body{
     font-weight:700;
 
 }
+/* =========================================================
+   MOBILE QUESTION BANK FIX
+   LUXURY DESIGN SAME — ONLY MOBILE READABILITY IMPROVED
+========================================================= */
 
+@media (max-width:700px){
+
+    body{
+        padding:7px;
+    }
+
+    .container{
+        width:100%;
+        max-width:100%;
+    }
+
+    .header{
+        width:100%;
+        padding:15px 12px 17px;
+        border-radius:18px;
+        margin-bottom:12px;
+    }
+
+    .header h1{
+        font-size:20px;
+        line-height:1.2;
+    }
+
+    .header p{
+        font-size:8px;
+        margin-top:4px;
+    }
+
+    .back{
+        padding:8px 12px;
+        font-size:9px;
+    }
+
+
+    /* PANELS */
+
+    .panel{
+        width:100%;
+        padding:12px 9px;
+        margin-bottom:12px;
+        border-radius:16px;
+    }
+
+    .panel h2{
+        font-size:15px;
+        margin-bottom:11px;
+    }
+
+
+    /* STATS */
+
+    .stats{
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:6px;
+        margin-bottom:10px;
+    }
+
+    .stat{
+        padding:10px 4px;
+        border-radius:12px;
+    }
+
+    .stat b{
+        font-size:17px;
+    }
+
+    .stat span{
+        font-size:7px;
+        line-height:1.2;
+    }
+
+
+    /* SEARCH */
+
+    .filters{
+        grid-template-columns:1fr;
+        gap:7px;
+    }
+
+    input,
+    select,
+    textarea{
+        padding:10px;
+        font-size:11px;
+        border-radius:10px;
+    }
+
+
+    /* QUESTION LIST */
+
+    .table-wrap{
+        width:100%;
+        overflow:visible;
+    }
+
+    table{
+        width:100%;
+        min-width:0;
+        border-collapse:separate;
+        border-spacing:0 10px;
+    }
+
+    thead{
+        display:none;
+    }
+
+    tbody,
+    tr,
+    td{
+        display:block;
+        width:100%;
+    }
+
+
+    /* QUESTION CARD */
+
+    tbody tr{
+        position:relative;
+
+        background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7fbff
+        );
+
+        border:
+        1px solid #d8b43e;
+
+        border-radius:17px;
+
+        padding:13px 11px;
+
+        box-shadow:
+        0 5px 0 #b08a1b,
+        0 9px 18px
+        rgba(10,55,100,.12);
+
+        margin-bottom:12px;
+    }
+
+
+    tbody td{
+        border:0;
+        padding:0;
+    }
+
+
+    /* HIDE NUMBER/CHECKBOX COLUMNS */
+
+    tbody td:nth-child(1){
+        position:absolute;
+        top:10px;
+        right:10px;
+        width:auto;
+    }
+
+    tbody td:nth-child(2){
+        display:none;
+    }
+
+
+    /* QUESTION */
+
+    tbody td:nth-child(3){
+        padding-right:22px;
+    }
+
+    .qtext{
+        max-width:none;
+        width:100%;
+    }
+
+    .qtext b{
+        display:block;
+
+        color:#073f80;
+
+        font-size:13px;
+
+        line-height:1.65;
+
+        font-weight:800;
+
+        margin-bottom:8px;
+    }
+
+
+    /* OPTIONS */
+
+    .small{
+        padding:9px 10px;
+
+        background:#f3f7fb;
+
+        border:
+        1px solid #dbe6ef;
+
+        border-radius:10px;
+
+        color:#526b82;
+
+        font-size:10px;
+
+        line-height:1.8;
+    }
+
+
+    /* ANSWER */
+
+    tbody td:nth-child(4){
+        margin-top:9px;
+    }
+
+    tbody td:nth-child(4)::before{
+        content:"CORRECT ANSWER";
+        display:block;
+
+        margin-bottom:5px;
+
+        color:#087a3b;
+
+        font-size:7px;
+
+        font-weight:900;
+
+        letter-spacing:.6px;
+    }
+
+    .badge{
+        display:block;
+
+        width:100%;
+
+        padding:9px 10px;
+
+        text-align:center;
+
+        background:
+        linear-gradient(
+            135deg,
+            #e8faef,
+            #d3f4df
+        );
+
+        color:#087a3b;
+
+        border:
+        1px solid #9bd5b0;
+
+        border-radius:10px;
+
+        font-size:11px;
+
+        font-weight:900;
+    }
+
+
+    /* ACTION */
+
+    tbody td:nth-child(5){
+        margin-top:9px;
+
+        display:flex;
+
+        gap:7px;
+    }
+
+    tbody td:nth-child(5) button{
+        flex:1;
+
+        padding:9px 7px;
+
+        font-size:9px;
+    }
+
+
+    /* SELECTION BAR */
+
+    .selection-bar{
+        padding:9px;
+
+        border-radius:12px;
+
+        gap:7px;
+    }
+
+    .selection-left{
+        width:100%;
+        gap:5px;
+    }
+
+    .selection-left button{
+        padding:8px 9px;
+        font-size:8px;
+    }
+
+    .selection-bar .actions{
+        width:100%;
+    }
+
+    .selection-bar .actions button{
+        flex:1;
+        padding:8px 6px;
+        font-size:8px;
+    }
+
+
+    /* EMPTY */
+
+    .empty{
+        padding:25px 10px;
+        font-size:10px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:380px){
+
+    body{
+        padding:5px;
+    }
+
+    .header{
+        padding:13px 9px 15px;
+        border-radius:16px;
+    }
+
+    .header h1{
+        font-size:18px;
+    }
+
+    .header p{
+        font-size:7px;
+    }
+
+    .panel{
+        padding:10px 7px;
+    }
+
+    .panel h2{
+        font-size:14px;
+    }
+
+    .stat b{
+        font-size:15px;
+    }
+
+    .stat span{
+        font-size:6px;
+    }
+
+    .qtext b{
+        font-size:12px;
+    }
+
+    .small{
+        font-size:9px;
+    }
+
+    .badge{
+        font-size:10px;
+    }
+
+   }
 </style>
 
 </head>
