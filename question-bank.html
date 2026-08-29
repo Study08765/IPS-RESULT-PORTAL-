@@ -1,0 +1,4427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Question Bank | THE STUDY POINT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef4ff;
+color:#1e293b;
+min-height:100vh;
+padding:18px;
+}
+
+.container{
+max-width:1250px;
+margin:auto;
+}
+
+.header{
+background:linear-gradient(135deg,#003c8f,#1565c0,#42a5f5);
+color:#fff;
+border-radius:22px;
+padding:22px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 15px 35px rgba(0,71,171,.22);
+margin-bottom:20px;
+}
+
+.header h1{
+font-size:28px;
+font-weight:800;
+}
+
+.header p{
+font-size:13px;
+opacity:.9;
+margin-top:3px;
+}
+
+.back{
+background:#ffd700;
+color:#111827;
+text-decoration:none;
+padding:11px 16px;
+border-radius:10px;
+font-weight:700;
+}
+
+.panel{
+background:#fff;
+border-radius:20px;
+padding:22px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+.panel h2{
+color:#0047ab;
+margin-bottom:16px;
+font-size:21px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-bottom:18px;
+}
+
+.stat{
+background:#f5f9ff;
+border:1px solid #dbeafe;
+border-radius:14px;
+padding:14px;
+text-align:center;
+}
+
+.stat b{
+display:block;
+font-size:24px;
+color:#1565c0;
+}
+
+.stat span{
+font-size:12px;
+color:#64748b;
+}
+
+.filters{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:12px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px 13px;
+border:2px solid #dbeafe;
+border-radius:11px;
+outline:none;
+font-size:14px;
+background:#fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+border-color:#2563eb;
+}
+
+.formgrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+
+.full{
+grid-column:1/-1;
+}
+
+textarea{
+min-height:100px;
+resize:vertical;
+}
+
+.actions{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-top:10px;
+}
+
+button{
+border:0;
+border-radius:10px;
+padding:11px 15px;
+font-weight:700;
+cursor:pointer;
+}
+
+button:disabled{
+opacity:.5;
+cursor:not-allowed;
+}
+
+.primary{
+background:#1565c0;
+color:#fff;
+}
+
+.green{
+background:#16a34a;
+color:#fff;
+}
+
+.gray{
+background:#e5e7eb;
+color:#111827;
+}
+
+.red{
+background:#dc2626;
+color:#fff;
+}
+
+.orange{
+background:#f59e0b;
+color:#fff;
+}
+
+.purple{
+background:#7c3aed;
+color:#fff;
+}
+
+.dark{
+background:#0f172a;
+color:#fff;
+}
+
+.danger-all{
+background:linear-gradient(135deg,#dc2626,#991b1b);
+color:#fff;
+}
+
+.teal{
+background:linear-gradient(135deg,#0f766e,#14b8a6);
+color:#fff;
+}
+
+.table-wrap{
+overflow:auto;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+min-width:1100px;
+}
+
+th{
+background:#1565c0;
+color:#fff;
+padding:13px;
+text-align:left;
+white-space:nowrap;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #e5e7eb;
+vertical-align:top;
+}
+
+tr:hover{
+background:#f8fbff;
+}
+
+.qtext{
+max-width:390px;
+white-space:normal;
+}
+
+.small{
+font-size:12px;
+color:#64748b;
+line-height:1.7;
+}
+
+.badge{
+display:inline-block;
+padding:4px 8px;
+border-radius:15px;
+background:#e0ecff;
+color:#174ea6;
+font-size:11px;
+font-weight:700;
+}
+
+.notice{
+display:none;
+padding:12px;
+border-radius:10px;
+margin-bottom:15px;
+font-weight:600;
+}
+
+.success{
+background:#dcfce7;
+color:#166534;
+}
+
+.error{
+background:#fee2e2;
+color:#991b1b;
+}
+
+.warning{
+background:#fef3c7;
+color:#92400e;
+}
+
+.info{
+background:#eff6ff;
+color:#1e40af;
+}
+
+.empty{
+text-align:center;
+padding:30px;
+color:#64748b;
+}
+
+.selection-bar{
+background:#eff6ff;
+border:1px solid #bfdbfe;
+border-radius:14px;
+padding:12px;
+margin-bottom:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.selection-left{
+display:flex;
+gap:8px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.checkbox{
+width:18px;
+height:18px;
+cursor:pointer;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(15,23,42,.68);
+z-index:1000;
+padding:18px;
+overflow:auto;
+}
+
+.modal-card{
+background:#fff;
+max-width:950px;
+margin:25px auto;
+border-radius:20px;
+padding:22px;
+}
+
+.modal-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.modal-head h2{
+color:#0047ab;
+margin:0;
+}
+
+.close{
+background:#fee2e2;
+color:#991b1b;
+border-radius:50%;
+width:38px;
+height:38px;
+padding:0;
+}
+
+.help{
+background:#eff6ff;
+border:1px solid #bfdbfe;
+border-radius:12px;
+padding:14px;
+margin-bottom:15px;
+font-size:13px;
+line-height:1.8;
+}
+
+.example{
+background:#0f172a;
+color:#e2e8f0;
+border-radius:12px;
+padding:15px;
+margin-top:10px;
+font-family:monospace;
+white-space:pre-wrap;
+font-size:13px;
+line-height:1.7;
+}
+
+.preview{
+max-height:500px;
+overflow:auto;
+border:1px solid #dbeafe;
+border-radius:12px;
+margin-top:15px;
+}
+
+.preview-item{
+padding:14px;
+border-bottom:1px solid #e5e7eb;
+}
+
+.preview-q{
+font-weight:700;
+margin-bottom:7px;
+}
+
+.preview-options{
+font-size:13px;
+color:#475569;
+line-height:1.7;
+}
+
+.preview-answer{
+margin-top:6px;
+color:#166534;
+font-weight:700;
+}
+
+.error-list{
+background:#fee2e2;
+color:#991b1b;
+border-radius:12px;
+padding:12px 18px;
+margin-top:12px;
+font-size:13px;
+line-height:1.7;
+}
+
+.progress{
+height:10px;
+background:#e5e7eb;
+border-radius:10px;
+overflow:hidden;
+margin-top:12px;
+display:none;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:#16a34a;
+transition:.2s;
+}
+
+.summary{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-top:12px;
+}
+
+.summary span{
+background:#f1f5f9;
+padding:7px 11px;
+border-radius:9px;
+font-size:12px;
+}
+
+.bulk-bank-title{
+background:linear-gradient(135deg,#0f766e,#14b8a6);
+color:#fff;
+padding:15px;
+border-radius:14px;
+margin-bottom:15px;
+}
+
+.bulk-bank-title h3{
+font-size:18px;
+}
+
+.bulk-bank-title p{
+font-size:12px;
+margin-top:3px;
+opacity:.9;
+}
+
+@media(max-width:700px){
+
+body{
+padding:10px;
+}
+
+.header{
+flex-direction:column;
+gap:13px;
+text-align:center;
+}
+
+.header h1{
+font-size:23px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.filters,
+.formgrid{
+grid-template-columns:1fr;
+}
+
+.full{
+grid-column:auto;
+}
+
+.panel{
+padding:16px;
+}
+
+.modal-card{
+margin:8px auto;
+padding:16px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<script>
+
+if(localStorage.getItem("adminLogin")!=="true"){
+location.href="admin-login.html";
+}
+
+</script>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div>
+
+<h1>
+<i class="fa-solid fa-book"></i>
+Question Bank
+</h1>
+
+<p>
+THE STUDY POINT • CBT Portal & Paper Studio Pro
+</p>
+
+</div>
+
+<a class="back" href="admin-dashboard.html">
+
+<i class="fa-solid fa-arrow-left"></i>
+Dashboard
+
+</a>
+
+</div>
+
+<div id="notice" class="notice"></div>
+
+
+<!-- OVERVIEW -->
+
+<div class="panel">
+
+<h2>
+<i class="fa-solid fa-chart-simple"></i>
+Question Bank Overview
+</h2>
+
+<div class="stats">
+
+<div class="stat">
+<b id="totalQuestions">0</b>
+<span>Question Bank</span>
+</div>
+
+<div class="stat">
+<b id="totalTests">0</b>
+<span>Total Tests</span>
+</div>
+
+<div class="stat">
+<b id="visibleQuestions">0</b>
+<span>Filtered Questions</span>
+</div>
+
+</div>
+
+<div class="filters">
+
+<input
+id="search"
+placeholder="Search question, option or answer..."
+>
+
+<select id="subjectFilter">
+
+<option value="">
+All Subjects
+</option>
+
+</select>
+
+<select id="answerFilter">
+
+<option value="">
+All Answers
+</option>
+
+<option value="A">A</option>
+<option value="B">B</option>
+<option value="C">C</option>
+<option value="D">D</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- ADD QUESTION -->
+
+<div class="panel">
+
+<h2>
+<i class="fa-solid fa-circle-plus"></i>
+Add Question To Question Bank
+</h2>
+
+<div class="formgrid">
+
+<div class="full">
+
+<textarea
+id="question"
+placeholder="Enter Question"
+></textarea>
+
+</div>
+
+<input id="optionA" placeholder="Option A">
+<input id="optionB" placeholder="Option B">
+
+<input id="optionC" placeholder="Option C">
+<input id="optionD" placeholder="Option D">
+
+<select id="answer">
+
+<option value="">
+Correct Answer
+</option>
+
+<option value="A">Option A</option>
+<option value="B">Option B</option>
+<option value="C">Option C</option>
+<option value="D">Option D</option>
+
+</select>
+
+</div>
+
+<div class="actions">
+
+<button class="green" id="addBtn">
+
+<i class="fa-solid fa-plus"></i>
+SAVE QUESTION
+
+</button>
+
+<!-- NEW BUTTON ONLY -->
+
+<button class="teal" id="bulkBankBtn">
+
+<i class="fa-solid fa-layer-group"></i>
+BULK IMPORT TO QUESTION BANK
+
+</button>
+
+<!-- OLD BUTTON UNTOUCHED -->
+
+<button class="orange" id="bulkBtn">
+
+<i class="fa-solid fa-bolt"></i>
+BULK IMPORT TO TEST
+
+</button>
+
+<button class="gray" id="clearBtn">
+CLEAR
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION LIST -->
+
+<div class="panel">
+
+<h2>
+<i class="fa-solid fa-list-check"></i>
+Question Bank
+</h2>
+
+<div class="selection-bar">
+
+<div class="selection-left">
+
+<strong>
+
+<span id="selectedCount">0</span>
+Selected
+
+</strong>
+
+<button class="primary" id="selectAllBtn">
+
+<i class="fa-solid fa-check-double"></i>
+SELECT ALL
+
+</button>
+
+<button class="gray" id="clearSelectionBtn">
+
+CLEAR SELECTION
+
+</button>
+
+</div>
+
+<div class="actions" style="margin-top:0">
+
+<button class="purple" id="copySelectedBtn">
+
+<i class="fa-solid fa-copy"></i>
+COPY TO TEST
+
+</button>
+
+<button class="red" id="deleteSelectedBtn">
+
+<i class="fa-solid fa-trash"></i>
+DELETE SELECTED
+<span id="deleteSelectedCount">0</span>
+
+</button>
+
+<button class="danger-all" id="deleteAllBtn">
+
+<i class="fa-solid fa-trash-can"></i>
+DELETE ALL
+
+</button>
+
+</div>
+
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+<input
+type="checkbox"
+class="checkbox"
+id="masterCheck"
+>
+</th>
+
+<th>#</th>
+
+<th>Question</th>
+
+<th>Answer</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="questionList">
+
+<tr>
+
+<td colspan="5" class="empty">
+Loading...
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- EDIT MODAL -->
+
+<div class="modal" id="editModal">
+
+<div class="modal-card">
+
+<div class="modal-head">
+
+<h2>
+<i class="fa-solid fa-pen-to-square"></i>
+Edit Question
+</h2>
+
+<button class="close" id="closeModal">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+</div>
+
+<input type="hidden" id="editId">
+
+<textarea
+id="editQuestion"
+placeholder="Question"
+></textarea>
+
+<div
+class="formgrid"
+style="margin-top:12px"
+>
+
+<input id="editA" placeholder="Option A">
+<input id="editB" placeholder="Option B">
+<input id="editC" placeholder="Option C">
+<input id="editD" placeholder="Option D">
+
+<select id="editAnswer">
+
+<option value="">
+Correct Answer
+</option>
+
+<option value="A">Option A</option>
+<option value="B">Option B</option>
+<option value="C">Option C</option>
+<option value="D">Option D</option>
+
+</select>
+
+</div>
+
+<div class="actions">
+
+<button class="primary" id="updateBtn">
+
+<i class="fa-solid fa-floppy-disk"></i>
+UPDATE QUESTION
+
+</button>
+
+<button class="gray" id="cancelEdit">
+CANCEL
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     NEW BULK QUESTION BANK MODAL
+     ===================================================== -->
+
+<div class="modal" id="bulkBankModal">
+
+<div class="modal-card">
+
+<div class="modal-head">
+
+<h2>
+<i class="fa-solid fa-layer-group"></i>
+Bulk Import To Question Bank
+</h2>
+
+<button class="close" id="closeBulkBank">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+</div>
+
+<div class="bulk-bank-title">
+
+<h3>
+<i class="fa-solid fa-database"></i>
+Question Bank Bulk Import
+</h3>
+
+<p>
+एक साथ 100+ Questions Question Bank में Save करें
+</p>
+
+</div>
+
+<div class="help">
+
+<strong>
+⚡ पूरा Question Paper एक साथ Paste करें
+</strong>
+
+<br>
+
+हर Question के बीच खाली line जरूरी नहीं है।
+
+<div class="example">1. ‘कमल’ का पर्यायवाची शब्द है—
+(A) पंकज
+(B) पवन
+(C) पर्वत
+(D) पल्लव
+उत्तर: (A) पंकज
+
+2. ‘अंधकार’ का विलोम शब्द है—
+(A) रात
+(B) प्रकाश
+(C) छाया
+(D) संध्या
+उत्तर: (B) प्रकाश
+
+3. जल का रासायनिक सूत्र क्या है?
+(A) CO2
+(B) O2
+(C) H2O
+(D) N2
+उत्तर: (C) H2O</div>
+
+<br>
+
+<b>Question Start:</b>
+1. / 1) / Q1. / Q.1 / Question 1
+
+<br>
+
+<b>Options:</b>
+(A) / A) / A. / A: / A-
+
+<br>
+
+<b>Answers:</b>
+उत्तर: (A) / Answer: B / Ans: C
+
+</div>
+
+<textarea
+id="bulkBankText"
+style="height:330px;margin-top:12px"
+placeholder="यहाँ Questions Paste करें..."
+></textarea>
+
+<div class="actions">
+
+<button class="primary" id="previewBulkBank">
+
+<i class="fa-solid fa-eye"></i>
+CHECK & PREVIEW
+</button>
+
+<button class="gray" id="clearBulkBank">
+CLEAR
+</button>
+
+</div>
+
+<div id="bulkBankResult"></div>
+
+<div class="progress" id="bulkBankProgress">
+
+<div
+class="progress-bar"
+id="bulkBankProgressBar">
+</div>
+
+</div>
+
+<div class="actions">
+
+<button
+class="green"
+id="saveBulkBank"
+disabled
+>
+
+<i class="fa-solid fa-database"></i>
+SAVE ALL TO QUESTION BANK
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BULK TEST MODAL — ORIGINAL -->
+
+<div class="modal" id="bulkModal">
+
+<div class="modal-card">
+
+<div class="modal-head">
+
+<h2>
+<i class="fa-solid fa-bolt"></i>
+Bulk Import Questions To Test
+</h2>
+
+<button class="close" id="closeBulk">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+</div>
+
+<div class="help">
+
+<strong>
+⚡ एक साथ 100 Questions भी डाल सकते हैं
+</strong>
+
+<br>
+
+पहले Test चुनें, फिर पूरा Question Paper Paste करें।
+
+<br>
+
+हर Question के बीच खाली line जरूरी नहीं है।
+
+<div class="example">1. ‘कमल’ का पर्यायवाची शब्द है—
+(A) पंकज
+(B) पवन
+(C) पर्वत
+(D) पल्लव
+उत्तर: (A) पंकज
+
+2. ‘अंधकार’ का विलोम शब्द है—
+(A) रात
+(B) प्रकाश
+(C) छाया
+(D) संध्या
+उत्तर: (B) प्रकाश</div>
+
+<br>
+
+<b>Supported:</b>
+1. / 1) / Q1. / Q.1 / Question 1
+
+<br>
+
+<b>Options:</b>
+(A) / A) / A. / A: / A-
+
+<br>
+
+<b>Answers:</b>
+उत्तर: (A) / Answer: B / Ans: C
+
+</div>
+
+<select id="bulkTest">
+
+<option value="">
+Select Test
+</option>
+
+</select>
+
+<textarea
+id="bulkText"
+style="height:330px;margin-top:12px"
+placeholder="यहाँ Questions Paste करें..."
+></textarea>
+
+<div class="actions">
+
+<button class="primary" id="previewBulk">
+
+<i class="fa-solid fa-eye"></i>
+CHECK & PREVIEW
+</button>
+
+<button class="gray" id="clearBulk">
+CLEAR
+</button>
+
+</div>
+
+<div id="bulkResult"></div>
+
+<div class="progress" id="bulkProgress">
+
+<div
+class="progress-bar"
+id="bulkProgressBar">
+</div>
+
+</div>
+
+<div class="actions">
+
+<button
+class="green"
+id="saveBulk"
+disabled
+>
+
+<i class="fa-solid fa-database"></i>
+SAVE ALL QUESTIONS TO TEST
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- COPY MODAL -->
+
+<div class="modal" id="copyModal">
+
+<div class="modal-card">
+
+<div class="modal-head">
+
+<h2>
+<i class="fa-solid fa-copy"></i>
+Copy Questions To Test
+</h2>
+
+<button class="close" id="closeCopy">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+</div>
+
+<div class="help">
+
+Selected Question Bank questions की नई copy बनेगी।
+
+<br>
+
+<strong>
+Original Question Bank questions delete नहीं होंगे।
+</strong>
+
+</div>
+
+<select id="copyTest">
+
+<option value="">
+Select Destination Test
+</option>
+
+</select>
+
+<div class="summary">
+
+<span>
+
+<b id="copyCount">0</b>
+Questions Selected
+
+</span>
+
+</div>
+
+<div class="actions">
+
+<button class="purple" id="startCopy">
+
+<i class="fa-solid fa-copy"></i>
+COPY QUESTIONS
+
+</button>
+
+<button class="gray" id="cancelCopy">
+CANCEL
+</button>
+
+</div>
+
+<div class="progress" id="copyProgress">
+
+<div
+class="progress-bar"
+id="copyProgressBar">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+
+collection,
+onSnapshot,
+addDoc,
+updateDoc,
+deleteDoc,
+doc,
+serverTimestamp,
+writeBatch
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+let questions = [];
+
+let tests = [];
+
+let testMap = {};
+
+let selectedIds = new Set();
+
+let parsedBulkQuestions = [];
+
+let parsedBankQuestions = [];
+
+
+/* =====================================================
+   SHORTCUT
+===================================================== */
+
+const $ =
+id => document.getElementById(id);
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function esc(value){
+
+return String(value ?? "")
+.replace(/[&<>"']/g,function(c){
+
+return {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[c];
+
+});
+
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+function notice(message,type="success"){
+
+const box =
+$("notice");
+
+box.textContent =
+message;
+
+box.className =
+"notice " + type;
+
+box.style.display =
+"block";
+
+setTimeout(()=>{
+
+box.style.display =
+"none";
+
+},4000);
+
+}
+
+
+/* =====================================================
+   LOAD TESTS
+===================================================== */
+
+onSnapshot(
+
+collection(db,"cbtTests"),
+
+snapshot=>{
+
+tests = [];
+
+testMap = {};
+
+snapshot.forEach(d=>{
+
+const item = {
+
+id:d.id,
+data:d.data()
+
+};
+
+tests.push(item);
+
+testMap[d.id] =
+item;
+
+});
+
+fillTestSelects();
+
+},
+
+error=>{
+
+console.error(error);
+
+notice(
+"Tests load नहीं हुए।",
+"error"
+);
+
+}
+
+);
+
+
+/* =====================================================
+   TEST SELECTS
+===================================================== */
+
+function fillTestSelects(){
+
+const opts =
+tests.map(t=>{
+
+const name =
+t.data.testName ||
+"Untitled Test";
+
+const subject =
+t.data.subject
+? " — " + t.data.subject
+: "";
+
+return `
+
+<option value="${esc(t.id)}">
+
+${esc(name)}
+${esc(subject)}
+
+</option>
+
+`;
+
+}).join("");
+
+
+$("bulkTest").innerHTML =
+`<option value="">
+Select Test
+</option>` +
+opts;
+
+
+$("copyTest").innerHTML =
+`<option value="">
+Select Destination Test
+</option>` +
+opts;
+
+
+/* SUBJECTS */
+
+const subjects = [
+
+...new Set(
+
+tests
+.map(t=>t.data.subject)
+.filter(Boolean)
+
+)
+
+].sort();
+
+
+$("subjectFilter").innerHTML =
+
+`<option value="">
+All Subjects
+</option>` +
+
+subjects.map(subject=>`
+
+<option value="${esc(subject)}">
+${esc(subject)}
+</option>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+   LOAD QUESTION BANK
+===================================================== */
+
+onSnapshot(
+
+collection(db,"questionBank"),
+
+snapshot=>{
+
+questions = [];
+
+snapshot.forEach(d=>{
+
+questions.push({
+
+id:d.id,
+data:d.data()
+
+});
+
+});
+
+questions.sort((a,b)=>{
+
+return (
+
+(b.data.createdAt?.seconds || 0) -
+(a.data.createdAt?.seconds || 0)
+
+);
+
+});
+
+render();
+
+},
+
+error=>{
+
+console.error(error);
+
+notice(
+"Question Bank load नहीं हुआ।",
+"error"
+);
+
+}
+
+);
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+function getFilteredQuestions(){
+
+const search =
+$("search").value
+.trim()
+.toLowerCase();
+
+const subject =
+$("subjectFilter").value;
+
+const answer =
+$("answerFilter").value;
+
+
+return questions.filter(q=>{
+
+const x =
+q.data;
+
+const hay = [
+
+x.question,
+x.optionA,
+x.optionB,
+x.optionC,
+x.optionD,
+x.answer
+
+].join(" ").toLowerCase();
+
+
+/*
+Subject support:
+पुराने Question Bank questions में subject
+न होने पर भी search/filter crash नहीं होगा।
+*/
+
+const questionSubject =
+x.subject || "";
+
+
+return (
+
+(!search ||
+hay.includes(search))
+
+&&
+
+(!subject ||
+questionSubject === subject)
+
+&&
+
+(!answer ||
+x.answer === answer)
+
+);
+
+});
+
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function render(){
+
+const filtered =
+getFilteredQuestions();
+
+
+$("totalQuestions").textContent =
+questions.length;
+
+$("totalTests").textContent =
+tests.length;
+
+$("visibleQuestions").textContent =
+filtered.length;
+
+
+if(!filtered.length){
+
+$("questionList").innerHTML = `
+
+<tr>
+
+<td colspan="5" class="empty">
+
+<i class="fa-solid fa-box-open"
+style="font-size:30px">
+</i>
+
+<br><br>
+
+Question Bank में कोई question नहीं है।
+
+</td>
+
+</tr>
+
+`;
+
+updateSelectionUI();
+
+return;
+
+}
+
+
+$("questionList").innerHTML =
+
+filtered.map((q,i)=>{
+
+const x =
+q.data;
+
+return `
+
+<tr>
+
+<td>
+
+<input
+type="checkbox"
+class="checkbox rowCheck"
+data-id="${esc(q.id)}"
+${selectedIds.has(q.id)?"checked":""}
+>
+
+</td>
+
+
+<td>
+${i+1}
+</td>
+
+
+<td class="qtext">
+
+<b>
+${esc(x.question)}
+</b>
+
+<div class="small">
+
+A: ${esc(x.optionA)}
+<br>
+
+B: ${esc(x.optionB)}
+<br>
+
+C: ${esc(x.optionC)}
+<br>
+
+D: ${esc(x.optionD)}
+
+</div>
+
+</td>
+
+
+<td>
+
+<span class="badge">
+
+${esc(x.answer || "-")}
+
+</span>
+
+</td>
+
+
+<td>
+
+<button
+class="primary editBtn"
+data-id="${esc(q.id)}"
+>
+
+<i class="fa-solid fa-pen"></i>
+Edit
+
+</button>
+
+
+<button
+class="red deleteBtn"
+data-id="${esc(q.id)}"
+>
+
+<i class="fa-solid fa-trash"></i>
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+}).join("");
+
+
+document
+.querySelectorAll(".rowCheck")
+.forEach(cb=>{
+
+cb.onchange=function(){
+
+if(this.checked){
+
+selectedIds.add(
+this.dataset.id
+);
+
+}else{
+
+selectedIds.delete(
+this.dataset.id
+);
+
+}
+
+updateSelectionUI();
+
+};
+
+});
+
+
+document
+.querySelectorAll(".editBtn")
+.forEach(btn=>{
+
+btn.onclick=()=>{
+
+openEdit(btn.dataset.id);
+
+};
+
+});
+
+
+document
+.querySelectorAll(".deleteBtn")
+.forEach(btn=>{
+
+btn.onclick=()=>{
+
+removeQuestion(btn.dataset.id);
+
+};
+
+});
+
+
+updateSelectionUI();
+
+}
+
+
+/* =====================================================
+   SELECTION UI
+===================================================== */
+
+function updateSelectionUI(){
+
+const count =
+selectedIds.size;
+
+$("selectedCount").textContent =
+count;
+
+$("deleteSelectedCount").textContent =
+count;
+
+$("copyCount").textContent =
+count;
+
+
+const filtered =
+getFilteredQuestions();
+
+
+$("masterCheck").checked =
+false;
+
+$("masterCheck").indeterminate =
+false;
+
+
+if(
+filtered.length &&
+filtered.every(q =>
+selectedIds.has(q.id)
+)
+){
+
+$("masterCheck").checked =
+true;
+
+}
+
+
+if(
+filtered.some(q =>
+selectedIds.has(q.id)
+) &&
+!filtered.every(q =>
+selectedIds.has(q.id)
+)
+){
+
+$("masterCheck").indeterminate =
+true;
+
+}
+
+}
+
+
+/* =====================================================
+   SELECT ALL
+===================================================== */
+
+$("selectAllBtn").onclick=()=>{
+
+getFilteredQuestions()
+.forEach(q=>{
+
+selectedIds.add(q.id);
+
+});
+
+render();
+
+};
+
+
+/* =====================================================
+   MASTER CHECK
+===================================================== */
+
+$("masterCheck").onchange=function(){
+
+const filtered =
+getFilteredQuestions();
+
+
+filtered.forEach(q=>{
+
+if(this.checked){
+
+selectedIds.add(q.id);
+
+}else{
+
+selectedIds.delete(q.id);
+
+}
+
+});
+
+
+render();
+
+};
+
+
+/* =====================================================
+   CLEAR SELECTION
+===================================================== */
+
+$("clearSelectionBtn").onclick=()=>{
+
+selectedIds.clear();
+
+render();
+
+};
+
+
+/* =====================================================
+   ADD SINGLE QUESTION
+===================================================== */
+
+$("addBtn").onclick=
+async function(){
+
+const question =
+$("question").value.trim();
+
+const optionA =
+$("optionA").value.trim();
+
+const optionB =
+$("optionB").value.trim();
+
+const optionC =
+$("optionC").value.trim();
+
+const optionD =
+$("optionD").value.trim();
+
+const answer =
+$("answer").value;
+
+
+if(!question){
+
+notice(
+"Question लिखें।",
+"error"
+);
+
+return;
+
+}
+
+
+if(
+!optionA ||
+!optionB ||
+!optionC ||
+!optionD
+){
+
+notice(
+"चारों options भरें।",
+"error"
+);
+
+return;
+
+}
+
+
+if(!answer){
+
+notice(
+"Correct Answer चुनें।",
+"error"
+);
+
+return;
+
+}
+
+
+try{
+
+await addDoc(
+
+collection(
+db,
+"questionBank"
+),
+
+{
+
+question,
+optionA,
+optionB,
+optionC,
+optionD,
+answer,
+
+createdAt:
+serverTimestamp()
+
+}
+
+);
+
+
+clearForm();
+
+notice(
+"Question Bank में question save हो गया।"
+);
+
+
+}catch(error){
+
+console.error(error);
+
+notice(
+"Question save नहीं हुआ।",
+"error"
+);
+
+}
+
+};
+
+
+/* =====================================================
+   CLEAR FORM
+===================================================== */
+
+function clearForm(){
+
+$("question").value="";
+$("optionA").value="";
+$("optionB").value="";
+$("optionC").value="";
+$("optionD").value="";
+$("answer").value="";
+
+}
+
+$("clearBtn").onclick =
+clearForm;
+
+
+/* =====================================================
+   DELETE SINGLE
+===================================================== */
+
+async function removeQuestion(id){
+
+if(!confirm(
+"क्या आप इस Question Bank question को delete करना चाहते हैं?"
+)){
+
+return;
+
+}
+
+
+try{
+
+await deleteDoc(
+doc(db,"questionBank",id)
+);
+
+
+selectedIds.delete(id);
+
+notice(
+"Question Bank question delete हो गया।"
+);
+
+
+}catch(error){
+
+console.error(error);
+
+notice(
+"Delete नहीं हुआ।",
+"error"
+);
+
+}
+
+}
+
+
+/* =====================================================
+   DELETE SELECTED
+===================================================== */
+
+$("deleteSelectedBtn").onclick =
+async function(){
+
+const ids =
+Array.from(selectedIds);
+
+
+if(!ids.length){
+
+notice(
+"पहले questions select करें।",
+"warning"
+);
+
+return;
+
+}
+
+
+if(!confirm(
+`${ids.length} selected questions को Question Bank से delete करना है?`
+)){
+
+return;
+
+}
+
+
+const button =
+this;
+
+button.disabled =
+true;
+
+
+try{
+
+const chunkSize =
+450;
+
+
+for(
+let start=0;
+start<ids.length;
+start+=chunkSize
+){
+
+const chunk =
+ids.slice(
+start,
+start+chunkSize
+);
+
+
+const batch =
+writeBatch(db);
+
+
+chunk.forEach(id=>{
+
+batch.delete(
+doc(db,"questionBank",id)
+);
+
+});
+
+
+await batch.commit();
+
+}
+
+
+selectedIds.clear();
+
+
+notice(
+`${ids.length} questions delete हो गए।`
+);
+
+
+}catch(error){
+
+console.error(error);
+
+notice(
+"Selected questions delete नहीं हुए।",
+"error"
+);
+
+}
+
+
+button.disabled =
+false;
+
+};
+
+
+/* =====================================================
+   DELETE ALL
+===================================================== */
+
+$("deleteAllBtn").onclick =
+async function(){
+
+if(!questions.length){
+
+notice(
+"Question Bank पहले से खाली है।",
+"warning"
+);
+
+return;
+
+}
+
+
+const firstConfirm =
+confirm(
+`Question Bank में ${questions.length} questions हैं।\n\nक्या आप सभी questions delete करना चाहते हैं?`
+);
+
+
+if(!firstConfirm){
+
+return;
+
+}
+
+
+const secondConfirm =
+confirm(
+"FINAL CONFIRMATION:\n\nसिर्फ QUESTION BANK delete होगा।\nकिसी भी TEST के questions delete नहीं होंगे।\n\nक्या DELETE ALL करना है?"
+);
+
+
+if(!secondConfirm){
+
+return;
+
+}
+
+
+const button =
+this;
+
+button.disabled =
+true;
+
+
+try{
+
+const ids =
+questions.map(q=>q.id);
+
+
+const chunkSize =
+450;
+
+
+for(
+let start=0;
+start<ids.length;
+start+=chunkSize
+){
+
+const chunk =
+ids.slice(
+start,
+start+chunkSize
+);
+
+
+const batch =
+writeBatch(db);
+
+
+chunk.forEach(id=>{
+
+batch.delete(
+doc(db,"questionBank",id)
+);
+
+});
+
+
+await batch.commit();
+
+}
+
+
+selectedIds.clear();
+
+
+notice(
+"Question Bank के सभी questions delete हो गए। Tests सुरक्षित हैं।"
+);
+
+
+}catch(error){
+
+console.error(error);
+
+notice(
+"Delete All नहीं हुआ।",
+"error"
+);
+
+}
+
+
+button.disabled =
+false;
+
+};
+
+
+/* =====================================================
+   EDIT
+===================================================== */
+
+function openEdit(id){
+
+const item =
+questions.find(q=>q.id===id);
+
+
+if(!item)return;
+
+
+const x =
+item.data;
+
+
+$("editId").value =
+id;
+
+$("editQuestion").value =
+x.question || "";
+
+$("editA").value =
+x.optionA || "";
+
+$("editB").value =
+x.optionB || "";
+
+$("editC").value =
+x.optionC || "";
+
+$("editD").value =
+x.optionD || "";
+
+$("editAnswer").value =
+x.answer || "";
+
+
+$("editModal").style.display =
+"block";
+
+}
+
+
+/* =====================================================
+   UPDATE
+===================================================== */
+
+$("updateBtn").onclick =
+async function(){
+
+const id =
+$("editId").value;
+
+
+const question =
+$("editQuestion").value.trim();
+
+const optionA =
+$("editA").value.trim();
+
+const optionB =
+$("editB").value.trim();
+
+const optionC =
+$("editC").value.trim();
+
+const optionD =
+$("editD").value.trim();
+
+const answer =
+$("editAnswer").value;
+
+
+if(
+!question ||
+!optionA ||
+!optionB ||
+!optionC ||
+!optionD ||
+!answer
+){
+
+notice(
+"सभी fields भरना जरूरी है।",
+"error"
+);
+
+return;
+
+}
+
+
+try{
+
+await updateDoc(
+
+doc(
+db,
+"questionBank",
+id
+),
+
+{
+
+question,
+optionA,
+optionB,
+optionC,
+optionD,
+answer
+
+}
+
+);
+
+
+closeEdit();
+
+notice(
+"Question update हो गया।"
+);
+
+
+}catch(error){
+
+console.error(error);
+
+notice(
+"Question update नहीं हुआ।",
+"error"
+);
+
+}
+
+};
+
+
+/* =====================================================
+   CLOSE EDIT
+===================================================== */
+
+function closeEdit(){
+
+$("editModal").style.display =
+"none";
+
+}
+
+$("closeModal").onclick =
+closeEdit;
+
+$("cancelEdit").onclick =
+closeEdit;
+
+
+/* =====================================================
+   COPY SELECTED TO TEST
+===================================================== */
+
+$("copySelectedBtn").onclick =
+function(){
+
+if(!selectedIds.size){
+
+notice(
+"पहले questions select करें।",
+"warning"
+);
+
+return;
+
+}
+
+
+$("copyCount").textContent =
+selectedIds.size;
+
+$("copyModal").style.display =
+"block";
+
+};
+
+
+/* =====================================================
+   CLOSE COPY
+===================================================== */
+
+$("closeCopy").onclick =
+()=>{
+
+$("copyModal").style.display =
+"none";
+
+};
+
+$("cancelCopy").onclick =
+()=>{
+
+$("copyModal").style.display =
+"none";
+
+};
+
+
+/* =====================================================
+   COPY QUESTION BANK → TEST
+===================================================== */
+
+$("startCopy").onclick =
+async function(){
+
+const destination =
+$("copyTest").value;
+
+
+if(!destination){
+
+notice(
+"Destination Test चुनें।",
+"error"
+);
+
+return;
+
+}
+
+
+const selected =
+questions.filter(q =>
+selectedIds.has(q.id)
+);
+
+
+if(!selected.length){
+
+notice(
+"Selected questions नहीं मिले।",
+"error"
+);
+
+return;
+
+}
+
+
+const testName =
+testMap[destination]?.data?.testName ||
+"Selected Test";
+
+
+if(!confirm(
+`${selected.length} questions को "${testName}" में copy करना है?`
+)){
+
+return;
+
+}
+
+
+const button =
+this;
+
+button.disabled =
+true;
+
+
+$("copyProgress").style.display =
+"block";
+
+
+try{
+
+const chunkSize =
+450;
+
+let copied = 0;
+
+
+for(
+let start=0;
+start<selected.length;
+start+=chunkSize
+){
+
+const chunk =
+selected.slice(
+start,
+start+chunkSize
+);
+
+
+const batch =
+writeBatch(db);
+
+
+chunk.forEach(item=>{
+
+const x =
+item.data;
+
+
+const ref =
+doc(
+collection(
+db,
+"cbtQuestions"
+)
+);
+
+
+batch.set(
+ref,
+{
+
+testId:
+destination,
+
+question:
+x.question || "",
+
+optionA:
+x.optionA || "",
+
+optionB:
+x.optionB || "",
+
+optionC:
+x.optionC || "",
+
+optionD:
+x.optionD || "",
+
+answer:
+x.answer || "",
+
+copiedFrom:
+item.id,
+
+createdAt:
+serverTimestamp()
+
+}
+
+);
+
+});
+
+
+await batch.commit();
+
+
+copied +=
+chunk.length;
+
+
+const percent =
+Math.round(
+(copied / selected.length) * 100
+);
+
+
+$("copyProgressBar")
+.style.width =
+percent + "%";
+
+}
+
+
+selectedIds.clear();
+
+
+notice(
+`${copied} questions Test में copy हो गए।`
+);
+
+
+setTimeout(()=>{
+
+$("copyModal").style.display =
+"none";
+
+$("copyProgress").style.display =
+"none";
+
+$("copyProgressBar").style.width =
+"0%";
+
+button.disabled =
+false;
+
+render();
+
+},1000);
+
+
+}catch(error){
+
+console.error(error);
+
+notice(
+"Questions Test में copy नहीं हुए।",
+"error"
+);
+
+button.disabled =
+false;
+
+}
+
+};
+
+
+/* =====================================================
+   =====================================================
+   NEW BULK QUESTION BANK
+   =====================================================
+===================================================== */
+
+
+/* OPEN */
+
+$("bulkBankBtn").onclick =
+function(){
+
+$("bulkBankModal").style.display =
+"block";
+
+$("bulkBankResult").innerHTML =
+"";
+
+$("saveBulkBank").disabled =
+true;
+
+parsedBankQuestions = [];
+
+};
+
+
+/* CLOSE */
+
+$("closeBulkBank").onclick =
+()=>{
+
+$("bulkBankModal").style.display =
+"none";
+
+};
+
+
+/* CLEAR */
+
+$("clearBulkBank").onclick =
+function(){
+
+$("bulkBankText").value="";
+
+$("bulkBankResult").innerHTML="";
+
+$("saveBulkBank").disabled=true;
+
+parsedBankQuestions=[];
+
+};
+
+
+/* =====================================================
+   QUESTION START
+===================================================== */
+
+function isQuestionStart(line){
+
+const text =
+String(line || "").trim();
+
+
+if(
+/^\d+\s*[\.\):\-]\s+/.test(text)
+){
+
+return true;
+
+}
+
+
+if(
+/^Q\s*\.?\s*\d+\s*[\.\):\-]?\s+/i.test(text)
+){
+
+return true;
+
+}
+
+
+if(
+/^Question\s+\d+\s*[\.\):\-]?\s+/i.test(text)
+){
+
+return true;
+
+}
+
+
+return false;
+
+}
+
+
+/* =====================================================
+   CLEAN QUESTION
+===================================================== */
+
+function cleanQuestion(text){
+
+return String(text || "")
+.trim()
+
+.replace(
+/^\d+\s*[\.\):\-]\s*/,
+""
+)
+
+.replace(
+/^Q\s*\.?\s*\d+\s*[\.\):\-]?\s*/i,
+""
+)
+
+.replace(
+/^Question\s+\d+\s*[\.\):\-]?\s*/i,
+""
+)
+
+.trim();
+
+}
+
+
+/* =====================================================
+   OPTION
+===================================================== */
+
+function getOption(line){
+
+const text =
+String(line || "").trim();
+
+
+const match =
+text.match(
+/^[\(\[]?\s*([ABCD])\s*[\)\]\.\:\-]\s*(.+)$/i
+);
+
+
+if(!match){
+
+return null;
+
+}
+
+
+return {
+
+letter:
+match[1].toUpperCase(),
+
+value:
+match[2].trim()
+
+};
+
+}
+
+
+/* =====================================================
+   ANSWER
+===================================================== */
+
+function getAnswerText(line){
+
+const text =
+String(line || "").trim();
+
+
+let match =
+text.match(
+/^(?:उत्तर|उत्तर\s*है|उ0|उत्त)\s*[\:\=\-]?\s*(.+)$/i
+);
+
+
+if(match){
+
+return match[1].trim();
+
+}
+
+
+match =
+text.match(
+/^(?:answer|ans|correct\s*answer|correct)\s*[\:\=\-]?\s*(.+)$/i
+);
+
+
+if(match){
+
+return match[1].trim();
+
+}
+
+
+return "";
+
+}
+
+
+/* =====================================================
+   NORMALIZE ANSWER
+===================================================== */
+
+function normalizeAnswer(text){
+
+if(!text)return "";
+
+
+const value =
+String(text)
+.trim()
+.toUpperCase();
+
+
+let match =
+value.match(
+/^[\(\[]?\s*([ABCD])\s*[\)\]]?/
+);
+
+
+if(match){
+
+return match[1];
+
+}
+
+
+match =
+value.match(
+/^([ABCD])(?:\s|[\.\):\-]|$)/
+);
+
+
+if(match){
+
+return match[1];
+
+}
+
+
+match =
+value.match(
+/\b([ABCD])\b/
+);
+
+
+if(match){
+
+return match[1];
+
+}
+
+
+return "";
+
+}
+
+
+/* =====================================================
+   GENERIC BULK PARSER
+   USED ONLY BY NEW QUESTION BANK BULK
+===================================================== */
+
+function parseBankBulkText(raw){
+
+const text =
+String(raw || "")
+.replace(/\r\n/g,"\n")
+.replace(/\r/g,"\n")
+.replace(/\u00A0/g," ")
+.trim();
+
+
+if(!text){
+
+return {
+questions:[],
+errors:["No text"]
+};
+
+}
+
+
+const lines =
+text
+.split("\n")
+.map(x=>x.trim())
+.filter(Boolean);
+
+
+const blocks=[];
+
+let current=[];
+
+
+for(const line of lines){
+
+if(isQuestionStart(line)){
+
+if(current.length){
+
+blocks.push(current);
+
+}
+
+current=[line];
+
+}else{
+
+if(current.length){
+
+current.push(line);
+
+}else{
+
+current=[line];
+
+}
+
+}
+
+}
+
+
+if(current.length){
+
+blocks.push(current);
+
+}
+
+
+const valid=[];
+
+const errors=[];
+
+
+blocks.forEach((block,index)=>{
+
+let questionParts=[];
+
+let optionA="";
+let optionB="";
+let optionC="";
+let optionD="";
+
+let answer="";
+
+let optionStarted=false;
+
+
+for(let i=0;i<block.length;i++){
+
+const line =
+block[i].trim();
+
+
+const answerText =
+getAnswerText(line);
+
+
+if(answerText){
+
+answer =
+normalizeAnswer(answerText);
+
+continue;
+
+}
+
+
+const option =
+getOption(line);
+
+
+if(option){
+
+optionStarted=true;
+
+
+if(option.letter==="A")
+optionA=option.value;
+
+if(option.letter==="B")
+optionB=option.value;
+
+if(option.letter==="C")
+optionC=option.value;
+
+if(option.letter==="D")
+optionD=option.value;
+
+continue;
+
+}
+
+
+if(!optionStarted){
+
+let qLine=line;
+
+
+if(i===0){
+
+qLine =
+cleanQuestion(qLine);
+
+}
+
+
+if(qLine){
+
+questionParts.push(qLine);
+
+}
+
+}
+
+}
+
+
+const question =
+cleanQuestion(
+questionParts.join(" ").trim()
+);
+
+
+const missing=[];
+
+
+if(!question)
+missing.push("Question");
+
+if(!optionA)
+missing.push("Option A");
+
+if(!optionB)
+missing.push("Option B");
+
+if(!optionC)
+missing.push("Option C");
+
+if(!optionD)
+missing.push("Option D");
+
+if(!answer)
+missing.push("Correct Answer");
+
+
+if(missing.length){
+
+errors.push({
+
+number:index+1,
+
+missing,
+
+raw:block.join(" ")
+
+});
+
+return;
+
+}
+
+
+valid.push({
+
+question,
+optionA,
+optionB,
+optionC,
+optionD,
+answer
+
+});
+
+});
+
+
+return {
+questions:valid,
+errors
+};
+
+}
+
+
+/* =====================================================
+   BULK BANK PREVIEW
+===================================================== */
+
+$("previewBulkBank").onclick =
+function(){
+
+const text =
+$("bulkBankText").value.trim();
+
+
+if(!text){
+
+notice(
+"Questions paste करें।",
+"error"
+);
+
+return;
+
+}
+
+
+const result =
+parseBankBulkText(text);
+
+
+parsedBankQuestions =
+result.questions;
+
+
+let html = `
+
+<div class="summary">
+
+<span>
+<b>Detected:</b>
+${result.questions.length}
+</span>
+
+<span>
+<b>Errors:</b>
+${result.errors.length}
+</span>
+
+</div>
+
+`;
+
+
+if(result.questions.length){
+
+html += `
+
+<div
+class="success"
+style="
+padding:14px;
+border-radius:10px;
+margin-top:12px;
+">
+
+<b>
+✓ ${result.questions.length}
+Questions Ready
+</b>
+
+<br>
+
+ये Questions सीधे Question Bank में save होंगे।
+
+</div>
+
+`;
+
+html += `<div class="preview">`;
+
+
+result.questions.forEach((q,i)=>{
+
+html += `
+
+<div class="preview-item">
+
+<div class="preview-q">
+
+Q${i+1}.
+${esc(q.question)}
+
+</div>
+
+<div class="preview-options">
+
+A) ${esc(q.optionA)}
+<br>
+
+B) ${esc(q.optionB)}
+<br>
+
+C) ${esc(q.optionC)}
+<br>
+
+D) ${esc(q.optionD)}
+
+</div>
+
+<div class="preview-answer">
+
+✓ Correct Answer:
+${esc(q.answer)}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+html += `</div>`;
+
+}
+
+
+if(result.errors.length){
+
+html += `
+
+<div class="error-list">
+
+<b>
+⚠️ ${result.errors.length}
+Question(s) में समस्या
+</b>
+
+<br><br>
+
+`;
+
+result.errors.forEach(error=>{
+
+html += `
+
+<div style="margin-bottom:10px">
+
+<b>
+Question ${error.number}
+</b>
+
+<br>
+
+Missing:
+${esc(error.missing.join(", "))}
+
+<br>
+
+<small>
+${esc(error.raw.substring(0,250))}
+</small>
+
+</div>
+
+`;
+
+});
+
+
+html += `</div>`;
+
+}
+
+
+$("bulkBankResult").innerHTML =
+html;
+
+
+$("saveBulkBank").disabled =
+result.questions.length===0;
+
+};
+
+
+/* =====================================================
+   BULK BANK SAVE
+===================================================== */
+
+$("saveBulkBank").onclick =
+async function(){
+
+if(!parsedBankQuestions.length){
+
+notice(
+"पहले Preview करें।",
+"error"
+);
+
+return;
+
+}
+
+
+const button =
+this;
+
+button.disabled=true;
+
+
+$("bulkBankProgress").style.display =
+"block";
+
+
+try{
+
+const chunkSize =
+450;
+
+let saved=0;
+
+const total =
+parsedBankQuestions.length;
+
+
+for(
+let start=0;
+start<total;
+start+=chunkSize
+){
+
+const chunk =
+parsedBankQuestions.slice(
+start,
+start+chunkSize
+);
+
+
+const batch =
+writeBatch(db);
+
+
+chunk.forEach(q=>{
+
+const ref =
+doc(
+collection(
+db,
+"questionBank"
+)
+);
+
+
+batch.set(
+ref,
+{
+
+question:
+q.question,
+
+optionA:
+q.optionA,
+
+optionB:
+q.optionB,
+
+optionC:
+q.optionC,
+
+optionD:
+q.optionD,
+
+answer:
+q.answer,
+
+createdAt:
+serverTimestamp()
+
+}
+
+);
+
+});
+
+
+await batch.commit();
+
+
+saved +=
+chunk.length;
+
+
+$("bulkBankProgressBar")
+.style.width =
+Math.round(
+(saved/total)*100
+) + "%";
+
+}
+
+
+notice(
+`${saved} Questions Question Bank में save हो गए।`
+);
+
+
+$("bulkBankText").value="";
+
+parsedBankQuestions=[];
+
+$("saveBulkBank").disabled=true;
+
+
+setTimeout(()=>{
+
+$("bulkBankModal").style.display =
+"none";
+
+$("bulkBankProgress").style.display =
+"none";
+
+$("bulkBankProgressBar").style.width =
+"0%";
+
+button.disabled=false;
+
+},1000);
+
+
+}catch(error){
+
+console.error(error);
+
+notice(
+"Bulk Questions Question Bank में save नहीं हुए।",
+"error"
+);
+
+button.disabled=false;
+
+}
+
+};
+
+
+/* =====================================================
+   ORIGINAL BULK TEST
+   =====================================================
+   नीचे वाला पूरा logic आपका पुराना वाला ही है।
+===================================================== */
+
+
+/* =====================================================
+   BULK MODAL
+===================================================== */
+
+$("bulkBtn").onclick =
+function(){
+
+$("bulkModal").style.display =
+"block";
+
+$("bulkResult").innerHTML =
+"";
+
+$("saveBulk").disabled =
+true;
+
+parsedBulkQuestions = [];
+
+};
+
+
+/* =====================================================
+   CLOSE BULK
+===================================================== */
+
+$("closeBulk").onclick =
+()=>{
+
+$("bulkModal").style.display =
+"none";
+
+};
+
+
+/* =====================================================
+   BULK CLEAR
+===================================================== */
+
+$("clearBulk").onclick =
+function(){
+
+$("bulkText").value="";
+
+$("bulkResult").innerHTML="";
+
+$("saveBulk").disabled=true;
+
+parsedBulkQuestions=[];
+
+};
+
+
+/* =====================================================
+   ORIGINAL QUESTION START
+===================================================== */
+
+function isTestQuestionStart(line){
+
+const text =
+String(line || "").trim();
+
+
+if(
+/^\d+\s*[\.\):\-]\s+/.test(text)
+){
+
+return true;
+
+}
+
+
+if(
+/^Q\s*\.?\s*\d+\s*[\.\):\-]?\s+/i.test(text)
+){
+
+return true;
+
+}
+
+
+if(
+/^Question\s+\d+\s*[\.\):\-]?\s+/i.test(text)
+){
+
+return true;
+
+}
+
+
+return false;
+
+}
+
+
+/* =====================================================
+   ORIGINAL CLEAN NUMBER
+===================================================== */
+
+function cleanTestQuestion(text){
+
+return String(text || "")
+.trim()
+
+.replace(
+/^\d+\s*[\.\):\-]\s*/,
+""
+)
+
+.replace(
+/^Q\s*\.?\s*\d+\s*[\.\):\-]?\s*/i,
+""
+)
+
+.replace(
+/^Question\s+\d+\s*[\.\):\-]?\s*/i,
+""
+)
+
+.trim();
+
+}
+
+
+/* =====================================================
+   ORIGINAL OPTION
+===================================================== */
+
+function getTestOption(line){
+
+const text =
+String(line || "").trim();
+
+
+const match =
+text.match(
+/^[\(\[]?\s*([ABCD])\s*[\)\]\.\:\-]\s*(.+)$/i
+);
+
+
+if(!match){
+
+return null;
+
+}
+
+
+return {
+
+letter:
+match[1].toUpperCase(),
+
+value:
+match[2].trim()
+
+};
+
+}
+
+
+/* =====================================================
+   ORIGINAL ANSWER
+===================================================== */
+
+function getTestAnswerText(line){
+
+const text =
+String(line || "").trim();
+
+
+let match =
+text.match(
+/^(?:उत्तर|उत्तर\s*है|उ0|उत्त)\s*[\:\=\-]?\s*(.+)$/i
+);
+
+
+if(match){
+
+return match[1].trim();
+
+}
+
+
+match =
+text.match(
+/^(?:answer|ans|correct\s*answer|correct)\s*[\:\=\-]?\s*(.+)$/i
+);
+
+
+if(match){
+
+return match[1].trim();
+
+}
+
+
+return "";
+
+}
+
+
+/* =====================================================
+   ORIGINAL NORMALIZE
+===================================================== */
+
+function normalizeTestAnswer(text){
+
+if(!text)return "";
+
+
+const value =
+String(text)
+.trim()
+.toUpperCase();
+
+
+let match =
+value.match(
+/^[\(\[]?\s*([ABCD])\s*[\)\]]?/
+);
+
+
+if(match){
+
+return match[1];
+
+}
+
+
+match =
+value.match(
+/^([ABCD])(?:\s|[\.\):\-]|$)/
+);
+
+
+if(match){
+
+return match[1];
+
+}
+
+
+match =
+value.match(
+/\b([ABCD])\b/
+);
+
+
+if(match){
+
+return match[1];
+
+}
+
+
+return "";
+
+}
+
+
+/* =====================================================
+   ORIGINAL BULK PARSER
+===================================================== */
+
+function parseBulkText(raw){
+
+const text =
+String(raw || "")
+.replace(/\r\n/g,"\n")
+.replace(/\r/g,"\n")
+.replace(/\u00A0/g," ")
+.trim();
+
+
+if(!text){
+
+return {
+questions:[],
+errors:["No text"]
+};
+
+}
+
+
+const lines =
+text
+.split("\n")
+.map(x=>x.trim())
+.filter(Boolean);
+
+
+const blocks=[];
+
+let current=[];
+
+
+for(const line of lines){
+
+if(isTestQuestionStart(line)){
+
+if(current.length){
+
+blocks.push(current);
+
+}
+
+current=[line];
+
+}else{
+
+if(current.length){
+
+current.push(line);
+
+}else{
+
+current=[line];
+
+}
+
+}
+
+}
+
+
+if(current.length){
+
+blocks.push(current);
+
+}
+
+
+const valid=[];
+
+const errors=[];
+
+
+blocks.forEach((block,index)=>{
+
+let questionParts=[];
+
+let optionA="";
+let optionB="";
+let optionC="";
+let optionD="";
+
+let answer="";
+
+let optionStarted=false;
+
+
+for(let i=0;i<block.length;i++){
+
+const line =
+block[i].trim();
+
+
+const answerText =
+getTestAnswerText(line);
+
+
+if(answerText){
+
+answer =
+normalizeTestAnswer(answerText);
+
+continue;
+
+}
+
+
+const option =
+getTestOption(line);
+
+
+if(option){
+
+optionStarted=true;
+
+
+if(option.letter==="A")
+optionA=option.value;
+
+if(option.letter==="B")
+optionB=option.value;
+
+if(option.letter==="C")
+optionC=option.value;
+
+if(option.letter==="D")
+optionD=option.value;
+
+continue;
+
+}
+
+
+if(!optionStarted){
+
+let qLine=line;
+
+
+if(i===0){
+
+qLine =
+cleanTestQuestion(qLine);
+
+}
+
+
+if(qLine){
+
+questionParts.push(qLine);
+
+}
+
+}
+
+}
+
+
+const question =
+cleanTestQuestion(
+questionParts.join(" ").trim()
+);
+
+
+const missing=[];
+
+
+if(!question)
+missing.push("Question");
+
+if(!optionA)
+missing.push("Option A");
+
+if(!optionB)
+missing.push("Option B");
+
+if(!optionC)
+missing.push("Option C");
+
+if(!optionD)
+missing.push("Option D");
+
+if(!answer)
+missing.push("Correct Answer");
+
+
+if(missing.length){
+
+errors.push({
+
+number:index+1,
+
+missing,
+
+raw:block.join(" ")
+
+});
+
+return;
+
+}
+
+
+valid.push({
+
+question,
+optionA,
+optionB,
+optionC,
+optionD,
+answer
+
+});
+
+});
+
+
+return {
+questions:valid,
+errors
+};
+
+}
+
+
+/* =====================================================
+   ORIGINAL BULK PREVIEW
+===================================================== */
+
+$("previewBulk").onclick =
+function(){
+
+const testId =
+$("bulkTest").value;
+
+
+const text =
+$("bulkText").value.trim();
+
+
+if(!testId){
+
+notice(
+"पहले Test चुनें।",
+"error"
+);
+
+return;
+
+}
+
+
+if(!text){
+
+notice(
+"Questions paste करें।",
+"error"
+);
+
+return;
+
+}
+
+
+const result =
+parseBulkText(text);
+
+
+parsedBulkQuestions =
+result.questions;
+
+
+let html = `
+
+<div class="summary">
+
+<span>
+<b>Detected:</b>
+${result.questions.length}
+</span>
+
+<span>
+<b>Errors:</b>
+${result.errors.length}
+</span>
+
+</div>
+
+`;
+
+
+if(result.questions.length){
+
+html += `
+
+<div
+class="success"
+style="
+padding:14px;
+border-radius:10px;
+margin-top:12px;
+">
+
+<b>
+✓ ${result.questions.length}
+Questions Ready
+</b>
+
+<br>
+
+ये Questions सीधे चुने हुए Test में save होंगे।
+
+</div>
+
+`;
+
+
+html += `<div class="preview">`;
+
+
+result.questions.forEach((q,i)=>{
+
+html += `
+
+<div class="preview-item">
+
+<div class="preview-q">
+
+Q${i+1}.
+${esc(q.question)}
+
+</div>
+
+<div class="preview-options">
+
+A) ${esc(q.optionA)}
+<br>
+
+B) ${esc(q.optionB)}
+<br>
+
+C) ${esc(q.optionC)}
+<br>
+
+D) ${esc(q.optionD)}
+
+</div>
+
+<div class="preview-answer">
+
+✓ Correct Answer:
+${esc(q.answer)}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+html += `</div>`;
+
+}
+
+
+if(result.errors.length){
+
+html += `
+
+<div class="error-list">
+
+<b>
+⚠️ ${result.errors.length}
+Question(s) में समस्या
+</b>
+
+<br><br>
+
+`;
+
+result.errors.forEach(error=>{
+
+html += `
+
+<div style="margin-bottom:10px">
+
+<b>
+Question ${error.number}
+</b>
+
+<br>
+
+Missing:
+${esc(error.missing.join(", "))}
+
+<br>
+
+<small>
+${esc(error.raw.substring(0,250))}
+</small>
+
+</div>
+
+`;
+
+});
+
+
+html += `</div>`;
+
+}
+
+
+$("bulkResult").innerHTML =
+html;
+
+
+$("saveBulk").disabled =
+result.questions.length===0;
+
+};
+
+
+/* =====================================================
+   ORIGINAL BULK SAVE
+===================================================== */
+
+$("saveBulk").onclick =
+async function(){
+
+const testId =
+$("bulkTest").value;
+
+
+if(!testId){
+
+notice(
+"Test Select करें।",
+"error"
+);
+
+return;
+
+}
+
+
+if(!parsedBulkQuestions.length){
+
+notice(
+"पहले Preview करें।",
+"error"
+);
+
+return;
+
+}
+
+
+const button =
+this;
+
+button.disabled=true;
+
+
+$("bulkProgress").style.display =
+"block";
+
+
+try{
+
+const chunkSize=450;
+
+let saved=0;
+
+const total =
+parsedBulkQuestions.length;
+
+
+for(
+let start=0;
+start<total;
+start+=chunkSize
+){
+
+const chunk =
+parsedBulkQuestions.slice(
+start,
+start+chunkSize
+);
+
+
+const batch =
+writeBatch(db);
+
+
+chunk.forEach(q=>{
+
+const ref =
+doc(
+collection(
+db,
+"cbtQuestions"
+)
+);
+
+
+batch.set(
+ref,
+{
+
+testId,
+
+question:q.question,
+
+optionA:q.optionA,
+
+optionB:q.optionB,
+
+optionC:q.optionC,
+
+optionD:q.optionD,
+
+answer:q.answer,
+
+createdAt:
+serverTimestamp()
+
+}
+
+);
+
+});
+
+
+await batch.commit();
+
+
+saved +=
+chunk.length;
+
+
+$("bulkProgressBar")
+.style.width =
+Math.round(
+(saved/total)*100
+) + "%";
+
+}
+
+
+notice(
+`${saved} Questions सीधे Test में add हो गए।`
+);
+
+
+$("bulkText").value="";
+
+parsedBulkQuestions=[];
+
+$("saveBulk").disabled=true;
+
+
+setTimeout(()=>{
+
+$("bulkModal").style.display =
+"none";
+
+$("bulkProgress").style.display =
+"none";
+
+$("bulkProgressBar").style.width =
+"0%";
+
+button.disabled=false;
+
+},1000);
+
+
+}catch(error){
+
+console.error(error);
+
+notice(
+"Bulk Questions save नहीं हुए।",
+"error"
+);
+
+button.disabled=false;
+
+}
+
+};
+
+
+/* =====================================================
+   SEARCH / FILTER EVENTS
+===================================================== */
+
+$("search").addEventListener(
+"input",
+render
+);
+
+$("subjectFilter").addEventListener(
+"change",
+render
+);
+
+$("answerFilter").addEventListener(
+"change",
+render
+);
+
+
+/* =====================================================
+   MODAL OUTSIDE CLICK
+===================================================== */
+
+window.addEventListener(
+"click",
+e=>{
+
+if(e.target===$("editModal"))
+closeEdit();
+
+if(e.target===$("bulkModal"))
+$("bulkModal").style.display="none";
+
+if(e.target===$("copyModal"))
+$("copyModal").style.display="none";
+
+if(e.target===$("bulkBankModal"))
+$("bulkBankModal").style.display="none";
+
+});
+
+</script>
+
+</body>
+  </html>
