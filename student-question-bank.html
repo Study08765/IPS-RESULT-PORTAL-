@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<meta name="theme-color" content="#071f43">
+
+<title>QUESTION BANK | THE STUDY POINT</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- PDF LIBRARY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+
+    background:
+    linear-gradient(
+        180deg,
+        #edf5ff 0%,
+        #f9fbff 50%,
+        #e8f0f8 100%
+    );
+
+    color:#173b62;
+
+    padding-bottom:30px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    width:100%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #021d42,
+        #0759a8,
+        #032d60
+    );
+
+    color:#fff;
+
+    padding:
+    17px 14px 18px;
+
+    border-bottom:
+    3px solid #dcb53e;
+
+    border-radius:
+    0 0 28px 28px;
+
+    box-shadow:
+    0 9px 28px
+    rgba(0,35,75,.30);
+
+}
+
+.header-inner{
+
+    width:100%;
+    max-width:1150px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.logo{
+
+    width:58px;
+    height:58px;
+
+    flex:0 0 58px;
+
+    padding:3px;
+
+    background:#fff;
+
+    border:
+    3px solid #ffd84d;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 5px 15px
+    rgba(0,0,0,.25);
+
+}
+
+.logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+}
+
+.header-title{
+
+    font-size:21px;
+
+    line-height:1.1;
+
+    font-weight:900;
+
+    color:#ffd84d;
+
+    letter-spacing:.5px;
+
+}
+
+.header-sub{
+
+    margin-top:4px;
+
+    font-size:9px;
+
+    color:#e9f5ff;
+
+    font-weight:700;
+
+    letter-spacing:.8px;
+
+}
+
+.back{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin-top:13px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:
+    20px 12px 30px;
+
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title{
+
+    text-align:center;
+
+    margin:
+    2px 0 17px;
+
+}
+
+.page-title h1{
+
+    color:#073f80;
+
+    font-size:27px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+}
+
+.page-title p{
+
+    margin-top:5px;
+
+    color:#70859a;
+
+    font-size:10px;
+
+    font-weight:600;
+
+}
+
+
+/* =========================================================
+   LUXURY STRIP
+========================================================= */
+
+.premium-strip{
+
+    width:100%;
+
+    margin-bottom:16px;
+
+    padding:13px 15px;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        90deg,
+        #071f43,
+        #0a5da9,
+        #071f43
+    );
+
+    border:
+    1px solid #dcb53e;
+
+    border-radius:17px;
+
+    box-shadow:
+
+    0 5px 0 #765b13,
+
+    0 10px 20px
+    rgba(5,35,70,.18),
+
+    inset 0 2px 4px
+    rgba(255,255,255,.15);
+
+}
+
+.premium-strip strong{
+
+    color:#ffd84d;
+
+    font-size:14px;
+
+    font-weight:900;
+
+}
+
+.premium-strip span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#fff;
+
+    font-size:8px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:12px;
+
+    margin-bottom:16px;
+
+}
+
+.stat{
+
+    padding:14px 8px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #eef5fb
+    );
+
+    border:
+    1px solid #d8b43e;
+
+    border-radius:16px;
+
+    box-shadow:
+
+    0 5px 0 #b08a1b,
+
+    0 9px 18px
+    rgba(10,55,100,.12),
+
+    inset 0 2px 4px
+    rgba(255,255,255,.95);
+
+}
+
+.stat i{
+
+    display:block;
+
+    color:#b27c08;
+
+    font-size:17px;
+
+    margin-bottom:4px;
+
+}
+
+.stat strong{
+
+    display:block;
+
+    color:#073f80;
+
+    font-size:21px;
+
+    font-weight:900;
+
+}
+
+.stat span{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#71859a;
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-panel{
+
+    margin-bottom:17px;
+
+    padding:14px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f4f8fc
+    );
+
+    border:
+    1px solid #d6e2ed;
+
+    border-radius:17px;
+
+    box-shadow:
+    0 8px 24px
+    rgba(20,70,120,.10);
+
+}
+
+.search-title{
+
+    margin-bottom:7px;
+
+    color:#4c6985;
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+.search-box{
+
+    position:relative;
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    left:13px;
+
+    top:50%;
+
+    transform:
+    translateY(-50%);
+
+    color:#62809d;
+
+    font-size:13px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:
+    12px 12px 12px 38px;
+
+    border:
+    1px solid #cbd9e7;
+
+    border-radius:12px;
+
+    outline:none;
+
+    background:#f8fbff;
+
+    color:#234d74;
+
+    font-size:11px;
+
+    font-weight:600;
+
+}
+
+.search-box input:focus{
+
+    border-color:#d5ad32;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(213,173,50,.12);
+
+}
+
+
+/* =========================================================
+   QUESTION BANK PANEL
+========================================================= */
+
+.question-panel{
+
+    width:100%;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f8fbfe
+    );
+
+    border:
+    1px solid #d8b43e;
+
+    border-radius:22px;
+
+    box-shadow:
+
+    0 7px 0 #b08a1b,
+
+    0 14px 30px
+    rgba(10,55,100,.13),
+
+    inset 0 2px 4px
+    rgba(255,255,255,.95);
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================================
+   QUESTION PANEL HEADER
+========================================================= */
+
+.question-panel-head{
+
+    padding:
+    15px 18px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #071f43,
+        #0759a8,
+        #071f43
+    );
+
+    color:#fff;
+
+    border-bottom:
+    2px solid #dcb53e;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.question-panel-head strong{
+
+    color:#ffd84d;
+
+    font-size:15px;
+
+    font-weight:900;
+
+}
+
+.question-panel-head span{
+
+    color:#e8f3ff;
+
+    font-size:9px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   QUESTION LIST
+========================================================= */
+
+.question-list{
+
+    width:100%;
+
+    padding:
+    7px 17px 17px;
+
+}
+
+
+/* =========================================================
+   QUESTION ROW
+   CONTINUOUS PAPER STYLE
+========================================================= */
+
+.question-card{
+
+    position:relative;
+
+    width:100%;
+
+    padding:
+    15px 5px 14px;
+
+    background:#fff;
+
+    border-bottom:
+    1px solid #dfe7ef;
+
+}
+
+
+/* GOLD TOP ONLY FIRST */
+
+.question-card:first-child{
+
+    border-top:none;
+
+}
+
+
+/* QUESTION NUMBER */
+
+.question-number{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:30px;
+
+    padding:
+    4px 9px;
+
+    margin-bottom:7px;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff5bd,
+        #e8b936
+    );
+
+    border:
+    1px solid #b88a1a;
+
+    color:#6e4b00;
+
+    font-size:9px;
+
+    font-weight:900;
+
+}
+
+
+/* QUESTION TEXT */
+
+.question-text{
+
+    color:#073f80;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    font-weight:800;
+
+}
+
+
+/* ANSWER */
+
+.answer{
+
+    display:inline-block;
+
+    margin-top:9px;
+
+    padding:
+    7px 12px;
+
+    border-radius:10px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #e8faef,
+        #d8f4e3
+    );
+
+    border:
+    1px solid #9bd2ae;
+
+    color:#087a3b;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+    font-weight:900;
+
+}
+
+.answer i{
+
+    margin-right:5px;
+
+}
+
+
+/* =========================================================
+   EMPTY / ERROR
+========================================================= */
+
+.message-box{
+
+    width:100%;
+
+    padding:45px 15px;
+
+    text-align:center;
+
+    color:#71859a;
+
+    font-size:11px;
+
+    font-weight:600;
+
+}
+
+.message-box i{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#b27c08;
+
+    font-size:30px;
+
+}
+
+.error-message{
+
+    color:#c52727;
+
+}
+
+
+/* =========================================================
+   DOWNLOAD SECTION — BOTTOM
+========================================================= */
+
+.download-section{
+
+    margin-top:22px;
+
+    width:100%;
+
+}
+
+.download-btn{
+
+    width:100%;
+
+    min-height:65px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        145deg,
+        #176bc0,
+        #05295b
+    );
+
+    border:
+    2px solid #dcb53e;
+
+    box-shadow:
+
+    0 7px 0 #03172f,
+
+    0 13px 23px
+    rgba(0,35,75,.23),
+
+    inset 0 3px 5px
+    rgba(255,255,255,.20);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    letter-spacing:.3px;
+
+    transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+
+}
+
+.download-btn i{
+
+    color:#ffd84d;
+
+    font-size:21px;
+
+}
+
+.download-btn small{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#dceeff;
+
+    font-size:7px;
+
+    font-weight:600;
+
+}
+
+.download-btn:active{
+
+    transform:
+    translateY(5px);
+
+    box-shadow:
+
+    0 2px 0 #03172f,
+
+    0 7px 13px
+    rgba(0,35,75,.17);
+
+}
+
+.download-btn:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    width:100%;
+
+    margin-top:6px;
+
+    padding:15px 10px;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        90deg,
+        #021d42,
+        #0759a8,
+        #021d42
+    );
+
+    border-top:
+    3px solid #dcb53e;
+
+    box-shadow:
+    0 -5px 18px
+    rgba(0,35,75,.18);
+
+}
+
+.footer strong{
+
+    display:block;
+
+    color:#ffd84d;
+
+    font-size:13px;
+
+    font-weight:900;
+
+}
+
+.footer span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#e5f2ff;
+
+    font-size:8px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   PDF AREA
+   IMPORTANT: NOT FAR OFF-SCREEN
+========================================================= */
+
+#pdfArea{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:794px;
+
+    min-height:1123px;
+
+    background:#fff;
+
+    color:#111;
+
+    z-index:-9999;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+
+/* =========================================================
+   PDF HEADER
+========================================================= */
+
+.pdf-header{
+
+    width:100%;
+
+    padding:
+    30px 35px 25px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #021d42,
+        #0759a8,
+        #032d60
+    );
+
+    color:#fff;
+
+    border-bottom:
+    6px solid #dcb53e;
+
+}
+
+.pdf-header-title{
+
+    color:#ffd84d;
+
+    font-size:31px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+}
+
+.pdf-header-sub{
+
+    margin-top:5px;
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    letter-spacing:.7px;
+
+}
+
+.pdf-header-line{
+
+    width:72%;
+
+    height:2px;
+
+    margin:13px auto 0;
+
+    background:#dcb53e;
+
+}
+
+
+/* =========================================================
+   PDF CONTENT
+========================================================= */
+
+.pdf-content{
+
+    padding:
+    25px 34px 30px;
+
+}
+
+.pdf-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:
+    10px 13px;
+
+    margin-bottom:16px;
+
+    background:#f3f7fb;
+
+    border:
+    1px solid #d5e1eb;
+
+    border-radius:9px;
+
+    color:#345a7c;
+
+    font-size:11px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   PDF QUESTION
+========================================================= */
+
+.pdf-question{
+
+    width:100%;
+
+    margin-bottom:13px;
+
+    padding:
+    9px 11px 11px;
+
+    border-bottom:
+    1px solid #dce4eb;
+
+    border-left:
+    4px solid #0759a8;
+
+    background:#fcfdff;
+
+    border-radius:
+    0 7px 7px 0;
+
+    page-break-inside:avoid;
+
+    break-inside:avoid;
+
+}
+
+.pdf-q-number{
+
+    color:#a16f00;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    margin-bottom:4px;
+
+}
+
+.pdf-q-text{
+
+    color:#092e61;
+
+    font-size:13px;
+
+    line-height:1.65;
+
+    font-weight:800;
+
+}
+
+.pdf-answer{
+
+    display:inline-block;
+
+    margin-top:7px;
+
+    padding:
+    6px 9px;
+
+    background:#e8faef;
+
+    border:
+    1px solid #a5d7b7;
+
+    border-radius:6px;
+
+    color:#087a3b;
+
+    font-size:10px;
+
+    line-height:1.45;
+
+    font-weight:900;
+
+}
+
+.pdf-footer{
+
+    margin-top:20px;
+
+    padding-top:12px;
+
+    text-align:center;
+
+    border-top:
+    2px solid #dcb53e;
+
+    color:#526d86;
+
+    font-size:9px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    body{
+        padding-bottom:20px;
+    }
+
+    .header{
+
+        padding:
+        15px 11px 17px;
+
+        border-radius:
+        0 0 21px 21px;
+
+    }
+
+    .header-inner{
+        gap:9px;
+    }
+
+    .logo{
+
+        width:50px;
+        height:50px;
+
+        flex-basis:50px;
+
+    }
+
+    .header-title{
+        font-size:17px;
+    }
+
+    .header-sub{
+        font-size:7px;
+    }
+
+    .back{
+        font-size:9px;
+        margin-top:10px;
+    }
+
+    .container{
+
+        padding:
+        15px 8px 25px;
+
+    }
+
+    .page-title h1{
+        font-size:21px;
+    }
+
+    .page-title p{
+        font-size:8px;
+    }
+
+    .premium-strip{
+        padding:11px 8px;
+    }
+
+    .premium-strip strong{
+        font-size:11px;
+    }
+
+    .premium-strip span{
+        font-size:7px;
+    }
+
+    .stats{
+        gap:7px;
+    }
+
+    .stat{
+        padding:10px 4px;
+        border-radius:13px;
+    }
+
+    .stat strong{
+        font-size:17px;
+    }
+
+    .stat span{
+        font-size:6px;
+    }
+
+    .search-panel{
+        padding:11px;
+        border-radius:14px;
+    }
+
+    .search-title{
+        font-size:8px;
+    }
+
+    .search-box input{
+        font-size:10px;
+        padding:10px 10px 10px 34px;
+    }
+
+
+    /* QUESTION PANEL */
+
+    .question-panel{
+        border-radius:17px;
+    }
+
+    .question-panel-head{
+        padding:
+        12px 11px;
+    }
+
+    .question-panel-head strong{
+        font-size:11px;
+    }
+
+    .question-panel-head span{
+        font-size:7px;
+    }
+
+    .question-list{
+        padding:
+        5px 11px 12px;
+    }
+
+    .question-card{
+        padding:
+        12px 3px;
+    }
+
+    .question-number{
+        min-width:28px;
+        padding:3px 8px;
+        font-size:7px;
+    }
+
+    .question-text{
+        font-size:12px;
+        line-height:1.7;
+    }
+
+    .answer{
+        margin-top:8px;
+        padding:6px 9px;
+        font-size:9px;
+    }
+
+    .download-section{
+        margin-top:19px;
+    }
+
+    .download-btn{
+        min-height:59px;
+        border-radius:15px;
+        font-size:10px;
+        gap:9px;
+    }
+
+    .download-btn i{
+        font-size:18px;
+    }
+
+    .download-btn small{
+        font-size:6px;
+    }
+
+    .footer{
+        padding:12px 7px;
+    }
+
+    .footer strong{
+        font-size:11px;
+    }
+
+    .footer span{
+        font-size:7px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media(max-width:380px){
+
+    .header-title{
+        font-size:15px;
+    }
+
+    .page-title h1{
+        font-size:19px;
+    }
+
+    .question-text{
+        font-size:11px;
+    }
+
+    .answer{
+        font-size:8px;
+    }
+
+}
+
+
+/* =========================================================
+   PDF PRINT
+========================================================= */
+
+@media print{
+
+    body{
+        background:#fff;
+    }
+
+    #pdfArea{
+        position:static;
+        opacity:1;
+        z-index:99999;
+        width:794px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="logo">
+
+            <img
+            src="icon-512.png"
+            alt="THE STUDY POINT">
+
+        </div>
+
+        <div>
+
+            <div class="header-title">
+                THE STUDY POINT
+            </div>
+
+            <div class="header-sub">
+                STUDENT QUESTION BANK
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <a
+    href="index.html"
+    class="back">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        BACK TO PORTAL
+
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <!-- TITLE -->
+
+    <div class="page-title">
+
+        <h1>
+            📚 QUESTION BANK
+        </h1>
+
+        <p>
+            Practice Questions • Correct Answers
+        </p>
+
+    </div>
+
+
+    <!-- PREMIUM STRIP -->
+
+    <div class="premium-strip">
+
+        <strong>
+            📝 STUDY • PRACTICE • SUCCESS
+        </strong>
+
+        <span>
+            THE STUDY POINT Question Bank
+        </span>
+
+    </div>
+
+
+    <!-- =================================================
+         STATS
+    ================================================== -->
+
+    <div class="stats">
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-layer-group"></i>
+
+            <strong id="totalQuestions">
+                0
+            </strong>
+
+            <span>
+                TOTAL QUESTIONS
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-filter"></i>
+
+            <strong id="visibleQuestions">
+                0
+            </strong>
+
+            <span>
+                SHOWING
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <strong>
+                ✓
+            </strong>
+
+            <span>
+                ANSWERS
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         SEARCH
+    ================================================== -->
+
+    <div class="search-panel">
+
+        <div class="search-title">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            SEARCH QUESTION
+
+        </div>
+
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-search"></i>
+
+            <input
+            id="searchInput"
+            type="search"
+            placeholder="Question या answer search करें..."
+            autocomplete="off">
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         QUESTION BANK
+    ================================================== -->
+
+    <section class="question-panel">
+
+
+        <div class="question-panel-head">
+
+            <strong>
+                <i class="fa-solid fa-book-open"></i>
+                QUESTION BANK
+            </strong>
+
+            <span>
+                QUESTIONS + CORRECT ANSWERS
+            </span>
+
+        </div>
+
+
+        <div
+        id="questionList"
+        class="question-list">
+
+
+            <div class="message-box">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                Question Bank Loading...
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         DOWNLOAD — BOTTOM
+    ================================================== -->
+
+    <div class="download-section">
+
+        <button
+        id="downloadPdfBtn"
+        class="download-btn">
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            <div>
+
+                DOWNLOAD QUESTION BANK PDF
+
+                <small>
+                    THE STUDY POINT • A4 LUXURY PRINT
+                </small>
+
+            </div>
+
+        </button>
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <strong>
+        THE STUDY POINT
+    </strong>
+
+    <span>
+        QUESTION BANK • STUDY • PRACTICE • SUCCESS
+    </span>
+
+</footer>
+
+
+<!-- =====================================================
+     PDF AREA
+===================================================== -->
+
+<div id="pdfArea">
+
+
+    <div class="pdf-header">
+
+        <div class="pdf-header-title">
+            THE STUDY POINT
+        </div>
+
+        <div class="pdf-header-sub">
+            QUESTION BANK
+        </div>
+
+        <div class="pdf-header-line"></div>
+
+    </div>
+
+
+    <div class="pdf-content">
+
+
+        <div class="pdf-meta">
+
+            <span>
+                📚 QUESTION BANK
+            </span>
+
+            <span id="pdfCount">
+                Total Questions: 0
+            </span>
+
+        </div>
+
+
+        <div id="pdfQuestions"></div>
+
+
+        <div class="pdf-footer">
+
+            THE STUDY POINT • DIGITAL LEARNING
+
+            <br>
+
+            Practice Questions • Correct Answers
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+
+import { db } from "./firebase.js";
+
+
+import {
+
+    collection,
+    onSnapshot
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let questions = [];
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const questionList =
+document.getElementById(
+    "questionList"
+);
+
+const searchInput =
+document.getElementById(
+    "searchInput"
+);
+
+const totalQuestions =
+document.getElementById(
+    "totalQuestions"
+);
+
+const visibleQuestions =
+document.getElementById(
+    "visibleQuestions"
+);
+
+const downloadPdfBtn =
+document.getElementById(
+    "downloadPdfBtn"
+);
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function esc(value){
+
+    return String(value ?? "")
+    .replace(
+        /[&<>"']/g,
+        function(c){
+
+            return {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[c];
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   GET ANSWER
+===================================================== */
+
+function getFullAnswer(data){
+
+    const raw =
+    String(
+        data.answer || ""
+    )
+    .trim();
+
+
+    const upper =
+    raw.toUpperCase();
+
+
+    if(upper === "A"){
+
+        return data.optionA || "A";
+
+    }
+
+    if(upper === "B"){
+
+        return data.optionB || "B";
+
+    }
+
+    if(upper === "C"){
+
+        return data.optionC || "C";
+
+    }
+
+    if(upper === "D"){
+
+        return data.optionD || "D";
+
+    }
+
+
+    return raw;
+
+}
+
+
+/* =====================================================
+   LOAD QUESTION BANK
+===================================================== */
+
+onSnapshot(
+
+    collection(
+        db,
+        "questionBank"
+    ),
+
+    snapshot=>{
+
+
+        questions = [];
+
+
+        snapshot.forEach(
+            docSnap=>{
+
+                questions.push({
+
+                    id:
+                    docSnap.id,
+
+                    data:
+                    docSnap.data()
+
+                });
+
+            }
+        );
+
+
+        /* NEWEST FIRST */
+
+        questions.sort(
+            (a,b)=>{
+
+                return (
+
+                    (b.data.createdAt?.seconds || 0)
+                    -
+                    (a.data.createdAt?.seconds || 0)
+
+                );
+
+            }
+        );
+
+
+        renderQuestions();
+
+    },
+
+
+    error=>{
+
+
+        console.error(
+            "Question Bank Error:",
+            error
+        );
+
+
+        questionList.innerHTML = `
+
+            <div class="message-box error-message">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                Question Bank load नहीं हो सका।
+
+                <br><br>
+
+                कृपया थोड़ी देर बाद फिर प्रयास करें।
+
+            </div>
+
+        `;
+
+    }
+
+);
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+function getFilteredQuestions(){
+
+    const search =
+    searchInput.value
+    .trim()
+    .toLowerCase();
+
+
+    if(!search){
+
+        return questions;
+
+    }
+
+
+    return questions.filter(
+        item=>{
+
+            const x =
+            item.data;
+
+
+            const answer =
+            getFullAnswer(x);
+
+
+            const text = [
+
+                x.question,
+                x.answer,
+                x.optionA,
+                x.optionB,
+                x.optionC,
+                x.optionD,
+                answer
+
+            ]
+            .join(" ")
+            .toLowerCase();
+
+
+            return text.includes(
+                search
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   RENDER QUESTIONS
+===================================================== */
+
+function renderQuestions(){
+
+    const filtered =
+    getFilteredQuestions();
+
+
+    totalQuestions.textContent =
+    questions.length;
+
+
+    visibleQuestions.textContent =
+    filtered.length;
+
+
+    if(!filtered.length){
+
+        questionList.innerHTML = `
+
+            <div class="message-box">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                ${
+                    questions.length
+                    ?
+                    "इस search से कोई question नहीं मिला।"
+                    :
+                    "अभी Question Bank में कोई question उपलब्ध नहीं है।"
+                }
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    questionList.innerHTML =
+
+    filtered.map(
+        (item,index)=>{
+
+            const x =
+            item.data;
+
+
+            const answer =
+            getFullAnswer(x);
+
+
+            return `
+
+                <article
+                class="question-card">
+
+
+                    <div class="question-number">
+
+                        ${index + 1}.
+
+                    </div>
+
+
+                    <div class="question-text">
+
+                        ${esc(
+                            x.question ||
+                            "Question उपलब्ध नहीं है।"
+                        )}
+
+                    </div>
+
+
+                    <div class="answer">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        ${esc(
+                            answer ||
+                            "Answer उपलब्ध नहीं है।"
+                        )}
+
+                    </div>
+
+
+                </article>
+
+            `;
+
+        }
+    ).join("");
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+searchInput.addEventListener(
+    "input",
+    renderQuestions
+);
+
+
+/* =====================================================
+   BUILD PDF
+===================================================== */
+
+function buildPdfQuestions(){
+
+    const filtered =
+    getFilteredQuestions();
+
+
+    const pdfQuestions =
+    document.getElementById(
+        "pdfQuestions"
+    );
+
+
+    document.getElementById(
+        "pdfCount"
+    ).textContent =
+    "Total Questions: " +
+    filtered.length;
+
+
+    if(!filtered.length){
+
+        pdfQuestions.innerHTML = `
+
+            <div style="
+                text-align:center;
+                padding:30px;
+                font-size:14px;
+                color:#64748b;
+            ">
+
+                No questions available.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    pdfQuestions.innerHTML =
+
+    filtered.map(
+        (item,index)=>{
+
+            const x =
+            item.data;
+
+
+            const answer =
+            getFullAnswer(x);
+
+
+            return `
+
+                <div class="pdf-question">
+
+                    <div class="pdf-q-number">
+
+                        ${index + 1}.
+
+                    </div>
+
+
+                    <div class="pdf-q-text">
+
+                        ${esc(
+                            x.question ||
+                            ""
+                        )}
+
+                    </div>
+
+
+                    <div class="pdf-answer">
+
+                        ✓ ${esc(
+                            answer ||
+                            "-"
+                        )}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    ).join("");
+
+}
+
+
+/* =====================================================
+   DOWNLOAD PDF
+===================================================== */
+
+downloadPdfBtn.addEventListener(
+    "click",
+    async function(){
+
+
+        const filtered =
+        getFilteredQuestions();
+
+
+        if(!filtered.length){
+
+            alert(
+                "Download करने के लिए कोई question उपलब्ध नहीं है।"
+            );
+
+            return;
+
+        }
+
+
+        if(
+            typeof html2pdf ===
+            "undefined"
+        ){
+
+            alert(
+                "PDF system load नहीं हुआ। Internet connection check करें।"
+            );
+
+            return;
+
+        }
+
+
+        const button =
+        this;
+
+
+        const originalHTML =
+        button.innerHTML;
+
+
+        button.disabled =
+        true;
+
+
+        button.innerHTML = `
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            <div>
+
+                PDF तैयार हो रही है...
+
+                <small>
+                    कृपया प्रतीक्षा करें
+                </small>
+
+            </div>
+
+        `;
+
+
+        const pdfArea =
+        document.getElementById(
+            "pdfArea"
+        );
+
+
+        try{
+
+
+            /* BUILD */
+
+            buildPdfQuestions();
+
+
+            /*
+             * IMPORTANT
+             * PDF AREA temporarily visible
+             * so html2canvas captures it.
+             */
+
+            pdfArea.style.zIndex =
+            "99999";
+
+            pdfArea.style.opacity =
+            "1";
+
+            pdfArea.style.position =
+            "fixed";
+
+            pdfArea.style.left =
+            "0";
+
+            pdfArea.style.top =
+            "0";
+
+
+            /*
+             * Give browser time to
+             * render Hindi text.
+             */
+
+            await new Promise(
+                resolve =>
+                setTimeout(
+                    resolve,
+                    900
+                )
+            );
+
+
+            const options = {
+
+                margin:
+                [
+                    8,
+                    8,
+                    8,
+                    8
+                ],
+
+                filename:
+                "THE-STUDY-POINT-QUESTION-BANK.pdf",
+
+                image:{
+
+                    type:"jpeg",
+
+                    quality:0.98
+
+                },
+
+                html2canvas:{
+
+                    scale:2,
+
+                    useCORS:true,
+
+                    allowTaint:false,
+
+                    backgroundColor:
+                    "#ffffff",
+
+                    logging:false,
+
+                    scrollX:0,
+
+                    scrollY:0,
+
+                    windowWidth:794
+
+                },
+
+                jsPDF:{
+
+                    unit:"mm",
+
+                    format:"a4",
+
+                    orientation:"portrait",
+
+                    compress:true
+
+                },
+
+                pagebreak:{
+
+                    mode:[
+                        "css",
+                        "legacy"
+                    ]
+
+                }
+
+            };
+
+
+            await html2pdf()
+
+            .set(options)
+
+            .from(pdfArea)
+
+            .save();
+
+
+        }
+        catch(error){
+
+
+            console.error(
+                "PDF Error:",
+                error
+            );
+
+
+            alert(
+                "PDF download नहीं हो सकी। कृपया दोबारा प्रयास करें।"
+            );
+
+        }
+
+
+        /*
+         * HIDE PDF AREA AGAIN
+         */
+
+        pdfArea.style.zIndex =
+        "-9999";
+
+        pdfArea.style.opacity =
+        "0";
+
+
+        button.disabled =
+        false;
+
+
+        button.innerHTML =
+        originalHTML;
+
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+  </html>
