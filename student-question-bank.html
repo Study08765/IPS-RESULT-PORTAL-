@@ -1,0 +1,5692 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<meta name="theme-color" content="#f5f1e8">
+
+<title>QUESTION SERIES | THE STUDY POINT</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+</script>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+</script>
+
+
+<style>
+
+/* =========================================================
+RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+
+    background:
+    linear-gradient(
+        180deg,
+        #edf5ff 0%,
+        #f9fbff 50%,
+        #e8f0f8 100%
+    );
+
+    color:#173b62;
+
+}
+
+
+/* =========================================================
+MAIN HEADER
+========================================================= */
+
+.header{
+
+    width:100%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #021d42,
+        #0759a8,
+        #032d60
+    );
+
+    color:#fff;
+
+    padding:15px 12px 16px;
+
+    border-bottom:3px solid #dcb53e;
+
+    border-radius:0 0 23px 23px;
+
+    box-shadow:
+    0 8px 25px rgba(0,35,75,.27);
+
+}
+
+.header-inner{
+
+    width:100%;
+    max-width:1100px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.logo{
+
+    width:52px;
+    height:52px;
+
+    flex:0 0 52px;
+
+    padding:3px;
+
+    background:#fff;
+
+    border:3px solid #ffd84d;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 4px 13px rgba(0,0,0,.25);
+
+}
+
+.logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+}
+
+.header-title{
+
+    color:#ffd84d;
+
+    font-size:19px;
+
+    line-height:1.1;
+
+    font-weight:900;
+
+    letter-spacing:.4px;
+
+}
+
+.header-sub{
+
+    margin-top:3px;
+
+    color:#e9f5ff;
+
+    font-size:7.5px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+}
+
+.back{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-top:10px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:9.5px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+MAIN
+========================================================= */
+
+.container{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:17px 10px 24px;
+
+}
+
+
+/* =========================================================
+TITLE
+========================================================= */
+
+.page-title{
+
+    text-align:center;
+
+    margin:2px 0 13px;
+
+}
+
+.page-title h1{
+
+    color:#073f80;
+
+    font-size:24px;
+
+    font-weight:900;
+
+}
+
+.page-title p{
+
+    margin-top:3px;
+
+    color:#70859a;
+
+    font-size:8.5px;
+
+    font-weight:600;
+
+}
+
+
+/* =========================================================
+TYPE SELECTOR
+========================================================= */
+
+.type-selector{
+
+    width:100%;
+
+    margin-bottom:12px;
+
+    padding:9px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #fff,
+        #f7f2e7
+    );
+
+    border:1px solid #d6bd72;
+
+    border-radius:14px;
+
+    box-shadow:
+    0 5px 15px rgba(70,55,20,.08);
+
+}
+
+.type-selector-title{
+
+    text-align:center;
+
+    margin-bottom:7px;
+
+    color:#6d5720;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+}
+
+.type-buttons{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:7px;
+
+}
+
+.type-btn{
+
+    border:1px solid #d6bd72;
+
+    border-radius:10px;
+
+    padding:10px 7px;
+
+    background:#fff;
+
+    color:#64748b;
+
+    cursor:pointer;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    transition:.2s;
+
+}
+
+.type-btn i{
+
+    margin-right:4px;
+
+}
+
+.type-btn.active.objective{
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b4f91,
+        #083563
+    );
+
+    border-color:#cda936;
+
+    box-shadow:
+    0 4px 10px rgba(5,50,95,.18);
+
+}
+
+.type-btn.active.subjective{
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #76511b,
+        #a77a24
+    );
+
+    border-color:#e0bd58;
+
+    box-shadow:
+    0 4px 10px rgba(100,70,15,.18);
+
+}
+
+
+/* =========================================================
+PREMIUM STRIP
+========================================================= */
+
+.premium-strip{
+
+    width:100%;
+
+    margin-bottom:12px;
+
+    padding:10px;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        90deg,
+        #071f43,
+        #0a5da9,
+        #071f43
+    );
+
+    border:1px solid #dcb53e;
+
+    border-radius:13px;
+
+    box-shadow:
+    0 4px 0 #765b13,
+    0 8px 17px rgba(5,35,70,.15);
+
+}
+
+.premium-strip strong{
+
+    color:#ffd84d;
+
+    font-size:11px;
+
+    font-weight:900;
+
+}
+
+.premium-strip span{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#fff;
+
+    font-size:6.5px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+STATS
+========================================================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:7px;
+
+    margin-bottom:12px;
+
+}
+
+.stat{
+
+    padding:9px 4px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        145deg,
+        #fff,
+        #eef5fb
+    );
+
+    border:1px solid #d5b33e;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 4px 0 #ad8618,
+    0 7px 14px rgba(10,55,100,.09);
+
+}
+
+.stat i{
+
+    display:block;
+
+    color:#b27c08;
+
+    font-size:14px;
+
+    margin-bottom:2px;
+
+}
+
+.stat strong{
+
+    display:block;
+
+    color:#073f80;
+
+    font-size:17px;
+
+    font-weight:900;
+
+}
+
+.stat span{
+
+    display:block;
+
+    color:#71859a;
+
+    font-size:6px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+SEARCH
+========================================================= */
+
+.search-panel{
+
+    margin-bottom:12px;
+
+    padding:10px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #fff,
+        #f4f8fc
+    );
+
+    border:1px solid #d6e2ed;
+
+    border-radius:13px;
+
+    box-shadow:
+    0 6px 17px rgba(20,70,120,.08);
+
+}
+
+.search-title{
+
+    margin-bottom:5px;
+
+    color:#4c6985;
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+.search-box{
+
+    position:relative;
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    left:11px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#62809d;
+
+    font-size:12px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:10px 10px 10px 33px;
+
+    border:1px solid #cbd9e7;
+
+    border-radius:10px;
+
+    outline:none;
+
+    background:#f8fbff;
+
+    color:#234d74;
+
+    font-size:10px;
+
+    font-weight:600;
+
+}
+
+
+/* =========================================================
+QUESTION PANEL
+========================================================= */
+
+.question-panel{
+
+    width:100%;
+
+    background:#fff;
+
+    border:1px solid #d8b43e;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 5px 0 #ad8618,
+    0 11px 24px rgba(10,55,100,.11);
+
+}
+
+.question-panel-head{
+
+    padding:11px 12px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #071f43,
+        #0759a8,
+        #071f43
+    );
+
+    border-bottom:2px solid #dcb53e;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:8px;
+
+}
+
+.question-panel-head strong{
+
+    color:#ffd84d;
+
+    font-size:11px;
+
+    font-weight:900;
+
+}
+
+.question-panel-head span{
+
+    color:#e8f3ff;
+
+    font-size:6.5px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+QUESTION GRID
+========================================================= */
+
+.question-list{
+
+    width:100%;
+
+    padding:10px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+    gap:9px;
+
+    align-items:stretch;
+
+}
+
+
+/* =========================================================
+CATEGORY HEADING SCREEN
+========================================================= */
+
+.category-heading{
+
+    grid-column:1/-1;
+
+    width:100%;
+
+    padding:8px 9px;
+
+    margin:2px 0 1px;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        90deg,
+        #061d3d,
+        #0a4e8e,
+        #061d3d
+    );
+
+    border:1px solid #cda936;
+
+    border-radius:8px;
+
+    font-size:10px;
+
+    line-height:1.3;
+
+    font-weight:900;
+
+    box-shadow:
+    0 3px 0 #806314;
+
+}
+
+
+/* =========================================================
+QUESTION CARD
+========================================================= */
+
+.question-card{
+
+    width:100%;
+
+    min-width:0;
+
+    padding:10px 10px 9px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f7fbff
+    );
+
+    border:1px solid #d8e3ed;
+
+    border-left:3px solid #d4aa2d;
+
+    border-radius:10px;
+
+    box-shadow:
+    0 3px 8px rgba(15,65,110,.07);
+
+}
+
+
+/* =========================================================
+QUESTION LINE
+========================================================= */
+
+.question-line{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:6px;
+
+}
+
+.question-number{
+
+    flex:0 0 auto;
+
+    min-width:20px;
+
+    color:#805900;
+
+    font-size:10px;
+
+    line-height:1.55;
+
+    font-weight:900;
+
+}
+
+.question-text{
+
+    flex:1;
+
+    min-width:0;
+
+    color:#073f80;
+
+    font-size:10.5px;
+
+    line-height:1.55;
+
+    font-weight:700;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+
+}
+
+
+/* =========================================================
+ANSWER
+========================================================= */
+
+.answer{
+
+    margin:
+    5px
+    0
+    0
+    26px;
+
+    padding:
+    4px
+    6px;
+
+    color:#087a3b;
+
+    background:#effaf3;
+
+    border:1px solid #ccebd7;
+
+    border-radius:6px;
+
+    font-size:8px;
+
+    line-height:1.45;
+
+    font-weight:800;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+
+}
+
+.answer i{
+
+    color:#0a9a4d;
+
+    margin-right:3px;
+
+}
+
+
+/* =========================================================
+SUBJECTIVE ANSWER
+========================================================= */
+
+.subjective-answer{
+
+    margin:
+    4px
+    0
+    0
+    26px;
+
+    padding:0;
+
+    color:#4b3a1b;
+
+    background:transparent;
+
+    border:none;
+
+    border-radius:0;
+
+    font-size:8px;
+
+    line-height:1.6;
+
+    font-weight:700;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+
+}
+
+.subjective-answer strong{
+
+    color:#8a6716;
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+SCREEN TABLE
+========================================================= */
+
+.answer-table-wrap{
+
+    margin:
+    5px
+    0
+    0
+    26px;
+
+    width:
+    calc(100% - 26px);
+
+    overflow-x:auto;
+
+}
+
+.answer-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+    font-size:7.8px;
+
+    line-height:1.45;
+
+    background:#fffdf7;
+
+}
+
+.answer-table th{
+
+    padding:5px 6px;
+
+    background:#eadca9;
+
+    border:1px solid #c7ad59;
+
+    color:#4c3a0e;
+
+    text-align:center;
+
+    font-weight:900;
+
+}
+
+.answer-table td{
+
+    padding:5px 6px;
+
+    border:1px solid #d8c78f;
+
+    color:#4b3a1b;
+
+    vertical-align:top;
+
+    font-weight:600;
+
+    word-break:break-word;
+
+    overflow-wrap:anywhere;
+
+}
+
+.answer-table tr:nth-child(even) td{
+
+    background:#fffaf0;
+
+}
+
+
+/* =========================================================
+MESSAGE
+========================================================= */
+
+.message-box{
+
+    width:100%;
+
+    padding:38px 12px;
+
+    text-align:center;
+
+    color:#71859a;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    grid-column:1 / -1;
+
+}
+
+.message-box i{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#b27c08;
+
+    font-size:27px;
+
+}
+
+.error-message{
+
+    color:#c52727;
+
+}
+
+
+/* =========================================================
+DOWNLOAD
+========================================================= */
+
+.download-section{
+
+    width:100%;
+
+    margin-top:17px;
+
+}
+
+.download-btn{
+
+    width:100%;
+
+    min-height:58px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        145deg,
+        #176bc0,
+        #05295b
+    );
+
+    border:2px solid #dcb53e;
+
+    box-shadow:
+    0 6px 0 #03172f,
+    0 11px 20px rgba(0,35,75,.20);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    font-size:10.5px;
+
+    font-weight:900;
+
+}
+
+.download-btn i{
+
+    color:#ffd84d;
+
+    font-size:19px;
+
+}
+
+.download-btn small{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#dceeff;
+
+    font-size:6.5px;
+
+    font-weight:600;
+
+}
+
+.download-btn:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =========================================================
+FOOTER SCREEN
+========================================================= */
+
+.footer{
+
+    width:100%;
+
+    margin-top:7px;
+
+    padding:12px 8px;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        90deg,
+        #021d42,
+        #0759a8,
+        #021d42
+    );
+
+    border-top:3px solid #dcb53e;
+
+}
+
+.footer strong{
+
+    display:block;
+
+    color:#ffd84d;
+
+    font-size:11px;
+
+    font-weight:900;
+
+}
+
+.footer span{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#e5f2ff;
+
+    font-size:6.5px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+PDF RENDER WRAPPER
+========================================================= */
+
+#pdfRenderWrapper{
+
+    position:fixed;
+
+    left:-99999px;
+
+    top:0;
+
+    width:794px;
+
+    visibility:hidden;
+
+    background:#fff;
+
+    z-index:-9999;
+
+}
+
+
+/* =========================================================
+A4 SHEET
+========================================================= */
+
+.pdf-sheet{
+
+    width:794px;
+
+    height:1123px;
+
+    background:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================================
+PDF HEADER
+LIGHT LUXURY BUT FILLED
+========================================================= */
+
+.pdf-header{
+
+    width:100%;
+
+    height:116px;
+
+    position:relative;
+
+    padding:
+    11px
+    175px
+    8px
+    175px;
+
+    text-align:center;
+
+    background:
+
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(218,180,70,.30),
+        transparent 55%
+    ),
+
+    linear-gradient(
+        135deg,
+        #e9f1f7 0%,
+        #f7f1df 48%,
+        #e7eff6 100%
+    );
+
+    border-bottom:3px solid #b99638;
+
+    box-shadow:
+    inset 0 -1px 0 rgba(255,255,255,.95),
+    inset 0 1px 0 rgba(255,255,255,.75),
+    0 4px 10px rgba(80,65,25,.14);
+
+}
+
+.pdf-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:21px;
+
+    right:21px;
+
+    top:6px;
+
+    height:2px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #a98529,
+        #efd88d,
+        #a98529,
+        transparent
+    );
+
+}
+
+.pdf-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:21px;
+
+    right:21px;
+
+    bottom:6px;
+
+    height:2px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #a98529,
+        #efd88d,
+        #a98529,
+        transparent
+    );
+
+}
+
+
+/* =========================================================
+PDF TITLE
+========================================================= */
+
+.pdf-title{
+
+    color:#102f4f;
+
+    font-size:22px;
+
+    line-height:1.15;
+
+    font-weight:900;
+
+    letter-spacing:1.1px;
+
+    text-shadow:
+    0 1px 0 #fff;
+
+}
+
+.pdf-subject{
+
+    margin-top:4px;
+
+    color:#765611;
+
+    font-size:9.5px;
+
+    line-height:1.25;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+}
+
+
+/* =========================================================
+PDF META ROW
+CLASS + CHAPTER
+========================================================= */
+
+.pdf-meta-row{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:8px;
+
+    margin-top:8px;
+
+}
+
+.pdf-meta-box{
+
+    min-height:28px;
+
+    padding:4px 7px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.90),
+        rgba(244,238,218,.88)
+    );
+
+    border:1px solid #b99b4b;
+
+    border-radius:6px;
+
+    text-align:center;
+
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9);
+
+}
+
+.pdf-meta-label{
+
+    display:block;
+
+    color:#795b12;
+
+    font-size:5.8px;
+
+    line-height:1.1;
+
+    font-weight:900;
+
+    letter-spacing:.7px;
+
+}
+
+.pdf-meta-value{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#173b62;
+
+    font-size:8.2px;
+
+    line-height:1.2;
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+PDF CREATOR RIGHT
+========================================================= */
+
+.pdf-creator{
+
+    position:absolute;
+
+    top:13px;
+
+    right:21px;
+
+    width:132px;
+
+    padding:6px 5px 7px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.56),
+        rgba(245,237,210,.42)
+    );
+
+    border-left:1px solid #b99b4b;
+
+    border-right:1px solid #b99b4b;
+
+}
+
+.pdf-creator-label{
+
+    color:#896817;
+
+    font-size:5.2px;
+
+    line-height:1.3;
+
+    font-weight:900;
+
+    letter-spacing:.6px;
+
+}
+
+.pdf-creator-name{
+
+    margin-top:3px;
+
+    color:#102f4f;
+
+    font-size:7px;
+
+    line-height:1.35;
+
+    font-weight:900;
+
+}
+
+.pdf-creator-role{
+
+    margin-top:3px;
+
+    color:#526b80;
+
+    font-size:4.9px;
+
+    line-height:1.35;
+
+    font-weight:800;
+
+}
+
+.pdf-creator-portal{
+
+    color:#866517;
+
+    font-size:4.9px;
+
+    line-height:1.35;
+
+    font-weight:900;
+
+}
+
+.pdf-creator-phone{
+
+    margin-top:2px;
+
+    color:#173b62;
+
+    font-size:5.2px;
+
+    line-height:1.3;
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+PDF BODY
+========================================================= */
+
+.pdf-body{
+
+    position:absolute;
+
+    left:0;
+
+    top:116px;
+
+    width:794px;
+
+    height:965px;
+
+    padding:
+    9px
+    39px
+    8px;
+
+}
+
+.pdf-question-area{
+
+    width:100%;
+
+    height:947px;
+
+    overflow:hidden;
+
+}
+
+.pdf-grid{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+    column-gap:11px;
+
+    row-gap:5px;
+
+    align-items:start;
+
+}
+
+
+/* =========================================================
+PDF CATEGORY HEADING
+DARK
+========================================================= */
+
+.pdf-category-heading{
+
+    grid-column:1 / -1;
+
+    width:100%;
+
+    margin:
+    3px
+    0
+    2px;
+
+    padding:
+    6px
+    8px;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #031a36,
+        #0a4b86,
+        #031a36
+    );
+
+    border:
+    1px solid #c6a13c;
+
+    border-radius:5px;
+
+    font-size:8.8px;
+
+    line-height:1.3;
+
+    font-weight:900;
+
+    box-shadow:
+    0 2px 0 #806314,
+    inset 0 1px 0 rgba(255,255,255,.12);
+
+}
+
+
+/* =========================================================
+PDF QUESTION
+========================================================= */
+
+.pdf-question{
+
+    width:100%;
+
+    min-width:0;
+
+    padding:
+    5px
+    7px
+    5px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #fbfaf6
+    );
+
+    border:
+    1px solid #ddd8cb;
+
+    border-left:
+    2px solid #c9a541;
+
+    border-radius:5px;
+
+    box-sizing:border-box;
+
+    break-inside:avoid;
+
+    page-break-inside:avoid;
+
+}
+
+
+/* =========================================================
+PDF QUESTION LINE
+========================================================= */
+
+.pdf-question-line{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:4px;
+
+}
+
+.pdf-q-number{
+
+    flex:
+    0 0 auto;
+
+    min-width:18px;
+
+    color:#8a6716;
+
+    font-size:8px;
+
+    line-height:1.45;
+
+    font-weight:900;
+
+}
+
+.pdf-q-text{
+
+    flex:1;
+
+    min-width:0;
+
+    color:#183c60;
+
+    font-size:8.2px;
+
+    line-height:1.45;
+
+    font-weight:700;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+
+}
+
+
+/* =========================================================
+PDF OBJECTIVE ANSWER
+========================================================= */
+
+.pdf-answer{
+
+    margin:
+    3px
+    0
+    0
+    22px;
+
+    padding:0;
+
+    color:#287144;
+
+    background:transparent;
+
+    border:none;
+
+    font-size:7.2px;
+
+    line-height:1.5;
+
+    font-weight:800;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+
+}
+
+
+/* =========================================================
+PDF SUBJECTIVE ANSWER
+NO ICON
+ANSWER CLOSE TO QUESTION
+========================================================= */
+
+.pdf-subjective-answer{
+
+    margin:
+    2px
+    0
+    0
+    22px;
+
+    padding:0;
+
+    color:#4b3a1b;
+
+    background:transparent;
+
+    border:none;
+
+    font-size:7.4px;
+
+    line-height:1.5;
+
+    font-weight:700;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+
+}
+
+.pdf-subjective-answer b{
+
+    color:#8a6716;
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+PDF TABLE WRAPPER
+========================================================= */
+
+.pdf-table-wrap{
+
+    margin:
+    3px
+    0
+    0
+    22px;
+
+    width:
+    calc(100% - 22px);
+
+    overflow:visible;
+
+}
+
+
+/* =========================================================
+PDF TABLE
+2 / 3 / 4 COLUMNS SUPPORTED
+========================================================= */
+
+.pdf-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+    font-size:6.7px;
+
+    line-height:1.35;
+
+}
+
+.pdf-table th{
+
+    padding:
+    3px
+    4px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #d9c47c,
+        #bda354
+    );
+
+    border:
+    1px
+    solid
+    #9f8230;
+
+    color:#2f260b;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+    font-weight:900;
+
+}
+
+.pdf-table td{
+
+    padding:
+    3px
+    4px;
+
+    border:
+    1px
+    solid
+    #c8b67c;
+
+    color:#453718;
+
+    background:#fffdf6;
+
+    vertical-align:top;
+
+    font-weight:600;
+
+    word-break:break-word;
+
+    overflow-wrap:anywhere;
+
+}
+
+.pdf-table tr:nth-child(even) td{
+
+    background:#fff9e9;
+
+}
+
+
+/* =========================================================
+PDF FOOTER
+========================================================= */
+
+.pdf-page-footer{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:42px;
+
+    padding:
+    6px
+    75px
+    5px
+    35px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        #f0e8d5,
+        #fffdf8,
+        #f0e8d5
+    );
+
+    border-top:2px solid #b99b4b;
+
+    color:#667789;
+
+    font-size:6.5px;
+
+    line-height:1.4;
+
+    font-weight:700;
+
+}
+
+.pdf-page-footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:35px;
+
+    right:35px;
+
+    top:4px;
+
+    height:1px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #d8bd6b,
+        transparent
+    );
+
+}
+
+.pdf-page-footer strong{
+
+    color:#183d61;
+
+    font-weight:900;
+
+}
+
+.pdf-page-footer span{
+
+    color:#9b771b;
+
+}
+
+
+/* =========================================================
+PAGE NUMBER
+RIGHT SIDE
+========================================================= */
+
+.pdf-page-number{
+
+    position:absolute;
+
+    right:25px;
+
+    top:14px;
+
+    color:#183d61;
+
+    font-size:6.7px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+
+}
+
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .header{
+        padding:14px 10px 15px;
+    }
+
+    .logo{
+        width:48px;
+        height:48px;
+        flex-basis:48px;
+    }
+
+    .header-title{
+        font-size:17px;
+    }
+
+    .header-sub{
+        font-size:7px;
+    }
+
+    .container{
+        padding:15px 7px 22px;
+    }
+
+    .page-title h1{
+        font-size:21px;
+    }
+
+    .question-list{
+
+        padding:8px;
+
+        grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+        gap:7px;
+
+    }
+
+    .question-card{
+
+        padding:8px 7px 7px;
+
+    }
+
+    .question-number{
+
+        min-width:17px;
+
+        font-size:9px;
+
+    }
+
+    .question-text{
+
+        font-size:9.2px;
+
+        line-height:1.48;
+
+    }
+
+    .answer,
+    .subjective-answer{
+
+        margin-left:21px;
+
+    }
+
+    .answer-table-wrap{
+
+        margin-left:21px;
+
+        width:
+        calc(100% - 21px);
+
+    }
+
+}
+
+
+@media(max-width:380px){
+
+    .question-list{
+
+        gap:6px;
+
+        padding:7px;
+
+    }
+
+    .question-card{
+
+        padding:7px 6px;
+
+    }
+
+    .question-number{
+
+        min-width:15px;
+
+        font-size:8.5px;
+
+    }
+
+    .question-text{
+
+        font-size:8.5px;
+
+    }
+
+}
+
+
+/* =========================================================
+END CSS
+========================================================= */
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="logo">
+
+            <img
+            src="icon-512.png"
+            alt="THE STUDY POINT">
+
+        </div>
+
+        <div>
+
+            <div class="header-title">
+                THE STUDY POINT
+            </div>
+
+            <div class="header-sub">
+                STUDENT QUESTION BANK
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <a
+    href="index.html"
+    class="back">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        BACK TO PORTAL
+
+    </a>
+
+</header>
+
+
+<!-- =========================================================
+MAIN
+========================================================= -->
+
+<main class="container">
+
+
+    <div class="page-title">
+
+        <h1>
+            📚 QUESTION BANK
+        </h1>
+
+        <p>
+            Practice Questions • Correct Answers
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+    TYPE SELECTOR
+    ====================================================== -->
+
+    <div class="type-selector">
+
+        <div class="type-selector-title">
+
+            <i class="fa-solid fa-layer-group"></i>
+
+            QUESTION TYPE SELECT करें
+
+        </div>
+
+
+        <div class="type-buttons">
+
+            <button
+            id="objectiveBtn"
+            class="type-btn objective active">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                OBJECTIVE
+
+            </button>
+
+
+            <button
+            id="subjectiveBtn"
+            class="type-btn subjective">
+
+                <i class="fa-solid fa-pen-to-square"></i>
+
+                SUBJECTIVE
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="premium-strip">
+
+        <strong id="seriesTitle">
+            📝 OBJECTIVE • STUDY • PRACTICE • SUCCESS
+        </strong>
+
+        <span>
+            THE STUDY POINT LEARNING PORTAL
+        </span>
+
+    </div>
+
+
+    <!-- =====================================================
+    STATS
+    ====================================================== -->
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <i class="fa-solid fa-layer-group"></i>
+
+            <strong id="totalQuestions">
+                0
+            </strong>
+
+            <span>
+                TOTAL QUESTIONS
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-filter"></i>
+
+            <strong id="visibleQuestions">
+                0
+            </strong>
+
+            <span>
+                SHOWING
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <strong id="typeIcon">
+                ✓
+            </strong>
+
+            <span id="typeStat">
+                ANSWERS
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+    SEARCH
+    ====================================================== -->
+
+    <div class="search-panel">
+
+        <div class="search-title">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            SEARCH QUESTION
+
+        </div>
+
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-search"></i>
+
+            <input
+            id="searchInput"
+            type="search"
+            placeholder="Question या answer search करें..."
+            autocomplete="off">
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+    QUESTION PANEL
+    ====================================================== -->
+
+    <section class="question-panel">
+
+
+        <div class="question-panel-head">
+
+            <strong id="panelTitle">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                OBJECTIVE QUESTIONS
+
+            </strong>
+
+            <span id="panelSub">
+                QUESTION + CORRECT ANSWER
+            </span>
+
+        </div>
+
+
+        <div
+        id="questionList"
+        class="question-list">
+
+
+            <div class="message-box">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                Question Bank Loading...
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+    DOWNLOAD
+    ====================================================== -->
+
+    <div class="download-section">
+
+        <button
+        id="downloadPdfBtn"
+        class="download-btn">
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            <div>
+
+                DOWNLOAD QUESTION BANK PDF
+
+                <small>
+                    THE STUDY POINT • LIGHT LUXURY A4 PDF
+                </small>
+
+            </div>
+
+        </button>
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================================================
+FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <strong>
+        THE STUDY POINT
+    </strong>
+
+    <span>
+        QUESTION SERIES • STUDY • PRACTICE • SUCCESS
+    </span>
+
+</footer>
+
+
+<!-- =========================================================
+PDF RENDER
+========================================================= -->
+
+<div id="pdfRenderWrapper"></div>
+
+
+<!-- =========================================================
+FIREBASE + JAVASCRIPT
+========================================================= -->
+
+<script type="module">
+
+
+import { db } from "./firebase.js";
+
+
+import {
+
+    collection,
+    onSnapshot
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================================================
+VARIABLES
+========================================================= */
+
+let questions = [];
+
+let currentType = "objective";
+
+
+/* =========================================================
+ELEMENTS
+========================================================= */
+
+const questionList =
+document.getElementById("questionList");
+
+const searchInput =
+document.getElementById("searchInput");
+
+const totalQuestions =
+document.getElementById("totalQuestions");
+
+const visibleQuestions =
+document.getElementById("visibleQuestions");
+
+const downloadPdfBtn =
+document.getElementById("downloadPdfBtn");
+
+const pdfRenderWrapper =
+document.getElementById("pdfRenderWrapper");
+
+const objectiveBtn =
+document.getElementById("objectiveBtn");
+
+const subjectiveBtn =
+document.getElementById("subjectiveBtn");
+
+const panelTitle =
+document.getElementById("panelTitle");
+
+const panelSub =
+document.getElementById("panelSub");
+
+const seriesTitle =
+document.getElementById("seriesTitle");
+
+const typeIcon =
+document.getElementById("typeIcon");
+
+const typeStat =
+document.getElementById("typeStat");
+
+
+/* =========================================================
+ESCAPE
+========================================================= */
+
+function esc(value){
+
+    return String(value ?? "")
+    .replace(
+        /[&<>"']/g,
+        function(c){
+
+            return {
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[c];
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+NORMALIZE MAIN TYPE
+========================================================= */
+
+function normalizeType(type){
+
+    const value =
+    String(type ?? "objective")
+    .trim()
+    .toLowerCase();
+
+
+    if(
+        value === "subjective" ||
+        value === "written" ||
+        value === "subjectivequestion" ||
+        value === "subjective_question"
+    ){
+
+        return "subjective";
+
+    }
+
+
+    return "objective";
+
+}
+
+
+/* =========================================================
+NORMALIZE SUBJECTIVE CATEGORY
+========================================================= */
+
+function normalizeSubjectiveType(type){
+
+    const value =
+    String(type ?? "")
+    .trim()
+    .toLowerCase();
+
+
+    if(
+        value === "ati_laghu" ||
+        value === "ati-laghu" ||
+        value === "ati laghu" ||
+        value === "atilaghu" ||
+        value.includes("अति लघु")
+    ){
+
+        return "ati_laghu";
+
+    }
+
+
+    if(
+        value === "laghu" ||
+        value === "laghu_uttar" ||
+        value === "laghu uttariy" ||
+        value === "लघु" ||
+        value.includes("लघु उत्तरीय")
+    ){
+
+        return "laghu";
+
+    }
+
+
+    if(
+        value === "dirgh" ||
+        value === "dirgh_uttar" ||
+        value === "दीर्घ" ||
+        value.includes("दीर्घ")
+    ){
+
+        return "dirgh";
+
+    }
+
+
+    return "laghu";
+
+}
+
+
+/* =========================================================
+SUBJECTIVE LABEL
+========================================================= */
+
+function subjectiveTypeLabel(type){
+
+    switch(
+        normalizeSubjectiveType(type)
+    ){
+
+        case "ati_laghu":
+
+            return "अति लघु उत्तरीय";
+
+        case "laghu":
+
+            return "लघु उत्तरीय";
+
+        case "dirgh":
+
+            return "दीर्घ उत्तरीय";
+
+        default:
+
+            return "लघु उत्तरीय";
+
+    }
+
+}
+
+
+/* =========================================================
+FULL OBJECTIVE ANSWER
+========================================================= */
+
+function getFullAnswer(data){
+
+    const raw =
+    String(
+        data.answer ?? ""
+    ).trim();
+
+
+    const upper =
+    raw.toUpperCase();
+
+
+    if(
+        upper === "A" ||
+        upper === "A."
+    ){
+
+        return String(
+            data.optionA ?? "A"
+        );
+
+    }
+
+
+    if(
+        upper === "B" ||
+        upper === "B."
+    ){
+
+        return String(
+            data.optionB ?? "B"
+        );
+
+    }
+
+
+    if(
+        upper === "C" ||
+        upper === "C."
+    ){
+
+        return String(
+            data.optionC ?? "C"
+        );
+
+    }
+
+
+    if(
+        upper === "D" ||
+        upper === "D."
+    ){
+
+        return String(
+            data.optionD ?? "D"
+        );
+
+    }
+
+
+    return raw;
+
+}
+
+
+/* =========================================================
+QUESTION NUMBER
+========================================================= */
+
+function getQuestionNumber(data){
+
+    const values = [
+
+        data.questionNumber,
+        data.number,
+        data.srNo,
+        data.serialNumber,
+        data.order
+
+    ];
+
+
+    for(
+        const value of values
+    ){
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            String(value).trim() !== ""
+        ){
+
+            const n =
+            Number(value);
+
+
+            if(
+                Number.isFinite(n)
+            ){
+
+                return n;
+
+            }
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+SORT
+========================================================= */
+
+function sortQuestions(){
+
+    questions.sort(
+        (a,b)=>{
+
+            const aNumber =
+            getQuestionNumber(a.data);
+
+            const bNumber =
+            getQuestionNumber(b.data);
+
+
+            if(
+                aNumber !== null &&
+                bNumber !== null
+            ){
+
+                return aNumber - bNumber;
+
+            }
+
+
+            if(aNumber !== null){
+
+                return -1;
+
+            }
+
+
+            if(bNumber !== null){
+
+                return 1;
+
+            }
+
+
+            const aTime =
+            a.data.createdAt?.seconds ||
+            a.data.createdAt?._seconds ||
+            0;
+
+
+            const bTime =
+            b.data.createdAt?.seconds ||
+            b.data.createdAt?._seconds ||
+            0;
+
+
+            return aTime - bTime;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+FIREBASE
+========================================================= */
+
+onSnapshot(
+
+    collection(
+        db,
+        "questionBank"
+    ),
+
+    snapshot=>{
+
+        questions = [];
+
+
+        snapshot.forEach(
+            docSnap=>{
+
+                const data =
+                docSnap.data();
+
+
+                questions.push({
+
+                    id:
+                    docSnap.id,
+
+                    data:
+                    data
+
+                });
+
+            }
+        );
+
+
+        sortQuestions();
+
+        renderQuestions();
+
+    },
+
+
+    error=>{
+
+        console.error(
+            "Question Bank Error:",
+            error
+        );
+
+
+        questionList.innerHTML = `
+
+            <div class="message-box error-message">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                Question Bank load नहीं हो सका।
+
+                <br><br>
+
+                कृपया थोड़ी देर बाद फिर प्रयास करें।
+
+            </div>
+
+        `;
+
+    }
+
+);
+
+
+/* =========================================================
+FILTER
+========================================================= */
+
+function getFilteredQuestions(){
+
+    const search =
+    searchInput.value
+    .trim()
+    .toLowerCase();
+
+
+    return questions.filter(
+        item=>{
+
+            const x =
+            item.data;
+
+
+            if(
+                normalizeType(x.type)
+                !== currentType
+            ){
+
+                return false;
+
+            }
+
+
+            if(!search){
+
+                return true;
+
+            }
+
+
+            const fullAnswer =
+            currentType === "objective"
+
+            ?
+
+            getFullAnswer(x)
+
+            :
+
+            String(
+                x.answer ??
+                x.subjectiveAnswer ??
+                ""
+            );
+
+
+            const text = [
+
+                x.question,
+                x.answer,
+                x.subjectiveAnswer,
+                fullAnswer,
+                x.subject,
+                x.chapter,
+                x.lesson,
+                x.className,
+                x.class,
+                x.questionType,
+
+                subjectiveTypeLabel(
+                    x.questionType
+                ),
+
+                x.optionA,
+                x.optionB,
+                x.optionC,
+                x.optionD
+
+            ]
+            .join(" ")
+            .toLowerCase();
+
+
+            return text.includes(search);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+CLEAN CLASS
+========================================================= */
+
+function cleanClassName(value){
+
+    let text =
+    String(value ?? "")
+    .trim();
+
+
+    if(!text){
+
+        return "";
+
+    }
+
+
+    text =
+    text
+    .replace(
+        /^class\s*/i,
+        ""
+    )
+    .trim();
+
+
+    text =
+    text
+    .replace(
+        /^कक्षा\s*/i,
+        ""
+    )
+    .trim();
+
+
+    return text;
+
+}
+
+
+/* =========================================================
+TABLE PARSER
+EXPLICIT PIPE / TAB
+========================================================= */
+
+function parseExplicitTable(text){
+
+    const raw =
+    String(text || "")
+    .replace(/\r\n/g,"\n")
+    .replace(/\r/g,"\n")
+    .trim();
+
+
+    if(!raw){
+
+        return null;
+
+    }
+
+
+    const lines =
+    raw
+    .split("\n")
+    .map(
+        x=>x.trim()
+    )
+    .filter(Boolean);
+
+
+    /*
+    PIPE TABLE
+    */
+
+    const pipeRows =
+    lines
+    .filter(
+        line =>
+        line.includes("|")
+    )
+    .map(
+        line=>{
+
+            return line
+            .split("|")
+            .map(
+                x=>x.trim()
+            )
+            .filter(
+                (x,i,a)=>
+                !(i===0 && x==="") &&
+                !(i===a.length-1 && x==="")
+            );
+
+        }
+    )
+    .filter(
+        row =>
+        row.length>=2
+    );
+
+
+    if(
+        pipeRows.length>=2
+    ){
+
+        let rows =
+        pipeRows.filter(
+            row =>
+            !row.every(
+                cell =>
+                /^:?-{2,}:?$/
+                .test(cell)
+            )
+        );
+
+
+        if(
+            rows.length>=2 &&
+            rows[0].length>=2
+        ){
+
+            const columns =
+            rows[0].length;
+
+
+            if(
+                rows.every(
+                    row =>
+                    row.length===columns
+                )
+            ){
+
+                return rows;
+
+            }
+
+        }
+
+    }
+
+
+    /*
+    TAB TABLE
+    */
+
+    const tabRows =
+    lines
+    .filter(
+        line =>
+        line.includes("\t")
+    )
+    .map(
+        line =>
+        line
+        .split("\t")
+        .map(
+            x=>x.trim()
+        )
+        .filter(Boolean)
+    );
+
+
+    if(
+        tabRows.length>=2 &&
+        tabRows[0].length>=2
+    ){
+
+        const columns =
+        tabRows[0].length;
+
+
+        if(
+            tabRows.every(
+                row =>
+                row.length===columns
+            )
+        ){
+
+            return tabRows;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+GENERIC COLUMN DETECTION
+CAUSE / RESULT
+========================================================= */
+
+function parseCauseResult(text){
+
+    const raw =
+    String(text || "")
+    .replace(/\r\n/g,"\n")
+    .replace(/\r/g,"\n")
+    .trim();
+
+
+    if(!raw){
+
+        return null;
+
+    }
+
+
+    const lines =
+    raw
+    .split("\n")
+    .map(
+        x=>x.trim()
+    )
+    .filter(Boolean);
+
+
+    let causeIndex=-1;
+
+    let resultIndex=-1;
+
+
+    lines.forEach(
+        (line,index)=>{
+
+            const clean =
+            line
+            .replace(
+                /^[\-\–—•*]+\s*/,
+                ""
+            )
+            .replace(
+                /[:：]\s*$/,
+                ""
+            )
+            .trim()
+            .toLowerCase();
+
+
+            if(
+                causeIndex===-1 &&
+                (
+                    clean==="कारण" ||
+                    clean==="चार कारण" ||
+                    clean==="कारण निम्नलिखित हैं" ||
+                    clean==="causes" ||
+                    clean==="cause"
+                )
+            ){
+
+                causeIndex=index;
+
+            }
+
+
+            if(
+                resultIndex===-1 &&
+                (
+                    clean==="परिणाम" ||
+                    clean==="चार परिणाम" ||
+                    clean==="परिणाम निम्नलिखित हैं" ||
+                    clean==="प्रभाव" ||
+                    clean==="प्रभाव निम्नलिखित हैं" ||
+                    clean==="effects" ||
+                    clean==="results" ||
+                    clean==="result"
+                )
+            ){
+
+                resultIndex=index;
+
+            }
+
+        }
+    );
+
+
+    /*
+    Also support:
+
+    कारण:
+    1. ...
+    2. ...
+
+    परिणाम:
+    1. ...
+    2. ...
+    */
+
+
+    if(
+        causeIndex===-1
+    ){
+
+        lines.forEach(
+            (line,index)=>{
+
+                if(
+                    /^कारण\s*[:：]/i
+                    .test(line)
+                ){
+
+                    causeIndex=index;
+
+                }
+
+            }
+        );
+
+    }
+
+
+    if(
+        resultIndex===-1
+    ){
+
+        lines.forEach(
+            (line,index)=>{
+
+                if(
+                    /^(परिणाम|प्रभाव)\s*[:：]/i
+                    .test(line)
+                ){
+
+                    resultIndex=index;
+
+                }
+
+            }
+        );
+
+    }
+
+
+    if(
+        causeIndex===-1 ||
+        resultIndex===-1 ||
+        resultIndex<=causeIndex
+    ){
+
+        return null;
+
+    }
+
+
+    function numbered(start,end){
+
+        const output=[];
+
+
+        for(
+            let i=start;
+            i<end;
+            i++
+        ){
+
+            const line =
+            lines[i];
+
+
+            const match =
+            line.match(
+                /^\s*(?:\d+[\.\)\-:]|\([0-9]+\)|[•\-–—])\s*(.+)$/
+            );
+
+
+            if(match){
+
+                output.push(
+                    match[1].trim()
+                );
+
+            }
+
+        }
+
+
+        return output;
+
+    }
+
+
+    const causes =
+    numbered(
+        causeIndex+1,
+        resultIndex
+    );
+
+
+    const results =
+    numbered(
+        resultIndex+1,
+        lines.length
+    );
+
+
+    if(
+        causes.length<2 ||
+        results.length<2
+    ){
+
+        return null;
+
+    }
+
+
+    const total =
+    Math.max(
+        causes.length,
+        results.length
+    );
+
+
+    const rows=[
+        ["कारण","परिणाम"]
+    ];
+
+
+    for(
+        let i=0;
+        i<total;
+        i++
+    ){
+
+        rows.push([
+
+            causes[i] || "",
+
+            results[i] || ""
+
+        ]);
+
+    }
+
+
+    return rows;
+
+}
+
+
+/* =========================================================
+DIFFERENCE TABLE
+========================================================= */
+
+function parseDifference(text){
+
+    const raw =
+    String(text || "")
+    .replace(/\r\n/g,"\n")
+    .replace(/\r/g,"\n")
+    .trim();
+
+
+    if(!raw){
+
+        return null;
+
+    }
+
+
+    /*
+    First explicit table.
+    */
+
+    const explicit =
+    parseExplicitTable(raw);
+
+
+    if(explicit){
+
+        return explicit;
+
+    }
+
+
+    if(
+        !/(अंतर|अन्तर|भेद|difference|differences)/i
+        .test(raw)
+    ){
+
+        return null;
+
+    }
+
+
+    const lines =
+    raw
+    .split("\n")
+    .map(
+        x=>x.trim()
+    )
+    .filter(Boolean);
+
+
+    let base=[];
+    let first=[];
+    let second=[];
+    let third=[];
+
+
+    let active="";
+
+
+    for(
+        const line of lines
+    ){
+
+        const clean =
+        line
+        .replace(
+            /[:：—–-]/g,
+            ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+        if(
+            clean==="आधार" ||
+            clean==="बिंदु" ||
+            clean==="आधार बिंदु" ||
+            clean==="basis"
+        ){
+
+            active="base";
+
+            continue;
+
+        }
+
+
+        if(
+            clean==="पहला पक्ष" ||
+            clean==="प्रथम पक्ष" ||
+            clean==="पहला" ||
+            clean==="first"
+        ){
+
+            active="first";
+
+            continue;
+
+        }
+
+
+        if(
+            clean==="दूसरा पक्ष" ||
+            clean==="द्वितीय पक्ष" ||
+            clean==="दूसरा" ||
+            clean==="second"
+        ){
+
+            active="second";
+
+            continue;
+
+        }
+
+
+        if(
+            clean==="तीसरा पक्ष" ||
+            clean==="तृतीय पक्ष" ||
+            clean==="तीसरा" ||
+            clean==="third"
+        ){
+
+            active="third";
+
+            continue;
+
+        }
+
+
+        const match =
+        line.match(
+            /^\s*(?:\d+[\.\)\-:]|\([0-9]+\)|[•\-–—])\s*(.+)$/
+        );
+
+
+        if(!match){
+
+            continue;
+
+        }
+
+
+        if(active==="base"){
+
+            base.push(
+                match[1].trim()
+            );
+
+        }
+
+        if(active==="first"){
+
+            first.push(
+                match[1].trim()
+            );
+
+        }
+
+        if(active==="second"){
+
+            second.push(
+                match[1].trim()
+            );
+
+        }
+
+        if(active==="third"){
+
+            third.push(
+                match[1].trim()
+            );
+
+        }
+
+    }
+
+
+    if(
+        base.length>=2 &&
+        first.length>=2 &&
+        second.length>=2
+    ){
+
+        const total =
+        Math.max(
+            base.length,
+            first.length,
+            second.length,
+            third.length
+        );
+
+
+        if(third.length>=2){
+
+            const rows=[
+                [
+                    "आधार",
+                    "पहला पक्ष",
+                    "दूसरा पक्ष",
+                    "तीसरा पक्ष"
+                ]
+            ];
+
+
+            for(
+                let i=0;
+                i<total;
+                i++
+            ){
+
+                rows.push([
+
+                    base[i] || "",
+
+                    first[i] || "",
+
+                    second[i] || "",
+
+                    third[i] || ""
+
+                ]);
+
+            }
+
+
+            return rows;
+
+        }
+
+
+        const rows=[
+            [
+                "आधार",
+                "पहला पक्ष",
+                "दूसरा पक्ष"
+            ]
+        ];
+
+
+        for(
+            let i=0;
+            i<total;
+            i++
+        ){
+
+            rows.push([
+
+                base[i] || "",
+
+                first[i] || "",
+
+                second[i] || ""
+
+            ]);
+
+        }
+
+
+        return rows;
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+INLINE 2-COLUMN PARSER
+कारण - परिणाम
+कारण: ... | परिणाम: ...
+========================================================= */
+
+function parseInlineTwoColumn(text){
+
+    const raw =
+    String(text || "")
+    .trim();
+
+
+    if(!raw){
+
+        return null;
+
+    }
+
+
+    const lines =
+    raw
+    .split("\n")
+    .map(
+        x=>x.trim()
+    )
+    .filter(Boolean);
+
+
+    const rows=[];
+
+
+    lines.forEach(
+        line=>{
+
+            const matches =
+            line.match(
+                /(?:कारण|कारण\s*\d+)\s*[:：\-]\s*(.*?)\s+(?:परिणाम|प्रभाव)\s*[:：\-]\s*(.+)$/i
+            );
+
+
+            if(matches){
+
+                rows.push([
+
+                    matches[1].trim(),
+
+                    matches[2].trim()
+
+                ]);
+
+            }
+
+        }
+    );
+
+
+    if(
+        rows.length>=2
+    ){
+
+        return [
+
+            ["कारण","परिणाम"],
+
+            ...rows
+
+        ];
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+GENERIC 3/4 COLUMN LINE TABLE
+========================================================= */
+
+function parseNumberedColumnTable(text){
+
+    const raw =
+    String(text || "")
+    .replace(/\r\n/g,"\n")
+    .replace(/\r/g,"\n")
+    .trim();
+
+
+    if(!raw){
+
+        return null;
+
+    }
+
+
+    const lines =
+    raw
+    .split("\n")
+    .map(
+        x=>x.trim()
+    )
+    .filter(Boolean);
+
+
+    /*
+    Supported:
+
+    1. आधार - A - B
+    2. आधार - A - B
+
+    or
+
+    1. आधार | A | B
+    */
+
+
+    const rows=[];
+
+
+    lines.forEach(
+        line=>{
+
+            const numbered =
+            line.match(
+                /^\s*(\d+)[\.\)\-:]\s*(.+)$/
+            );
+
+
+            if(!numbered){
+
+                return;
+
+            }
+
+
+            const content =
+            numbered[2];
+
+
+            let cells=[];
+
+
+            if(
+                content.includes("|")
+            ){
+
+                cells =
+                content
+                .split("|")
+                .map(
+                    x=>x.trim()
+                )
+                .filter(Boolean);
+
+            }
+
+            else if(
+                content.includes("\t")
+            ){
+
+                cells =
+                content
+                .split("\t")
+                .map(
+                    x=>x.trim()
+                )
+                .filter(Boolean);
+
+            }
+
+            else{
+
+                cells =
+                content
+                .split(
+                    /\s+[—–-]\s+/
+                )
+                .map(
+                    x=>x.trim()
+                )
+                .filter(Boolean);
+
+            }
+
+
+            if(
+                cells.length>=2 &&
+                cells.length<=4
+            ){
+
+                rows.push(cells);
+
+            }
+
+        }
+    );
+
+
+    if(
+        rows.length<2
+    ){
+
+        return null;
+
+    }
+
+
+    const columns =
+    Math.max(
+        ...rows.map(
+            row=>row.length
+        )
+    );
+
+
+    if(
+        columns<2 ||
+        columns>4
+    ){
+
+        return null;
+
+    }
+
+
+    if(
+        !rows.every(
+            row =>
+            row.length===columns
+        )
+    ){
+
+        return null;
+
+    }
+
+
+    /*
+    Generate sensible headings.
+    */
+
+    let headers=[];
+
+
+    if(columns===2){
+
+        headers=[
+            "बिंदु",
+            "विवरण"
+        ];
+
+    }
+
+    else if(columns===3){
+
+        headers=[
+            "आधार",
+            "पहला पक्ष",
+            "दूसरा पक्ष"
+        ];
+
+    }
+
+    else{
+
+        headers=[
+            "आधार",
+            "पहला पक्ष",
+            "दूसरा पक्ष",
+            "तीसरा पक्ष"
+        ];
+
+    }
+
+
+    return [
+
+        headers,
+
+        ...rows
+
+    ];
+
+}
+
+
+/* =========================================================
+ANSWER CONTENT
+========================================================= */
+
+function createAnswerContent(
+    answer,
+    pdf=false
+){
+
+    const raw =
+    String(answer || "")
+    .trim();
+
+
+    if(!raw){
+
+        return pdf
+
+        ?
+
+        `
+        <div class="pdf-subjective-answer">
+            <b>उत्तर:</b>
+            Answer उपलब्ध नहीं है।
+        </div>
+        `
+
+        :
+
+        `
+        <div class="subjective-answer">
+            <strong>उत्तर:</strong>
+            Answer उपलब्ध नहीं है।
+        </div>
+        `;
+
+    }
+
+
+    /*
+    TABLE DETECTION ORDER
+    */
+
+    let table =
+    parseExplicitTable(raw);
+
+
+    if(!table){
+
+        table =
+        parseCauseResult(raw);
+
+    }
+
+
+    if(!table){
+
+        table =
+        parseInlineTwoColumn(raw);
+
+    }
+
+
+    if(!table){
+
+        table =
+        parseDifference(raw);
+
+    }
+
+
+    if(!table){
+
+        table =
+        parseNumberedColumnTable(raw);
+
+    }
+
+
+    if(table){
+
+        const wrapClass =
+        pdf
+        ?
+        "pdf-table-wrap"
+        :
+        "answer-table-wrap";
+
+
+        const tableClass =
+        pdf
+        ?
+        "pdf-table"
+        :
+        "answer-table";
+
+
+        let html =
+
+        `<div class="${wrapClass}">
+        <table class="${tableClass}">`;
+
+
+        table.forEach(
+            (row,rowIndex)=>{
+
+                html+="<tr>";
+
+
+                row.forEach(
+                    cell=>{
+
+                        const tag =
+                        rowIndex===0
+                        ?
+                        "th"
+                        :
+                        "td";
+
+
+                        html+=
+
+                        `<${tag}>
+                            ${esc(cell)}
+                        </${tag}>`;
+
+                    }
+                );
+
+
+                html+="</tr>";
+
+            }
+        );
+
+
+        html+=
+        `</table>
+        </div>`;
+
+
+        return html;
+
+    }
+
+
+    /*
+    NORMAL ANSWER
+    */
+
+    const cls =
+    pdf
+    ?
+    "pdf-subjective-answer"
+    :
+    "subjective-answer";
+
+
+    return `
+
+        <div class="${cls}">
+
+            <b>उत्तर:</b>
+
+            ${esc(raw)
+            .replace(
+                /\n/g,
+                "<br>"
+            )}
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+GROUP SUBJECTIVE
+========================================================= */
+
+function groupSubjectiveQuestions(list){
+
+    const groups={};
+
+
+    const order=[
+        "ati_laghu",
+        "laghu",
+        "dirgh"
+    ];
+
+
+    list.forEach(
+        item=>{
+
+            const type =
+            normalizeSubjectiveType(
+                item.data.questionType ??
+                item.data.subType ??
+                item.data.category
+            );
+
+
+            if(!groups[type]){
+
+                groups[type]=[];
+
+            }
+
+
+            groups[type].push(item);
+
+        }
+    );
+
+
+    const result=[];
+
+
+    order.forEach(
+        type=>{
+
+            if(
+                groups[type] &&
+                groups[type].length
+            ){
+
+                result.push({
+
+                    type,
+
+                    items:
+                    groups[type]
+
+                });
+
+            }
+
+        }
+    );
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+RENDER QUESTIONS
+========================================================= */
+
+function renderQuestions(){
+
+    const filtered =
+    getFilteredQuestions();
+
+
+    totalQuestions.textContent =
+
+    questions.filter(
+        item =>
+        normalizeType(
+            item.data.type
+        )===currentType
+    ).length;
+
+
+    visibleQuestions.textContent =
+    filtered.length;
+
+
+    /* =====================================================
+    OBJECTIVE HEADER
+    ===================================================== */
+
+    if(
+        currentType==="objective"
+    ){
+
+        panelTitle.innerHTML = `
+
+            <i class="fa-solid fa-book-open"></i>
+
+            OBJECTIVE QUESTIONS
+
+        `;
+
+        panelSub.textContent =
+        "QUESTION + CORRECT ANSWER";
+
+        seriesTitle.textContent =
+        "📝 OBJECTIVE • STUDY • PRACTICE • SUCCESS";
+
+        typeIcon.textContent =
+        "✓";
+
+        typeStat.textContent =
+        "ANSWERS";
+
+    }
+
+    else{
+
+        panelTitle.innerHTML = `
+
+            <i class="fa-solid fa-pen-to-square"></i>
+
+            SUBJECTIVE QUESTIONS
+
+        `;
+
+        panelSub.textContent =
+        "QUESTION + WRITTEN ANSWER";
+
+        seriesTitle.textContent =
+        "✍️ SUBJECTIVE • STUDY • PRACTICE • SUCCESS";
+
+        typeIcon.textContent =
+        "✎";
+
+        typeStat.textContent =
+        "WRITTEN";
+
+    }
+
+
+    /* =====================================================
+    EMPTY
+    ===================================================== */
+
+    if(!filtered.length){
+
+        questionList.innerHTML = `
+
+            <div class="message-box">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                ${
+                    questions.some(
+                        item =>
+                        normalizeType(
+                            item.data.type
+                        )===currentType
+                    )
+
+                    ?
+
+                    "इस search से कोई question नहीं मिला।"
+
+                    :
+
+                    currentType==="objective"
+
+                    ?
+
+                    "अभी Objective Question Bank में कोई question उपलब्ध नहीं है।"
+
+                    :
+
+                    "अभी Subjective Question Bank में कोई question उपलब्ध नहीं है।"
+
+                }
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =====================================================
+    OBJECTIVE
+    ===================================================== */
+
+    if(
+        currentType==="objective"
+    ){
+
+        questionList.innerHTML =
+
+        filtered.map(
+            (item,index)=>{
+
+                const x =
+                item.data;
+
+
+                return `
+
+                    <article
+                    class="question-card">
+
+                        <div
+                        class="question-line">
+
+                            <div
+                            class="question-number">
+
+                                ${index+1}.
+
+                            </div>
+
+                            <div
+                            class="question-text">
+
+                                ${esc(
+                                    x.question ||
+                                    "Question उपलब्ध नहीं है।"
+                                )}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="answer">
+
+                            <i
+                            class="fa-solid fa-circle-check">
+                            </i>
+
+                            उत्तर:
+
+                            ${esc(
+                                getFullAnswer(x) ||
+                                "Answer उपलब्ध नहीं है।"
+                            )}
+
+                        </div>
+
+                    </article>
+
+                `;
+
+            }
+        ).join("");
+
+        return;
+
+    }
+
+
+    /* =====================================================
+    SUBJECTIVE
+    ===================================================== */
+
+    const groups =
+    groupSubjectiveQuestions(
+        filtered
+    );
+
+
+    let html="";
+
+    let globalNumber=0;
+
+
+    groups.forEach(
+        group=>{
+
+            /*
+            ONE CATEGORY HEADING ONLY.
+            */
+
+            html+=`
+
+                <div
+                class="category-heading">
+
+                    ${esc(
+                        subjectiveTypeLabel(
+                            group.type
+                        )
+                    )}
+
+                </div>
+
+            `;
+
+
+            group.items.forEach(
+                item=>{
+
+                    globalNumber++;
+
+
+                    const x =
+                    item.data;
+
+
+                    const answer =
+                    String(
+                        x.answer ??
+                        x.subjectiveAnswer ??
+                        ""
+                    ).trim();
+
+
+                    html+=`
+
+                        <article
+                        class="question-card">
+
+                            <div
+                            class="question-line">
+
+                                <div
+                                class="question-number">
+
+                                    ${globalNumber}.
+
+                                </div>
+
+
+                                <div
+                                class="question-text">
+
+                                    ${esc(
+                                        x.question ||
+                                        "Question उपलब्ध नहीं है।"
+                                    )}
+
+                                </div>
+
+                            </div>
+
+
+                            ${createAnswerContent(
+                                answer,
+                                false
+                            )}
+
+                        </article>
+
+                    `;
+
+                }
+            );
+
+        }
+    );
+
+
+    questionList.innerHTML =
+    html;
+
+}
+
+
+/* =========================================================
+TYPE SWITCH
+========================================================= */
+
+objectiveBtn.addEventListener(
+    "click",
+    function(){
+
+        currentType =
+        "objective";
+
+
+        objectiveBtn.classList.add(
+            "active"
+        );
+
+        subjectiveBtn.classList.remove(
+            "active"
+        );
+
+
+        renderQuestions();
+
+    }
+);
+
+
+subjectiveBtn.addEventListener(
+    "click",
+    function(){
+
+        currentType =
+        "subjective";
+
+
+        subjectiveBtn.classList.add(
+            "active"
+        );
+
+        objectiveBtn.classList.remove(
+            "active"
+        );
+
+
+        renderQuestions();
+
+    }
+);
+
+
+/* =========================================================
+SEARCH
+========================================================= */
+
+searchInput.addEventListener(
+    "input",
+    renderQuestions
+);
+
+
+/* =========================================================
+PDF META
+========================================================= */
+
+function getPdfMeta(filtered){
+
+    const subjects =
+    [
+        ...new Set(
+            filtered
+            .map(
+                item =>
+                String(
+                    item.data.subject ??
+                    item.data.subjectName ??
+                    ""
+                ).trim()
+            )
+            .filter(Boolean)
+        )
+    ];
+
+
+    const classes =
+    [
+        ...new Set(
+            filtered
+            .map(
+                item =>
+                cleanClassName(
+                    item.data.className ??
+                    item.data.class ??
+                    item.data.classNumber ??
+                    ""
+                )
+            )
+            .filter(Boolean)
+        )
+    ];
+
+
+    const chapters =
+    [
+        ...new Set(
+            filtered
+            .map(
+                item =>
+                String(
+                    item.data.chapter ??
+                    item.data.chapterName ??
+                    item.data.lesson ??
+                    ""
+                ).trim()
+            )
+            .filter(Boolean)
+        )
+    ];
+
+
+    return {
+
+        subject:
+        subjects.length===1
+        ?
+        subjects[0]
+        :
+        subjects.length
+        ?
+        subjects.join(", ")
+        :
+        "GENERAL",
+
+
+        className:
+        classes.length===1
+        ?
+        classes[0]
+        :
+        classes.length
+        ?
+        classes.join(", ")
+        :
+        "",
+
+
+        chapter:
+        chapters.length===1
+        ?
+        chapters[0]
+        :
+        chapters.length
+        ?
+        chapters.join(", ")
+        :
+        ""
+
+    };
+
+}
+
+
+/* =========================================================
+CREATE PDF QUESTION
+========================================================= */
+
+function createPdfQuestion(
+    item,
+    index
+){
+
+    const x =
+    item.data;
+
+
+    const element =
+    document.createElement("div");
+
+
+    element.className =
+    "pdf-question";
+
+
+    /* =====================================================
+    SUBJECTIVE
+    ===================================================== */
+
+    if(
+        currentType==="subjective"
+    ){
+
+        const answer =
+        String(
+            x.answer ??
+            x.subjectiveAnswer ??
+            ""
+        ).trim();
+
+
+        element.innerHTML = `
+
+            <div
+            class="pdf-question-line">
+
+                <div
+                class="pdf-q-number">
+
+                    ${index+1}.
+
+                </div>
+
+
+                <div
+                class="pdf-q-text">
+
+                    ${esc(
+                        x.question ||
+                        "Question उपलब्ध नहीं है।"
+                    )}
+
+                </div>
+
+            </div>
+
+
+            ${createAnswerContent(
+                answer,
+                true
+            )}
+
+        `;
+
+
+        return element;
+
+    }
+
+
+    /* =====================================================
+    OBJECTIVE
+    ===================================================== */
+
+    const answer =
+    getFullAnswer(x);
+
+
+    element.innerHTML = `
+
+        <div
+        class="pdf-question-line">
+
+            <div
+            class="pdf-q-number">
+
+                ${index+1}.
+
+            </div>
+
+
+            <div
+            class="pdf-q-text">
+
+                ${esc(
+                    x.question ||
+                    "Question उपलब्ध नहीं है।"
+                )}
+
+            </div>
+
+        </div>
+
+
+        <div class="pdf-answer">
+
+            <b>✓ उत्तर:</b>
+
+            ${esc(
+                answer ||
+                "Answer उपलब्ध नहीं है।"
+            )}
+
+        </div>
+
+    `;
+
+
+    return element;
+
+}
+
+
+/* =========================================================
+CREATE PDF PAGE
+========================================================= */
+
+function createPdfPage(
+    pageNumber,
+    totalPages,
+    meta
+){
+
+    const page =
+    document.createElement("div");
+
+
+    page.className =
+    "pdf-sheet";
+
+
+    const footerType =
+    currentType==="objective"
+
+    ?
+
+    "OBJECTIVE QUESTIONS"
+
+    :
+
+    "SUBJECTIVE QUESTIONS";
+
+
+    page.innerHTML = `
+
+        <!-- PDF HEADER -->
+
+        <div class="pdf-header">
+
+
+            <div class="pdf-title">
+
+                THE STUDY POINT
+
+            </div>
+
+
+            <div class="pdf-subject">
+
+                SUBJECT: ${esc(
+                    meta.subject
+                )}
+
+            </div>
+
+
+            <div class="pdf-meta-row">
+
+
+                <div
+                class="pdf-meta-box">
+
+                    <span
+                    class="pdf-meta-label">
+
+                        CLASS
+
+                    </span>
+
+
+                    <span
+                    class="pdf-meta-value">
+
+                        ${esc(
+                            meta.className
+                        )}
+
+                    </span>
+
+                </div>
+
+
+                <div
+                class="pdf-meta-box">
+
+                    <span
+                    class="pdf-meta-label">
+
+                        CHAPTER
+
+                    </span>
+
+
+                    <span
+                    class="pdf-meta-value">
+
+                        ${esc(
+                            meta.chapter
+                        )}
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- CREATOR -->
+
+            <div
+            class="pdf-creator">
+
+
+                <div
+                class="pdf-creator-label">
+
+                    CREATOR
+
+                </div>
+
+
+                <div
+                class="pdf-creator-name">
+
+                    A. K. SINGH CHANDEL
+
+                </div>
+
+
+                <div
+                class="pdf-creator-role">
+
+                    Developer & Designer
+
+                </div>
+
+
+                <div
+                class="pdf-creator-portal">
+
+                    TSPCBT PORTAL
+
+                </div>
+
+
+                <div
+                class="pdf-creator-phone">
+
+                    MO- 8887858030
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- PDF BODY -->
+
+        <div class="pdf-body">
+
+            <div
+            class="pdf-question-area">
+
+                <div
+                class="pdf-grid">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PDF FOOTER -->
+
+        <div
+        class="pdf-page-footer">
+
+
+            <strong>
+
+                THE STUDY POINT
+
+            </strong>
+
+
+            &nbsp; • &nbsp;
+
+
+            STUDY • PRACTICE • SUCCESS
+
+
+            <br>
+
+
+            <span>
+
+                ${footerType}
+
+            </span>
+
+
+            <div
+            class="pdf-page-number">
+
+                Page ${pageNumber}
+                of ${totalPages}
+
+            </div>
+
+
+        </div>
+
+    `;
+
+
+    return {
+
+        page,
+
+        grid:
+        page.querySelector(
+            ".pdf-grid"
+        ),
+
+        area:
+        page.querySelector(
+            ".pdf-question-area"
+        )
+
+    };
+
+}
+
+
+/* =========================================================
+BUILD PDF ITEMS
+========================================================= */
+
+function buildPdfItems(filtered){
+
+    const items=[];
+
+
+    if(
+        currentType==="subjective"
+    ){
+
+        const groups =
+        groupSubjectiveQuestions(
+            filtered
+        );
+
+
+        let number=0;
+
+
+        groups.forEach(
+            group=>{
+
+                /*
+                CATEGORY HEADING ONCE
+                */
+
+                items.push({
+
+                    kind:"category",
+
+                    type:
+                    group.type
+
+                });
+
+
+                group.items.forEach(
+                    item=>{
+
+                        items.push({
+
+                            kind:"question",
+
+                            item,
+
+                            index:number
+
+                        });
+
+
+                        number++;
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+    else{
+
+        filtered.forEach(
+            (item,index)=>{
+
+                items.push({
+
+                    kind:"question",
+
+                    item,
+
+                    index
+
+                });
+
+            }
+        );
+
+    }
+
+
+    return items;
+
+}
+
+
+/* =========================================================
+BUILD PDF PAGES
+========================================================= */
+
+async function buildPdfPages(){
+
+    const filtered =
+    getFilteredQuestions();
+
+
+    if(!filtered.length){
+
+        return [];
+
+    }
+
+
+    const meta =
+    getPdfMeta(
+        filtered
+    );
+
+
+    const items =
+    buildPdfItems(
+        filtered
+    );
+
+
+    const pages=[];
+
+
+    function newPage(){
+
+        const obj =
+        createPdfPage(
+            pages.length+1,
+            999,
+            meta
+        );
+
+
+        pdfRenderWrapper.appendChild(
+            obj.page
+        );
+
+
+        pages.push(
+            obj.page
+        );
+
+
+        return obj;
+
+    }
+
+
+    let current =
+    newPage();
+
+
+    for(
+        const entry of items
+    ){
+
+        let element;
+
+
+        if(
+            entry.kind==="category"
+        ){
+
+            element =
+            document.createElement(
+                "div"
+            );
+
+
+            element.className =
+            "pdf-category-heading";
+
+
+            element.textContent =
+            subjectiveTypeLabel(
+                entry.type
+            );
+
+        }
+
+        else{
+
+            element =
+            createPdfQuestion(
+                entry.item,
+                entry.index
+            );
+
+        }
+
+
+        current.grid.appendChild(
+            element
+        );
+
+
+        /*
+        Browser calculates actual rendered height.
+        */
+
+        if(
+            current.area.scrollHeight >
+            current.area.clientHeight
+        ){
+
+            current.grid.removeChild(
+                element
+            );
+
+
+            current =
+            newPage();
+
+
+            current.grid.appendChild(
+                element
+            );
+
+
+            /*
+            If one individual question itself is
+            larger than page, keep it on page rather
+            than creating endless blank pages.
+            */
+
+            if(
+                current.area.scrollHeight >
+                current.area.clientHeight
+            ){
+
+                current.grid.removeChild(
+                    element
+                );
+
+
+                current.grid.appendChild(
+                    element
+                );
+
+            }
+
+        }
+
+    }
+
+
+    /*
+    Exact page count.
+    */
+
+    pages.forEach(
+        (page,index)=>{
+
+            const number =
+            page.querySelector(
+                ".pdf-page-number"
+            );
+
+
+            if(number){
+
+                number.textContent =
+                `Page ${index+1} of ${pages.length}`;
+
+            }
+
+        }
+    );
+
+
+    return pages;
+
+}
+
+
+/* =========================================================
+WAIT
+========================================================= */
+
+function wait(ms){
+
+    return new Promise(
+        resolve =>
+        setTimeout(
+            resolve,
+            ms
+        )
+    );
+
+}
+
+
+/* =========================================================
+DOWNLOAD PDF HD
+========================================================= */
+
+downloadPdfBtn.addEventListener(
+    "click",
+    async function(){
+
+        const filtered =
+        getFilteredQuestions();
+
+
+        if(!filtered.length){
+
+            alert(
+                "Download करने के लिए कोई question उपलब्ध नहीं है।"
+            );
+
+            return;
+
+        }
+
+
+        if(
+            typeof html2canvas ===
+            "undefined"
+        ){
+
+            alert(
+                "PDF system load नहीं हुआ। Internet connection check करें।"
+            );
+
+            return;
+
+        }
+
+
+        if(
+            !window.jspdf ||
+            !window.jspdf.jsPDF
+        ){
+
+            alert(
+                "PDF system load नहीं हुआ। Page refresh करें।"
+            );
+
+            return;
+
+        }
+
+
+        const button =
+        this;
+
+
+        const originalHTML =
+        button.innerHTML;
+
+
+        button.disabled =
+        true;
+
+
+        button.innerHTML = `
+
+            <i
+            class="fa-solid fa-spinner fa-spin">
+            </i>
+
+            <div>
+
+                PDF तैयार हो रही है...
+
+                <small>
+
+                    HD PDF • कृपया प्रतीक्षा करें
+
+                </small>
+
+            </div>
+
+        `;
+
+
+        try{
+
+            /*
+            Remove previous render.
+            */
+
+            pdfRenderWrapper.innerHTML =
+            "";
+
+
+            const pages =
+            await buildPdfPages();
+
+
+            if(!pages.length){
+
+                throw new Error(
+                    "No PDF pages"
+                );
+
+            }
+
+
+            /*
+            Show render area.
+            */
+
+            pdfRenderWrapper.style.visibility =
+            "visible";
+
+            pdfRenderWrapper.style.zIndex =
+            "999999";
+
+
+            /*
+            Give browser time to paint.
+            */
+
+            await wait(700);
+
+
+            if(
+                document.fonts &&
+                document.fonts.ready
+            ){
+
+                await document.fonts.ready;
+
+            }
+
+
+            await wait(500);
+
+
+            const {
+                jsPDF
+            } =
+            window.jspdf;
+
+
+            const pdf =
+            new jsPDF({
+
+                orientation:
+                "portrait",
+
+                unit:
+                "mm",
+
+                format:
+                "a4",
+
+                compress:
+                true,
+
+                precision:
+                16
+
+            });
+
+
+            /*
+            HD 3X rendering.
+            794 x 1123 becomes
+            approximately 2382 x 3369.
+            */
+
+            for(
+                let i=0;
+                i<pages.length;
+                i++
+            ){
+
+                const page =
+                pages[i];
+
+
+                const canvas =
+                await html2canvas(
+                    page,
+                    {
+
+                        scale:3,
+
+                        useCORS:true,
+
+                        allowTaint:false,
+
+                        backgroundColor:
+                        "#ffffff",
+
+                        logging:false,
+
+                        width:794,
+
+                        height:1123,
+
+                        scrollX:0,
+
+                        scrollY:0,
+
+                        windowWidth:794,
+
+                        windowHeight:1123,
+
+                        imageTimeout:15000
+
+                    }
+                );
+
+
+                /*
+                PNG keeps text sharper
+                than JPEG.
+                */
+
+                const image =
+                canvas.toDataURL(
+                    "image/png"
+                );
+
+
+                if(i>0){
+
+                    pdf.addPage();
+
+                }
+
+
+                pdf.addImage(
+
+                    image,
+
+                    "PNG",
+
+                    0,
+
+                    0,
+
+                    210,
+
+                    297,
+
+                    undefined,
+
+                    "FAST"
+
+                );
+
+            }
+
+
+            const meta =
+            getPdfMeta(
+                filtered
+            );
+
+
+            const safeSubject =
+            String(
+                meta.subject ||
+                "GENERAL"
+            )
+            .replace(
+                /[^a-zA-Z0-9\u0900-\u097F]+/g,
+                "-"
+            )
+            .replace(
+                /^-+|-+$/g,
+                ""
+            );
+
+
+            const typeName =
+            currentType==="objective"
+
+            ?
+
+            "OBJECTIVE"
+
+            :
+
+            "SUBJECTIVE";
+
+
+            pdf.save(
+
+                "THE-STUDY-POINT-" +
+
+                safeSubject +
+
+                "-" +
+
+                typeName +
+
+                "-QUESTION-SERIES.pdf"
+
+            );
+
+        }
+
+        catch(error){
+
+            console.error(
+                "PDF ERROR:",
+                error
+            );
+
+
+            alert(
+                "PDF download नहीं हो सकी। कृपया दोबारा प्रयास करें।"
+            );
+
+        }
+
+
+        /*
+        Cleanup.
+        */
+
+        pdfRenderWrapper.style.visibility =
+        "hidden";
+
+
+        pdfRenderWrapper.style.zIndex =
+        "-9999";
+
+
+        pdfRenderWrapper.innerHTML =
+        "";
+
+
+        button.disabled =
+        false;
+
+
+        button.innerHTML =
+        originalHTML;
+
+    }
+);
+
+
+/* =========================================================
+INITIAL RENDER
+========================================================= */
+
+renderQuestions();
+
+
+</script>
+
+</body>
+
+  </html>
