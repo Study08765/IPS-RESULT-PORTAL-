@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Answer Key | THE STUDY POINT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- PDF LIBRARY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef4ff;
+    color:#172033;
+    padding:15px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:linear-gradient(135deg,#003fbd,#1677ff);
+    color:white;
+    padding:25px;
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(0,70,180,.25);
+    margin-bottom:18px;
+}
+
+.header-title{
+    text-align:center;
+    margin-bottom:22px;
+}
+
+.header-title h1{
+    font-size:28px;
+    font-weight:800;
+}
+
+.header-title p{
+    margin-top:5px;
+    opacity:.9;
+    font-size:14px;
+}
+
+.info{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.info-box{
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.2);
+    padding:13px;
+    border-radius:14px;
+}
+
+.info-box small{
+    display:block;
+    opacity:.85;
+    font-size:11px;
+}
+
+.info-box strong{
+    display:block;
+    margin-top:4px;
+    font-size:15px;
+    word-break:break-word;
+}
+
+/* ================= DOWNLOAD BAR ================= */
+
+.download-bar{
+    background:white;
+    padding:15px;
+    border-radius:17px;
+    margin-bottom:18px;
+    box-shadow:0 6px 20px rgba(0,0,0,.07);
+    border:1px solid #dbe5f1;
+    display:flex;
+    justify-content:center;
+}
+
+.download-btn{
+    width:100%;
+    max-width:500px;
+    border:none;
+    border-radius:13px;
+    padding:14px 18px;
+    cursor:pointer;
+    color:white;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:.3px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #15803d,
+        #166534
+    );
+
+    box-shadow:
+    0 5px 0 #14532d,
+    0 10px 22px rgba(22,101,52,.25);
+
+    transition:.15s;
+}
+
+.download-btn:hover{
+    transform:translateY(-2px);
+}
+
+.download-btn:active{
+    transform:translateY(3px);
+    box-shadow:
+    0 2px 0 #14532d,
+    0 5px 12px rgba(22,101,52,.20);
+}
+
+.download-btn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+    transform:none;
+}
+
+/* ================= SUMMARY ================= */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.summary-card{
+    background:white;
+    padding:17px 10px;
+    text-align:center;
+    border-radius:17px;
+    box-shadow:0 6px 20px rgba(0,0,0,.07);
+}
+
+.summary-card .number{
+    font-size:28px;
+    font-weight:800;
+}
+
+.summary-card .label{
+    font-size:12px;
+    color:#64748b;
+    margin-top:3px;
+}
+
+.correct-card .number{
+    color:#16a34a;
+}
+
+.wrong-card .number{
+    color:#dc2626;
+}
+
+.skip-card .number{
+    color:#f59e0b;
+}
+
+.marks-card .number{
+    color:#2563eb;
+}
+
+.percent-card .number{
+    color:#7c3aed;
+}
+
+/* ================= QUESTION ================= */
+
+.question{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:16px;
+    box-shadow:0 6px 22px rgba(0,0,0,.07);
+    border:1px solid #e5eaf2;
+}
+
+.question-top{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:16px;
+}
+
+.question-number{
+    min-width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eaf2ff;
+    color:#0052d4;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:800;
+}
+
+.question-text{
+    font-size:17px;
+    font-weight:600;
+    line-height:1.6;
+    padding-top:5px;
+    flex:1;
+}
+
+/* ================= OPTIONS ================= */
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.option{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:13px 14px;
+    border-radius:13px;
+    border:1.5px solid #e2e8f0;
+    background:#f8fafc;
+    transition:.2s;
+}
+
+.option-letter{
+    min-width:34px;
+    height:34px;
+    border-radius:50%;
+    background:white;
+    border:1px solid #dbe2ea;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    color:#475569;
+}
+
+.option-text{
+    flex:1;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.option-status{
+    min-width:30px;
+    text-align:center;
+    font-size:24px;
+    font-weight:900;
+}
+
+/* Correct option */
+
+.option.correct-option{
+    background:#ecfdf3;
+    border-color:#22c55e;
+}
+
+.correct-option .option-letter{
+    background:#16a34a;
+    color:white;
+    border-color:#16a34a;
+}
+
+.correct-option .option-text{
+    color:#166534;
+    font-weight:600;
+}
+
+.correct-option .option-status{
+    color:#16a34a;
+}
+
+/* Student wrong answer */
+
+.option.student-wrong{
+    background:#fff1f2;
+    border-color:#ef4444;
+}
+
+.student-wrong .option-letter{
+    background:#dc2626;
+    color:white;
+    border-color:#dc2626;
+}
+
+.student-wrong .option-text{
+    color:#991b1b;
+    font-weight:600;
+}
+
+.student-wrong .option-status{
+    color:#dc2626;
+}
+
+/* Student correct answer */
+
+.option.student-correct{
+    box-shadow:0 0 0 2px rgba(22,163,74,.08);
+}
+
+/* ================= RESULT STATUS ================= */
+
+.answer-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
+}
+
+.answer-box{
+    padding:12px 14px;
+    border-radius:12px;
+    background:#f8fafc;
+    font-size:13px;
+}
+
+.answer-box strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.answer-correct{
+    background:#ecfdf3;
+    color:#166534;
+}
+
+.answer-wrong{
+    background:#fff1f2;
+    color:#991b1b;
+}
+
+.answer-not{
+    background:#fff7ed;
+    color:#9a3412;
+}
+
+/* ================= STATUS BADGE ================= */
+
+.status{
+    margin-top:12px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 12px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.status.correct{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.status.wrong{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.status.not-attempted{
+    background:#ffedd5;
+    color:#c2410c;
+}
+
+/* ================= LEGEND ================= */
+
+.legend{
+    background:white;
+    border-radius:17px;
+    padding:15px;
+    margin-bottom:18px;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+
+.legend-title{
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.legend-items{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.legend-item{
+    font-size:12px;
+    color:#475569;
+}
+
+.green{
+    color:#16a34a;
+    font-weight:900;
+}
+
+.red{
+    color:#dc2626;
+    font-weight:900;
+}
+
+/* ================= PDF HEADER ================= */
+
+.pdf-only-header{
+    display:none;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    .info{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .summary{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .summary-card:last-child{
+        grid-column:span 2;
+    }
+
+}
+
+@media(max-width:550px){
+
+    body{
+        padding:9px;
+    }
+
+    .header{
+        padding:18px;
+        border-radius:18px;
+    }
+
+    .header-title h1{
+        font-size:22px;
+    }
+
+    .info{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .info-box strong{
+        font-size:13px;
+    }
+
+    .question{
+        padding:14px;
+        border-radius:16px;
+    }
+
+    .question-text{
+        font-size:15px;
+    }
+
+    .option{
+        padding:11px;
+        gap:9px;
+    }
+
+    .option-text{
+        font-size:13px;
+    }
+
+    .option-status{
+        font-size:22px;
+    }
+
+    .answer-info{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ================= PRINT ================= */
+
+@media print{
+
+    body{
+        background:white;
+        padding:0;
+    }
+
+    .download-bar{
+        display:none !important;
+    }
+
+    .header,
+    .question,
+    .summary-card,
+    .legend{
+        box-shadow:none;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container" id="pdfContent">
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="header-title">
+        <h1>OFFICIAL ANSWER KEY</h1>
+        <p>THE STUDY POINT • COMPUTER BASED TEST</p>
+    </div>
+
+    <div class="info">
+
+        <div class="info-box">
+            <small>Student Name</small>
+            <strong id="studentName">Loading...</strong>
+        </div>
+
+        <div class="info-box">
+            <small>Roll Number</small>
+            <strong id="studentRoll">Loading...</strong>
+        </div>
+
+        <div class="info-box">
+            <small>Class</small>
+            <strong id="studentClass">Loading...</strong>
+        </div>
+
+        <div class="info-box">
+            <small>Test Name</small>
+            <strong id="examName">Loading...</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- DOWNLOAD BUTTON -->
+
+<div class="download-bar pdf-hide">
+
+    <button
+        class="download-btn"
+        id="downloadPdfBtn"
+        onclick="downloadAnswerKeyPDF()">
+
+        📥 DOWNLOAD ANSWER KEY PDF
+
+    </button>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="summary">
+
+    <div class="summary-card correct-card">
+        <div class="number" id="correctCount">0</div>
+        <div class="label">Correct</div>
+    </div>
+
+    <div class="summary-card wrong-card">
+        <div class="number" id="wrongCount">0</div>
+        <div class="label">Wrong</div>
+    </div>
+
+    <div class="summary-card skip-card">
+        <div class="number" id="notAttemptedCount">0</div>
+        <div class="label">Not Attempted</div>
+    </div>
+
+    <div class="summary-card marks-card">
+        <div class="number" id="marks">0/0</div>
+        <div class="label">Marks</div>
+    </div>
+
+    <div class="summary-card percent-card">
+        <div class="number" id="percentage">0%</div>
+        <div class="label">Percentage</div>
+    </div>
+
+</div>
+
+
+<!-- LEGEND -->
+
+<div class="legend">
+
+    <div class="legend-title">Answer Key Guide</div>
+
+    <div class="legend-items">
+
+        <div class="legend-item">
+            <span class="green">✓</span> Correct Answer
+        </div>
+
+        <div class="legend-item">
+            <span class="red">✕</span> Your Wrong Answer
+        </div>
+
+        <div class="legend-item">
+            🟠 Not Attempted
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- QUESTIONS -->
+
+<div id="questionList"></div>
+
+
+</div>
+
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    getDoc,
+    collection,
+    query,
+    where,
+    getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* ================= GET RESPONSE ID ================= */
+
+const params =
+    new URLSearchParams(location.search);
+
+const responseId =
+    params.get("id");
+
+
+if(!responseId){
+
+    alert("Response ID Missing");
+
+    throw new Error("Response ID Missing");
+
+}
+
+
+/* ================= GET STUDENT RESPONSE ================= */
+
+const responseSnap =
+    await getDoc(
+        doc(
+            db,
+            "cbtResponses",
+            responseId
+        )
+    );
+
+
+if(!responseSnap.exists()){
+
+    alert("Response Not Found");
+
+    throw new Error("Response Not Found");
+
+}
+
+
+const response =
+    responseSnap.data();
+
+
+/* ================= STUDENT INFORMATION ================= */
+
+document.getElementById(
+    "studentName"
+).textContent =
+    response.studentName || "N/A";
+
+
+document.getElementById(
+    "studentRoll"
+).textContent =
+    response.studentRoll || "N/A";
+
+
+document.getElementById(
+    "studentClass"
+).textContent =
+    response.studentClass || "N/A";
+
+
+/* ================= TEST INFORMATION ================= */
+
+const testSnap =
+    await getDoc(
+        doc(
+            db,
+            "cbtTests",
+            response.examId
+        )
+    );
+
+
+let testData = {};
+
+
+if(testSnap.exists()){
+
+    testData =
+        testSnap.data();
+
+
+    document.getElementById(
+        "examName"
+    ).textContent =
+        testData.testName ||
+        "CBT Test";
+
+}
+
+
+/* ================= GET QUESTIONS ================= */
+
+const q =
+    query(
+        collection(
+            db,
+            "cbtQuestions"
+        ),
+        where(
+            "testId",
+            "==",
+            response.examId
+        )
+    );
+
+
+const snap =
+    await getDocs(q);
+
+
+let questions = [];
+
+
+snap.forEach(d => {
+
+    questions.push({
+
+        id:d.id,
+
+        ...d.data()
+
+    });
+
+});
+
+
+/* ================= SORT QUESTIONS ================= */
+
+questions.sort((a,b)=>{
+
+    const x =
+        a.createdAt?.seconds || 0;
+
+    const y =
+        b.createdAt?.seconds || 0;
+
+    return x-y;
+
+});
+
+
+/* ================= COUNTERS ================= */
+
+let correct = 0;
+let wrong = 0;
+let notAttempted = 0;
+
+
+/* ================= QUESTION LIST ================= */
+
+const questionList =
+    document.getElementById(
+        "questionList"
+    );
+
+
+questions.forEach((q,index)=>{
+
+
+    /* Student answer */
+
+    const rawStudentAnswer =
+        response.answers?.[q.id];
+
+
+    const studentAnswer =
+        rawStudentAnswer === undefined ||
+        rawStudentAnswer === null ||
+        rawStudentAnswer === ""
+        ? null
+        : String(
+            rawStudentAnswer
+        )
+        .trim()
+        .toUpperCase();
+
+
+    /* Correct answer */
+
+    const correctAnswer =
+        q.answer === undefined ||
+        q.answer === null
+        ? ""
+        : String(
+            q.answer
+        )
+        .trim()
+        .toUpperCase();
+
+
+    /* ================= STATUS ================= */
+
+    let status = "";
+
+
+    if(!studentAnswer){
+
+        notAttempted++;
+
+        status =
+            "not-attempted";
+
+    }
+
+    else if(
+        studentAnswer ===
+        correctAnswer
+    ){
+
+        correct++;
+
+        status =
+            "correct";
+
+    }
+
+    else{
+
+        wrong++;
+
+        status =
+            "wrong";
+
+    }
+
+
+    /* ================= OPTIONS ================= */
+
+    const options = [
+
+        {
+            letter:"A",
+            text:q.optionA ?? ""
+        },
+
+        {
+            letter:"B",
+            text:q.optionB ?? ""
+        },
+
+        {
+            letter:"C",
+            text:q.optionC ?? ""
+        },
+
+        {
+            letter:"D",
+            text:q.optionD ?? ""
+        }
+
+    ];
+
+
+    let optionsHTML = "";
+
+
+    options.forEach(option => {
+
+
+        const isCorrect =
+            option.letter ===
+            correctAnswer;
+
+
+        const isStudent =
+            option.letter ===
+            studentAnswer;
+
+
+        let classes =
+            "option";
+
+
+        let icon = "";
+
+
+        /* Correct answer */
+
+        if(isCorrect){
+
+            classes +=
+                " correct-option";
+
+            icon = "✓";
+
+        }
+
+
+        /* Student wrong answer */
+
+        if(
+            isStudent &&
+            !isCorrect
+        ){
+
+            classes +=
+                " student-wrong";
+
+            icon = "✕";
+
+        }
+
+
+        /* Student selected correct */
+
+        if(
+            isStudent &&
+            isCorrect
+        ){
+
+            classes +=
+                " student-correct";
+
+        }
+
+
+        optionsHTML += `
+
+            <div class="${classes}">
+
+                <div class="option-letter">
+                    ${option.letter}
+                </div>
+
+                <div class="option-text">
+                    ${escapeHTML(
+                        String(option.text)
+                    )}
+                </div>
+
+                <div class="option-status">
+                    ${icon}
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    /* ================= ANSWER INFO ================= */
+
+    let answerInfoHTML = "";
+
+
+    if(status === "correct"){
+
+        answerInfoHTML = `
+
+            <div class="answer-box answer-correct">
+
+                <strong>✓ Your Answer</strong>
+
+                ${escapeHTML(studentAnswer)}
+                • Correct Answer
+
+            </div>
+
+            <div class="answer-box answer-correct">
+
+                <strong>✓ Result</strong>
+
+                Correct
+
+            </div>
+
+        `;
+
+    }
+
+    else if(status === "wrong"){
+
+        answerInfoHTML = `
+
+            <div class="answer-box answer-wrong">
+
+                <strong>✕ Your Answer</strong>
+
+                ${escapeHTML(studentAnswer)}
+
+            </div>
+
+            <div class="answer-box answer-correct">
+
+                <strong>✓ Correct Answer</strong>
+
+                ${escapeHTML(correctAnswer)}
+
+            </div>
+
+        `;
+
+    }
+
+    else{
+
+        answerInfoHTML = `
+
+            <div class="answer-box answer-not">
+
+                <strong>⚠ Not Attempted</strong>
+
+                You did not answer this question.
+
+            </div>
+
+            <div class="answer-box answer-correct">
+
+                <strong>✓ Correct Answer</strong>
+
+                ${escapeHTML(correctAnswer)}
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* ================= QUESTION HTML ================= */
+
+    questionList.innerHTML += `
+
+        <div class="question">
+
+            <div class="question-top">
+
+                <div class="question-number">
+                    Q${index+1}
+                </div>
+
+                <div class="question-text">
+                    ${escapeHTML(
+                        String(
+                            q.question ?? ""
+                        )
+                    )}
+                </div>
+
+            </div>
+
+
+            <div class="options">
+
+                ${optionsHTML}
+
+            </div>
+
+
+            <div class="answer-info">
+
+                ${answerInfoHTML}
+
+            </div>
+
+
+            <div class="status ${status}">
+
+                ${
+                    status === "correct"
+                    ? "✓ Correct Answer"
+                    : status === "wrong"
+                    ? "✕ Wrong Answer"
+                    : "⚠ Not Attempted"
+                }
+
+            </div>
+
+        </div>
+
+    `;
+
+});
+
+
+/* ================= SUMMARY ================= */
+
+const total =
+    questions.length;
+
+
+document.getElementById(
+    "correctCount"
+).textContent =
+    correct;
+
+
+document.getElementById(
+    "wrongCount"
+).textContent =
+    wrong;
+
+
+document.getElementById(
+    "notAttemptedCount"
+).textContent =
+    notAttempted;
+
+
+document.getElementById(
+    "marks"
+).textContent =
+    `${correct}/${total}`;
+
+
+document.getElementById(
+    "percentage"
+).textContent =
+    total
+    ? (
+        (correct / total) *
+        100
+      ).toFixed(2) + "%"
+    : "0%";
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+   DOWNLOAD ANSWER KEY PDF
+===================================================== */
+
+window.downloadAnswerKeyPDF =
+async function(){
+
+    const button =
+        document.getElementById(
+            "downloadPdfBtn"
+        );
+
+
+    const pdfContent =
+        document.getElementById(
+            "pdfContent"
+        );
+
+
+    const studentName =
+        response.studentName ||
+        "Student";
+
+
+    const studentRoll =
+        response.studentRoll ||
+        "";
+
+
+    const testName =
+        testData.testName ||
+        "CBT Test";
+
+
+    button.disabled = true;
+
+    button.innerHTML =
+        "⏳ &nbsp; CREATING PDF...";
+
+
+    try{
+
+
+        /*
+          Download button PDF में नहीं आएगा।
+        */
+
+        const hideElements =
+            document.querySelectorAll(
+                ".pdf-hide"
+            );
+
+
+        hideElements.forEach(
+            element => {
+
+                element.dataset.oldDisplay =
+                    element.style.display;
+
+                element.style.display =
+                    "none";
+
+            }
+        );
+
+
+        /*
+          PDF filename
+        */
+
+        const safeStudent =
+            String(
+                studentName
+            )
+            .replace(
+                /[\\/:*?"<>|]/g,
+                ""
+            )
+            .trim()
+            .replace(
+                /\s+/g,
+                "_"
+            );
+
+
+        const safeTest =
+            String(
+                testName
+            )
+            .replace(
+                /[\\/:*?"<>|]/g,
+                ""
+            )
+            .trim()
+            .replace(
+                /\s+/g,
+                "_"
+            );
+
+
+        const fileName =
+            "Answer_Key_" +
+            safeTest +
+            "_" +
+            safeStudent +
+            (
+                studentRoll
+                ? "_" + studentRoll
+                : ""
+            ) +
+            ".pdf";
+
+
+        /*
+          PDF options
+        */
+
+        const options = {
+
+            margin:[
+                8,
+                8,
+                8,
+                8
+            ],
+
+            filename:fileName,
+
+            image:{
+                type:"jpeg",
+                quality:0.98
+            },
+
+            html2canvas:{
+                scale:2,
+                useCORS:true,
+                allowTaint:false,
+                backgroundColor:"#ffffff",
+                logging:false
+            },
+
+            jsPDF:{
+                unit:"mm",
+                format:"a4",
+                orientation:"portrait",
+                compress:true
+            },
+
+            pagebreak:{
+                mode:[
+                    "css",
+                    "legacy"
+                ],
+
+                avoid:[
+                    ".question"
+                ]
+
+            }
+
+        };
+
+
+        await html2pdf()
+
+            .set(options)
+
+            .from(pdfContent)
+
+            .save();
+
+
+        /*
+          वापस buttons दिखाएँ
+        */
+
+        hideElements.forEach(
+            element => {
+
+                element.style.display =
+                    element.dataset.oldDisplay ||
+                    "";
+
+            }
+        );
+
+
+        button.disabled = false;
+
+        button.innerHTML =
+            "✅ &nbsp; PDF DOWNLOADED";
+
+
+        setTimeout(()=>{
+
+            button.innerHTML =
+                "📥 DOWNLOAD ANSWER KEY PDF";
+
+        },2500);
+
+
+    }
+    catch(error){
+
+        console.error(
+            "PDF Error:",
+            error
+        );
+
+
+        /*
+          Error होने पर भी button वापस दिखाएँ
+        */
+
+        document
+            .querySelectorAll(
+                ".pdf-hide"
+            )
+            .forEach(
+                element => {
+
+                    element.style.display =
+                        element.dataset.oldDisplay ||
+                        "";
+
+                }
+            );
+
+
+        alert(
+            "❌ PDF बनाने में समस्या हुई। कृपया दोबारा प्रयास करें।"
+        );
+
+
+        button.disabled = false;
+
+        button.innerHTML =
+            "📥 DOWNLOAD ANSWER KEY PDF";
+
+    }
+
+};
+
+</script>
+
+</body>
+  </html>
