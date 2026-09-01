@@ -1,0 +1,3680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>THE STUDY POINT | Student Answer Key</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+
+/* =====================================================
+GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+
+    background:
+    radial-gradient(
+        circle at 5% 5%,
+        rgba(37,99,235,.13),
+        transparent 25%
+    ),
+    radial-gradient(
+        circle at 95% 20%,
+        rgba(124,58,237,.08),
+        transparent 25%
+    ),
+    linear-gradient(
+        180deg,
+        #edf6ff,
+        #f8fbff,
+        #edf5ff
+    );
+
+    color:#172033;
+
+    padding:12px;
+}
+
+.container{
+
+    width:100%;
+
+    max-width:1050px;
+
+    margin:auto;
+}
+
+
+/* =====================================================
+ACTION BAR
+===================================================== */
+
+.action-bar{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:12px;
+}
+
+.action-btn{
+
+    flex:1;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:14px;
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 5px 0 rgba(0,0,0,.20),
+    0 10px 22px rgba(15,23,42,.15);
+
+    transition:.15s;
+}
+
+.download-btn{
+
+    background:
+    linear-gradient(
+        145deg,
+        #16a34a,
+        #15803d,
+        #166534
+    );
+}
+
+.print-btn{
+
+    background:
+    linear-gradient(
+        145deg,
+        #2698ff,
+        #087cf0,
+        #0646b5
+    );
+}
+
+.action-btn:hover{
+    transform:translateY(-2px);
+}
+
+.action-btn:active{
+    transform:translateY(3px);
+}
+
+.action-btn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+}
+
+
+/* =====================================================
+SUMMARY PAGE
+===================================================== */
+
+.summary-page{
+
+    width:100%;
+
+    background:#fff;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    border:1px solid #dbe5f1;
+
+    box-shadow:
+    0 25px 60px rgba(15,23,42,.13);
+
+    position:relative;
+}
+
+
+/* =====================================================
+SUMMARY HEADER
+===================================================== */
+
+.summary-header{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:34px 28px 30px;
+
+    color:white;
+
+    text-align:center;
+
+    background:
+
+    radial-gradient(
+        circle at 50% -30%,
+        rgba(96,165,250,.9),
+        transparent 45%
+    ),
+
+    linear-gradient(
+        135deg,
+        #03154d 0%,
+        #0646b5 55%,
+        #087cf0 100%
+    );
+}
+
+.summary-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    right:-120px;
+    top:-160px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.07);
+}
+
+.summary-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    left:-100px;
+    bottom:-120px;
+
+    border-radius:50%;
+
+    background:
+    rgba(251,191,36,.08);
+}
+
+.summary-brand{
+
+    position:relative;
+    z-index:2;
+
+    font-size:31px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+.summary-subtitle{
+
+    position:relative;
+    z-index:2;
+
+    margin-top:5px;
+
+    color:#dbeafe;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+}
+
+.summary-badge{
+
+    position:relative;
+    z-index:2;
+
+    display:inline-flex;
+
+    margin-top:15px;
+
+    padding:7px 17px;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,255,255,.13);
+
+    border:
+    1px solid
+    rgba(255,255,255,.25);
+
+    color:#fbbf24;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:1.2px;
+}
+
+
+/* =====================================================
+STUDENT BIG CARD
+===================================================== */
+
+.student-big-card{
+
+    margin:22px;
+
+    padding:24px 18px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #f8fbff,
+        #edf6ff
+    );
+
+    border:
+    2px solid
+    #dbeafe;
+
+    box-shadow:
+    0 10px 25px rgba(37,99,235,.08);
+}
+
+.student-label{
+
+    color:#64748b;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.student-big-name{
+
+    margin-top:6px;
+
+    color:#123b83;
+
+    font-size:
+    clamp(28px,7vw,48px);
+
+    line-height:1.15;
+
+    font-weight:900;
+
+    word-break:break-word;
+}
+
+.student-test{
+
+    margin-top:8px;
+
+    color:#7c3aed;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    word-break:break-word;
+}
+
+
+/* =====================================================
+DETAIL COLUMNS
+===================================================== */
+
+.detail-columns{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:13px;
+
+    margin:0 22px 18px;
+}
+
+.detail-column{
+
+    min-height:88px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:13px;
+
+    border-radius:17px;
+
+    background:#fff;
+
+    border:
+    1px solid
+    #dbe5f1;
+
+    box-shadow:
+    0 7px 18px rgba(15,23,42,.05);
+}
+
+.detail-column span{
+
+    color:#64748b;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+.detail-column strong{
+
+    margin-top:6px;
+
+    color:#123b83;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    word-break:break-word;
+}
+
+
+/* =====================================================
+PERFORMANCE
+===================================================== */
+
+.performance-title{
+
+    margin:5px 22px 12px;
+
+    text-align:center;
+
+    color:#123b83;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    letter-spacing:.8px;
+}
+
+.performance-title::after{
+
+    content:"";
+
+    display:block;
+
+    width:70px;
+
+    height:3px;
+
+    margin:7px auto 0;
+
+    border-radius:10px;
+
+    background:#fbbf24;
+}
+
+.performance-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    gap:10px;
+
+    margin:0 22px;
+}
+
+.performance-card{
+
+    min-height:105px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    border-radius:17px;
+
+    padding:12px 7px;
+
+    background:#f8fafc;
+
+    border:
+    1px solid
+    #e2e8f0;
+
+    box-shadow:
+    0 6px 16px rgba(15,23,42,.04);
+}
+
+.performance-card .icon{
+
+    font-size:20px;
+}
+
+.performance-card .number{
+
+    margin-top:4px;
+
+    font-size:25px;
+
+    font-weight:900;
+}
+
+.performance-card .label{
+
+    margin-top:2px;
+
+    color:#64748b;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+}
+
+.performance-card.correct{
+
+    background:#ecfdf5;
+
+    border-color:#bbf7d0;
+}
+
+.performance-card.correct .number{
+    color:#16a34a;
+}
+
+.performance-card.wrong{
+
+    background:#fff1f2;
+
+    border-color:#fecdd3;
+}
+
+.performance-card.wrong .number{
+    color:#dc2626;
+}
+
+.performance-card.skip{
+
+    background:#fff7ed;
+
+    border-color:#fed7aa;
+}
+
+.performance-card.skip .number{
+    color:#ea580c;
+}
+
+.performance-card.marks{
+
+    background:#eff6ff;
+
+    border-color:#bfdbfe;
+}
+
+.performance-card.marks .number{
+    color:#2563eb;
+}
+
+.performance-card.percent{
+
+    background:#f5f3ff;
+
+    border-color:#ddd6fe;
+}
+
+.performance-card.percent .number{
+    color:#7c3aed;
+}
+
+
+/* =====================================================
+PASS FAIL
+===================================================== */
+
+.result-status{
+
+    margin:18px 22px 0;
+
+    padding:25px 15px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    border:2px solid;
+}
+
+.result-status.pass{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ecfdf5,
+        #dcfce7
+    );
+
+    border-color:#22c55e;
+
+    color:#166534;
+}
+
+.result-status.fail{
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff7ed,
+        #fef2f2
+    );
+
+    border-color:#ef4444;
+
+    color:#991b1b;
+}
+
+.status-icon{
+
+    font-size:42px;
+
+    line-height:1;
+}
+
+.status-title{
+
+    margin-top:8px;
+
+    font-size:
+    clamp(24px,6vw,38px);
+
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+.status-message{
+
+    margin-top:5px;
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+.status-percent{
+
+    margin-top:8px;
+
+    font-size:10px;
+
+    font-weight:700;
+}
+
+
+/* =====================================================
+MOTIVATION ONLY
+===================================================== */
+
+.motivation{
+
+    margin:14px 22px 0;
+
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #fffdf4,
+        #fffbeb
+    );
+
+    border:
+    1px solid
+    #fcd34d;
+}
+
+.motivation-text{
+
+    color:#78350f;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+SIGNATURE
+===================================================== */
+
+.signature{
+
+    margin:20px 22px 0;
+
+    padding:
+    18px
+    10px
+    24px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    text-align:center;
+
+    border-top:
+    1px dashed
+    #cbd5e1;
+}
+
+.signature-box{
+
+    min-width:190px;
+
+    padding:8px 15px;
+
+}
+
+.signature-name{
+
+    color:#123b83;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    white-space:nowrap;
+}
+
+.signature-role{
+
+    margin-top:3px;
+
+    color:#64748b;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:.6px;
+}
+
+.signature-date{
+
+    margin-top:7px;
+
+    color:#475569;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+}
+
+
+/* =====================================================
+ANSWER PAGE
+===================================================== */
+
+.answer-page{
+
+    width:100%;
+
+    margin-top:18px;
+
+    background:#f8fbff;
+
+    border-radius:26px;
+
+    border:1px solid #dbe5f1;
+
+    box-shadow:
+    0 20px 50px rgba(15,23,42,.10);
+
+    overflow:hidden;
+}
+
+.answer-header{
+
+    padding:25px 20px;
+
+    color:white;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #03154d,
+        #0646b5,
+        #087cf0
+    );
+
+    border-bottom:
+    4px solid
+    #fbbf24;
+}
+
+.answer-header h2{
+
+    font-size:25px;
+
+    font-weight:900;
+}
+
+.answer-header p{
+
+    margin-top:5px;
+
+    color:#dbeafe;
+
+    font-size:10px;
+
+    font-weight:600;
+}
+
+.answer-student-info{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:10px;
+
+    padding:14px;
+}
+
+.answer-info-box{
+
+    padding:11px;
+
+    text-align:center;
+
+    border-radius:13px;
+
+    background:white;
+
+    border:
+    1px solid
+    #dbeafe;
+}
+
+.answer-info-box span{
+
+    display:block;
+
+    color:#64748b;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+}
+
+.answer-info-box strong{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#123b83;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    word-break:break-word;
+}
+
+
+/* =====================================================
+LEGEND
+===================================================== */
+
+.legend{
+
+    margin:0 14px 15px;
+
+    padding:11px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    border-radius:12px;
+
+    background:white;
+
+    border:
+    1px solid
+    #dbe5f1;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    color:#475569;
+}
+
+.green{
+
+    color:#16a34a;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+.red{
+
+    color:#dc2626;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+QUESTION GRID
+===================================================== */
+
+.question-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:12px;
+
+    padding:0 14px 18px;
+
+    align-items:start;
+}
+
+.question{
+
+    background:white;
+
+    border:
+    1px solid
+    #dbe5f1;
+
+    border-radius:15px;
+
+    padding:13px;
+
+    box-shadow:
+    0 5px 15px rgba(15,23,42,.05);
+
+    break-inside:avoid;
+
+    page-break-inside:avoid;
+}
+
+.question-top{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:8px;
+
+    margin-bottom:9px;
+}
+
+.question-number{
+
+    min-width:34px;
+
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:#eaf2ff;
+
+    color:#0052d4;
+
+    font-size:10px;
+
+    font-weight:900;
+}
+
+.question-text{
+
+    flex:1;
+
+    color:#172554;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    line-height:1.5;
+
+    word-break:break-word;
+}
+
+
+/* =====================================================
+OPTIONS
+===================================================== */
+
+.options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+}
+
+.option{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    min-height:31px;
+
+    padding:6px 7px;
+
+    border-radius:8px;
+
+    border:
+    1px solid
+    #e2e8f0;
+
+    background:#f8fafc;
+
+    font-size:9px;
+
+    line-height:1.35;
+}
+
+.option-letter{
+
+    min-width:23px;
+
+    height:23px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:
+    1px solid
+    #dbe2ea;
+
+    color:#475569;
+
+    font-size:8px;
+
+    font-weight:900;
+}
+
+.option-text{
+
+    flex:1;
+
+    word-break:break-word;
+}
+
+.option-status{
+
+    min-width:20px;
+
+    text-align:center;
+
+    font-size:16px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+CORRECT
+===================================================== */
+
+.option.correct-option{
+
+    background:#ecfdf3;
+
+    border-color:#22c55e;
+}
+
+.correct-option .option-letter{
+
+    background:#16a34a;
+
+    border-color:#16a34a;
+
+    color:white;
+}
+
+.correct-option .option-text{
+
+    color:#166534;
+
+    font-weight:700;
+}
+
+.correct-option .option-status{
+
+    color:#16a34a;
+}
+
+
+/* =====================================================
+STUDENT WRONG
+===================================================== */
+
+.option.student-wrong{
+
+    background:#fff1f2;
+
+    border-color:#ef4444;
+}
+
+.student-wrong .option-letter{
+
+    background:#dc2626;
+
+    border-color:#dc2626;
+
+    color:white;
+}
+
+.student-wrong .option-text{
+
+    color:#991b1b;
+
+    font-weight:700;
+}
+
+.student-wrong .option-status{
+
+    color:#dc2626;
+}
+
+
+/* =====================================================
+QUESTION RESULT
+===================================================== */
+
+.answer-info{
+
+    margin-top:8px;
+
+    padding:8px;
+
+    border-radius:9px;
+
+    font-size:8px;
+
+    line-height:1.5;
+
+    font-weight:700;
+}
+
+.answer-correct{
+
+    background:#ecfdf3;
+
+    color:#166534;
+
+    border:
+    1px solid
+    #bbf7d0;
+}
+
+.answer-wrong{
+
+    background:#fff1f2;
+
+    color:#991b1b;
+
+    border:
+    1px solid
+    #fecdd3;
+}
+
+.answer-not{
+
+    background:#fff7ed;
+
+    color:#9a3412;
+
+    border:
+    1px solid
+    #fed7aa;
+}
+
+.question-status{
+
+    display:inline-flex;
+
+    margin-top:7px;
+
+    padding:4px 8px;
+
+    border-radius:30px;
+
+    font-size:7px;
+
+    font-weight:900;
+}
+
+.question-status.correct{
+
+    background:#dcfce7;
+
+    color:#15803d;
+}
+
+.question-status.wrong{
+
+    background:#fee2e2;
+
+    color:#b91c1c;
+}
+
+.question-status.not-attempted{
+
+    background:#ffedd5;
+
+    color:#c2410c;
+}
+
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    body{
+        padding:8px;
+    }
+
+    .summary-header{
+        padding:28px 15px;
+    }
+
+    .summary-brand{
+        font-size:25px;
+    }
+
+    .student-big-card{
+        margin:15px;
+        padding:20px 12px;
+    }
+
+    .detail-columns{
+        grid-template-columns:1fr 1fr;
+        margin:0 15px 15px;
+    }
+
+    .detail-column:last-child{
+        grid-column:span 2;
+    }
+
+    .performance-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        margin:0 15px;
+    }
+
+    .performance-card:last-child{
+        grid-column:span 2;
+    }
+
+    .result-status{
+        margin:15px;
+    }
+
+    .motivation{
+        margin:12px 15px 0;
+    }
+
+    .signature{
+        margin:18px 15px 0;
+    }
+
+    .question-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:400px){
+
+    .action-btn{
+        font-size:9px;
+    }
+
+    .detail-column strong{
+        font-size:12px;
+    }
+
+    .performance-card .number{
+        font-size:22px;
+    }
+
+    .signature-name{
+        font-size:14px;
+    }
+
+}
+
+
+/* =====================================================
+PRINT
+===================================================== */
+
+@media print{
+
+    @page{
+        size:A4;
+        margin:8mm;
+    }
+
+    html,
+    body{
+
+        width:100%;
+
+        background:white !important;
+
+        padding:0 !important;
+
+        margin:0 !important;
+    }
+
+    .container{
+
+        max-width:none;
+
+        width:100%;
+    }
+
+    .action-bar{
+        display:none !important;
+    }
+
+    .summary-page{
+
+        width:100%;
+
+        margin:0;
+
+        border:none;
+
+        border-radius:0;
+
+        box-shadow:none;
+
+        page-break-after:always;
+
+        break-after:page;
+    }
+
+    .answer-page{
+
+        width:100%;
+
+        margin:0;
+
+        border:none;
+
+        border-radius:0;
+
+        box-shadow:none;
+    }
+
+    .question-grid{
+
+        grid-template-columns:
+        1fr 1fr;
+
+        gap:7px;
+
+        padding:0 5px 8px;
+    }
+
+    .question{
+
+        box-shadow:none;
+
+        padding:8px;
+
+        border-radius:8px;
+    }
+
+    .question-text{
+
+        font-size:9px;
+
+        line-height:1.35;
+    }
+
+    .option{
+
+        padding:4px 5px;
+
+        min-height:24px;
+
+        font-size:7.5px;
+    }
+
+    .option-letter{
+
+        min-width:19px;
+
+        width:19px;
+
+        height:19px;
+
+        font-size:7px;
+    }
+
+    .option-status{
+        font-size:13px;
+    }
+
+    .answer-info{
+
+        font-size:7px;
+
+        padding:5px;
+    }
+
+    .question-status{
+
+        font-size:6px;
+
+        padding:3px 6px;
+    }
+
+    .answer-header{
+        padding:14px;
+    }
+
+    .answer-header h2{
+        font-size:19px;
+    }
+
+    .answer-student-info{
+        padding:8px;
+    }
+
+    .legend{
+        margin-bottom:8px;
+        padding:7px;
+    }
+
+}
+
+
+/* =====================================================
+PDF MODE
+===================================================== */
+
+.pdf-mode{
+
+    background:white !important;
+
+    padding:0 !important;
+}
+
+.pdf-mode .action-bar{
+    display:none !important;
+}
+
+.pdf-mode .summary-page,
+.pdf-mode .answer-page{
+
+    box-shadow:none !important;
+
+    border-radius:0 !important;
+}
+
+
+/*
+ IMPORTANT:
+ PDF page breaks are controlled manually.
+ This prevents the 52 blank-page problem.
+*/
+
+.pdf-summary-page{
+
+    page-break-after:always !important;
+
+    break-after:page !important;
+}
+
+.pdf-question{
+
+    break-inside:avoid !important;
+
+    page-break-inside:avoid !important;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =====================================================
+ACTION BUTTONS
+===================================================== -->
+
+<div class="action-bar">
+
+    <button
+        class="action-btn download-btn"
+        id="downloadBtn">
+
+        📥 DOWNLOAD ANSWER KEY
+
+    </button>
+
+
+    <button
+        class="action-btn print-btn"
+        onclick="window.print()">
+
+        🖨️ PRINT
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+SUMMARY PAGE
+===================================================== -->
+
+<section
+    class="summary-page"
+    id="summaryPage">
+
+
+    <div class="summary-header">
+
+        <div class="summary-brand">
+            THE STUDY POINT
+        </div>
+
+        <div class="summary-subtitle">
+            COMPUTER BASED TEST
+        </div>
+
+        <div class="summary-badge">
+            OFFICIAL STUDENT RESULT SUMMARY
+        </div>
+
+    </div>
+
+
+    <!-- STUDENT -->
+
+    <div class="student-big-card">
+
+        <div class="student-label">
+            STUDENT NAME
+        </div>
+
+        <div
+            class="student-big-name"
+            id="studentName">
+
+            Loading...
+
+        </div>
+
+        <div
+            class="student-test"
+            id="examName">
+
+            Loading...
+
+        </div>
+
+    </div>
+
+
+    <!-- DETAILS -->
+
+    <div class="detail-columns">
+
+
+        <div class="detail-column">
+
+            <span>
+                ROLL NUMBER
+            </span>
+
+            <strong id="studentRoll">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="detail-column">
+
+            <span>
+                CLASS
+            </span>
+
+            <strong id="studentClass">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="detail-column">
+
+            <span>
+                TEST TYPE
+            </span>
+
+            <strong>
+                CBT
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- PERFORMANCE -->
+
+    <div class="performance-title">
+        PERFORMANCE SUMMARY
+    </div>
+
+
+    <div class="performance-grid">
+
+
+        <div class="performance-card correct">
+
+            <div class="icon">
+                ✅
+            </div>
+
+            <div
+                class="number"
+                id="correctCount">
+
+                0
+
+            </div>
+
+            <div class="label">
+                Correct
+            </div>
+
+        </div>
+
+
+        <div class="performance-card wrong">
+
+            <div class="icon">
+                ❌
+            </div>
+
+            <div
+                class="number"
+                id="wrongCount">
+
+                0
+
+            </div>
+
+            <div class="label">
+                Wrong
+            </div>
+
+        </div>
+
+
+        <div class="performance-card skip">
+
+            <div class="icon">
+                ⚠️
+            </div>
+
+            <div
+                class="number"
+                id="notAttemptedCount">
+
+                0
+
+            </div>
+
+            <div class="label">
+                Not Attempted
+            </div>
+
+        </div>
+
+
+        <div class="performance-card marks">
+
+            <div class="icon">
+                🏆
+            </div>
+
+            <div
+                class="number"
+                id="marks">
+
+                0/0
+
+            </div>
+
+            <div class="label">
+                Marks
+            </div>
+
+        </div>
+
+
+        <div class="performance-card percent">
+
+            <div class="icon">
+                📊
+            </div>
+
+            <div
+                class="number"
+                id="percentage">
+
+                0%
+
+            </div>
+
+            <div class="label">
+                Percentage
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- PASS FAIL -->
+
+    <div
+        class="result-status"
+        id="resultStatus">
+
+
+        <div
+            class="status-icon"
+            id="statusIcon">
+
+            ⏳
+
+        </div>
+
+
+        <div
+            class="status-title"
+            id="statusTitle">
+
+            Checking Result
+
+        </div>
+
+
+        <div
+            class="status-message"
+            id="statusMessage">
+
+            Please wait...
+
+        </div>
+
+
+        <div
+            class="status-percent"
+            id="statusPercent">
+
+            -
+
+        </div>
+
+
+    </div>
+
+
+    <!-- MOTIVATION -->
+
+    <div class="motivation">
+
+        <div
+            class="motivation-text"
+            id="motivationText">
+
+            Keep learning and keep improving! 🌟
+
+        </div>
+
+    </div>
+
+
+    <!-- SIGNATURE -->
+
+    <div class="signature">
+
+        <div class="signature-box">
+
+            <div class="signature-name">
+                A.K. SINGH CHANDEL
+            </div>
+
+            <div class="signature-role">
+                Test Administrator
+            </div>
+
+            <div
+                class="signature-date"
+                id="examDate">
+
+                -
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+ANSWER KEY PAGE
+===================================================== -->
+
+<section
+    class="answer-page"
+    id="answerPage">
+
+
+    <div class="answer-header">
+
+        <h2>
+            📖 STUDENT ANSWER KEY
+        </h2>
+
+        <p>
+            THE STUDY POINT • COMPUTER BASED TEST
+        </p>
+
+    </div>
+
+
+    <div class="answer-student-info">
+
+
+        <div class="answer-info-box">
+
+            <span>
+                Student Name
+            </span>
+
+            <strong id="answerStudentName">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="answer-info-box">
+
+            <span>
+                Test Name
+            </span>
+
+            <strong id="answerExamName">
+                -
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="legend">
+
+        <div>
+            <span class="green">✓</span>
+            Correct Answer
+        </div>
+
+        <div>
+            <span class="red">✕</span>
+            Your Wrong Answer
+        </div>
+
+        <div>
+            🟠 Not Attempted
+        </div>
+
+    </div>
+
+
+    <div
+        class="question-grid"
+        id="questionList">
+
+    </div>
+
+
+</section>
+
+
+</div>
+
+
+<script type="module">
+
+
+import { db } from "./firebase.js";
+
+
+import {
+
+    doc,
+    getDoc,
+    collection,
+    query,
+    where,
+    getDocs
+
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+GET RESPONSE ID
+===================================================== */
+
+const params =
+new URLSearchParams(
+    location.search
+);
+
+const responseId =
+params.get("id");
+
+
+if(!responseId){
+
+    alert(
+        "Response ID Missing"
+    );
+
+    throw new Error(
+        "Response ID Missing"
+    );
+
+}
+
+
+/* =====================================================
+ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+
+    .replace(/&/g,"&amp;")
+
+    .replace(/</g,"&lt;")
+
+    .replace(/>/g,"&gt;")
+
+    .replace(/"/g,"&quot;")
+
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+FORMAT EXAM DATE
+===================================================== */
+
+function formatExamDate(value){
+
+    if(!value){
+        return "";
+    }
+
+    let date = null;
+
+
+    /*
+      Firestore Timestamp
+    */
+
+    if(
+        typeof value.toDate === "function"
+    ){
+
+        date = value.toDate();
+
+    }
+
+
+    /*
+      Timestamp-like object
+    */
+
+    else if(
+        value.seconds
+    ){
+
+        date =
+        new Date(
+            Number(value.seconds) * 1000
+        );
+
+    }
+
+
+    /*
+      JS Date
+    */
+
+    else if(
+        value instanceof Date
+    ){
+
+        date = value;
+
+    }
+
+
+    /*
+      String / number
+    */
+
+    else{
+
+        date =
+        new Date(value);
+
+    }
+
+
+    if(
+        !date ||
+        isNaN(date.getTime())
+    ){
+
+        return "";
+
+    }
+
+
+    const dayNames = [
+
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+
+    ];
+
+
+    const day =
+    String(
+        date.getDate()
+    ).padStart(2,"0");
+
+
+    const monthNames = [
+
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+
+    ];
+
+
+    const month =
+    monthNames[
+        date.getMonth()
+    ];
+
+
+    const year =
+    date.getFullYear();
+
+
+    const weekday =
+    dayNames[
+        date.getDay()
+    ];
+
+
+    return `${day} ${month} ${year} • ${weekday}`;
+
+}
+
+
+/* =====================================================
+GET EXAM DATE FROM TEST
+===================================================== */
+
+function getExamDate(testData){
+
+    /*
+      Priority:
+      1. examDate
+      2. testDate
+      3. date
+      4. startDate
+      5. start
+    */
+
+    return (
+
+        testData.examDate
+        ||
+        testData.testDate
+        ||
+        testData.date
+        ||
+        testData.startDate
+        ||
+        testData.start
+        ||
+        null
+
+    );
+
+}
+
+
+/* =====================================================
+LOAD RESPONSE
+===================================================== */
+
+async function loadResponse(){
+
+    try{
+
+
+        /* =================================================
+           RESPONSE
+        ================================================= */
+
+        const responseSnap =
+        await getDoc(
+
+            doc(
+                db,
+                "cbtResponses",
+                responseId
+            )
+
+        );
+
+
+        if(
+            !responseSnap.exists()
+        ){
+
+            alert(
+                "Response Not Found"
+            );
+
+            throw new Error(
+                "Response Not Found"
+            );
+
+        }
+
+
+        const response =
+        responseSnap.data();
+
+
+        /* =================================================
+           STUDENT
+        ================================================= */
+
+        const studentName =
+        response.studentName ||
+        "N/A";
+
+
+        const studentRoll =
+        response.studentRoll ||
+        "N/A";
+
+
+        const studentClass =
+        response.studentClass ||
+        "N/A";
+
+
+        document.getElementById(
+            "studentName"
+        ).textContent =
+        studentName;
+
+
+        document.getElementById(
+            "studentRoll"
+        ).textContent =
+        studentRoll;
+
+
+        document.getElementById(
+            "studentClass"
+        ).textContent =
+        studentClass;
+
+
+        document.getElementById(
+            "answerStudentName"
+        ).textContent =
+        studentName;
+
+
+        /* =================================================
+           TEST
+        ================================================= */
+
+        let testData = {};
+
+
+        if(response.examId){
+
+            const testSnap =
+            await getDoc(
+
+                doc(
+                    db,
+                    "cbtTests",
+                    response.examId
+                )
+
+            );
+
+
+            if(
+                testSnap.exists()
+            ){
+
+                testData =
+                testSnap.data();
+
+            }
+
+        }
+
+
+        const examName =
+        testData.testName ||
+        "CBT Test";
+
+
+        document.getElementById(
+            "examName"
+        ).textContent =
+        examName;
+
+
+        document.getElementById(
+            "answerExamName"
+        ).textContent =
+        examName;
+
+
+        /* =================================================
+           EXAM DATE
+        ================================================= */
+
+        const examDateValue =
+        getExamDate(
+            testData
+        );
+
+
+        const formattedExamDate =
+        formatExamDate(
+            examDateValue
+        );
+
+
+        /*
+          Only if Firebase has no valid exam date,
+          current date is NOT silently used.
+          Instead "-" is shown.
+        */
+
+        document.getElementById(
+            "examDate"
+        ).textContent =
+        formattedExamDate ||
+        "-";
+
+
+        /* =================================================
+           QUESTIONS
+        ================================================= */
+
+        const questionQuery =
+        query(
+
+            collection(
+                db,
+                "cbtQuestions"
+            ),
+
+            where(
+                "testId",
+                "==",
+                response.examId
+            )
+
+        );
+
+
+        const questionsSnap =
+        await getDocs(
+            questionQuery
+        );
+
+
+        let questions = [];
+
+
+        questionsSnap.forEach(
+            d => {
+
+                questions.push({
+
+                    id:d.id,
+
+                    ...d.data()
+
+                });
+
+            }
+        );
+
+
+        /* =================================================
+           SORT QUESTIONS
+        ================================================= */
+
+        questions.sort(
+            (a,b)=>{
+
+                const x =
+                a.createdAt?.seconds ||
+                0;
+
+
+                const y =
+                b.createdAt?.seconds ||
+                0;
+
+
+                return x-y;
+
+            }
+        );
+
+
+        /* =================================================
+           COUNTERS
+        ================================================= */
+
+        let correct = 0;
+
+        let wrong = 0;
+
+        let notAttempted = 0;
+
+
+        /* =================================================
+           QUESTION LIST
+        ================================================= */
+
+        const questionList =
+        document.getElementById(
+            "questionList"
+        );
+
+
+        questionList.innerHTML = "";
+
+
+        questions.forEach(
+            (q,index)=>{
+
+
+                /* =============================
+                   STUDENT ANSWER
+                ============================= */
+
+                const rawStudentAnswer =
+                response.answers?.[q.id];
+
+
+                const studentAnswer =
+                rawStudentAnswer === undefined ||
+                rawStudentAnswer === null ||
+                rawStudentAnswer === ""
+
+                ? null
+
+                :
+
+                String(
+                    rawStudentAnswer
+                )
+                .trim()
+                .toUpperCase();
+
+
+                /* =============================
+                   CORRECT ANSWER
+                ============================= */
+
+                const correctAnswer =
+                q.answer === undefined ||
+                q.answer === null
+
+                ? ""
+
+                :
+
+                String(
+                    q.answer
+                )
+                .trim()
+                .toUpperCase();
+
+
+                /* =============================
+                   STATUS
+                ============================= */
+
+                let status;
+
+
+                if(!studentAnswer){
+
+                    notAttempted++;
+
+                    status =
+                    "not-attempted";
+
+                }
+
+                else if(
+                    studentAnswer ===
+                    correctAnswer
+                ){
+
+                    correct++;
+
+                    status =
+                    "correct";
+
+                }
+
+                else{
+
+                    wrong++;
+
+                    status =
+                    "wrong";
+
+                }
+
+
+                /* =============================
+                   OPTIONS
+                ============================= */
+
+                const options = [
+
+                    {
+                        letter:"A",
+                        text:q.optionA ?? ""
+                    },
+
+                    {
+                        letter:"B",
+                        text:q.optionB ?? ""
+                    },
+
+                    {
+                        letter:"C",
+                        text:q.optionC ?? ""
+                    },
+
+                    {
+                        letter:"D",
+                        text:q.optionD ?? ""
+                    }
+
+                ];
+
+
+                let optionsHTML = "";
+
+
+                options.forEach(
+                    option=>{
+
+
+                        const isCorrect =
+                        option.letter ===
+                        correctAnswer;
+
+
+                        const isStudent =
+                        option.letter ===
+                        studentAnswer;
+
+
+                        let classes =
+                        "option";
+
+
+                        let icon = "";
+
+
+                        if(isCorrect){
+
+                            classes +=
+                            " correct-option";
+
+                            icon = "✓";
+
+                        }
+
+
+                        if(
+                            isStudent &&
+                            !isCorrect
+                        ){
+
+                            classes +=
+                            " student-wrong";
+
+                            icon = "✕";
+
+                        }
+
+
+                        optionsHTML += `
+
+                            <div
+                                class="${classes}"
+                            >
+
+                                <div
+                                    class="option-letter"
+                                >
+                                    ${option.letter}
+                                </div>
+
+                                <div
+                                    class="option-text"
+                                >
+                                    ${escapeHTML(
+                                        option.text
+                                    )}
+                                </div>
+
+                                <div
+                                    class="option-status"
+                                >
+                                    ${icon}
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }
+                );
+
+
+                /* =============================
+                   ANSWER INFO
+                ============================= */
+
+                let answerInfoHTML = "";
+
+
+                if(
+                    status === "correct"
+                ){
+
+                    answerInfoHTML = `
+
+                        <div
+                            class="
+                            answer-info
+                            answer-correct
+                            "
+                        >
+
+                            ✓ Your Answer:
+                            ${escapeHTML(
+                                studentAnswer
+                            )}
+                            • Correct
+
+                        </div>
+
+                    `;
+
+                }
+
+                else if(
+                    status === "wrong"
+                ){
+
+                    answerInfoHTML = `
+
+                        <div
+                            class="
+                            answer-info
+                            answer-wrong
+                            "
+                        >
+
+                            ✕ Your Answer:
+                            ${escapeHTML(
+                                studentAnswer
+                            )}
+                            • Correct Answer:
+                            ${escapeHTML(
+                                correctAnswer
+                            )}
+
+                        </div>
+
+                    `;
+
+                }
+
+                else{
+
+                    answerInfoHTML = `
+
+                        <div
+                            class="
+                            answer-info
+                            answer-not
+                            "
+                        >
+
+                            ⚠ Not Attempted
+                            • Correct Answer:
+                            ${escapeHTML(
+                                correctAnswer
+                            )}
+
+                        </div>
+
+                    `;
+
+                }
+
+
+                /* =============================
+                   QUESTION ELEMENT
+                ============================= */
+
+                const questionDiv =
+                document.createElement(
+                    "div"
+                );
+
+
+                questionDiv.className =
+                "question pdf-question";
+
+
+                questionDiv.innerHTML = `
+
+                    <div
+                        class="question-top"
+                    >
+
+                        <div
+                            class="question-number"
+                        >
+                            Q${index+1}
+                        </div>
+
+                        <div
+                            class="question-text"
+                        >
+                            ${escapeHTML(
+                                q.question ?? ""
+                            )}
+                        </div>
+
+                    </div>
+
+
+                    <div class="options">
+
+                        ${optionsHTML}
+
+                    </div>
+
+
+                    ${answerInfoHTML}
+
+
+                    <div
+                        class="
+                        question-status
+                        ${status}
+                        "
+                    >
+
+                        ${
+                            status === "correct"
+                            ? "✓ CORRECT"
+                            :
+                            status === "wrong"
+                            ? "✕ WRONG"
+                            :
+                            "⚠ NOT ATTEMPTED"
+                        }
+
+                    </div>
+
+                `;
+
+
+                questionList.appendChild(
+                    questionDiv
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           SUMMARY
+        ================================================= */
+
+        const total =
+        questions.length;
+
+
+        document.getElementById(
+            "correctCount"
+        ).textContent =
+        correct;
+
+
+        document.getElementById(
+            "wrongCount"
+        ).textContent =
+        wrong;
+
+
+        document.getElementById(
+            "notAttemptedCount"
+        ).textContent =
+        notAttempted;
+
+
+        document.getElementById(
+            "marks"
+        ).textContent =
+        `${correct}/${total}`;
+
+
+        const percentage =
+        total
+        ?
+        (correct / total) * 100
+        :
+        0;
+
+
+        document.getElementById(
+            "percentage"
+        ).textContent =
+        percentage.toFixed(2) + "%";
+
+
+        /* =================================================
+           PASS / FAIL
+        ================================================= */
+
+        const statusBox =
+        document.getElementById(
+            "resultStatus"
+        );
+
+
+        const statusIcon =
+        document.getElementById(
+            "statusIcon"
+        );
+
+
+        const statusTitle =
+        document.getElementById(
+            "statusTitle"
+        );
+
+
+        const statusMessage =
+        document.getElementById(
+            "statusMessage"
+        );
+
+
+        const statusPercent =
+        document.getElementById(
+            "statusPercent"
+        );
+
+
+        const motivationText =
+        document.getElementById(
+            "motivationText"
+        );
+
+
+        /*
+          33% OR MORE = PASS
+          BELOW 33% = FAIL
+        */
+
+        if(
+            percentage >= 33
+        ){
+
+            statusBox.className =
+            "result-status pass";
+
+
+            statusIcon.textContent =
+            "🎉";
+
+
+            statusTitle.textContent =
+            "CONGRATULATIONS!";
+
+
+            statusMessage.textContent =
+            "YOU PASSED THE TEST 🏆";
+
+
+            statusPercent.textContent =
+            `${percentage.toFixed(2)}% • PASSING MARK: 33%`;
+
+
+            motivationText.textContent =
+            "Excellent effort! Keep learning, keep practicing and keep moving forward. 🌟";
+
+        }
+
+        else{
+
+            statusBox.className =
+            "result-status fail";
+
+
+            statusIcon.textContent =
+            "💪";
+
+
+            statusTitle.textContent =
+            "KEEP GOING!";
+
+
+            statusMessage.textContent =
+            "BETTER LUCK NEXT TIME";
+
+
+            statusPercent.textContent =
+            `${percentage.toFixed(2)}% • PASSING MARK: 33%`;
+
+
+            motivationText.textContent =
+            "Don't give up! Practice more, learn from your mistakes and come back stronger. 💪📚";
+
+        }
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Answer Key Error:",
+            error
+        );
+
+
+        document.getElementById(
+            "questionList"
+        ).innerHTML = `
+
+            <div
+                style="
+                grid-column:1/-1;
+                padding:40px 20px;
+                text-align:center;
+                color:#dc2626;
+                font-weight:800;
+                "
+            >
+
+                ❌ Unable to load Answer Key.
+
+                <br><br>
+
+                <small>
+                    Please try again later.
+                </small>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+DOWNLOAD PDF
+===================================================== */
+
+document
+.getElementById(
+    "downloadBtn"
+)
+.addEventListener(
+    "click",
+    async function(){
+
+
+        const button =
+        this;
+
+
+        button.disabled =
+        true;
+
+
+        button.innerHTML =
+        "⏳ GENERATING PDF...";
+
+
+        let pdfWrapper = null;
+
+
+        try{
+
+
+            /* =================================================
+               CREATE PDF WRAPPER
+            ================================================= */
+
+            pdfWrapper =
+            document.createElement(
+                "div"
+            );
+
+
+            pdfWrapper.id =
+            "pdfWrapper";
+
+
+            pdfWrapper.style.width =
+            "210mm";
+
+
+            pdfWrapper.style.background =
+            "#ffffff";
+
+
+            pdfWrapper.style.margin =
+            "0 auto";
+
+
+            pdfWrapper.style.padding =
+            "0";
+
+
+            pdfWrapper.style.boxSizing =
+            "border-box";
+
+
+            /* =================================================
+               CLONE SUMMARY
+            ================================================= */
+
+            const summary =
+            document.getElementById(
+                "summaryPage"
+            );
+
+
+            const summaryClone =
+            summary.cloneNode(true);
+
+
+            summaryClone.classList.add(
+                "pdf-summary-page"
+            );
+
+
+            summaryClone.style.width =
+            "210mm";
+
+
+            summaryClone.style.minHeight =
+            "0";
+
+
+            summaryClone.style.margin =
+            "0";
+
+
+            summaryClone.style.borderRadius =
+            "0";
+
+
+            summaryClone.style.boxShadow =
+            "none";
+
+
+            summaryClone.style.border =
+            "none";
+
+
+            /* =================================================
+               CLONE ANSWER PAGE
+            ================================================= */
+
+            const answer =
+            document.getElementById(
+                "answerPage"
+            );
+
+
+            const answerClone =
+            answer.cloneNode(true);
+
+
+            answerClone.style.width =
+            "210mm";
+
+
+            answerClone.style.margin =
+            "0";
+
+
+            answerClone.style.borderRadius =
+            "0";
+
+
+            answerClone.style.boxShadow =
+            "none";
+
+
+            answerClone.style.border =
+            "none";
+
+
+            answerClone.style.pageBreakBefore =
+            "auto";
+
+
+            answerClone.style.breakBefore =
+            "auto";
+
+
+            /* =================================================
+               PDF ANSWER GRID
+            ================================================= */
+
+            const answerGrid =
+            answerClone.querySelector(
+                ".question-grid"
+            );
+
+
+            if(answerGrid){
+
+                answerGrid.style.display =
+                "grid";
+
+                answerGrid.style.gridTemplateColumns =
+                "1fr 1fr";
+
+                answerGrid.style.gap =
+                "6px";
+
+                answerGrid.style.padding =
+                "0 5px 8px";
+
+                answerGrid.style.alignItems =
+                "start";
+
+            }
+
+
+            /* =================================================
+               PDF QUESTION SIZE
+            ================================================= */
+
+            answerClone
+            .querySelectorAll(
+                ".question"
+            )
+            .forEach(
+                q => {
+
+                    q.classList.add(
+                        "pdf-question"
+                    );
+
+                    q.style.breakInside =
+                    "avoid";
+
+                    q.style.pageBreakInside =
+                    "avoid";
+
+                    q.style.boxShadow =
+                    "none";
+
+                    q.style.padding =
+                    "7px";
+
+                    q.style.marginBottom =
+                    "0";
+
+                }
+            );
+
+
+            answerClone
+            .querySelectorAll(
+                ".question-top"
+            )
+            .forEach(
+                el => {
+
+                    el.style.marginBottom =
+                    "6px";
+
+                }
+            );
+
+
+            answerClone
+            .querySelectorAll(
+                ".question-number"
+            )
+            .forEach(
+                el => {
+
+                    el.style.minWidth =
+                    "28px";
+
+                    el.style.width =
+                    "28px";
+
+                    el.style.height =
+                    "28px";
+
+                    el.style.fontSize =
+                    "8px";
+
+                }
+            );
+
+
+            answerClone
+            .querySelectorAll(
+                ".question-text"
+            )
+            .forEach(
+                el => {
+
+                    el.style.fontSize =
+                    "8px";
+
+                    el.style.lineHeight =
+                    "1.25";
+
+                }
+            );
+
+
+            answerClone
+            .querySelectorAll(
+                ".options"
+            )
+            .forEach(
+                el => {
+
+                    el.style.gap =
+                    "3px";
+
+                }
+            );
+
+
+            answerClone
+            .querySelectorAll(
+                ".option"
+            )
+            .forEach(
+                el => {
+
+                    el.style.fontSize =
+                    "7px";
+
+                    el.style.padding =
+                    "3px 4px";
+
+                    el.style.minHeight =
+                    "20px";
+
+                    el.style.gap =
+                    "5px";
+
+                }
+            );
+
+
+            answerClone
+            .querySelectorAll(
+                ".option-letter"
+            )
+            .forEach(
+                el => {
+
+                    el.style.minWidth =
+                    "17px";
+
+                    el.style.width =
+                    "17px";
+
+                    el.style.height =
+                    "17px";
+
+                    el.style.fontSize =
+                    "6px";
+
+                }
+            );
+
+
+            answerClone
+            .querySelectorAll(
+                ".option-status"
+            )
+            .forEach(
+                el => {
+
+                    el.style.minWidth =
+                    "16px";
+
+                    el.style.fontSize =
+                    "11px";
+
+                }
+            );
+
+
+            answerClone
+            .querySelectorAll(
+                ".answer-info"
+            )
+            .forEach(
+                el => {
+
+                    el.style.marginTop =
+                    "5px";
+
+                    el.style.padding =
+                    "5px";
+
+                    el.style.fontSize =
+                    "6.5px";
+
+                    el.style.lineHeight =
+                    "1.25";
+
+                }
+            );
+
+
+            answerClone
+            .querySelectorAll(
+                ".question-status"
+            )
+            .forEach(
+                el => {
+
+                    el.style.marginTop =
+                    "4px";
+
+                    el.style.padding =
+                    "3px 6px";
+
+                    el.style.fontSize =
+                    "5.5px";
+
+                }
+            );
+
+
+            /* =================================================
+               REMOVE ANSWER PAGE EXTRA MARGIN
+            ================================================= */
+
+            const answerHeader =
+            answerClone.querySelector(
+                ".answer-header"
+            );
+
+
+            if(answerHeader){
+
+                answerHeader.style.padding =
+                "12px";
+
+            }
+
+
+            const answerStudentInfo =
+            answerClone.querySelector(
+                ".answer-student-info"
+            );
+
+
+            if(answerStudentInfo){
+
+                answerStudentInfo.style.padding =
+                "7px";
+
+            }
+
+
+            const legend =
+            answerClone.querySelector(
+                ".legend"
+            );
+
+
+            if(legend){
+
+                legend.style.marginBottom =
+                "7px";
+
+                legend.style.padding =
+                "6px";
+
+                legend.style.fontSize =
+                "7px";
+
+            }
+
+
+            /* =================================================
+               ADD CLONES
+            ================================================= */
+
+            pdfWrapper.appendChild(
+                summaryClone
+            );
+
+
+            pdfWrapper.appendChild(
+                answerClone
+            );
+
+
+            document.body.appendChild(
+                pdfWrapper
+            );
+
+
+            /* =================================================
+               WAIT FOR LAYOUT
+            ================================================= */
+
+            await new Promise(
+                resolve =>
+                requestAnimationFrame(
+                    () =>
+                    requestAnimationFrame(
+                        resolve
+                    )
+                )
+            );
+
+
+            await new Promise(
+                resolve =>
+                setTimeout(
+                    resolve,
+                    300
+                )
+            );
+
+
+            /* =================================================
+               FILENAME
+            ================================================= */
+
+            const studentName =
+            document.getElementById(
+                "studentName"
+            ).textContent
+            .trim()
+            .replace(
+                /[^a-zA-Z0-9\u0900-\u097F]+/g,
+                "_"
+            );
+
+
+            const testName =
+            document.getElementById(
+                "examName"
+            ).textContent
+            .trim()
+            .replace(
+                /[^a-zA-Z0-9\u0900-\u097F]+/g,
+                "_"
+            );
+
+
+            const fileName =
+            "THE_STUDY_POINT_" +
+            studentName +
+            "_" +
+            testName +
+            "_ANSWER_KEY.pdf";
+
+
+            /* =================================================
+               PDF OPTIONS
+            ================================================= */
+
+            const options = {
+
+                margin:0,
+
+                filename:fileName,
+
+                image:{
+                    type:"jpeg",
+                    quality:0.96
+                },
+
+                html2canvas:{
+
+                    scale:1.35,
+
+                    useCORS:true,
+
+                    allowTaint:false,
+
+                    backgroundColor:
+                    "#ffffff",
+
+                    logging:false,
+
+                    scrollX:0,
+
+                    scrollY:0,
+
+                    windowWidth:794
+
+                },
+
+                jsPDF:{
+
+                    unit:"mm",
+
+                    format:"a4",
+
+                    orientation:"portrait",
+
+                    compress:true
+
+                },
+
+                pagebreak:{
+
+                    mode:[
+                        "css"
+                    ],
+
+                    avoid:[
+                        ".pdf-question"
+                    ]
+
+                }
+
+            };
+
+
+            /* =================================================
+               GENERATE
+            ================================================= */
+
+            await html2pdf()
+
+            .set(options)
+
+            .from(pdfWrapper)
+
+            .save();
+
+
+        }
+
+        catch(error){
+
+            console.error(
+                "PDF Error:",
+                error
+            );
+
+
+            alert(
+                "PDF बनाने में समस्या हुई। कृपया दोबारा प्रयास करें।"
+            );
+
+        }
+
+
+        finally{
+
+            if(pdfWrapper){
+
+                pdfWrapper.remove();
+
+            }
+
+
+            button.disabled =
+            false;
+
+
+            button.innerHTML =
+            "📥 DOWNLOAD ANSWER KEY";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+START
+===================================================== */
+
+loadResponse();
+
+
+</script>
+
+
+</body>
+
+  </html>
