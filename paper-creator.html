@@ -50,6 +50,276 @@ html{scroll-behavior:smooth}body{background:linear-gradient(180deg,#edf4fc,#f8fb
 @media print{
 @page{size:A4 portrait;margin:0}html,body{margin:0!important;padding:0!important;background:#fff!important}body{width:210mm}.topbar,.panel,.preview-head,.toast,.edit-tools{display:none!important}.container{margin:0!important;padding:0!important;max-width:none!important;width:210mm!important}.workspace{display:block!important;width:210mm!important}.preview-card{margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;width:210mm!important;position:static!important}.paper-wrap{margin:0!important;padding:0!important;overflow:visible!important;background:#fff!important;width:210mm!important;max-height:none!important}.paper{width:210mm!important;min-height:297mm!important;height:auto!important;margin:0!important;padding:12mm 12mm 18mm!important;box-shadow:none!important;overflow:visible!important;position:relative!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}.double-columns{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:7mm!important;width:100%!important}.double-column{width:100%!important;min-width:0!important}.single-layout,.full-layout{display:block!important;width:100%!important}.opts{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}.paper-footer{position:absolute!important}
 }
+    /* ===== 12 PAPER DESIGN TEMPLATES ===== */
+
+.template-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:7px;
+}
+
+.template-btn{
+min-height:72px;
+padding:8px;
+border:1px solid #d9e3ee;
+border-radius:12px;
+background:#fff;
+cursor:pointer;
+text-align:left;
+font-family:Poppins,sans-serif;
+transition:.2s;
+}
+
+.template-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 7px 18px #0002;
+}
+
+.template-btn.active{
+border:2px solid #c49725;
+box-shadow:0 6px 18px #0002;
+}
+
+.template-icon{
+display:block;
+font-size:18px;
+margin-bottom:3px;
+}
+
+.template-btn b{
+display:block;
+font-size:9px;
+color:#182235;
+}
+
+.template-btn small{
+font-size:7px;
+color:#64748b;
+}
+
+/* 1 — Royal */
+.paper.template-royal{
+--paperAccent:#b88a22;
+--paperAccent2:#132d55;
+--paperBorder:#b88a22;
+--paperSoft:#fffaf0;
+}
+
+.paper.template-royal:before{
+inset:9px;
+border:3px double var(--paperBorder);
+}
+
+/* 2 — Heritage */
+.paper.template-heritage{
+--paperAccent:#7b4b24;
+--paperAccent2:#4a2815;
+--paperBorder:#8b5a2b;
+--paperSoft:#fbf1df;
+background:#fffaf0;
+}
+
+.paper.template-heritage:before{
+inset:13px;
+border:1px solid #8b5a2b;
+outline:2px solid #d8b27a;
+outline-offset:4px;
+}
+
+/* 3 — Elegant */
+.paper.template-elegant{
+--paperAccent:#9b6b20;
+--paperAccent2:#26344d;
+--paperBorder:#c9a24b;
+--paperSoft:#fffdf5;
+}
+
+.paper.template-elegant:before{
+inset:12px;
+border:1px solid var(--paperBorder);
+box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #d9c18a;
+}
+
+/* 4 — Modern */
+.paper.template-modern{
+--paperAccent:#2768a8;
+--paperAccent2:#153d68;
+--paperBorder:#2768a8;
+--paperSoft:#eef6ff;
+}
+
+.paper.template-modern:before{
+inset:10px 22px;
+border:0;
+border-top:5px solid var(--paperAccent);
+border-bottom:2px solid var(--paperAccent);
+}
+
+/* 5 — Academic */
+.paper.template-academic{
+--paperAccent:#174b7d;
+--paperAccent2:#12375b;
+--paperBorder:#174b7d;
+--paperSoft:#f1f6fb;
+}
+
+.paper.template-academic:before{
+inset:15px;
+border:1px solid #174b7d;
+}
+
+.paper.template-academic .section-title{
+border-radius:0;
+text-transform:uppercase;
+}
+
+/* 6 — Certificate */
+.paper.template-certificate{
+--paperAccent:#a67b20;
+--paperAccent2:#28384f;
+--paperBorder:#a67b20;
+--paperSoft:#fff9e8;
+}
+
+.paper.template-certificate:before{
+inset:10px;
+border:4px double #a67b20;
+}
+
+.paper.template-certificate .school-name{
+border-bottom:0;
+border-top:2px solid var(--paperAccent);
+padding-top:4px;
+}
+
+/* 7 — Newspaper */
+.paper.template-newspaper{
+--paperAccent:#222;
+--paperAccent2:#111;
+--paperBorder:#333;
+--paperSoft:#f4f4f4;
+font-family:Georgia,serif;
+}
+
+.paper.template-newspaper:before{
+inset:14px;
+border:1px solid #333;
+}
+
+.paper.template-newspaper .exam-name{
+font-family:Georgia,serif!important;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+.paper.template-newspaper .section-title{
+border-radius:0;
+border-left:5px solid #222;
+border-right:0;
+}
+
+/* 8 — Geometric */
+.paper.template-geometric{
+--paperAccent:#315b8f;
+--paperAccent2:#172b45;
+--paperBorder:#315b8f;
+--paperSoft:#eef4fa;
+}
+
+.paper.template-geometric:before{
+inset:12px;
+border:2px solid #315b8f;
+clip-path:polygon(
+0 0,15px 0,15px 3px,
+calc(100% - 15px) 3px,
+calc(100% - 15px) 0,100% 0,
+100% 15px,calc(100% - 3px) 15px,
+calc(100% - 3px) calc(100% - 15px),
+100% calc(100% - 15px),
+100% 100%,calc(100% - 15px) 100%,
+calc(100% - 15px) calc(100% - 3px),
+15px calc(100% - 3px),
+15px 100%,0 100%,
+0 calc(100% - 15px),3px calc(100% - 15px),
+3px 15px,0 15px
+);
+}
+
+/* 9 — Luxury Corner */
+.paper.template-corner{
+--paperAccent:#b58a2a;
+--paperAccent2:#1d2940;
+--paperBorder:#b58a2a;
+--paperSoft:#fffaf0;
+}
+
+.paper.template-corner:before{
+inset:11px;
+border:0;
+box-shadow:
+inset 4px 0 0 #b58a2a,
+inset 0 4px 0 #b58a2a,
+inset -4px 0 0 #b58a2a,
+inset 0 -4px 0 #b58a2a;
+}
+
+/* 10 — Double Frame */
+.paper.template-doubleframe{
+--paperAccent:#8b6925;
+--paperAccent2:#26344a;
+--paperBorder:#8b6925;
+--paperSoft:#fffaf0;
+}
+
+.paper.template-doubleframe:before{
+inset:8px;
+border:2px solid #8b6925;
+outline:1px solid #8b6925;
+outline-offset:5px;
+}
+
+/* 11 — Minimal Pro */
+.paper.template-minimal{
+--paperAccent:#263238;
+--paperAccent2:#111827;
+--paperBorder:#263238;
+--paperSoft:#f5f6f7;
+}
+
+.paper.template-minimal:before{
+inset:18px;
+border:1px solid #cbd5e1;
+}
+
+.paper.template-minimal .school-name{
+border-bottom:1px solid #263238;
+}
+
+.paper.template-minimal .section-title{
+background:#f5f6f7;
+border-color:#cbd5e1;
+border-radius:2px;
+}
+
+/* 12 — Exam Champion */
+.paper.template-exam{
+--paperAccent:#9a741d;
+--paperAccent2:#173a63;
+--paperBorder:#9a741d;
+--paperSoft:#f8f5eb;
+}
+
+.paper.template-exam:before{
+inset:9px;
+border:3px solid #173a63;
+outline:2px solid #9a741d;
+outline-offset:4px;
+}
+
+.paper.template-exam .section-title{
+border-radius:0;
+border-width:2px;
+                                                                                                                                                                                                              }
 </style>
 </head>
 <body>
@@ -73,14 +343,92 @@ html{scroll-behavior:smooth}body{background:linear-gradient(180deg,#edf4fc,#f8fb
 <div class="field"><label>Paper Language</label><select id="lang"><option value="hindi">हिन्दी</option><option value="english">English</option><option value="both">Hindi + English</option></select></div>
 </div></div>
 
-<div class="group"><div class="group-title">👑 Luxury Design</div><div class="design-grid">
-<button class="design-btn design-classic active" data-design="classic"><div class="design-preview"></div>Classic Navy Gold</button>
-<button class="design-btn design-gold" data-design="gold"><div class="design-preview"></div>Royal Gold</button>
-<button class="design-btn design-green" data-design="green"><div class="design-preview"></div>Premium Green</button>
-<button class="design-btn design-blue" data-design="blue"><div class="design-preview"></div>Royal Blue</button>
-<button class="design-btn design-3d" data-design="3d"><div class="design-preview"></div>Luxury 3D</button>
-<button class="design-btn design-simple" data-design="simple"><div class="design-preview"></div>Professional</button>
-</div></div>
+<div class="group">
+<div class="group-title">🎨 Paper Design Templates</div>
+
+<button id="templateToggle" class="btn gold wide">
+🎨 12 DESIGN TEMPLATES
+</button>
+
+<div id="templatePanel" style="display:none;margin-top:10px">
+
+<div class="template-grid">
+
+<button class="template-btn active" data-template="royal">
+<span class="template-icon">🏛️</span>
+<b>Royal Frame</b>
+<small>Classic Royal</small>
+</button>
+
+<button class="template-btn" data-template="heritage">
+<span class="template-icon">📜</span>
+<b>Heritage</b>
+<small>Traditional Style</small>
+</button>
+
+<button class="template-btn" data-template="elegant">
+<span class="template-icon">✨</span>
+<b>Elegant Frame</b>
+<small>Premium Border</small>
+</button>
+
+<button class="template-btn" data-template="modern">
+<span class="template-icon">💠</span>
+<b>Modern Premium</b>
+<small>Geometric Style</small>
+</button>
+
+<button class="template-btn" data-template="academic">
+<span class="template-icon">🏫</span>
+<b>Academic</b>
+<small>School Exam</small>
+</button>
+
+<button class="template-btn" data-template="certificate">
+<span class="template-icon">🏅</span>
+<b>Certificate</b>
+<small>Honor Style</small>
+</button>
+
+<button class="template-btn" data-template="newspaper">
+<span class="template-icon">📰</span>
+<b>Newspaper</b>
+<small>Editorial Style</small>
+</button>
+
+<button class="template-btn" data-template="geometric">
+<span class="template-icon">🔷</span>
+<b>Geometric</b>
+<small>Sharp Design</small>
+</button>
+
+<button class="template-btn" data-template="corner">
+<span class="template-icon">💎</span>
+<b>Luxury Corner</b>
+<small>Corner Frame</small>
+</button>
+
+<button class="template-btn" data-template="doubleframe">
+<span class="template-icon">🖼️</span>
+<b>Double Frame</b>
+<small>Layered Border</small>
+</button>
+
+<button class="template-btn" data-template="minimal">
+<span class="template-icon">◈</span>
+<b>Minimal Pro</b>
+<small>Clean Design</small>
+</button>
+
+<button class="template-btn" data-template="exam">
+<span class="template-icon">🎖️</span>
+<b>Exam Champion</b>
+<small>Official Style</small>
+</button>
+
+</div>
+
+</div>
 
 <div class="group"><div class="group-title">📐 Paper Layout</div><div class="layout-box">
 <button class="layout-btn" data-layout="single">▤<br>Single</button>
@@ -384,7 +732,7 @@ document.querySelector(".info").style.fontSize=f.info+"px";document.querySelecto
 let lang=$("lang").value,g={hindi:"<b>निर्देश:</b> सभी प्रश्न करना अनिवार्य है। प्रश्नों को ध्यानपूर्वक पढ़कर उत्तर साफ एवं स्पष्ट लिखिए।",english:"<b>Instructions:</b> All questions are compulsory. Read all questions carefully and write your answers neatly and clearly.",both:"<b>Instructions / निर्देश:</b> All questions are compulsory। सभी प्रश्न करना अनिवार्य है। Read all questions carefully and write your answers neatly and clearly। प्रश्नों को ध्यानपूर्वक पढ़कर उत्तर साफ एवं स्पष्ट लिखिए।"};
 $("instructions").innerHTML=g[lang]||g.hindi;
 let ft=document.querySelector(".paper-footer");ft.style.fontSize=f.footer+"px";ft.querySelectorAll("*").forEach(x=>x.style.fontSize=f.footer+"px");
-$("paper").className="paper design-"+selectedDesign;
+$("paper").className="paper template-"+selectedDesign;
 let l=$("paperLogo");l.className="paper-logo "+$("logoPosition").value;l.src=logoData;l.style.display=logoData&&$("logoPosition").value!=="none"?"block":"none";
 
 let w=$("paperWatermark");
@@ -397,7 +745,27 @@ w.style.height=ws+"px";
 render()
 }
 
-document.querySelectorAll(".design-btn").forEach(b=>b.onclick=()=>{document.querySelectorAll(".design-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");selectedDesign=b.dataset.design;updatePreview()});
+/* ===== 12 DESIGN TEMPLATE SELECTOR ===== */
+
+$("templateToggle").onclick=()=>{
+    let p=$("templatePanel");
+    p.style.display=p.style.display==="none"?"block":"none";
+};
+
+document.querySelectorAll(".template-btn").forEach(btn=>{
+    btn.onclick=()=>{
+        document.querySelectorAll(".template-btn")
+        .forEach(x=>x.classList.remove("active"));
+
+        btn.classList.add("active");
+
+        selectedDesign=btn.dataset.template;
+
+        updatePreview();
+
+        toast(btn.querySelector("b").textContent+" Template Applied");
+    };
+});
 document.querySelectorAll(".layout-btn").forEach(b=>b.onclick=()=>{document.querySelectorAll(".layout-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");selectedLayout=b.dataset.layout;render()});
 
 ["school","exam","session","cls","subject","time","marks","examDate","lang","schoolFont","examFont","sessionFont","infoFont","instructionFont","sectionFont","questionFont","optionFont","subFont","footerFont","questionGap","logoPosition","watermarkShow","watermarkSize"].forEach(x=>{$(x).addEventListener("input",updatePreview);$(x).addEventListener("change",()=>{if(x==="lang")updateInstruction();updatePreview()})});
@@ -449,9 +817,11 @@ let s=a.map((p,i)=>`${i+1}. ${p.name}`).join("\n");let c=prompt("MY SAVED PAPERS
 function loadPaper(d){
 questions=d.questions||[];sections=d.sections||[];textBlocks=d.textBlocks||[];let p=d.paper||{};
 $("school").value=p.school||"IPS PUBLIC SCHOOL AHIRORI HARDOI";$("exam").value=p.exam||"";$("session").value=p.session||"2026-27";$("cls").value=p.className||"8";$("subject").value=p.subject||"";$("time").value=p.time||"2 Hours";$("marks").value=p.marks??50;$("examDate").value=p.date||"";$("lang").value=p.lang||"hindi";
-selectedLayout=p.layout||"double";selectedDesign=p.design||"classic";logoData=p.logoData||"";watermarkData=p.watermarkData||"";$("logoPosition").value=p.logoPosition||"none";$("watermarkShow").value=p.watermarkShow||"hide";$("watermarkSize").value=p.watermarkSize||"200";
+selectedLayout=p.layout||"double";selectedDesign=p.design||"royal";logoData=p.logoData||"";watermarkData=p.watermarkData||"";$("logoPosition").value=p.logoPosition||"none";$("watermarkShow").value=p.watermarkShow||"hide";$("watermarkSize").value=p.watermarkSize||"200";
 ["schoolFont","examFont","sessionFont","infoFont","instructionFont","sectionFont","questionFont","optionFont","subFont","footerFont","questionGap"].forEach(x=>{if(p[x]!=null)$(x).value=p[x]});
-document.querySelectorAll(".layout-btn").forEach(b=>b.classList.toggle("active",b.dataset.layout===selectedLayout));document.querySelectorAll(".design-btn").forEach(b=>b.classList.toggle("active",b.dataset.design===selectedDesign));
+document.querySelectorAll(".template-btn").forEach(b=>{
+    b.classList.toggle("active",b.dataset.template===selectedDesign);
+});
 updateInstruction();updatePreview()
 }
 
