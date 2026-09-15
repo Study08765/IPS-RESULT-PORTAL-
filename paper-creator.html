@@ -78,7 +78,7 @@ html{scroll-behavior:smooth}body{background:linear-gradient(180deg,#edf4fc,#f8fb
 <div class="field full"><label>School Name</label><input id="school" value="IPS PUBLIC SCHOOL AHIRORI HARDOI"></div>
 <div class="field"><label>Exam Name</label><input id="exam" placeholder="Annual Examination"></div>
 <div class="field"><label>Session</label><input id="session" value="2026-27"></div>
-<div class="field"><label>Class</label><select id="cls"><option>Nursery</option><option>LKG</option><option>UKG</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option selected>8</option><option>9</option><option>10</option></select></div>
+<div class="field"><label>Class</label><select id="cls"><option value="">Select Class</option><option>Nursery</option><option>LKG</option><option>UKG</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option selected>8</option><option>9</option><option>10</option></select></div>
 <div class="field"><label>Subject</label><input id="subject" placeholder="English / Hindi / Science"></div>
 <div class="field"><label>Time</label><input id="time" value="2 Hours"></div>
 <div class="field"><label>Maximum Marks</label><input id="marks" type="number" value="50" min="0"></div>
@@ -221,7 +221,15 @@ Answer any two questions."></textarea></div>
 <div class="paper design-royal" id="paper">
 <img id="paperLogo" class="paper-logo" alt="School Logo"><img id="paperWatermark" class="watermark" alt="Watermark">
 <div class="paper-header"><div class="school-name" id="pSchool">IPS PUBLIC SCHOOL AHIRORI HARDOI</div><div class="exam-name" id="pExam">ANNUAL EXAMINATION</div><div class="session" id="pSession">SESSION 2026-27</div></div>
-<table class="info"><tr><td><b>Class:</b> <span id="pClass">8</span></td><td><b>Subject:</b> <span id="pSubject">________</span></td><td><b>Time:</b> <span id="pTime">2 Hours</span></td><td><b>Marks:</b> <span id="pMarks">50</span></td><td><b>Date:</b> <span id="pDate">________</span></td></tr></table>
+<table class="info">
+  <tr>
+    <td><b>Class:</b> <span id="pClass"></span></td>
+    <td><b>Subject:</b> <span id="pSubject"></span></td>
+    <td><b>Time:</b> <span id="pTime">2 Hours</span></td>
+    <td><b>Marks:</b> <span id="pMarks">50</span></td>
+    <td><b>Date:</b> <span id="pDate"></span></td>
+  </tr>
+</table>
 <div class="decor-line">◆ ◆ ◆ ◆ ◆ ◆ ◆ ◆ ◆ ◆ ◆ ◆ ◆ ◆ ◆ ◆</div>
 <div class="paper-instruction" id="instructions"></div>
 <div class="content" id="paperContent"><div class="empty-preview">Questions will appear here...</div></div>
