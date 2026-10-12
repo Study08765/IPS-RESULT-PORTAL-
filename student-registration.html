@@ -1,1316 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <title>THE STUDY POINT | Student Registration</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet">
-
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:18px;
-
-    background:
-    linear-gradient(
-        rgba(0,35,85,.55),
-        rgba(0,15,45,.80)
-    ),
-    url("hero-bg.jpg") center/cover fixed;
-
-}
-
-.box{
-
-    width:100%;
-
-    max-width:500px;
-
-    background:
-    rgba(255,255,255,.14);
-
-    backdrop-filter:blur(20px);
-
-    -webkit-backdrop-filter:blur(20px);
-
-    border:
-    2px solid
-    rgba(255,215,0,.30);
-
-    border-radius:28px;
-
-    padding:28px 22px;
-
-    box-shadow:
-    0 20px 60px
-    rgba(0,0,0,.40);
-
-}
-
-.logo{
-
-    text-align:center;
-
-    color:#fff;
-
-    margin-bottom:22px;
-
-}
-
-.logo img{
-
-    width:90px;
-
-    height:90px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    padding:5px;
-
-    border:
-    3px solid
-    #FFD700;
-
-    box-shadow:
-    0 0 25px
-    rgba(255,215,0,.50);
-
-}
-
-.logo h1{
-
-    color:#FFD700;
-
-    font-size:26px;
-
-    margin-top:10px;
-
-    font-weight:800;
-
-}
-
-.logo p{
-
-    font-size:11px;
-
-    margin-top:3px;
-
-}
-
-.title{
-
-    color:#fff;
-
-    text-align:center;
-
-    font-size:21px;
-
-    margin-bottom:20px;
-
-    font-weight:800;
-
-}
-
-.field{
-
-    margin-bottom:13px;
-
-}
-
-label{
-
-    display:block;
-
-    color:#fff;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    margin-bottom:5px;
-
-}
-
-input,
-select{
-
-    width:100%;
-
-    height:50px;
-
-    border:0;
-
-    outline:none;
-
-    border-radius:12px;
-
-    padding:0 14px;
-
-    background:#fff;
-
-    color:#222;
-
-    font-size:14px;
-
-    font-weight:600;
-
-}
-
-input:focus,
-select:focus{
-
-    box-shadow:
-    0 0 0 3px
-    rgba(255,215,0,.35);
-
-}
-
-.register-btn{
-
-    width:100%;
-
-    height:55px;
-
-    margin-top:7px;
-
-    border:0;
-
-    border-radius:13px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #FFD700,
-        #ffad00
-    );
-
-    color:#111;
-
-    font-size:16px;
-
-    font-weight:800;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-.register-btn:hover{
-
-    transform:
-    translateY(-2px);
-
-    box-shadow:
-    0 10px 25px
-    rgba(255,174,0,.35);
-
-}
-
-.register-btn:disabled{
-
-    opacity:.6;
-
-    cursor:not-allowed;
-
-    transform:none;
-
-}
-
-.message{
-
-    display:none;
-
-    margin-top:15px;
-
-    padding:12px;
-
-    border-radius:12px;
-
-    text-align:center;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    line-height:1.6;
-
-}
-
-.message.error{
-
-    display:block;
-
-    background:#ffe5e5;
-
-    color:#a00000;
-
-}
-
-.message.success{
-
-    display:block;
-
-    background:#e6fff1;
-
-    color:#08743c;
-
-}
-
-
-/* =========================================================
-   SUCCESS RESULT
-========================================================= */
-
-.result{
-
-    display:none;
-
-    margin-top:16px;
-
-    background:#fff;
-
-    border-radius:20px;
-
-    padding:22px 18px;
-
-    text-align:center;
-
-    box-shadow:
-    0 10px 25px
-    rgba(0,0,0,.18);
-
-}
-
-.success-icon{
-
-    width:52px;
-
-    height:52px;
-
-    margin:0 auto 8px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#087a3b;
-
-    color:#fff;
-
-    font-size:30px;
-
-    font-weight:900;
-
-    box-shadow:
-    0 6px 18px
-    rgba(8,122,59,.30);
-
-}
-
-.success-title{
-
-    color:#087a3b;
-
-    font-size:18px;
-
-    font-weight:900;
-
-    margin-bottom:9px;
-
-}
-
-.result small{
-
-    color:#777;
-
-    font-size:10px;
-
-    font-weight:600;
-
-}
-
-
-/* =========================================================
-   LOGIN CREDENTIAL BOX
-========================================================= */
-
-.credential{
-
-    margin-top:10px;
-
-    padding:12px;
-
-    border-radius:14px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #f4f9ff,
-        #e7f0ff
-    );
-
-    border:
-    1px solid
-    #cbdcf4;
-
-}
-
-.credential-label{
-
-    color:#777;
-
-    font-size:9px;
-
-    font-weight:700;
-
-    margin-bottom:2px;
-
-}
-
-.credential-value{
-
-    color:#0752a5;
-
-    font-size:25px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-}
-
-.password-value{
-
-    color:#087a3b;
-
-    font-size:29px;
-
-    font-weight:900;
-
-    letter-spacing:5px;
-
-}
-
-.result p{
-
-    color:#555;
-
-    font-size:10px;
-
-    line-height:1.8;
-
-    margin-top:12px;
-
-}
-
-.result p strong{
-
-    color:#0752a5;
-
-}
-
-
-@media(max-width:500px){
-
-    body{
-
-        padding:12px;
-
-    }
-
-    .box{
-
-        padding:23px 16px;
-
-        border-radius:23px;
-
-    }
-
-    .logo h1{
-
-        font-size:23px;
-
-    }
-
-    .logo img{
-
-        width:82px;
-
-        height:82px;
-
-    }
-
-    .title{
-
-        font-size:19px;
-
-    }
-
-}
-
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;background:linear-gradient(rgba(0,35,85,.65),rgba(0,15,45,.88)),url("hero-bg.jpg") center/cover fixed}
+.box{width:100%;max-width:500px;background:rgba(255,255,255,.14);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:2px solid rgba(255,215,0,.3);border-radius:28px;padding:28px 22px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.logo{text-align:center;color:#fff;margin-bottom:22px}.logo img{width:90px;height:90px;border-radius:50%;background:#fff;padding:5px;border:3px solid #FFD700;box-shadow:0 0 25px rgba(255,215,0,.5);object-fit:contain}.logo h1{color:#FFD700;font-size:26px;margin-top:10px;font-weight:800}.logo p{font-size:11px;margin-top:3px}
+.title{color:#fff;text-align:center;font-size:21px;margin-bottom:20px;font-weight:800}.field{margin-bottom:13px}label{display:block;color:#fff;font-size:11px;font-weight:700;margin-bottom:5px}
+input,select{width:100%;height:48px;border:0;outline:none;border-radius:12px;padding:0 14px;background:#fff;color:#222;font-size:14px;font-weight:600}
+input:focus,select:focus{box-shadow:0 0 0 3px rgba(255,215,0,.35)}
+.btn{width:100%;min-height:50px;margin-top:7px;border:0;border-radius:13px;background:linear-gradient(135deg,#FFD700,#ffad00);color:#111;font-size:14px;font-weight:800;cursor:pointer;padding:12px}
+.btn.secondary{background:#fff;color:#12315e}.btn:disabled{opacity:.6;cursor:not-allowed}
+.message{display:none;margin-top:15px;padding:12px;border-radius:12px;text-align:center;font-size:11px;font-weight:700;line-height:1.6}.message.error{display:block;background:#ffe5e5;color:#a00000}.message.success{display:block;background:#e6fff1;color:#08743c}
+.price-box{background:#fff;color:#172033;border-radius:15px;padding:15px;margin:15px 0;line-height:1.9;font-size:13px}.price-row{display:flex;justify-content:space-between;gap:12px}.total{font-size:17px;font-weight:800;border-top:1px solid #e5e7eb;padding-top:6px;margin-top:4px}
+.payment-box{display:none;margin-top:16px;background:#fff;border-radius:18px;padding:18px;text-align:center;color:#172033}.payment-box h3{color:#12315e;margin-bottom:7px}.payment-box p{font-size:12px;line-height:1.7;margin:8px 0}.warning{font-size:11px!important;background:#fff5d6;padding:10px;border-radius:10px;color:#745300}
+.small{font-size:10px;color:#e9efff;text-align:center;margin-top:12px;line-height:1.6}
+@media(max-width:500px){body{padding:12px}.box{padding:23px 16px;border-radius:23px}.logo h1{font-size:23px}.logo img{width:82px;height:82px}.title{font-size:19px}}
 </style>
-
 </head>
-
-
 <body>
-
-
 <div class="box">
-
-
-    <div class="logo">
-
-        <img
-            src="icon-512.png"
-            alt="THE STUDY POINT">
-
-        <h1>
-            THE STUDY POINT
-        </h1>
-
-        <p>
-            CBT PORTAL &amp; STUDENT SERVICES
-        </p>
-
-    </div>
-
-
-    <div class="title">
-
-        📝 STUDENT REGISTRATION
-
-    </div>
-
-
-    <!-- STUDENT NAME -->
-
-    <div class="field">
-
-        <label>
-            Student Name
-        </label>
-
-        <input
-            id="name"
-            type="text"
-            placeholder="Enter Student Name"
-            autocomplete="name"
-            maxlength="60">
-
-    </div>
-
-
-    <!-- CLASS -->
-
-    <div class="field">
-
-        <label>
-            Class
-        </label>
-
-        <select id="studentClass">
-
-            <option value="">
-                Select Class
-            </option>
-
-            <option value="Class 1">Class 1</option>
-            <option value="Class 2">Class 2</option>
-            <option value="Class 3">Class 3</option>
-            <option value="Class 4">Class 4</option>
-            <option value="Class 5">Class 5</option>
-            <option value="Class 6">Class 6</option>
-            <option value="Class 7">Class 7</option>
-            <option value="Class 8">Class 8</option>
-            <option value="Class 9">Class 9</option>
-            <option value="Class 10">Class 10</option>
-
-        </select>
-
-    </div>
-
-
-    <!-- MOBILE -->
-
-    <div class="field">
-
-        <label>
-            Mobile Number
-        </label>
-
-        <input
-            id="mobile"
-            type="tel"
-            inputmode="numeric"
-            maxlength="10"
-            placeholder="Enter 10 Digit Mobile Number"
-            autocomplete="tel">
-
-    </div>
-
-
-    <!-- FATHER -->
-
-    <div class="field">
-
-        <label>
-            Father / Guardian Name
-        </label>
-
-        <input
-            id="father"
-            type="text"
-            placeholder="Enter Father / Guardian Name"
-            autocomplete="off"
-            maxlength="60">
-
-    </div>
-
-
-    <!-- REGISTER -->
-
-    <button
-        id="registerBtn"
-        class="register-btn"
-        type="button">
-
-        REGISTER NOW
-
-    </button>
-
-
-    <!-- MESSAGE -->
-
-    <div
-        id="message"
-        class="message">
-
-    </div>
-
-
-    <!-- SUCCESS -->
-
-    <div
-        id="result"
-        class="result">
-
-
-        <div class="success-icon">
-            ✓
-        </div>
-
-
-        <div class="success-title">
-
-            REGISTRATION SUCCESSFUL
-
-        </div>
-
-
-        <!-- ROLL NUMBER -->
-
-        <div class="credential">
-
-            <div class="credential-label">
-                YOUR UNIQUE ROLL NUMBER
-            </div>
-
-            <div
-                id="roll"
-                class="credential-value">
-            </div>
-
-        </div>
-
-
-        <!-- PASSWORD -->
-
-        <div class="credential">
-
-            <div class="credential-label">
-                YOUR LOGIN PASSWORD
-            </div>
-
-            <div
-                id="generatedPassword"
-                class="password-value">
-            </div>
-
-        </div>
-
-
-        <p>
-
-            🎉 आपका Registration सफलतापूर्वक हो गया है।
-
-            <br>
-
-            आपका Registration Admin Approval के लिए भेज दिया गया है।
-
-            <br>
-
-            <strong>
-                Roll Number और Password सुरक्षित रखें।
-            </strong>
-
-            <br>
-
-            Admin Approval के बाद Student Login और CBT सुविधा उपलब्ध होगी।
-
-        </p>
-
-
-    </div>
-
-
+  <div class="logo">
+    <img src="icon-512.png" alt="THE STUDY POINT" onerror="this.style.display='none'">
+    <h1>THE STUDY POINT</h1><p>CBT PORTAL &amp; STUDENT SERVICES</p>
+  </div>
+  <div class="title">📝 STUDENT REGISTRATION</div>
+  <div class="field"><label for="name">Student Name</label><input id="name" type="text" placeholder="Enter Student Name" autocomplete="name" maxlength="60"></div>
+  <div class="field"><label for="studentClass">Class</label><select id="studentClass"><option value="">Select Class</option>
+    <option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option><option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option>
+  </select></div>
+  <div class="field"><label for="mobile">Mobile Number</label><input id="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="Enter 10 Digit Mobile Number" autocomplete="tel"></div>
+  <div class="field"><label for="father">Father / Guardian Name</label><input id="father" type="text" placeholder="Enter Father / Guardian Name" autocomplete="off" maxlength="60"></div>
+  <div class="field"><label for="couponCode">Coupon Code (Optional)</label><input id="couponCode" type="text" placeholder="Enter coupon code" maxlength="30" autocapitalize="characters"></div>
+  <button id="checkCouponBtn" class="btn secondary" type="button">APPLY COUPON</button>
+  <div id="priceBox" class="price-box">
+    <div class="price-row"><span>Registration Fee</span><strong>₹149</strong></div>
+    <div class="price-row"><span>Discount</span><strong id="discountLabel">₹0</strong></div>
+    <div class="price-row total"><span>Amount Payable</span><strong id="amountLabel">₹149</strong></div>
+  </div>
+  <button id="registerBtn" class="btn" type="button">REGISTER &amp; CONTINUE</button>
+  <div id="message" class="message"></div>
+  <section id="paymentBox" class="payment-box">
+    <h3>Registration Saved</h3>
+    <p id="paymentSummary"></p>
+    <a id="upiLink" href="#" style="text-decoration:none"><button class="btn" type="button">PAY NOW — OPEN UPI APP</button></a>
+    <p class="warning">UPI app par payment complete karne ke baad browser mein wapas aayein. Redirect se payment verify nahi hota; admin actual transaction check karke status PAID karega.</p>
+    <button id="successBtn" class="btn secondary" type="button">CONTINUE TO SUCCESS PAGE</button>
+  </section>
+  <div class="small">THE STUDY POINT · Securely keep your Roll Number and Password after registration.</div>
 </div>
-
-
 <script type="module">
-
-
-/* ==================================================
-   FIREBASE
-================================================== */
-
 import { db } from "./firebase.js";
+import { collection, getDocs, addDoc, query, where, doc, runTransaction, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-import {
+const FEE=149;
+const UPI_ID="8887858030.wallet@phonepe";
+const $=id=>document.getElementById(id);
+let appliedCoupon=null;
+let appliedDiscount=0;
+let createdStudent=null;
 
-    collection,
-    getDocs,
-    addDoc,
-    query,
-    where,
-    serverTimestamp
-
+function showMessage(text,type){$("message").className="message "+type;$("message").textContent=text;}
+function discountFor(coupon){
+  const value=Number(coupon.discountValue||0);
+  const amount=coupon.discountType==="percent" ? FEE*value/100 : value;
+  return Math.min(FEE,Math.max(0,Math.round(amount*100)/100));
 }
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-/* ==================================================
-   ELEMENTS
-================================================== */
-
-const nameBox =
-document.getElementById("name");
-
-const classBox =
-document.getElementById("studentClass");
-
-const mobileBox =
-document.getElementById("mobile");
-
-const fatherBox =
-document.getElementById("father");
-
-const registerBtn =
-document.getElementById("registerBtn");
-
-const message =
-document.getElementById("message");
-
-const result =
-document.getElementById("result");
-
-const rollBox =
-document.getElementById("roll");
-
-const generatedPasswordBox =
-document.getElementById(
-    "generatedPassword"
-);
-
-
-/* ==================================================
-   SHOW MESSAGE
-================================================== */
-
-function showMessage(
-    text,
-    type
-){
-
-    message.className =
-    "message " + type;
-
-    message.textContent =
-    text;
-
+function renderPrice(){
+  $("discountLabel").textContent="₹"+appliedDiscount.toFixed(2).replace(/\.00$/,"");
+  $("amountLabel").textContent="₹"+Math.max(0,FEE-appliedDiscount).toFixed(2).replace(/\.00$/,"");
 }
-
-
-/* ==================================================
-   GENERATE 4 DIGIT PASSWORD
-================================================== */
-
-function generatePassword(){
-
-    return String(
-        Math.floor(
-            1000 +
-            Math.random() * 9000
-        )
-    );
-
+function validExpiry(expiryDate){
+  if(!expiryDate)return true;
+  // Coupon is valid through its expiry date, in local time.
+  const end=new Date(expiryDate+"T23:59:59");
+  return !Number.isNaN(end.getTime()) && Date.now()<=end.getTime();
 }
-
-
-/* ==================================================
-   GET FIRST AVAILABLE ROLL NUMBER
-================================================== */
-
+async function applyCoupon(showErrors=true){
+  const raw=$("couponCode").value.trim().toUpperCase().replace(/\s+/g,"");
+  appliedCoupon=null;appliedDiscount=0;
+  if(!raw){renderPrice();if(showErrors)showMessage("Coupon code nahi diya gaya. ₹149 fee apply hogi.","success");return true;}
+  try{
+    const ref=doc(db,"registrationCoupons",raw);
+    const snap=await (await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js")).getDoc(ref);
+    if(!snap.exists())throw new Error("Coupon code valid nahi hai.");
+    const c=snap.data();
+    if(c.active===false)throw new Error("Yeh coupon inactive hai.");
+    if(!validExpiry(c.expiryDate))throw new Error("Is coupon ki expiry date nikal chuki hai.");
+    const maxUses=Number(c.maxUses||0), used=Number(c.usedCount||0);
+    if(maxUses>0 && used>=maxUses)throw new Error("Is coupon ki maximum uses limit poori ho gayi hai.");
+    if(!Number(c.discountValue)||Number(c.discountValue)<=0)throw new Error("Coupon discount setup sahi nahi hai.");
+    if(c.discountType==="percent" && Number(c.discountValue)>100)throw new Error("Coupon discount invalid hai.");
+    appliedCoupon={id:snap.id,...c};
+    appliedDiscount=discountFor(c);
+    renderPrice();
+    if(showErrors)showMessage(`Coupon ${raw} apply ho gaya. Discount ₹${appliedDiscount.toFixed(2)}.`, "success");
+    return true;
+  }catch(e){
+    appliedCoupon=null;appliedDiscount=0;renderPrice();
+    if(showErrors)showMessage(e.message||"Coupon check nahi ho paya. Dobara try karein.","error");
+    return false;
+  }
+}
+async function mobileAlreadyRegistered(mobile){
+  const snap=await getDocs(query(collection(db,"subscriptionStudents"),where("mobile","==",mobile)));
+  return !snap.empty;
+}
 async function getNextRoll(){
+  const snap=await getDocs(collection(db,"subscriptionStudents"));
+  const used=new Set();
+  snap.forEach(d=>{const m=String(d.data().roll||"").trim().toUpperCase().match(/^TSP(\d+)$/);if(m)used.add(Number(m[1]));});
+  let n=1;while(used.has(n))n++;
+  return "TSP"+String(n).padStart(3,"0");
+}
+function openSuccess(){
+  if(!createdStudent)return;
+  sessionStorage.setItem("tspRegistrationResult",JSON.stringify(createdStudent));
+  window.location.href="registration-success.html";
+}
+$("checkCouponBtn").addEventListener("click",()=>applyCoupon(true));
+$("couponCode").addEventListener("input",()=>{appliedCoupon=null;appliedDiscount=0;renderPrice();});
+$("mobile").addEventListener("input",function(){this.value=this.value.replace(/[^0-9]/g,"").slice(0,10);});
 
-    const studentsRef =
-    collection(
-        db,
-        "subscriptionStudents"
-    );
-
-
-    const snap =
-    await getDocs(
-        studentsRef
-    );
-
-
-    const usedNumbers =
-    new Set();
-
-
-    snap.forEach(
-    function(docSnap){
-
-        const data =
-        docSnap.data();
-
-
-        const roll =
-        String(
-            data.roll || ""
-        )
-        .trim()
-        .toUpperCase();
-
-
-        const match =
-        roll.match(
-            /^TSP(\d+)$/
-        );
-
-
-        if(match){
-
-            const number =
-            parseInt(
-                match[1],
-                10
-            );
-
-
-            if(
-                Number.isInteger(number) &&
-                number > 0
-            ){
-
-                usedNumbers.add(
-                    number
-                );
-
-            }
-
-        }
-
+$("registerBtn").addEventListener("click",async()=>{
+  const name=$("name").value.trim(),studentClass=$("studentClass").value,mobile=$("mobile").value.trim(),father=$("father").value.trim();
+  if(name.length<2)return showMessage("Student Name sahi bharein.","error");
+  if(!studentClass)return showMessage("Class select karein.","error");
+  if(!/^[0-9]{10}$/.test(mobile))return showMessage("Sahi 10 digit Mobile Number daalein.","error");
+  if(father.length<2)return showMessage("Father / Guardian Name sahi bharein.","error");
+  $("registerBtn").disabled=true;$("registerBtn").textContent="PLEASE WAIT...";
+  try{
+    // Re-check coupon at submit time. This browser-side validation must be backed by secure Firestore Rules/server logic.
+    if($("couponCode").value.trim() && !await applyCoupon(false))throw new Error("Coupon valid nahi hai. Coupon code check karein.");
+    if(await mobileAlreadyRegistered(mobile))throw new Error("Is Mobile Number se pehle hi registration ho chuka hai.");
+    const roll=await getNextRoll();
+    const password=String(Math.floor(1000+Math.random()*9000));
+    const amountDue=Math.max(0,FEE-appliedDiscount);
+    const isFree=amountDue===0 && !!appliedCoupon;
+    const studentData={
+      roll,name,className:studentClass,mobile,fatherName:father,password,passwordType:"4-digit",
+      status:"pending",enabled:false,accessType:"none",subscriptionPlan:"",subscriptionExpiry:null,
+      feeAmount:FEE,discountAmount:appliedDiscount,amountDue,
+      couponCode:appliedCoupon?.code || appliedCoupon?.id || "",
+      paymentStatus:isFree?"FREE":"PENDING",transactionId:"",paymentNote:"",
+      paymentVerifiedAt:null,createdAt:serverTimestamp()
+    };
+    // Save student and consume coupon use in one transaction to avoid overshooting maxUses.
+    const studentRef=doc(collection(db,"subscriptionStudents"));
+    await runTransaction(db,async tx=>{
+      if(appliedCoupon){
+        const couponRef=doc(db,"registrationCoupons",appliedCoupon.id);
+        const couponSnap=await tx.get(couponRef);
+        if(!couponSnap.exists())throw new Error("Coupon ab available nahi hai.");
+        const c=couponSnap.data();
+        if(c.active===false || !validExpiry(c.expiryDate))throw new Error("Coupon inactive ya expired ho gaya hai.");
+        const maxUses=Number(c.maxUses||0),used=Number(c.usedCount||0);
+        if(maxUses>0 && used>=maxUses)throw new Error("Coupon use limit poori ho gayi hai.");
+        tx.update(couponRef,{usedCount:used+1,updatedAt:serverTimestamp()});
+      }
+      tx.set(studentRef,studentData);
     });
-
-
-    let nextNumber = 1;
-
-
-    while(
-        usedNumbers.has(
-            nextNumber
-        )
-    ){
-
-        nextNumber++;
-
+    createdStudent={roll,name,className:studentClass,mobile,password,paymentStatus:isFree?"FREE":"PENDING",registrationStatus:"pending",feeAmount:FEE,discountAmount:appliedDiscount,amountDue,couponCode:studentData.couponCode};
+    sessionStorage.setItem("tspRegistrationResult",JSON.stringify(createdStudent));
+    $("registerBtn").style.display="none";
+    ["name","studentClass","mobile","father","couponCode","checkCouponBtn"].forEach(id=>$(id).disabled=true);
+    showMessage("Registration details save ho gayi hain. Roll Number aur Password success page par dekhein.","success");
+    $("paymentBox").style.display="block";
+    $("paymentSummary").textContent=`Roll Number: ${roll} · Payable: ₹${amountDue}. Payment status: ${isFree?"FREE COUPON":"PENDING"}.`;
+    if(amountDue>0){
+      const params=new URLSearchParams({pa:UPI_ID,pn:"THE STUDY POINT",am:amountDue.toFixed(2),cu:"INR",tn:`TSP Registration ${roll}`});
+      $("upiLink").href="upi://pay?"+params.toString();
+      $("upiLink").style.display="block";
+    }else{
+      $("upiLink").style.display="none";
+      $("paymentSummary").textContent=`Roll Number: ${roll} · Amount payable: ₹0. Valid free coupon applied.`;
     }
-
-
-    return "TSP" +
-    String(nextNumber)
-    .padStart(3,"0");
-
-}
-
-
-/* ==================================================
-   CHECK MOBILE
-================================================== */
-
-async function mobileAlreadyRegistered(
-    mobile
-){
-
-    const mobileQuery =
-    query(
-
-        collection(
-            db,
-            "subscriptionStudents"
-        ),
-
-        where(
-            "mobile",
-            "==",
-            mobile
-        )
-
-    );
-
-
-    const snap =
-    await getDocs(
-        mobileQuery
-    );
-
-
-    return !snap.empty;
-
-}
-
-
-/* ==================================================
-   REGISTRATION
-================================================== */
-
-registerBtn.addEventListener(
-"click",
-async function(){
-
-
-    const name =
-    nameBox.value.trim();
-
-
-    const studentClass =
-    classBox.value;
-
-
-    const mobile =
-    mobileBox.value.trim();
-
-
-    const father =
-    fatherBox.value.trim();
-
-
-    /* =========================================
-       VALIDATION
-    ========================================= */
-
-    if(!name){
-
-        showMessage(
-            "Student Name भरें।",
-            "error"
-        );
-
-        nameBox.focus();
-
-        return;
-
-    }
-
-
-    if(name.length < 2){
-
-        showMessage(
-            "Student Name सही भरें।",
-            "error"
-        );
-
-        nameBox.focus();
-
-        return;
-
-    }
-
-
-    if(!studentClass){
-
-        showMessage(
-            "Class select करें।",
-            "error"
-        );
-
-        classBox.focus();
-
-        return;
-
-    }
-
-
-    if(
-        !/^[0-9]{10}$/.test(
-            mobile
-        )
-    ){
-
-        showMessage(
-            "सही 10 digit Mobile Number डालें।",
-            "error"
-        );
-
-        mobileBox.focus();
-
-        return;
-
-    }
-
-
-    if(!father){
-
-        showMessage(
-            "Father / Guardian Name भरें।",
-            "error"
-        );
-
-        fatherBox.focus();
-
-        return;
-
-    }
-
-
-    if(father.length < 2){
-
-        showMessage(
-            "Father / Guardian Name सही भरें।",
-            "error"
-        );
-
-        fatherBox.focus();
-
-        return;
-
-    }
-
-
-    /* =========================================
-       LOCK BUTTON
-    ========================================= */
-
-    registerBtn.disabled =
-    true;
-
-    registerBtn.textContent =
-    "CHECKING...";
-
-
-    try{
-
-
-        /* ======================================
-           DUPLICATE MOBILE
-        ====================================== */
-
-        const alreadyRegistered =
-        await mobileAlreadyRegistered(
-            mobile
-        );
-
-
-        if(alreadyRegistered){
-
-            showMessage(
-                "इस Mobile Number से पहले ही Registration हो चुका है।",
-                "error"
-            );
-
-            registerBtn.disabled =
-            false;
-
-            registerBtn.textContent =
-            "REGISTER NOW";
-
-            return;
-
-        }
-
-
-        /* ======================================
-           ROLL NUMBER
-        ====================================== */
-
-        registerBtn.textContent =
-        "CREATING ROLL NUMBER...";
-
-
-        const roll =
-        await getNextRoll();
-
-
-        /* ======================================
-           4 DIGIT PASSWORD
-        ====================================== */
-
-        const password =
-        generatePassword();
-
-
-        /* ======================================
-           SAVE STUDENT
-        ====================================== */
-
-        registerBtn.textContent =
-        "SUBMITTING REGISTRATION...";
-
-
-        await addDoc(
-
-            collection(
-                db,
-                "subscriptionStudents"
-            ),
-
-            {
-
-                roll:
-                roll,
-
-                name:
-                name,
-
-                className:
-                studentClass,
-
-                mobile:
-                mobile,
-
-                fatherName:
-                father,
-
-                /* LOGIN */
-
-                password:
-                password,
-
-                passwordType:
-                "4-digit",
-
-                /* APPROVAL */
-
-                status:
-                "pending",
-
-                enabled:
-                false,
-
-                accessType:
-                "none",
-
-                subscriptionPlan:
-                "",
-
-                subscriptionExpiry:
-                null,
-
-                createdAt:
-                serverTimestamp()
-
-            }
-
-        );
-
-
-        /* ======================================
-           SHOW ROLL
-        ====================================== */
-
-        rollBox.textContent =
-        roll;
-
-
-        /* ======================================
-           SHOW PASSWORD
-        ====================================== */
-
-        generatedPasswordBox.textContent =
-        password;
-
-
-        /* ======================================
-           SHOW RESULT
-        ====================================== */
-
-        result.style.display =
-        "block";
-
-
-        showMessage(
-            "Registration successful! Admin approval pending.",
-            "success"
-        );
-
-
-        /* ======================================
-           LOCK FORM
-        ====================================== */
-
-        registerBtn.style.display =
-        "none";
-
-
-        nameBox.disabled =
-        true;
-
-        classBox.disabled =
-        true;
-
-        mobileBox.disabled =
-        true;
-
-        fatherBox.disabled =
-        true;
-
-
-        /* ======================================
-           SCROLL
-        ====================================== */
-
-        setTimeout(
-        function(){
-
-            result.scrollIntoView({
-
-                behavior:
-                "smooth",
-
-                block:
-                "center"
-
-            });
-
-        },
-        100
-        );
-
-
-    }
-    catch(error){
-
-        console.error(
-            "Registration Error:",
-            error
-        );
-
-
-        showMessage(
-
-            "Registration failed: " +
-            error.message,
-
-            "error"
-
-        );
-
-
-        registerBtn.disabled =
-        false;
-
-        registerBtn.textContent =
-        "REGISTER NOW";
-
-    }
-
+    $("successBtn").addEventListener("click",openSuccess,{once:true});
+    if(isFree)openSuccess();
+  }catch(e){
+    console.error("Registration Error:",e);
+    showMessage(e.message||"Registration failed. Firebase connection/Rules check karein.","error");
+    $("registerBtn").disabled=false;$("registerBtn").textContent="REGISTER & CONTINUE";
+  }
 });
-
-
-/* ==================================================
-   MOBILE INPUT
-================================================== */
-
-mobileBox.addEventListener(
-"input",
-function(){
-
-    this.value =
-    this.value
-    .replace(
-        /[^0-9]/g,
-        ""
-    )
-    .slice(
-        0,
-        10
-    );
-
-});
-
-
-/* ==================================================
-   ENTER KEY
-================================================== */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-    if(
-        event.key === "Enter" &&
-        !registerBtn.disabled &&
-        registerBtn.style.display !== "none"
-    ){
-
-        registerBtn.click();
-
-    }
-
-});
-
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&!$("registerBtn").disabled&&$("registerBtn").style.display!=="none")$("registerBtn").click();});
+renderPrice();
 </script>
-
-
 </body>
-
-  </html>
+</html>
