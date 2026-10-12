@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THE STUDY POINT | Registration Status</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;font-family:Poppins,Arial,sans-serif}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:16px;background:linear-gradient(135deg,#0b1e43,#2457d6)}
+.card{width:100%;max-width:500px;background:#fff;border-radius:24px;padding:28px 22px;box-shadow:0 20px 60px #0003;text-align:center}
+.logo{font-weight:800;color:#c28b00;font-size:23px}.sub{font-size:11px;color:#667085;margin:4px 0 20px}
+.icon{width:58px;height:58px;display:grid;place-items:center;border-radius:50%;background:#e5f7ed;color:#087443;font-size:32px;font-weight:800;margin:0 auto 12px}
+h1{font-size:22px;color:#12315e;margin:0 0 8px}.desc{font-size:12px;color:#667085;line-height:1.8}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0;text-align:left}
+.item{padding:12px;border-radius:12px;background:#f3f6fc;overflow-wrap:anywhere}.label{font-size:10px;color:#667085;font-weight:700}.value{font-size:17px;font-weight:800;color:#12315e;margin-top:4px;overflow-wrap:anywhere}
+.status{display:inline-block;padding:7px 11px;border-radius:20px;font-size:11px;font-weight:800;background:#fff4d6;color:#9a6700}.status.paid,.status.free{background:#e5f7ed;color:#087443}
+.notice{background:#fff8e6;border:1px solid #f3d78a;color:#674d00;padding:12px;border-radius:12px;font-size:11px;line-height:1.7;text-align:left}
+button{border:0;border-radius:11px;padding:13px;width:100%;margin-top:14px;background:#2457d6;color:#fff;font-weight:800;cursor:pointer}
+@media(max-width:400px){.grid{grid-template-columns:1fr}.card{padding:24px 16px}}
+</style></head>
+<body><main class="card">
+<div class="logo">THE STUDY POINT</div><div class="sub">CBT PORTAL &amp; STUDENT SERVICES</div>
+<div class="icon">✓</div><h1>Registration Submitted</h1>
+<p class="desc">Apni details neeche check karein. Roll Number aur Password ko safe rakhein.</p>
+<div class="grid">
+<div class="item"><div class="label">ROLL NUMBER</div><div class="value" id="roll">—</div></div>
+<div class="item"><div class="label">LOGIN PASSWORD</div><div class="value" id="password">—</div></div>
+<div class="item"><div class="label">AMOUNT PAYABLE</div><div class="value" id="amount">—</div></div>
+<div class="item"><div class="label">PAYMENT STATUS</div><div class="value"><span class="status" id="paymentStatus">PENDING</span></div></div>
+<div class="item"><div class="label">STUDENT NAME</div><div class="value" id="name">—</div></div>
+<div class="item"><div class="label">CLASS</div><div class="value" id="className">—</div></div>
+<div class="item"><div class="label">REGISTRATION STATUS</div><div class="value" id="registrationStatus">PENDING</div></div>
+</div>
+<div class="notice" id="notice">Payment ko admin verify karega. UPI app par payment complete karna apne aap payment confirmation nahi hota. Admin approval ke baad hi student access enable hoga.</div>
+<button onclick="location.href='student-registration.html'">BACK TO REGISTRATION</button>
+</main>
+<script>
+const raw=sessionStorage.getItem("tspRegistrationResult");
+if(!raw){
+ document.querySelector("main").innerHTML='<div class="logo">THE STUDY POINT</div><h1>Registration details not found</h1><p class="desc">Is page ko registration complete karne ke baad kholein.</p><button onclick="location.href=\'student-registration.html\'">GO TO REGISTRATION</button>';
+}else{
+ const d=JSON.parse(raw);
+ const put=(id,v)=>document.getElementById(id).textContent=v??"—";
+ put("roll",d.roll);put("password",d.password);put("amount","₹"+Number(d.amountDue||0).toFixed(2).replace(/\.00$/,""));
+ put("name",d.name);put("className",d.className);put("registrationStatus",String(d.registrationStatus||"pending").toUpperCase());
+ const p=String(d.paymentStatus||"PENDING").toUpperCase();put("paymentStatus",p);
+ document.getElementById("paymentStatus").className="status "+(p==="PAID"?"paid":p==="FREE"?"free":"");
+ if(p==="FREE")document.getElementById("notice").textContent="Valid 100% discount coupon apply hua. Payment ki zaroorat nahi hai; registration abhi bhi Admin Approval ke liye pending hai.";
+}
+</script></body></html>
