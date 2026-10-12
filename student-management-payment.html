@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TSPCBT Student & Payment Management</title>
+<style>
+:root{--navy:#10234a;--blue:#2457d6;--bg:#f3f6fc;--ink:#172033;--muted:#667085;--line:#e3e9f3;--green:#087443;--red:#b42318;--amber:#9a6700}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+header{background:linear-gradient(120deg,#101f43,#244fc4);color:#fff;padding:22px 18px}
+.wrap{max-width:1250px;margin:auto}header h1{margin:0;font-size:clamp(22px,4vw,32px)}header p{margin:8px 0 0;color:#e2eaff}
+main{max-width:1250px;margin:22px auto;padding:0 14px 40px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{border:0;border-radius:10px;padding:12px 16px;background:#e5eaf5;color:#24324c;font-weight:700;cursor:pointer}.tab.active{background:var(--blue);color:white}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px;box-shadow:0 6px 22px #1c37640a}
+.panel h2{margin:0 0 14px;font-size:20px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:18px}.stat{padding:16px;border-radius:13px;background:#fff;border:1px solid var(--line)}.stat span{display:block;color:var(--muted);font-size:13px}.stat strong{display:block;font-size:25px;margin-top:6px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-bottom:12px}.field{display:flex;flex-direction:column;gap:6px;min-width:150px;flex:1}.field label{font-size:13px;font-weight:700;color:#39445a}.field input,.field select{width:100%;padding:11px;border:1px solid #ccd5e4;border-radius:9px;background:#fff;font-size:14px}
+button.action{border:0;border-radius:9px;padding:10px 13px;font-weight:700;cursor:pointer;background:var(--blue);color:#fff}button.secondary{background:#e9eef8;color:#233451}button.danger{background:#fff0ef;color:var(--red)}button.success{background:#e7f7ef;color:var(--green)}button:disabled{opacity:.55;cursor:not-allowed}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:11px}table{border-collapse:collapse;width:100%;min-width:850px;background:#fff}th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle}th{background:#f7f9fd;color:#344054;position:sticky;top:0}tr:last-child td{border-bottom:0}
+.badge{display:inline-block;padding:5px 8px;border-radius:20px;font-weight:700;font-size:11px;white-space:nowrap}.pending{background:#fff4d6;color:var(--amber)}.paid,.approved,.active-badge{background:#e5f7ed;color:var(--green)}.unpaid,.rejected,.inactive-badge{background:#ffebe9;color:var(--red)}.free{background:#e8edff;color:#2b48a8}
+.note{background:#fff8e6;border:1px solid #f3d78a;color:#674d00;border-radius:10px;padding:12px;font-size:13px;line-height:1.5;margin-bottom:15px}.hidden{display:none!important}.muted{color:var(--muted)}.empty{text-align:center;padding:28px;color:var(--muted)}.small{font-size:12px;color:var(--muted)}.inline-actions{display:flex;gap:6px;flex-wrap:wrap}
+#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#172033;color:white;padding:12px 18px;border-radius:10px;display:none;z-index:10;max-width:90vw;box-shadow:0 8px 24px #0002}
+@media(max-width:600px){main{padding:0 9px 28px}.panel{padding:13px}.tab{flex:1;padding:11px 8px}.row .field{min-width:100%}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>THE STUDY POINT CBT</h1><p>Student Management · Registration Payment · Coupon Management</p></div></header>
+<main>
+  <div class="note"><strong>Important:</strong> UPI app par redirect hone se payment automatically verified nahi hota. Payment ko transaction/reference details ke saath manually verify karke hi PAID mark karein. Yeh page aapke existing Admin Dashboard ko modify nahi karta.</div>
+  <div class="stats">
+    <div class="stat"><span>Total Students</span><strong id="statTotal">—</strong></div>
+    <div class="stat"><span>Payment Pending</span><strong id="statPending">—</strong></div>
+    <div class="stat"><span>Paid</span><strong id="statPaid">—</strong></div>
+    <div class="stat"><span>Free Coupon</span><strong id="statFree">—</strong></div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-tab="students">Student Management</button>
+    <button class="tab" data-tab="payments">Payment Management</button>
+    <button class="tab" data-tab="coupons">Coupon Management</button>
+  </div>
+
+  <section id="students" class="panel">
+    <h2>Student Management</h2>
+    <div class="row">
+      <div class="field"><label for="studentSearch">Search student</label><input id="studentSearch" placeholder="Roll number, name, mobile or class"></div>
+      <div class="field" style="max-width:210px"><label for="studentStatusFilter">Registration status</label><select id="studentStatusFilter"><option value="">All</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></div>
+      <button class="action" id="refreshStudents">Refresh</button>
+    </div>
+    <div class="table-wrap"><table><thead><tr><th>Roll No.</th><th>Student</th><th>Class</th><th>Mobile</th><th>Fee / Due</th><th>Payment</th><th>Registration</th><th>Actions</th></tr></thead><tbody id="studentRows"><tr><td colspan="8" class="empty">Loading students…</td></tr></tbody></table></div>
+  </section>
+
+  <section id="payments" class="panel hidden">
+    <h2>Payment Management</h2>
+    <p class="muted">Fee ₹149. Verify the actual UPI transaction before changing a student's payment status.</p>
+    <div class="row">
+      <div class="field"><label for="paymentSearch">Search student</label><input id="paymentSearch" placeholder="Roll number, name or mobile"></div>
+      <div class="field" style="max-width:210px"><label for="paymentFilter">Payment status</label><select id="paymentFilter"><option value="">All</option><option value="PENDING">Pending</option><option value="PAID">Paid</option><option value="FREE">Free coupon</option></select></div>
+    </div>
+    <div class="table-wrap"><table><thead><tr><th>Roll No.</th><th>Name</th><th>Mobile</th><th>Coupon</th><th>Amount Due</th><th>Payment Status</th><th>Transaction / Note</th><th>Action</th></tr></thead><tbody id="paymentRows"><tr><td colspan="8" class="empty">Loading…</td></tr></tbody></table></div>
+  </section>
+
+  <section id="coupons" class="panel hidden">
+    <h2>Coupon Management</h2>
+    <p class="muted">Coupon documents are stored in Firestore collection <code>registrationCoupons</code>. Coupon validation in the registration page must also be connected to this collection.</p>
+    <form id="couponForm">
+      <div class="row">
+        <div class="field"><label for="couponCode">Coupon code</label><input id="couponCode" required maxlength="30" placeholder="e.g. WELCOME50"></div>
+        <div class="field"><label for="discountType">Discount type</label><select id="discountType"><option value="fixed">Fixed amount (₹)</option><option value="percent">Percentage (%)</option></select></div>
+        <div class="field"><label for="discountValue">Discount value</label><input id="discountValue" type="number" min="0" step="0.01" required placeholder="50"></div>
+        <div class="field"><label for="maxUses">Maximum uses (0 = unlimited)</label><input id="maxUses" type="number" min="0" step="1" value="0" required></div>
+        <div class="field"><label for="expiryDate">Expiry date (optional)</label><input id="expiryDate" type="date"></div>
+      </div>
+      <div class="row">
+        <div class="field" style="max-width:240px"><label for="couponActive">Status</label><select id="couponActive"><option value="true">Active</option><option value="false">Inactive</option></select></div>
+        <button class="action" type="submit" id="saveCoupon">Save Coupon</button>
+        <button class="action secondary" type="button" id="resetCoupon">Clear Form</button>
+      </div>
+      <p class="small">Fixed discount ₹149 or 100% discount can make the ₹149 registration free. Values above the fee are capped at ₹149 during calculation on the registration page.</p>
+    </form>
+    <div class="table-wrap"><table><thead><tr><th>Code</th><th>Discount</th><th>Uses</th><th>Expiry</th><th>Status</th><th>Actions</th></tr></thead><tbody id="couponRows"><tr><td colspan="6" class="empty">Loading coupons…</td></tr></tbody></table></div>
+  </section>
+</main>
+<div id="toast" role="status"></div>
+<script type="module">
+import { db } from "./firebase.js";
+import {
+  collection, getDocs, doc, updateDoc, deleteDoc, setDoc, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const $ = id => document.getElementById(id);
+const FEE = 149;
+let students = [];
+let coupons = [];
+let editingCoupon = null;
+let toastTimer;
+
+function toast(message) {
+  const el = $("toast"); el.textContent = message; el.style.display = "block";
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => el.style.display = "none", 3500);
+}
+function esc(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+}
+function normalizeStatus(s) { return String(s || "pending").toLowerCase(); }
+function payStatus(s) {
+  if (s.paymentStatus) return String(s.paymentStatus).toUpperCase();
+  if (Number(s.discountAmount || 0) >= FEE && s.couponCode) return "FREE";
+  return "PENDING";
+}
+function amountDue(s) {
+  if (payStatus(s) === "FREE" || payStatus(s) === "PAID") return 0;
+  const stored = Number(s.amountDue);
+  if (Number.isFinite(stored) && s.amountDue !== undefined) return Math.max(0, stored);
+  return Math.max(0, FEE - Number(s.discountAmount || 0));
+}
+function badge(status) {
+  const s = String(status || "pending").toLowerCase();
+  const cls = ["paid","approved","active","free"].includes(s) ? (s === "free" ? "free" : "paid") :
+    (["rejected","unpaid","inactive"].includes(s) ? "unpaid" : "pending");
+  return `<span class="badge ${cls}">${esc(status || "PENDING")}</span>`;
+}
+function studentMatches(s, search) {
+  const hay = [s.roll,s.name,s.mobile,s.className,s.fatherName].join(" ").toLowerCase();
+  return hay.includes(search.toLowerCase());
+}
+async function loadStudents() {
+  $("studentRows").innerHTML = '<tr><td colspan="8" class="empty">Loading students…</td></tr>';
+  $("paymentRows").innerHTML = '<tr><td colspan="8" class="empty">Loading payments…</td></tr>';
+  try {
+    const snap = await getDocs(collection(db, "subscriptionStudents"));
+    students = snap.docs.map(d => ({ id:d.id, ...d.data() }));
+    renderStudents(); renderPayments(); updateStats();
+  } catch (e) {
+    console.error(e);
+    $("studentRows").innerHTML = '<tr><td colspan="8" class="empty">Could not load students. Check Firebase connection and Firestore Rules.</td></tr>';
+    $("paymentRows").innerHTML = '<tr><td colspan="8" class="empty">Could not load payments.</td></tr>';
+    toast("Students load nahi hue. Firebase settings/Rules check karein.");
+  }
+}
+function renderStudents() {
+  const q = $("studentSearch").value.trim().toLowerCase();
+  const status = $("studentStatusFilter").value;
+  const list = students.filter(s => studentMatches(s,q) && (!status || normalizeStatus(s.status) === status));
+  $("studentRows").innerHTML = list.length ? list.map(s => `
+    <tr>
+      <td><strong>${esc(s.roll || "—")}</strong></td>
+      <td>${esc(s.name || "—")}<br><span class="small">${esc(s.fatherName || "")}</span></td>
+      <td>${esc(s.className || "—")}</td><td>${esc(s.mobile || "—")}</td>
+      <td>₹${FEE} / ₹${amountDue(s)}</td>
+      <td>${badge(payStatus(s))}</td><td>${badge(normalizeStatus(s.status))}</td>
+      <td><div class="inline-actions">
+        <button class="action secondary" data-action="details" data-id="${esc(s.id)}">Details</button>
+        ${normalizeStatus(s.status)!=="approved" ? `<button class="action success" data-action="approve" data-id="${esc(s.id)}">Approve</button>` : ""}
+      </div></td>
+    </tr>`).join("") : '<tr><td colspan="8" class="empty">No matching students found.</td></tr>';
+}
+function renderPayments() {
+  const q = $("paymentSearch").value.trim().toLowerCase();
+  const filter = $("paymentFilter").value;
+  const list = students.filter(s => studentMatches(s,q) && (!filter || payStatus(s) === filter));
+  $("paymentRows").innerHTML = list.length ? list.map(s => `
+    <tr>
+      <td><strong>${esc(s.roll || "—")}</strong></td><td>${esc(s.name || "—")}</td><td>${esc(s.mobile || "—")}</td>
+      <td>${esc(s.couponCode || "—")}</td><td>₹${amountDue(s)}</td><td>${badge(payStatus(s))}</td>
+      <td><input aria-label="Transaction ID or admin note" id="txn-${esc(s.id)}" value="${esc(s.transactionId || s.paymentNote || "")}" placeholder="UPI UTR / note" style="width:150px;padding:8px;border:1px solid #ccd5e4;border-radius:7px"></td>
+      <td><div class="inline-actions">
+        <button class="action success" data-action="mark-paid" data-id="${esc(s.id)}">Mark PAID</button>
+        <button class="action secondary" data-action="mark-pending" data-id="${esc(s.id)}">Pending</button>
+      </div></td>
+    </tr>`).join("") : '<tr><td colspan="8" class="empty">No matching students found.</td></tr>';
+}
+function updateStats() {
+  $("statTotal").textContent = students.length;
+  $("statPending").textContent = students.filter(s => payStatus(s)==="PENDING").length;
+  $("statPaid").textContent = students.filter(s => payStatus(s)==="PAID").length;
+  $("statFree").textContent = students.filter(s => payStatus(s)==="FREE").length;
+}
+async function updateStudent(id, changes) {
+  await updateDoc(doc(db,"subscriptionStudents",id), {...changes, updatedAt:serverTimestamp()});
+  await loadStudents();
+}
+function details(s) {
+  alert(`Roll: ${s.roll || "—"}\nName: ${s.name || "—"}\nClass: ${s.className || "—"}\nMobile: ${s.mobile || "—"}\nFather: ${s.fatherName || "—"}\nRegistration: ${s.status || "pending"}\nPayment: ${payStatus(s)}\nCoupon: ${s.couponCode || "—"}\nAmount due: ₹${amountDue(s)}\nTransaction ID: ${s.transactionId || "—"}`);
+}
+async function handleStudentAction(action,id) {
+  const s = students.find(x=>x.id===id); if (!s) return;
+  try {
+    if (action === "details") return details(s);
+    if (action === "mark-paid") {
+      const txn = ($("txn-"+id)?.value || "").trim();
+      if (!confirm(`Kya aapne ₹${amountDue(s)} ka actual payment verify kar liya hai? Verify kiye bina PAID na karein.`)) return;
+      if (!txn && !confirm("Transaction/reference ID khali hai. Kya aap phir bhi continue karna chahte hain?")) return;
+      await updateStudent(id,{paymentStatus:"PAID",transactionId:txn,paymentVerifiedAt:serverTimestamp()});
+      toast("Payment PAID mark ho gaya.");
+    } else if (action === "mark-pending") {
+      if (!confirm("Payment status ko PENDING karna hai?")) return;
+      const txn = ($("txn-"+id)?.value || "").trim();
+      await updateStudent(id,{paymentStatus:"PENDING",transactionId:txn});
+      toast("Payment status PENDING kar diya.");
+    } else if (action === "approve") {
+      const p = payStatus(s);
+      const validFree = p === "FREE" && Number(s.discountAmount || 0) >= FEE && !!s.couponCode;
+      if (p !== "PAID" && !validFree) {
+        alert("Student ko approve nahi kiya ja sakta: payment PAID nahi hai aur ₹149 cover karne wala free coupon record bhi nahi mila.");
+        return;
+      }
+      if (!confirm(`${s.name || s.roll} ko approve karna hai?`)) return;
+      await updateStudent(id,{status:"approved",enabled:true,accessType:validFree?"free":"paid",approvedAt:serverTimestamp()});
+      toast("Student approved.");
+    }
+  } catch(e) {
+    console.error(e); toast("Update fail hua. Firestore Rules/permissions check karein.");
+  }
+}
+$("studentRows").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-action]"); if(b) handleStudentAction(b.dataset.action,b.dataset.id);
+});
+$("paymentRows").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-action]"); if(b) handleStudentAction(b.dataset.action,b.dataset.id);
+});
+$("studentSearch").addEventListener("input",renderStudents);
+$("studentStatusFilter").addEventListener("change",renderStudents);
+$("paymentSearch").addEventListener("input",renderPayments);
+$("paymentFilter").addEventListener("change",renderPayments);
+$("refreshStudents").addEventListener("click",loadStudents);
+
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));
+  ["students","payments","coupons"].forEach(id=>$(id).classList.toggle("hidden",id!==b.dataset.tab));
+  if(b.dataset.tab==="coupons") loadCoupons();
+}));
+
+async function loadCoupons() {
+  $("couponRows").innerHTML = '<tr><td colspan="6" class="empty">Loading coupons…</td></tr>';
+  try {
+    const snap=await getDocs(collection(db,"registrationCoupons"));
+    coupons=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>String(a.code||a.id).localeCompare(String(b.code||b.id)));
+    renderCoupons();
+  } catch(e) {
+    console.error(e);
+    $("couponRows").innerHTML='<tr><td colspan="6" class="empty">Could not load coupons. Check Firestore Rules.</td></tr>';
+    toast("Coupons load nahi hue.");
+  }
+}
+function renderCoupons() {
+  $("couponRows").innerHTML = coupons.length ? coupons.map(c=>{
+    const discount = c.discountType==="percent" ? `${c.discountValue}%` : `₹${c.discountValue}`;
+    const expiry = c.expiryDate || "No expiry";
+    const uses = `${Number(c.usedCount||0)} / ${Number(c.maxUses||0)===0 ? "∞" : Number(c.maxUses)}`;
+    return `<tr><td><strong>${esc(c.code||c.id)}</strong></td><td>${esc(discount)}</td><td>${esc(uses)}</td><td>${esc(expiry)}</td><td>${badge(c.active===false?"Inactive":"Active")}</td><td><div class="inline-actions"><button class="action secondary" data-coupon-action="edit" data-id="${esc(c.id)}">Edit</button><button class="action secondary" data-coupon-action="toggle" data-id="${esc(c.id)}">${c.active===false?"Activate":"Deactivate"}</button><button class="action danger" data-coupon-action="delete" data-id="${esc(c.id)}">Delete</button></div></td></tr>`;
+  }).join("") : '<tr><td colspan="6" class="empty">Abhi koi coupon nahi hai. Upar se pehla coupon banayein.</td></tr>';
+}
+function resetCouponForm() {
+  editingCoupon=null; $("couponForm").reset(); $("couponCode").disabled=false;
+  $("maxUses").value="0"; $("couponActive").value="true"; $("saveCoupon").textContent="Save Coupon";
+}
+$("resetCoupon").addEventListener("click",resetCouponForm);
+$("couponForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const code=$("couponCode").value.trim().toUpperCase().replace(/\s+/g,"");
+  const discountType=$("discountType").value;
+  const discountValue=Number($("discountValue").value);
+  const maxUses=Number($("maxUses").value);
+  const expiryDate=$("expiryDate").value || "";
+  const active=$("couponActive").value==="true";
+  if(!/^[A-Z0-9_-]{3,30}$/.test(code)){toast("Coupon code 3-30 characters ka ho: A-Z, 0-9, _ ya -");return;}
+  if(!Number.isFinite(discountValue)||discountValue<=0){toast("Discount value 0 se zyada hona chahiye.");return;}
+  if(discountType==="percent" && discountValue>100){toast("Percentage discount 100 se zyada nahi ho sakta.");return;}
+  if(discountType==="fixed" && discountValue>FEE){if(!confirm("Discount ₹149 se zyada hai. Registration fee ₹149 par discount cap karna registration page par zaroori hoga. Save karein?"))return;}
+  if(!Number.isInteger(maxUses)||maxUses<0){toast("Maximum uses 0 ya positive whole number hona chahiye.");return;}
+  try {
+    const old=coupons.find(c=>c.id===code);
+    const data={code,discountType,discountValue,maxUses,expiryDate,active,updatedAt:serverTimestamp()};
+    if(editingCoupon) {
+      await setDoc(doc(db,"registrationCoupons",editingCoupon),{...data,usedCount:Number(old?.usedCount||0),createdAt:old?.createdAt||serverTimestamp()},{merge:true});
+    } else {
+      if(old){toast("Yeh coupon code pehle se maujood hai.");return;}
+      await setDoc(doc(db,"registrationCoupons",code),{...data,usedCount:0,createdAt:serverTimestamp()});
+    }
+    resetCouponForm(); await loadCoupons(); toast("Coupon save ho gaya.");
+  } catch(err){console.error(err);toast("Coupon save nahi hua. Firestore Rules check karein.");}
+});
+$("couponRows").addEventListener("click",async e=>{
+  const b=e.target.closest("button[data-coupon-action]"); if(!b)return;
+  const c=coupons.find(x=>x.id===b.dataset.id); if(!c)return;
+  try {
+    if(b.dataset.couponAction==="edit") {
+      editingCoupon=c.id;$("couponCode").value=c.code||c.id;$("couponCode").disabled=true;
+      $("discountType").value=c.discountType||"fixed";$("discountValue").value=c.discountValue??"";
+      $("maxUses").value=Number(c.maxUses||0);$("expiryDate").value=c.expiryDate||"";
+      $("couponActive").value=c.active===false?"false":"true";$("saveCoupon").textContent="Update Coupon";
+      window.scrollTo({top:0,behavior:"smooth"});
+    } else if(b.dataset.couponAction==="toggle") {
+      await updateDoc(doc(db,"registrationCoupons",c.id),{active:c.active===false,updatedAt:serverTimestamp()});
+      await loadCoupons();toast("Coupon status update ho gaya.");
+    } else if(b.dataset.couponAction==="delete") {
+      if(!confirm(`Coupon ${c.code||c.id} delete karna hai? Is action ko undo nahi kiya ja sakta.`))return;
+      await deleteDoc(doc(db,"registrationCoupons",c.id));await loadCoupons();toast("Coupon delete ho gaya.");
+    }
+  } catch(err){console.error(err);toast("Coupon update fail hua. Firestore Rules check karein.");}
+});
+
+// Existing dashboard used a localStorage admin flag. This preserves a similar entry check,
+// but it is not secure authentication and must not be relied on to protect Firestore writes.
+if (localStorage.getItem("adminLogin") !== "true") {
+  document.body.innerHTML = '<main style="max-width:700px;margin:50px auto;padding:20px"><section class="panel"><h2>Admin login required</h2><p>Apne existing Admin Dashboard se login karein, phir is page ko open karein.</p><p class="small">Security note: localStorage check is not real authentication. Protect admin writes with Firebase Authentication and Firestore Security Rules.</p></section></main>';
+} else {
+  loadStudents();
+}
+</script>
+</body>
+</html>
