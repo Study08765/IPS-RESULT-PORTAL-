@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#071f43">
+<title>MY FEES | THE STUDY POINT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Poppins,Arial,sans-serif}
+body{background:linear-gradient(180deg,#f7faff,#edf3fa);color:#173b62;min-height:100vh}
+header{background:linear-gradient(135deg,#031b3b,#0757a5);color:#fff;text-align:center;padding:24px 14px 28px;border-bottom:3px solid #d9b33e}
+.logo{width:64px;height:64px;border:3px solid #ffd43b;border-radius:50%;padding:3px;background:#fff;object-fit:contain}
+.brand{font-size:22px;font-weight:900;color:#ffd43b;margin-top:8px}
+.sub{font-size:10px;color:#dcecff;letter-spacing:1px;margin-top:3px}
+header h1{font-size:25px;margin-top:17px}
+.wrap{max-width:1000px;margin:0 auto;padding:18px 12px 35px}
+.top-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.btn{border:0;border-radius:11px;padding:11px 15px;font-size:12px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn-blue{background:#0757a5;color:#fff}
+.btn-gold{background:#f1ca52;color:#173b62}
+.btn-green{background:#087a4a;color:#fff}
+.card{background:#fff;border:1px solid #dce7f3;border-radius:18px;padding:18px;margin-bottom:15px;box-shadow:0 8px 24px #173b6610}
+.card h2{font-size:17px;color:#0757a5;margin-bottom:12px}
+.identity{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.identity p{font-size:12px;line-height:1.8;color:#536780}
+.pill{display:inline-block;background:#e8f7ef;color:#087a4a;padding:5px 9px;border-radius:20px;font-size:10px;font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}
+.stat{border:1px solid #dce7f3;border-radius:14px;padding:14px 10px;text-align:center;background:#f8fbff}
+.stat strong{display:block;font-size:23px;color:#0757a5}
+.stat span{font-size:9px;font-weight:800;color:#6a7b8e}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field label{display:block;font-size:11px;font-weight:800;color:#425b75;margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;border:1px solid #cddbea;border-radius:10px;padding:11px 12px;font-size:12px;outline:none;background:#fff;color:#173b62}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#0757a5;box-shadow:0 0 0 3px #0757a51a}
+.field.full{grid-column:1/-1}
+.note{background:#fff8df;border-left:4px solid #d6ad24;padding:11px 13px;border-radius:9px;font-size:11px;line-height:1.7;color:#765b11;margin:12px 0}
+.status{display:inline-block;border-radius:20px;padding:4px 8px;font-size:9px;font-weight:900}
+.paid{background:#dcf8e8;color:#087a3b}
+.pending{background:#fff1cc;color:#946200}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{text-align:left;padding:10px;border-bottom:1px solid #e5edf5;font-size:10px;vertical-align:top}
+th{background:#f2f7fc;color:#34536f;font-weight:900}
+.empty{padding:22px;text-align:center;color:#71849a;font-size:12px;background:#f8fbff;border-radius:12px}
+.error{color:#b71c1c;background:#fff0f0;border-left:4px solid #c62828;padding:12px;border-radius:9px;font-size:11px;line-height:1.7}
+footer{text-align:center;background:#031b3b;color:#ffd43b;padding:15px 8px;font-size:10px;font-weight:800}
+.hidden{display:none!important}
+@media(max-width:600px){header h1{font-size:21px}.brand{font-size:19px}.stats{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.card{padding:14px}}
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="icon-512.png" alt="THE STUDY POINT">
+  <div class="brand">THE STUDY POINT</div>
+  <div class="sub">STUDENT FEE MANAGEMENT</div>
+  <h1><i class="fa-solid fa-wallet"></i> MY FEES</h1>
+</header>
+
+<main class="wrap">
+  <div class="top-actions">
+    <a class="btn btn-blue" href="student-dashboard.html"><i class="fa-solid fa-arrow-left"></i> Student Dashboard</a>
+    <a class="btn btn-gold" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+  </div>
+
+  <section class="card">
+    <div class="identity">
+      <div>
+        <h2><i class="fa-solid fa-user-graduate"></i> Student Details</h2>
+        <p id="studentIdentity">Checking student login...</p>
+      </div>
+      <span id="matchBadge" class="pill">Checking fee record</span>
+    </div>
+    <div id="statusMessage" class="note">Please wait while your fee records load.</div>
+    <div class="stats">
+      <div class="stat"><strong id="paidTotal">₹0</strong><span>PAID / VERIFIED</span></div>
+      <div class="stat"><strong id="pendingTotal">₹0</strong><span>ONLINE PENDING</span></div>
+      <div class="stat"><strong id="recordCount">0</strong><span>PAYMENT RECORDS</span></div>
+    </div>
+  </section>
+
+  <section class="card" id="paymentCard">
+    <h2><i class="fa-solid fa-credit-card"></i> Submit an Online Fee Payment</h2>
+    <div class="note">
+      पहले UPI से भुगतान करें। भुगतान पूरा होने के बाद वापस आकर Transaction ID भरकर जमा करें।
+      Online payment तब तक Pending रहेगा जब तक स्कूल Admin उसे verify नहीं करता।
+      UPI ID: <b>8887858030-3@ybl</b>
+    </div>
+    <form id="paymentForm">
+      <div class="form-grid">
+        <div class="field">
+          <label for="feeType">Fee Type</label>
+          <select id="feeType" required>
+            <option value="Monthly Fee">Monthly Fee</option>
+            <option value="Examination Fee">Examination Fee</option>
+            <option value="Admission Fee">Admission Fee</option>
+            <option value="Other Fee">Other Fee</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="period">Month / Exam Name</label>
+          <input id="period" maxlength="100" placeholder="e.g. October 2026 / Quarterly Exam">
+        </div>
+        <div class="field">
+          <label for="amount">Amount (₹)</label>
+          <input id="amount" type="number" min="1" max="100000" step="1" required placeholder="Enter amount">
+        </div>
+        <div class="field">
+          <label for="paymentMode">UPI App</label>
+          <select id="paymentMode" required>
+            <option value="Google Pay">Google Pay</option>
+            <option value="PhonePe">PhonePe</option>
+            <option value="Paytm">Paytm</option>
+            <option value="Other UPI">Other UPI</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="transactionId">Transaction ID / UTR (after payment)</label>
+          <input id="transactionId" maxlength="100" required placeholder="Enter UPI transaction ID / UTR">
+        </div>
+        <div class="field full">
+          <label for="remark">Remark (optional)</label>
+          <input id="remark" maxlength="250" placeholder="Optional details">
+        </div>
+      </div>
+      <div class="top-actions" style="margin-top:14px;margin-bottom:0">
+        <button type="button" class="btn btn-green" id="upiButton"><i class="fa-solid fa-mobile-screen-button"></i> Pay with UPI</button>
+        <button type="submit" class="btn btn-blue" id="submitPayment"><i class="fa-solid fa-paper-plane"></i> Submit Transaction ID</button>
+      </div>
+    </form>
+    <p class="note">नकद फीस स्कूल कार्यालय में जमा करें। Cash payment को Admin अपने पैनल से दर्ज करेगा। यह पेज वास्तविक बैंक भुगतान की स्वतः पुष्टि नहीं करता।</p>
+  </section>
+
+  <section class="card">
+    <h2><i class="fa-solid fa-clock-rotate-left"></i> My Fee Payment History</h2>
+    <div id="history" class="empty">Loading payment history...</div>
+  </section>
+</main>
+
+<footer>THE STUDY POINT • STUDENT FEE MANAGEMENT</footer>
+
+<script type="module">
+import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, collection, query, where, getDocs, addDoc, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAUcTdpMctPg2lcqSapoTgFHXizEE35RCY",
+  authDomain: "ips-result-portal.firebaseapp.com",
+  projectId: "ips-result-portal",
+  storageBucket: "ips-result-portal.firebasestorage.app",
+  messagingSenderId: "877536597914",
+  appId: "1:877536597914:web:d77c26ef46a9da2c928c23",
+  measurementId: "G-4PD16WMHTT"
+};
+const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const UPI_ID = "8887858030-3@ybl";
+
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+}[c]));
+const money = n => "₹" + Number(n || 0).toLocaleString("en-IN");
+const normalizeRoll = v => String(v || "").trim().toUpperCase();
+
+let session = null;
+let feeStudent = null;
+let paymentHistory = [];
+
+function getSession(){
+  try {
+    const raw = localStorage.getItem("tspStudentSession");
+    if(raw){
+      const parsed = JSON.parse(raw);
+      if(parsed && parsed.roll) return parsed;
+    }
+  } catch(e) {}
+  const roll = localStorage.getItem("studentRoll") ||
+               localStorage.getItem("studentLoginRoll") ||
+               localStorage.getItem("student_roll");
+  return roll ? {roll, name:"", className:""} : null;
+}
+
+function showMessage(message, error=false){
+  const el = document.getElementById("statusMessage");
+  el.className = error ? "error" : "note";
+  el.textContent = message;
+}
+
+function formatDate(p){
+  if(p.createdAt && typeof p.createdAt.toDate === "function"){
+    return p.createdAt.toDate().toLocaleDateString("en-IN");
+  }
+  return p.dateText || "-";
+}
+
+function renderHistory(){
+  const target = document.getElementById("history");
+  if(!paymentHistory.length){
+    target.className = "empty";
+    target.textContent = "अभी कोई फीस भुगतान रिकॉर्ड नहीं मिला।";
+    return;
+  }
+  target.className = "table-wrap";
+  target.innerHTML = `<table><thead><tr><th>Date</th><th>Fee Type / Period</th><th>Amount</th><th>Method</th><th>Transaction ID</th><th>Status</th><th>Receipt</th></tr></thead><tbody>${
+    paymentHistory.map(p => `<tr>
+      <td>${esc(formatDate(p))}</td>
+      <td><b>${esc(p.feeType || "-")}</b><br>${esc(p.period || "-")}</td>
+      <td>${money(p.amount)}</td>
+      <td>${esc(p.paymentMode || "-")}</td>
+      <td>${esc(p.transactionId || "-")}</td>
+      <td>${p.status === "paid" ? '<span class="status paid">PAID / VERIFIED</span>' : '<span class="status pending">PENDING VERIFICATION</span>'}</td>
+      <td>${p.status === "paid" ? `<button class="btn btn-gold" data-receipt="${esc(p.id)}" type="button">Print Receipt</button>` : "-"}</td>
+    </tr>`).join("")
+  }</tbody></table>`;
+  target.querySelectorAll("[data-receipt]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const p = paymentHistory.find(x => x.id === btn.dataset.receipt);
+      if(p) printReceipt(p);
+    });
+  });
+}
+
+function printReceipt(p){
+  const receiptNo = "IPS-FEE-" + String(p.id || "").slice(-8).toUpperCase();
+  const win = window.open("", "_blank", "width=720,height=800");
+  if(!win){ alert("Receipt popup blocked. Please allow popups for this site."); return; }
+  win.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>${esc(receiptNo)}</title>
+  <style>body{font-family:Arial,sans-serif;color:#173b62;padding:25px}.receipt{max-width:620px;margin:auto;border:2px solid #b28a17;border-radius:12px;padding:24px}h1{text-align:center;color:#064b99;font-size:23px;margin:0}h2{text-align:center;font-size:17px;margin:10px 0 20px}.sub{text-align:center;color:#64788d;font-size:12px;margin:5px 0 20px}table{width:100%;border-collapse:collapse}td{border:1px solid #dce5ef;padding:10px;font-size:13px}td:first-child{background:#f4f8fc;font-weight:bold;width:40%}.paid{text-align:center;color:#087a3b;font-weight:bold;margin-top:18px}.foot{text-align:center;color:#64788d;font-size:10px;margin-top:22px}@media print{body{padding:0}.receipt{border:2px solid #b28a17}}</style></head>
+  <body><div class="receipt"><h1>THE STUDY POINT</h1><div class="sub">STUDENT FEE PAYMENT RECEIPT</div><h2>Receipt No: ${esc(receiptNo)}</h2>
+  <table>
+  <tr><td>Student Name</td><td>${esc(p.studentName || session.name || "-")}</td></tr>
+  <tr><td>Roll Number</td><td>${esc(p.roll || session.roll || "-")}</td></tr>
+  <tr><td>Class</td><td>${esc(p.className || session.className || "-")}</td></tr>
+  <tr><td>Fee Type</td><td>${esc(p.feeType || "-")}</td></tr>
+  <tr><td>Month / Exam</td><td>${esc(p.period || "-")}</td></tr>
+  <tr><td>Amount</td><td>${money(p.amount)}</td></tr>
+  <tr><td>Payment Method</td><td>${esc(p.paymentMode || "-")}</td></tr>
+  <tr><td>Transaction ID</td><td>${esc(p.transactionId || "-")}</td></tr>
+  <tr><td>Date</td><td>${esc(formatDate(p))}</td></tr>
+  <tr><td>Status</td><td>PAID / VERIFIED</td></tr>
+  </table><div class="paid">PAYMENT VERIFIED</div><div class="foot">THE STUDY POINT • Keep this receipt for your records.</div></div><script>window.onload=()=>window.print()<\/script></body></html>`);
+  win.document.close();
+}
+
+async function loadData(){
+  session = getSession();
+  if(localStorage.getItem("studentLogin") !== "true" || !session || !session.roll){
+    document.getElementById("studentIdentity").textContent = "Please login with your Roll Number and Password.";
+    showMessage("विद्यार्थी लॉगिन आवश्यक है। Student Login पेज खोला जा रहा है।", true);
+    setTimeout(() => location.href = "student-login.html", 900);
+    return;
+  }
+
+  const roll = normalizeRoll(session.roll);
+  document.getElementById("studentIdentity").innerHTML =
+    `<b>${esc(session.name || "Student")}</b><br>Roll Number: ${esc(roll)}<br>Class: ${esc(session.className || "—")}`;
+
+  try{
+    // Query only the logged-in student's exact roll number, not the whole student list.
+    const matchingStudents = await getDocs(query(
+      collection(db, "schoolFeeStudents"),
+      where("roll", "==", roll)
+    ));
+    const matchingDoc = matchingStudents.docs[0] || null;
+    feeStudent = matchingDoc ? {id:matchingDoc.id, ...matchingDoc.data()} : null;
+
+    if(feeStudent){
+      // Fetch only this student's payments by the linked fee-student document ID.
+      const paymentsSnap = await getDocs(query(
+        collection(db, "schoolFeePayments"),
+        where("studentId", "==", feeStudent.id)
+      ));
+      paymentHistory = paymentsSnap.docs.map(d => ({id:d.id, ...d.data()}));
+      document.getElementById("matchBadge").textContent = "Fee Record Linked";
+      showMessage("आपका फीस रिकॉर्ड मिल गया है। ऑनलाइन भुगतान जमा करने पर वह Admin verification तक Pending रहेगा।");
+      document.getElementById("paymentCard").classList.remove("hidden");
+    } else {
+      paymentHistory = [];
+      document.getElementById("matchBadge").textContent = "Fee Record Not Linked";
+      showMessage("आपका रोल नंबर फीस सूची में नहीं मिला। Admin Panel → School Fees Management में विद्यार्थी का नाम, कक्षा और बिल्कुल यही Roll Number जोड़वाएँ। इसके बाद फीस पेज काम करेगा।", true);
+      document.getElementById("paymentCard").classList.add("hidden");
+    }
+
+    const paid = paymentHistory.filter(p => p.status === "paid").reduce((s,p)=>s+Number(p.amount||0),0);
+    const pending = paymentHistory.filter(p => p.status !== "paid").reduce((s,p)=>s+Number(p.amount||0),0);
+    document.getElementById("paidTotal").textContent = money(paid);
+    document.getElementById("pendingTotal").textContent = money(pending);
+    document.getElementById("recordCount").textContent = paymentHistory.length;
+    paymentHistory.sort((a,b) => {
+      const at = a.createdAt && a.createdAt.toDate ? a.createdAt.toDate().getTime() : 0;
+      const bt = b.createdAt && b.createdAt.toDate ? b.createdAt.toDate().getTime() : 0;
+      return bt-at;
+    });
+    renderHistory();
+  }catch(error){
+    console.error("Student fees error:", error);
+    showMessage("फीस रिकॉर्ड लोड नहीं हो पाए। Firebase connection और Firestore Security Rules जाँचें। Error: " + error.message, true);
+    document.getElementById("history").className = "error";
+    document.getElementById("history").textContent = "Payment history load failed.";
+  }
+}
+
+document.getElementById("upiButton").addEventListener("click", () => {
+  if(!feeStudent){ alert("पहले Admin से अपना fee record link करवाएँ।"); return; }
+  const amount = Number(document.getElementById("amount").value);
+  if(!Number.isFinite(amount) || amount <= 0){ alert("कृपया सही राशि भरें।"); document.getElementById("amount").focus(); return; }
+  const feeType = document.getElementById("feeType").value;
+  const period = document.getElementById("period").value.trim();
+  const note = `${feeType}${period ? " - " + period : ""} - Roll ${session.roll}`;
+  const uri = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent("THE STUDY POINT")}&am=${encodeURIComponent(amount.toFixed(2))}&cu=INR&tn=${encodeURIComponent(note)}`;
+  location.href = uri;
+});
+
+document.getElementById("paymentForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  if(!feeStudent){ alert("पहले Admin से अपना fee record link करवाएँ।"); return; }
+  const amount = Number(document.getElementById("amount").value);
+  const transactionId = document.getElementById("transactionId").value.trim();
+  const paymentMode = document.getElementById("paymentMode").value;
+  if(!Number.isFinite(amount) || amount <= 0){ alert("कृपया सही राशि भरें।"); return; }
+  if(!transactionId){ alert("Transaction ID / UTR भरें।"); return; }
+
+  const button = document.getElementById("submitPayment");
+  button.disabled = true;
+  button.textContent = "Submitting...";
+  try{
+    await addDoc(collection(db, "schoolFeePayments"), {
+      studentId: feeStudent.id,
+      studentName: feeStudent.name || session.name || "",
+      className: feeStudent.className || session.className || "",
+      roll: feeStudent.roll || session.roll || "",
+      guardianName: feeStudent.guardianName || "",
+      guardianMobile: feeStudent.guardianMobile || "",
+      feeType: document.getElementById("feeType").value,
+      period: document.getElementById("period").value.trim(),
+      amount,
+      paymentMode,
+      transactionId,
+      remark: document.getElementById("remark").value.trim(),
+      status: "pending",
+      dateText: new Date().toLocaleDateString("en-IN"),
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+      submittedByStudent: true
+    });
+    document.getElementById("transactionId").value = "";
+    document.getElementById("remark").value = "";
+    alert("Transaction details जमा हो गईं। Admin verify करने के बाद status Paid होगा।");
+    await loadData();
+  }catch(error){
+    console.error(error);
+    alert("Payment details save नहीं हुईं। Firebase / Firestore rules जाँचें: " + error.message);
+  }finally{
+    button.disabled = false;
+    button.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit Transaction ID';
+  }
+});
+
+loadData();
+</script>
+</body>
+</html>
